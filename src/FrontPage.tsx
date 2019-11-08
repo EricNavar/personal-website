@@ -1,6 +1,7 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import WebsiteLinks from './WebsiteLinks';
 import SkillList from './SkillList';
 
 declare var require: any
@@ -16,6 +17,7 @@ export default function FrontPage(props : any) {
     return (
         <div>
             <SkillList/>
+            <WebsiteLinks/>
         </div>
     );
 }

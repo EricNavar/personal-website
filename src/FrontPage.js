@@ -1,10 +1,8 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import WebsiteLinks from './WebsiteLinks';
 import SkillList from './SkillList';
-
-declare var require: any
+import ProfilePic from './ProfilePic'
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -12,12 +10,15 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default function FrontPage(props : any) {
+function FrontPage(props) {
     const classes = useStyles();
     return (
-        <div>
+        <div className={classes.root}>
+            <ProfilePic/>
             <SkillList/>
             <WebsiteLinks/>
         </div>
     );
 }
+
+export default FrontPage;

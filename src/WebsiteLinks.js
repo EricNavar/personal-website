@@ -5,16 +5,36 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import './WebsiteLinks.css';
 
+const useStyles = makeStyles(theme => ({
+  Button: {
+    size:"small",
+    color:"primary",
+    height:50,
+    width: 50,
+    outlined:true,
+    fullWidth:true,
+  }
+}));
+
 function WebsiteLinks() {
   return (
     <div>
-      <Button  className="Button">
+      <Button 
+        variant="outlined"
+        className="Button"
+        href="https://github.com/EricNavar">
         <GitHubIcon/>
       </Button>
-      <Button  className="Button">
+      <Button 
+        variant="outlined"
+        className="Button"
+        href="https://www.linkedin.com/in/ericnavar/">
         <LinkedInIcon/>
       </Button>
-      <Button  className="Button">
+      <Button 
+        variant="outlined"
+        className="Button"
+        href="https://www.facebook.com/EricNavar0">
         <FacebookIcon/>
       </Button>
     </div>

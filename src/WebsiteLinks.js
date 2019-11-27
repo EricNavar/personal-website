@@ -1,44 +1,49 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
-import './WebsiteLinks.css';
+import Chip from '@material-ui/core/Chip';
 
 const useStyles = makeStyles(theme => ({
-  Button: {
-    size:"small",
-    color:"primary",
-    height:50,
-    width: 50,
-    outlined:true,
-    fullWidth:true,
-  }
+  root: {
+    '& > *': {
+      margin: theme.spacing(1),
+      color: "#000000"
+    },
+    
+  },
 }));
 
-function WebsiteLinks() {
+export default function TextButtons() {
+  const classes = useStyles();
+
   return (
-    <div>
-      <Button 
-        variant="outlined"
-        className="Button"
-        href="https://github.com/EricNavar">
-        <GitHubIcon/>
-      </Button>
-      <Button 
-        variant="outlined"
-        className="Button"
-        href="https://www.linkedin.com/in/ericnavar/">
-        <LinkedInIcon/>
-      </Button>
-      <Button 
-        variant="outlined"
-        className="Button"
-        href="https://www.facebook.com/EricNavar0">
-        <FacebookIcon/>
-      </Button>
+    <div className={classes.root}>
+      <Chip 
+        icon = {<GitHubIcon/>}
+        label="Github"
+        component="a"
+        href="https://github.com/EricNavar"
+        clickable
+        variant="outlined" 
+      />
+      <Chip 
+        icon = {<LinkedInIcon/>}
+        label="LinkedIn"
+        component="a"
+        href="https://www.linkedin.com/in/ericnavar/"
+        clickable
+        variant="outlined" 
+      />
+      <Chip 
+        icon = {<FacebookIcon/>}
+        label="Facebook"
+        component="a"
+        href="https://www.facebook.com/"
+        clickable
+        variant="outlined" 
+      />
     </div>
   );
 }
-
-export default WebsiteLinks;

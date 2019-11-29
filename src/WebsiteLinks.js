@@ -21,7 +21,7 @@ export default function TextButtons() {
   return (
     <div className={classes.root}>
       <Chip 
-        icon = {<GitHubIcon/>}
+        icon = {<GitHubIcon style={{ color:'black' }}/>}
         label="Github"
         component="a"
         href="https://github.com/EricNavar"
@@ -29,7 +29,7 @@ export default function TextButtons() {
         variant="outlined" 
       />
       <Chip 
-        icon = {<LinkedInIcon/>}
+        icon = {<LinkedInIcon style={{ color:'black' }}/>}
         label="LinkedIn"
         component="a"
         href="https://www.linkedin.com/in/ericnavar/"
@@ -37,7 +37,7 @@ export default function TextButtons() {
         variant="outlined" 
       />
       <Chip 
-        icon = {<FacebookIcon/>}
+        icon = {<FacebookIcon style={{ color:'black' }}/>}
         label="Facebook"
         component="a"
         href="https://www.facebook.com/"

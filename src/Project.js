@@ -8,15 +8,15 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function PersonalStatement(props) {
+export default function Project(props) {
   const classes = useStyles();
   return (
     <div className={classes.root}>
       <Typography component="h3">
-        Hello my name is Eric Navar
+        {props.title}
       </Typography>
       <Typography component="h3">
-        <a href="./images/ProfilePic.jpg" download>Resume</a>
+        {props.description}
       </Typography>
     </div>
   );

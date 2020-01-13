@@ -1,23 +1,34 @@
 import React from 'react';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
+import { makeStyles } from '@material-ui/core/styles';
+import Title from './Title';
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    padding: theme.spacing(0, 2),
+  },
+}));
 
 export default function SimpleList() {
+  const classes = useStyles();
   return (
-    <List component="nav" aria-label="secondary mailbox folders">
-      <ListItem>
-        <ListItemText primary="C++" />
-      </ListItem>
-      <ListItem>
-        <ListItemText primary="Java" />
-      </ListItem>
-      <ListItem>
-        <ListItemText primary="React" />
-      </ListItem>
-      <ListItem>
-        <ListItemText primary="Git" />
-      </ListItem>
-    </List>
+    <div className={classes.root}>
+      <List>
+        <Title title="Skills"/>
+        <ListItem>
+          C++
+        </ListItem>
+        <ListItem>
+          Java
+        </ListItem>
+        <ListItem>
+          React
+        </ListItem>
+        <ListItem>
+          Git
+        </ListItem>
+      </List>
+    </div>
   );
 }

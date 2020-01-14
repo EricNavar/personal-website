@@ -15,7 +15,10 @@ export default function Education(props) {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <Title title="University of Florida"/>
+      <Title title="Education"/>
+      <Typography>
+        University of Florida
+      </Typography>
       <Typography>
         GPA: 3.92 
       </Typography>

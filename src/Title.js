@@ -1,6 +1,5 @@
 import React from 'react';
 import Box from '@material-ui/core/Box';
-import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -21,12 +20,10 @@ const useStyles = makeStyles(theme => ({
 export default function Title(props) {
   const classes = useStyles();
   return (
-    <List>
-      <Box>
-        <Typography variant="h3" className={classes.title}>
-          {props.title}
-        </Typography>
-      </Box>
-    </List>
+    <Box>
+      <Typography variant="h3" className={classes.title}>
+        {props.title}
+      </Typography>
+    </Box>
   );
 }

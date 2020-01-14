@@ -4,6 +4,7 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import Chip from '@material-ui/core/Chip';
+import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -19,7 +20,12 @@ export default function TextButtons() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <Grid 
+      className={classes.root}
+      container
+      justify="center"
+      alignItems="center"
+    >
       <Chip 
         icon = {<GitHubIcon style={{ color:'black' }}/>}
         label="Github"
@@ -44,6 +50,6 @@ export default function TextButtons() {
         clickable
         variant="outlined" 
       />
-    </div>
+    </Grid>
   );
 }

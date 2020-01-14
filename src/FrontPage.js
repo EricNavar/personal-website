@@ -15,7 +15,7 @@ import Education from './Education';
 const useStyles = makeStyles(theme => ({
     root: {
       padding: theme.spacing(3, 2),
-      backgroundColor: '#00aeff',
+      backgroundColor: '#222222',
     },
 }));
 
@@ -23,15 +23,15 @@ function FrontPage(props) {
   const classes = useStyles();
   return (
     <div className={classes.root}>
+      <ProfilePic/>
       <Paper>
-        <ProfilePic/>
-        <PersonalStatement/>
         <ContactInfo/>
+        <WebsiteLinks/>
+        <PersonalStatement/>
         <SkillList/>
         <InvolvementList/>
         <ProjectList/>
         <Education/>
-        <WebsiteLinks/>
       </Paper>
     </div>
   );

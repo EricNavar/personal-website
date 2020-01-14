@@ -6,14 +6,11 @@ import Box from '@material-ui/core/Box';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    textAlign: "center",
     padding: theme.spacing(3, 2),
     color: 'white',
+    textAlign: "center",
     margin: "auto",
     display: "flex",
-  },
-  flex: {
-    
   },
   media: {
     height: 200,

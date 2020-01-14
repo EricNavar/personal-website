@@ -1,34 +1,27 @@
 import React from 'react';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
+import Rating from '@material-ui/lab/Rating';
 import { makeStyles } from '@material-ui/core/styles';
+import GitHubIcon from '@material-ui/icons/GitHub';
 import Title from './Title';
+import SkillItem from './SkillItem';
 
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(0, 2),
-  },
+  }
 }));
 
 export default function SimpleList() {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <List>
-        <Title title="Skills"/>
-        <ListItem>
-          C++
-        </ListItem>
-        <ListItem>
-          Java
-        </ListItem>
-        <ListItem>
-          React
-        </ListItem>
-        <ListItem>
-          Git
-        </ListItem>
-      </List>
+      <Title title="Skills"/>
+      <SkillItem skill="C++" value="4"/>
+      <SkillItem skill="Java" value="3"/>
+      <SkillItem skill="React" value="2"/>
+      <SkillItem skill="Git" value="3"/>
     </div>
   );
 }

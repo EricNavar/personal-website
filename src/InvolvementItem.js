@@ -25,38 +25,31 @@ const useStyles = makeStyles(theme => ({
 
 export default function InvolvementItem(props) {
   const classes = useStyles();
-  const bool = Array.isArray(props.description);
-  if (bool)
+  const isArray = Array.isArray(props.description);
+  if (isArray)
   {
-    const listItems = props.description.map((x) =>
-      <Typography>
+    const description = props.description.map((x) =>
+      <ListItem>
         {x}
-      </Typography>
+      </ListItem>
     );
-    return(
-      <div>
-        {listItems}
+    return (
+      <div className={classes.root}>
+        <Typography variant="h5">
+          {props.title}
+        </Typography>
+        <div className={classes.parent}>
+          <Typography className={classes.position}>
+            {props.position}
+          </Typography>
+          <Typography className={classes.time_period}>
+            {props.time_period}
+          </Typography>
+        </div>
+        <List>
+          {description}
+        </List>
       </div>
     );
   }
-  return (
-    <div className={classes.root}>
-      <Typography variant="h5">
-        {bool}
-      </Typography>
-      <Typography variant="h5">
-        {props.title}
-      </Typography>
-      <div className={classes.parent}>
-        <Typography className={classes.position}>
-          {props.position}
-        </Typography>
-        <Typography className={classes.time_period}>
-          {props.time_period}
-        </Typography>
-      </div>
-      <Typography>
-      </Typography>
-    </div>
-  );
 }

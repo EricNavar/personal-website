@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import FacebookIcon from '@material-ui/icons/Facebook';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import Chip from '@material-ui/core/Chip';
@@ -39,14 +38,6 @@ export default function TextButtons() {
         label="LinkedIn"
         component="a"
         href="https://www.linkedin.com/in/ericnavar/"
-        clickable
-        variant="outlined" 
-      />
-      <Chip 
-        icon = {<FacebookIcon style={{ color:'black' }}/>}
-        label="Facebook"
-        component="a"
-        href="https://www.facebook.com/"
         clickable
         variant="outlined" 
       />

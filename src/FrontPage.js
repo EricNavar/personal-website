@@ -28,8 +28,8 @@ function FrontPage(props) {
         <PersonalStatement/>
         <ContactInfo/>
         <SkillList/>
-        <ProjectList/>
         <InvolvementList/>
+        <ProjectList/>
         <Education/>
         <WebsiteLinks/>
       </Paper>

@@ -7,8 +7,7 @@ import CardActionArea from '@material-ui/core/CardContent';
 
 const useStyles = makeStyles(theme => ({
   card: {
-    height: 300,
-    width: 300,
+    display: "flex"
   },
   media: {
     height: 200,
@@ -19,15 +18,17 @@ const useStyles = makeStyles(theme => ({
 export default function FrontPage(props) {
   const classes = useStyles();
   return (
-    <div className={classes.card}>
-      <CardMedia
-        className={classes.media}
-        image={require ("./images/ProfilePic.jpg")}
-        title="Eric Navar"
-      />
-      <Typography gutterBottom variant="h3" component="h2">
-        Eric Navar
-      </Typography>
+    <div>
+      <div className={classes.card}>
+        <Typography gutterBottom variant="h3" component="h2">
+          Eric Navar
+        </Typography>
+        <CardMedia
+          className={classes.media}
+          image={require ("./images/ProfilePic.jpg")}
+          title="Eric Navar"
+        />
+      </div>
       <Typography variant="body2" color="textSecondary" component="p">
         Computer Science Major at UF
       </Typography>

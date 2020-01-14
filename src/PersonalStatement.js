@@ -13,10 +13,10 @@ export default function PersonalStatement(props) {
   return (
     <div className={classes.root}>
       <Typography component="h3">
-        Hello my name is Eric Navar
+        Personal Statement Placeholder
       </Typography>
       <Typography component="h3">
-        <a href="./images/ProfilePic.jpg" download>Resume</a>
+        <a download>Resume</a>
       </Typography>
     </div>
   );

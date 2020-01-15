@@ -9,18 +9,16 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default function Profile(props) {
-    const classes = useStyles();
-    return (
-        <div>
-            <Paper className={classes.root}>
-                <Typography variant="h5" component="h3">
-                    {props.name}
-                </Typography>
-                <Typography component="p">
-                    {props.description}
-                </Typography>
-            </Paper>
-        </div>
-    );
+export default function Award(props) {
+  const classes = useStyles();
+  return (
+    <Paper className={classes.root}>
+      <Typography variant="h5" component="h3">
+        {props.name}
+      </Typography>
+      <Typography component="p">
+        {props.description}
+      </Typography>
+    </Paper>
+  );
 }

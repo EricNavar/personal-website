@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SimpleList(props) {
+export default function SimpleItem(props) {
   const classes = useStyles();
   return (
     <Box 

@@ -1,5 +1,4 @@
 import React from 'react';
-import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import Project from './Project';
 import Title from './Title';
@@ -16,12 +15,12 @@ export default function ProjectList(props) {
     <div className={classes.root}>
       <Title title="Projects"/>
       <Project 
-        title = "Trash Tracker"
-        description = "Hack FSU"
+        title = "ARM simulator"
+        description = "A simulator that takes in binary instructions and can output and execute the equivalent ARM assembly instructions"
       />
       <Project 
-        title = "ARM simulator"
-        description = "sample description"
+        title = "Adventures of Flavio"
+        description = "AOF description"
       />
     </div>
   );

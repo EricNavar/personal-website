@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function TextButtons() {
+export default function WebsiteLinks() {
   const classes = useStyles();
 
   return (

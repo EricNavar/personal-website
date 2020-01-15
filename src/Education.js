@@ -15,12 +15,13 @@ export default function Education(props) {
   const classes = useStyles();
   return (
     <div className={classes.root}>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
       <Title title="Education"/>
-      <Typography>
+      <Typography variant="h4">
         University of Florida
       </Typography>
       <Typography>
-        GPA: 3.92 
+        GPA: 3.92
       </Typography>
       <Typography>
         May 2022

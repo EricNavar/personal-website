@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function PersonalStatement(props) {
+export default function ContactInfo(props) {
   const classes = useStyles();
   return (
     <Grid 

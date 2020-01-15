@@ -13,9 +13,14 @@ const useStyles = makeStyles(theme => ({
     margin: "auto",
     display: "flex",
   },
-  media: {
+  profile: {
     height: 200,
     width: 200,
+  },
+  banner: {
+    //height: 200,
+    //width: 200,
+    margin: "auto",
   }
 }));
 
@@ -24,8 +29,12 @@ export default function Header(props) {
   return (
     <Box
       className={classes.root}
-      image={require ("./images/Banner.jpg")}
     >
+      <CardMedia
+          className={classes.media}
+          image={require ("./images/Banner.jpg")}
+          title="Banner"
+      />
       <Grid 
         className={classes.root}
         container
@@ -36,7 +45,7 @@ export default function Header(props) {
           Eric Navar
         </Typography>
         <CardMedia
-          className={classes.media}
+          className={classes.profile}
           image={require ("./images/ProfilePic.jpg")}
           title="Eric Navar"
         />

@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
   title: {
-    background: 'linear-gradient(45deg, #00aeff 30%, #00aeff 90%)',
+    background: 'linear-gradient(30deg, #9a0bba 30%, #b309d9 90%)',
     border: 0,
     borderRadius: 3,
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',

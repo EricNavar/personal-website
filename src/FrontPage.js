@@ -13,7 +13,7 @@ import Education from './Education';
 const useStyles = makeStyles(theme => ({
     root: {
       padding: theme.spacing(3, 2),
-      background: 'linear-gradient(0deg, #410a61 30%, #000000 90%)',
+      background: 'linear-gradient(0deg, #203391 30%, #000000 90%)',
       display: "block",
       justify:"center",
     },
@@ -28,11 +28,11 @@ function FrontPage(props) {
         <ContactInfo/>
         <WebsiteLinks/>
         <PersonalStatement/>
+      </Paper>
         <SkillList/>
         <InvolvementList/>
         <ProjectList/>
         <Education/>
-      </Paper>
     </div>
   );
 }

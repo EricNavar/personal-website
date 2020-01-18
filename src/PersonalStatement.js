@@ -8,7 +8,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(3, 2),
   },
   button: {
-    background: 'linear-gradient(30deg, #9a0bba 30%, #b309d9 90%)',
+    background: 'linear-gradient(30deg, #203391 30%, #132cab 90%)',
     border: 0,
     borderRadius: 3,
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
@@ -28,6 +28,7 @@ export default function PersonalStatement(props) {
         <Button className={classes.button}
           href="https://drive.google.com/uc?authuser=0&id=1LNjRMXFBT13MNAg1AuNCuHdbCBlRjsld&export=download" 
           download
+          size='large'
         >
           Resume
         </Button>

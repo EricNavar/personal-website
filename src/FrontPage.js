@@ -14,6 +14,8 @@ const useStyles = makeStyles(theme => ({
     root: {
       padding: theme.spacing(3, 2),
       background: 'linear-gradient(0deg, #410a61 30%, #000000 90%)',
+      display: "block",
+      justify:"center",
     },
 }));
 

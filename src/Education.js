@@ -63,10 +63,7 @@ export default function Education(props) {
             Into to Computer Organization
           </ListItem>
           <ListItem>
-            Software Engineering (In progress)
-          </ListItem>
-          <ListItem>
-            Information and Databases (In progress)
+            Software Engineering
           </ListItem>
         </List>
     </ExpansionPanel>

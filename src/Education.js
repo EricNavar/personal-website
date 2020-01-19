@@ -21,7 +21,7 @@ export default function Education(props) {
   const contents = (
     <div>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
-      <Typography variant="h4">
+      <Typography variant="h5">
         University of Florida
       </Typography>
       <Typography>

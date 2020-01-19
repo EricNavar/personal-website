@@ -1,5 +1,6 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
+import Link from '@material-ui/core/Link';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import { makeStyles } from '@material-ui/core/styles';
@@ -23,9 +24,20 @@ const useStyles = makeStyles(theme => ({
 export default function InvolvementItem(props) {
   const classes = useStyles();
   const isArray = Array.isArray(props.description);
-  if (isArray)
+  let link = null;
+  if (props.link != null)
   {
-    const description = props.description.map((x) =>
+    link = (
+      <ListItem>
+        <Link href={props.link}>
+          Link to repository
+        </Link>
+      </ListItem>
+    );
+  }
+  if (isArray)
+  { 
+    let description = props.description.map((x) =>
       <ListItem>
         {x}
       </ListItem>
@@ -45,6 +57,7 @@ export default function InvolvementItem(props) {
         </div>
         <List>
           {description}
+          {link}
         </List>
       </div>
     );

@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from '@material-ui/core/Link';
 import InvolvementItem from './InvolvementItem';
 import Section from './Section';
 
@@ -33,6 +34,7 @@ export default function InvolvementList(props) {
           "Participants’ scores are posted on a website made with React and Google Material UI API.",
           "Placed 2nd overall"
         ]}
+        link = "https://github.com/EricNavar/Trash-Tracker"
       />
     </div>
   );

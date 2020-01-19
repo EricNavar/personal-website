@@ -8,6 +8,7 @@ export default function ProjectList(props) {
       <Project
         title = "ARM simulator"
         description = "A simulator that takes in binary instructions and can output and execute the equivalent ARM assembly instructions"
+        link="https://github.com/EricNavar/ARMSimulator"
       />
     </div>
   );

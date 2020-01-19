@@ -23,43 +23,42 @@ const useStyles = makeStyles(theme => ({
 
 export default function InvolvementItem(props) {
   const classes = useStyles();
-  const isArray = Array.isArray(props.description);
-  let link = null;
-  if (props.link != null)
-  {
-    link = (
-      <ListItem>
-        <Link href={props.link}>
-          Link to repository
-        </Link>
-      </ListItem>
+  let title = null;
+  if (props.link == null)
+    title = (
+      <Typography variant="h5">
+        {props.title}
+      </Typography>
     );
-  }
-  if (isArray)
-  { 
-    let description = props.description.map((x) =>
+  else
+    title = (
+      <Link variant="h5" href={props.link}>
+        {props.title}
+      </Link>
+    );
+  
+  let description = null;
+  if (Array.isArray(props.description))
+    description = props.description.map((x) =>
       <ListItem>
         {x}
       </ListItem>
     );
-    return (
-      <div className={classes.root}>
-        <Typography variant="h5">
-          {props.title}
+
+  return (
+    <div className={classes.root}>
+      {title}
+      <div className={classes.parent}>
+        <Typography className={classes.position}>
+          {props.position}
         </Typography>
-        <div className={classes.parent}>
-          <Typography className={classes.position}>
-            {props.position}
-          </Typography>
-          <Typography className={classes.time_period}>
-            {props.time_period}
-          </Typography>
-        </div>
-        <List>
-          {description}
-          {link}
-        </List>
+        <Typography className={classes.time_period}>
+          {props.time_period}
+        </Typography>
       </div>
-    );
-  }
+      <List>
+        {description}
+      </List>
+    </div>
+  );
 }

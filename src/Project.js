@@ -13,27 +13,26 @@ const useStyles = makeStyles(theme => ({
 
 export default function Project(props) {
   const classes = useStyles();
-  let link = null;
-  if (props.link != null)
-  {
-    link = (
-      <ListItem>
-        <Link href={props.link}>
-          Link to repository
-        </Link>
-      </ListItem>
-    );
-  }
-  return (
-    <div className={classes.root}>
+  let title = null;
+  if (props.link == null)
+    title = (
       <Typography variant="h5">
         {props.title}
       </Typography>
+    );
+  else
+    title = (
+      <Link variant="h5" href={props.link}>
+        {props.title}
+      </Link>
+    );
+  return (
+    <div className={classes.root}>
+      {title}
       <List>
         <ListItem>
           {props.description}
         </ListItem>
-        {link}
       </List>
     </div>
   );

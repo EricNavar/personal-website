@@ -8,22 +8,26 @@ export default function InvolvementList(props) {
     <div>
       <InvolvementItem
         title = "Programming Team"
-        position = "club member"
+        position = "Club member"
         time_period = "August 2019 - November 2019"
         description={["Take classes with UF Programming Team.",
         "Practice contest problems"]}
       />
       <InvolvementItem
         title = "Society of Software developers"
-        position = "member"
+        position = "Member"
         time_period = "September 2019 - present"
         description={["Study software design concepts such as testing", "API design, and writing documentation"]}
+        link="https://github.com/EricNavar/Proof"
+        linkDescription="Practice test-driven development"
       />
       <InvolvementItem
         title = "Open Source Club"
-        position = "member"
+        position = "Member"
         time_period = "January 2019 - April 2019"
         description = {["Work on front end of web app using React-Redux"]}
+        link="https://github.com/ufosc/AskAGator"
+        linkDescription="Link to repository"
       />
       <InvolvementItem
         title = "Hack FSU"
@@ -35,6 +39,7 @@ export default function InvolvementList(props) {
           "Placed 2nd overall"
         ]}
         link = "https://github.com/EricNavar/Trash-Tracker"
+        linkDescription="Link to repository"
       />
     </div>
   );

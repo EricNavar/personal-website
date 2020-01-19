@@ -23,19 +23,17 @@ const useStyles = makeStyles(theme => ({
 
 export default function InvolvementItem(props) {
   const classes = useStyles();
-  let title = null;
-  if (props.link == null)
-    title = (
-      <Typography variant="h5">
-        {props.title}
-      </Typography>
+  let link = null;
+  if (props.link != null)
+  {
+    link = (
+      <ListItem>
+        <Link href={props.link}>
+          {props.linkDescription}
+        </Link>
+      </ListItem>
     );
-  else
-    title = (
-      <Link variant="h5" href={props.link}>
-        {props.title}
-      </Link>
-    );
+  }
   
   let description = null;
   if (Array.isArray(props.description))
@@ -47,7 +45,9 @@ export default function InvolvementItem(props) {
 
   return (
     <div className={classes.root}>
-      {title}
+      <Typography variant="h5">
+        {props.title}
+      </Typography>
       <div className={classes.parent}>
         <Typography className={classes.position}>
           {props.position}
@@ -58,6 +58,7 @@ export default function InvolvementItem(props) {
       </div>
       <List>
         {description}
+        {link}
       </List>
     </div>
   );

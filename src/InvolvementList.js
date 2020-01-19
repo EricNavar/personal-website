@@ -1,36 +1,10 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import InvolvementItem from './InvolvementItem';
-import Title from './Title';
-
-const useStyles = makeStyles(theme => ({
-  root: {
-    padding: theme.spacing(0, 2),
-  },
-}));
+import Section from './Section';
 
 export default function InvolvementList(props) {
-  const classes = useStyles();
-  return (
-    <ExpansionPanel defaultExpanded className={classes.root}>
-      <ExpansionPanelSummary
-        expandIcon={<ExpandMoreIcon />}
-        aria-controls="panel2a-content"
-        id="panel2a-header"
-      >
-        <Grid 
-          className={classes.root}
-          container
-          justify="center"
-          alignItems="center"
-        >
-          <Title title="Involvement"/>
-        </Grid>
-      </ExpansionPanelSummary>
+  const contents = (
+    <div>
       <InvolvementItem
         title = "Programming Team"
         position = "club member"
@@ -60,6 +34,13 @@ export default function InvolvementList(props) {
           "Placed 2nd overall"
         ]}
       />
-    </ExpansionPanel>
+    </div>
+  );
+
+  return (
+    <Section
+      title = "Involvement"
+      details = {contents}
+    />
   );
 }

@@ -3,6 +3,7 @@ import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
+import Avatar from '@material-ui/core/Avatar';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
@@ -18,6 +19,9 @@ const useStyles = makeStyles(theme => ({
   time_period: {
     flex: 1,
     textAlign: "right",
+  },
+  flex:{
+    display:"flex"
   }
 }));
 
@@ -45,9 +49,12 @@ export default function InvolvementItem(props) {
 
   return (
     <div className={classes.root}>
-      <Typography variant="h5">
-        {props.title}
-      </Typography>
+      <div className={classes.flex}>
+        <Typography variant="h5">
+          {props.title}
+        </Typography>
+        <Avatar variant="square" src={props.icon}/>
+      </div>
       <div className={classes.parent}>
         <Typography className={classes.position}>
           {props.position}

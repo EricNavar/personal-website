@@ -27,7 +27,6 @@ export default function Header(props) {
       className={classes.root}
     >
       <Grid 
-        className={classes.root}
         container
         justify="center"
         alignItems="center"

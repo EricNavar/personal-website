@@ -1,7 +1,10 @@
 import React from 'react';
-import Link from '@material-ui/core/Link';
 import InvolvementItem from './InvolvementItem';
 import Section from './Section';
+import ACMIcon from './images/UFACM.png'
+import SSDIcon from './images/SSD.png'
+import OSCIcon from './images/OpenSourceClub.png'
+import HackFSUIcon from './images/HackFSU.png'
 
 export default function InvolvementList(props) {
   const contents = (
@@ -12,6 +15,7 @@ export default function InvolvementList(props) {
         time_period = "August 2019 - November 2019"
         description={["Take classes with UF Programming Team.",
         "Practice contest problems"]}
+        icon={ACMIcon}
       />
       <InvolvementItem
         title = "Society of Software developers"
@@ -20,6 +24,7 @@ export default function InvolvementList(props) {
         description={["Study software design concepts such as testing", "API design, and writing documentation"]}
         link="https://github.com/EricNavar/Proof"
         linkDescription="Practice test-driven development"
+        icon={SSDIcon}
       />
       <InvolvementItem
         title = "Open Source Club"
@@ -28,6 +33,7 @@ export default function InvolvementList(props) {
         description = {["Work on front end of web app using React-Redux"]}
         link="https://github.com/ufosc/AskAGator"
         linkDescription="Link to repository"
+        icon={OSCIcon}
       />
       <InvolvementItem
         title = "Hack FSU"
@@ -40,6 +46,7 @@ export default function InvolvementList(props) {
         ]}
         link = "https://github.com/EricNavar/Trash-Tracker"
         linkDescription="Link to repository"
+        icon={HackFSUIcon}
       />
     </div>
   );

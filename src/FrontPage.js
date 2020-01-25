@@ -24,7 +24,7 @@ function FrontPage(props) {
   return (
     <div className={classes.root}>
       <Header/>
-      <Paper>
+      <Paper square>
         <ContactInfo/>
         <WebsiteLinks/>
         <PersonalStatement/>

@@ -1,43 +1,68 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import { withStyles } from '@material-ui/core/styles';
+import MuiExpansionPanel from '@material-ui/core/ExpansionPanel';
+import MuiExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import MuiExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Title from './Title';
 
-const useStyles = makeStyles(theme => ({
+const ExpansionPanel = withStyles({
   root: {
-    padding: theme.spacing(0, 2),
+    border: '1px solid rgba(0, 0, 0, .125)',
+    borderBottom: 0,
+    boxShadow: 'none',
+    '&:before': {
+      display: 'none',
+    },
+    '&$expanded': {
+      margin: 'auto',
+    },
   },
-  display: {
-    display: "block",
-  }
-}));
+  expanded: {},
+})(MuiExpansionPanel);
 
-//These 4 components will be Sections: Skills, Involvement, Projects, and Education
+const ExpansionPanelSummary = withStyles({
+  root: {
+    backgroundColor: 'rgba(0, 0, 0, .03)',
+    borderBottom: '1px solid rgba(0, 0, 0, .125)',
+    marginBottom: -1,
+    minHeight: 56,
+    '&$expanded': {
+      minHeight: 56,
+    },
+  },
+  content: {
+    '&$expanded': {
+      margin: '12px 0',
+    },
+  },
+  expanded: {},
+})(MuiExpansionPanelSummary);
+
+const ExpansionPanelDetails = withStyles(theme => ({
+  root: {
+    padding: theme.spacing(2),
+  },
+}))(MuiExpansionPanelDetails);
+
 export default function Section(props) {
-  const classes = useStyles();
   return (
-    <ExpansionPanel defaultExpanded className={classes.root}>
-      <ExpansionPanelSummary
-        expandIcon={<ExpandMoreIcon />}
-        aria-controls="panel2a-content"
-        id="panel2a-header"
-      >
-        <Grid 
-          className={classes.root}
-          container
-          justify="center"
-          alignItems="center"
+    <div>
+      <ExpansionPanel square defaultExpanded>
+        <ExpansionPanelSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1d-content"
+          id="panel1d-header"
         >
           <Title title={props.title}/>
-        </Grid>
-      </ExpansionPanelSummary>
-      <ExpansionPanelDetails className={classes.display}>
-        {props.details}
-      </ExpansionPanelDetails>
-    </ExpansionPanel>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <Typography>
+            {props.details}
+          </Typography>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
+    </div>
   );
 }

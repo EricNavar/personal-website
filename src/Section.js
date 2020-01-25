@@ -15,11 +15,7 @@ const ExpansionPanel = withStyles({
     '&:before': {
       display: 'none',
     },
-    '&$expanded': {
-      margin: 'auto',
-    },
   },
-  expanded: {},
 })(MuiExpansionPanel);
 
 const ExpansionPanelSummary = withStyles({
@@ -28,16 +24,7 @@ const ExpansionPanelSummary = withStyles({
     borderBottom: '1px solid rgba(0, 0, 0, .125)',
     marginBottom: -1,
     minHeight: 56,
-    '&$expanded': {
-      minHeight: 56,
-    },
   },
-  content: {
-    '&$expanded': {
-      margin: '12px 0',
-    },
-  },
-  expanded: {},
 })(MuiExpansionPanelSummary);
 
 const ExpansionPanelDetails = withStyles(theme => ({
@@ -47,9 +34,11 @@ const ExpansionPanelDetails = withStyles(theme => ({
 }))(MuiExpansionPanelDetails);
 
 export default function Section(props) {
+  let title_no_whitespace = props.title.replace(/ /g,'');
   return (
     <div>
       <ExpansionPanel square defaultExpanded>
+        <a id={title_no_whitespace}></a>
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1d-content"

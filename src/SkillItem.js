@@ -5,7 +5,7 @@ import Rating from '@material-ui/lab/Rating';
 import Chip from '@material-ui/core/Chip';
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
-import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
+import LensIcon from '@material-ui/icons/Lens';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -40,7 +40,7 @@ export default function SimpleItem(props) {
         name="read-only"
         value={props.value}
         readOnly
-        icon = {<FiberManualRecordIcon/>}/>
+        icon = {<LensIcon/>}/>
     </Box>
   );
 }

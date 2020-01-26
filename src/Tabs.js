@@ -2,9 +2,10 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import RestoreIcon from '@material-ui/icons/Restore';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
+import SchoolIcon from '@material-ui/icons/School';
+import BusinessCenterIcon from '@material-ui/icons/BusinessCenter';
+import ImportContactsIcon from '@material-ui/icons/ImportContacts';
+import LaptopWindowsIcon from '@material-ui/icons/LaptopWindows';
 
 const useStyles = makeStyles({
   root: {
@@ -25,9 +26,26 @@ export default function SimpleBottomNavigation() {
       showLabels
       className={classes.root}
     >
-      <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
-      <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-      <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
+      <BottomNavigationAction
+        label="Skills"
+        href="#Skills"
+        icon={<ImportContactsIcon/>}
+      />
+      <BottomNavigationAction
+        label="Involvement"
+        href="#Involvement"
+        icon={<BusinessCenterIcon/>}
+      />
+      <BottomNavigationAction
+        label="Projects"
+        href="#Projects"
+        icon={<LaptopWindowsIcon/>}
+      />
+      <BottomNavigationAction
+        label="Education"
+        href="#Education"
+        icon={<SchoolIcon />}
+        />
     </BottomNavigation>
   );
 }

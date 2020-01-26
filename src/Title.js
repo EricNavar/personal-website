@@ -18,9 +18,10 @@ const useStyles = makeStyles(theme => ({
 
 export default function Title(props) {
   const classes = useStyles();
+  let title_no_whitespace = props.title.replace(/ /g,'');
   return (
     <Box>
-      <Typography variant="h3" className={classes.title}>
+      <Typography id={title_no_whitespace} variant="h3" className={classes.title}>
         {props.title}
       </Typography>
     </Box>

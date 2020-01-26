@@ -34,11 +34,9 @@ const ExpansionPanelDetails = withStyles(theme => ({
 }))(MuiExpansionPanelDetails);
 
 export default function Section(props) {
-  let title_no_whitespace = props.title.replace(/ /g,'');
   return (
     <div>
       <ExpansionPanel square defaultExpanded>
-        <a id={title_no_whitespace}></a>
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1d-content"

@@ -53,9 +53,7 @@ export default function Section(props) {
           <Typography variant="h3">{props.title}</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
-          <Typography>
-            {props.details}
-          </Typography>
+          {props.details}
         </ExpansionPanelDetails>
       </ExpansionPanel>
     </div>

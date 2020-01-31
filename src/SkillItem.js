@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function SimpleItem(props) {
+export default function SkillItem(props) {
   const classes = useStyles();
   return (
     <Box 

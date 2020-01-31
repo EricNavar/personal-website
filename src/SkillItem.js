@@ -2,11 +2,11 @@ import React from 'react';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import Rating from '@material-ui/lab/Rating';
-import Chip from '@material-ui/core/Chip';
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import LensIcon from '@material-ui/icons/Lens';
 
+//icons must be PNGs
 const useStyles = makeStyles(theme => ({
   root: {
     margin: "auto",
@@ -34,7 +34,6 @@ export default function SimpleItem(props) {
           {props.skill}
         </Typography>
         <Avatar variant="square" src={props.icon}/>
-        <Chip src={props.icon}/>
       </div>
       <Rating className={classes.iconFilled}
         name="read-only"

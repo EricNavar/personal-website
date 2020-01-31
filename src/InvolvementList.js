@@ -6,6 +6,7 @@ import SSDIcon from './images/SSD.png'
 import OSCIcon from './images/OpenSourceClub.png'
 import HackFSUIcon from './images/HackFSU.png'
 
+//icons must be PNGs
 export default function InvolvementList(props) {
   const contents = (
     <div>

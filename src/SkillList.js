@@ -1,11 +1,12 @@
 import React from 'react';
 import SkillItem from './SkillItem';
 import Section from './Section';
-import JavaIcon from './images/java.svg'
-import ReactIcon from './images/React.svg'
-import CppIcon from './images/C++.svg'
+import JavaIcon from './images/java.png'
+import ReactIcon from './images/React.png'
+import CppIcon from './images/Cpp.png'
 import GitIcon from './images/Git.png'
 
+//icons must be PNGs
 export default function SimpleList() {
   const contents = (
     <div>

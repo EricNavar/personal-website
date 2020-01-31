@@ -4,9 +4,9 @@ import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import Grid from '@material-ui/core/Grid';
 import SchoolIcon from '@material-ui/icons/School';
-import BusinessCenterIcon from '@material-ui/icons/BusinessCenter';
-import ImportContactsIcon from '@material-ui/icons/ImportContacts';
 import LaptopWindowsIcon from '@material-ui/icons/LaptopWindows';
+import SkillIcon from './images/brain.svg';
+import InvolvementIcon from './images/group.svg';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -40,12 +40,13 @@ export default function SimpleBottomNavigation() {
         <BottomNavigationAction
           label="Skills"
           href="#Skills"
-          icon={<ImportContactsIcon/>}
+          icon={<SkillIcon/>}
         />
-        <BottomNavigationAction
+        <BottomNavigationAction className={classes.icon}
           label="Involvement"
           href="#Involvement"
-          icon={<BusinessCenterIcon/>}
+          icon={<InvolvementIcon/>}
+        />
         />
         <BottomNavigationAction
           label="Projects"

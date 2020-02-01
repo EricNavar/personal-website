@@ -9,7 +9,6 @@ import ProjectList from './ProjectList';
 import ContactInfo from './ContactInfo';
 import InvolvementList from './InvolvementList';
 import Education from './Education';
-import Tabs from './Tabs';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -29,7 +28,6 @@ function FrontPage(props) {
         <ContactInfo/>
         <WebsiteLinks/>
         <PersonalStatement/>
-        <Tabs/>
       </Paper>
         <SkillList/>
         <InvolvementList/>

@@ -2,38 +2,64 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import PhoneIcon from '@material-ui/icons/Phone';
 import EmailIcon from '@material-ui/icons/Email';
-import Chip from '@material-ui/core/Chip';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import ContactInfoItem from './ContactInfoItem';
 import Grid from '@material-ui/core/Grid';
+import CardMedia from '@material-ui/core/CardMedia';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
 const useStyles = makeStyles(theme => ({
   root: {
+    margin: "auto",
+    flexGrow: 1,
+    height: "100%",
+    color: "black"
+  },
+  contacts: {
     '& > *': {
       margin: theme.spacing(1),
       color: "#000000",
       background: "#ffffff",
+      display: "flex",
     },
+  },
+  profile: {
+    height: 200,
+    width: 200,
   },
 }));
 
-export default function ContactInfo(props) {
+export default function ContactInfo() {
   const classes = useStyles();
   return (
     <Grid 
-      className={classes.root}
       container
       justify="center"
       alignItems="center"
+      spacing={2}
+      className={classes.root}
     >
-      <Chip
-        icon={<PhoneIcon style={{ color:'black' }}/>}
-        label="(813) 506 0973"
-        variant="outlined" 
-      />
-      <Chip
-        icon={<EmailIcon style={{ color:'black' }}/>}
-        label="ericnavar@ufl.edu"
-        variant="outlined"
-      />
+      <Grid item>
+        <CardMedia
+          className={classes.profile}
+          image={require ("./images/ProfilePic.jpg")}
+          title="Eric Navar"
+        />
+      </Grid>
+      <Grid 
+        className={classes.contacts}
+        item
+      >
+        <ContactInfoItem label="(813) 506 0973" icon={<PhoneIcon style={{ color:'black' }}/>}/>
+        <ContactInfoItem label="ericnavar@ufl.edu" icon={<EmailIcon style={{ color:'black' }}/>}/>
+      </Grid>
+      <Grid 
+        className={classes.contacts}
+        item
+      >
+        <ContactInfoItem label="Github" href="https://github.com/EricNavar" icon={<GitHubIcon style={{ color:'black' }}/>}/>
+        <ContactInfoItem label="LinkedIn" href="https://www.linkedin.com/in/ericnavar/" icon={<LinkedInIcon style={{ color:'black' }}/>}/>
+      </Grid>
     </Grid>
   );
 }

@@ -1,7 +1,6 @@
 import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
-import WebsiteLinks from './WebsiteLinks';
 import SkillList from './SkillList';
 import Header from './Header';
 import PersonalStatement from './PersonalStatement';
@@ -26,7 +25,6 @@ function FrontPage(props) {
       <Header/>
       <Paper square>
         <ContactInfo/>
-        <WebsiteLinks/>
         <PersonalStatement/>
       </Paper>
         <SkillList/>

@@ -1,56 +1,55 @@
-/*
-import * as React from 'react'
-import { BrowserRouter, Route, Switch, withRouter } from 'react-router-dom'
-import ApolloClient from "apollo-boost";
-import { ApolloProvider } from "react-apollo";
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useHistory,
+} from "react-router-dom";
+import { makeStyles } from "@material-ui/core";
+import Home from "./screens/Home.js";
+import Error404Page from "./screens/Error404Page";
 
-import { AUTH_TOKEN } from './constants';
+//https://reacttraining.com/react-router/web/guides/quick-start
 
-import HomePage from './pages/index';
-import LoginPage from './pages/LoginPage';
-import SignUpPage from './pages/SignUpPage';
-import AddCoursePage from './pages/AddCoursePage';
-import ProfilePage from './pages/ProfilePage';
-import EditProfilePage from './pages/EditProfilePage';
-import Sandbox from './pages/SandboxPage';
-import Header from './components/Header';
-
-const client = new ApolloClient({
-  uri: 'http://localhost:4000/api',
-  fetchOptions: {
-    credentials: 'include'
-  },
-  request: async (operation) => {
-    const token = await localStorage.getItem(AUTH_TOKEN);
-    operation.setContext({
-      headers: {
-        authorization: token ? `Bearer ${token}` : "",
-      }
-    });
-  },
-  onError: ({ graphQLErrors, networkError }) => {
-    // Do something with the errors lol
+const useStyles = makeStyles({
+  root: {
+    minHeight: "100vh",
   }
 });
 
-export default class Root extends React.Component {
-  public render(): JSX.Element {
-    return (
-      <BrowserRouter>
-        <ApolloProvider client={client}>
-        <Header/>
-          <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route path="/login" component={withRouter(LoginPage)} />
+function ScrollToTop(props) {
+  const history = useHistory();
+  React.useEffect(() => {
+    const unlisten = history.listen(() => {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+      });
+    });
+    return unlisten;
+  }, [history]);
 
-            <Route path="/signup" component={withRouter(SignUpPage)} />
-            <Route path="/addcourse" component={withRouter(AddCoursePage)} />
-            <Route path="/profile" component={withRouter(ProfilePage)} />
-            <Route path="/editprofile" component={withRouter(EditProfilePage)} />
+  return <React.Fragment>{props.children}</React.Fragment>;
+};
+
+export default function App() {
+  const classes = useStyles();
+
+  return (
+    <Router id="router">
+      <div className={classes.root}>
+        <ScrollToTop>
+          <Switch>
+            <Route exact path="/">
+              <Home/>
+            </Route>
+            <Route>
+              <Error404Page/>
+            </Route>
           </Switch>
-          </ApolloProvider>
-      </BrowserRouter>
-    )
-  }
+        </ScrollToTop>
+      </div>
+    </Router>
+  );
 }
-*/
+//citation: https://stackoverflow.com/questions/36904185/react-router-scroll-to-top-on-every-transition

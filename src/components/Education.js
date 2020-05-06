@@ -25,7 +25,7 @@ export default function Education(props) {
         University of Florida
       </Typography>
       <Typography>
-        GPA: 3.92
+        GPA: 3.93
       </Typography>
       <Typography>
         May 2022

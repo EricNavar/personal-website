@@ -42,7 +42,7 @@ export default function ContactInfo() {
       <Grid item>
         <CardMedia
           className={classes.profile}
-          image={require ("./images/ProfilePic.jpg")}
+          image={require ("./../images/ProfilePic.jpg")}
           title="Eric Navar"
         />
       </Grid>

@@ -1,13 +1,13 @@
 import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
-import SkillList from './SkillList';
-import Header from './Header';
-import PersonalStatement from './PersonalStatement';
-import ProjectList from './ProjectList';
-import ContactInfo from './ContactInfo';
-import InvolvementList from './InvolvementList';
-import Education from './Education';
+import SkillList from './../components/SkillList';
+import Header from './../components/Header';
+import PersonalStatement from './../components/PersonalStatement';
+import ProjectList from './../components/ProjectList';
+import ContactInfo from './../components/ContactInfo';
+import InvolvementList from './../components/InvolvementList';
+import Education from './../components/Education';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function FrontPage(props) {
+export default function Home() {
   const classes = useStyles();
   return (
     <div className={classes.root}>
@@ -34,5 +34,3 @@ function FrontPage(props) {
     </div>
   );
 }
-
-export default FrontPage;

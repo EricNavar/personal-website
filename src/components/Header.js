@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import BackgroundHeader from "./images/Banner.png"
+import BackgroundHeader from "./../images/Banner.png"
 
 const useStyles = makeStyles(theme => ({
   root: {

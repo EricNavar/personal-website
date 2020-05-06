@@ -1,10 +1,10 @@
 import React from 'react';
 import InvolvementItem from './InvolvementItem';
 import Section from './Section';
-import ACMIcon from './images/UFACM.png'
-import SSDIcon from './images/SSD.png'
-import OSCIcon from './images/OpenSourceClub.png'
-import HackFSUIcon from './images/HackFSU.png'
+import ACMIcon from './../images/UFACM.png'
+import SSDIcon from './../images/SSD.png'
+import OSCIcon from './../images/OpenSourceClub.png'
+import HackFSUIcon from './../images/HackFSU.png'
 
 //icons must be PNGs
 export default function InvolvementList(props) {

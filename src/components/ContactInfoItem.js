@@ -1,13 +1,13 @@
 import React from 'react';
 import Chip from '@material-ui/core/Chip';
 
-export default function ContactInfo(props) {
+export default function ContactInfo({icon, label, href}) {
   return (
     <Chip
-      icon={props.icon}
-      label={props.label}
+      icon={icon}
+      label={label}
       component="a"
-      href={props.href}
+      href={href}
       clickable
       variant="outlined"
     />

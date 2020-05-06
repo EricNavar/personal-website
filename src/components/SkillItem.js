@@ -3,7 +3,6 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import Rating from '@material-ui/lab/Rating';
 import { makeStyles } from '@material-ui/core/styles';
-import Avatar from '@material-ui/core/Avatar';
 import LensIcon from '@material-ui/icons/Lens';
 
 //icons must be PNGs
@@ -21,7 +20,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function SkillItem(props) {
+export default function SkillItem({skill, icon, value}) {
   const classes = useStyles();
   return (
     <Box 
@@ -31,15 +30,16 @@ export default function SkillItem(props) {
     >
       <div className={classes.flex}>
         <Typography component="legend">
-          {props.skill}
+          {skill}
         </Typography>
-        <Avatar variant="square" src={props.icon}/>
+        <img alt='' style={{width:32}} variant="square" src={icon}/>
       </div>
       <Rating className={classes.iconFilled}
         name="read-only"
-        value={props.value}
+        value={value}
         readOnly
-        icon = {<LensIcon/>}/>
+        icon = {<LensIcon/>}
+      />
     </Box>
   );
 }

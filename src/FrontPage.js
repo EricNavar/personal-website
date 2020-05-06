@@ -10,12 +10,12 @@ import InvolvementList from './InvolvementList';
 import Education from './Education';
 
 const useStyles = makeStyles(theme => ({
-    root: {
-      padding: theme.spacing(3, 2),
-      background: 'linear-gradient(0deg, #203391 30%, #000000 90%)',
-      display: "block",
-      justify:"center",
-    },
+  root: {
+    padding: theme.spacing(3, 2),
+    background: 'linear-gradient(0deg, #203391 30%, #000000 90%)',
+    display: "block",
+    justify:"center",
+  },
 }));
 
 function FrontPage(props) {
@@ -27,10 +27,10 @@ function FrontPage(props) {
         <ContactInfo/>
         <PersonalStatement/>
       </Paper>
-        <SkillList/>
-        <InvolvementList/>
-        <ProjectList/>
-        <Education/>
+      <SkillList/>
+      <InvolvementList/>
+      <ProjectList/>
+      <Education/>
     </div>
   );
 }

@@ -48,7 +48,7 @@ export default function Section(props) {
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1d-content"
-          id="panel1d-header"
+          id={props.title}
         >
           <Typography variant="h3">{props.title}</Typography>
         </ExpansionPanelSummary>

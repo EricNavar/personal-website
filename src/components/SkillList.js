@@ -61,7 +61,7 @@ export default function SkillList() {
           <SkillItem skill="Java" value={3} icon={JavaIcon}/>
           <SkillItem skill="React" value={3} icon={ReactIcon}/>
           <SkillItem skill="Version control" value={3} icon={GitIcon}/>
-          <SkillItem skill="MATLAB" value={3} icon={MatlabIcon}/>
+          <SkillItem skill="MATLAB" value={2} icon={MatlabIcon}/>
         </tbody>
       </table>
     </Section>

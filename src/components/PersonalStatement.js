@@ -34,6 +34,7 @@ const useStyles = makeStyles(theme => ({
     fontSize: 16
   },
   imgContainer: {
+    minWidth:200,
     [theme.breakpoints.up('sm')]: {
       textAlign: 'right'
     }

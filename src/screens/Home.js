@@ -5,6 +5,7 @@ import PersonalStatement from './../components/PersonalStatement';
 import InvolvementList from './../components/InvolvementList';
 import Education from './../components/Education';
 import Footer from './../components/Footer';
+import Grid from '@material-ui/core/Grid';
 
 export default function Home() {
   return (
@@ -12,9 +13,15 @@ export default function Home() {
       <Header/>
       <div style={{marginRight: 40, marginLeft: 40}}>
         <PersonalStatement/>
-        <SkillList/>
+        <Grid container spacing={4} justify='center'>
+          <Grid item sm={12} md={6}>
+            <SkillList/>
+          </Grid>
+          <Grid item sm={12} md={6}>
+            <Education/>
+          </Grid>
+        </Grid>
         <InvolvementList/>
-        <Education/>
       </div>
       <Footer/>
     </React.Fragment>

@@ -1,10 +1,10 @@
 import React from 'react';
 import InvolvementItem from './InvolvementItem';
 import Section from './Section';
-import ACMIcon from './../images/UFACM.png';
-import SSDIcon from './../images/SSD.png';
-import OSCIcon from './../images/OpenSourceClub.webp';
-import HackFSUIcon from './../images/HackFSU.webp';
+import ACMIcon from './../assets/images/UFACM.png';
+import SSDIcon from './../assets/images/SSD.png';
+import OSCIcon from './../assets/images/OpenSourceClub.webp';
+import HackFSUIcon from './../assets/images/HackFSU.webp';
 import Grid from '@material-ui/core/Grid';
 
 //icons must be PNGs

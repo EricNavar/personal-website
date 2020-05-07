@@ -1,5 +1,5 @@
 import React from 'react';
-import ErrorIcon from './../images/ErrorBubble.svg';
+import ErrorIcon from './../assets/svg/ErrorBubble.svg';
 
 export default function Error404Page() {
   React.useEffect(() => {

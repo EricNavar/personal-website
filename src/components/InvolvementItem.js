@@ -9,7 +9,6 @@ import Tooltip from '@material-ui/core/Tooltip';
 const useStyles = makeStyles({
   involvementItem: {
     overflow: 'hidden',
-    height: 'auto',
     borderRadius: 4,
     background: 'linear-gradient(90deg, rgba(241,245,248,1) 0%, rgba(228,232,235,1) 85%, rgba(215,218,225,1) 100%)',
     height:'100%',

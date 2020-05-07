@@ -1,10 +1,10 @@
 import React from 'react';
 import SkillItem from './SkillItem';
 import Section from './Section';
-import JavaIcon from './../images/java.png';
-import ReactIcon from './../images/React.png';
-import CppIcon from './../images/Cpp.png';
-import GitIcon from './../images/Git.png';
+import JavaIcon from './../assets/images/java.png';
+import ReactIcon from './../assets/images/React.png';
+import CppIcon from './../assets/images/Cpp.png';
+import GitIcon from './../assets/images/Git.png';
 
 //icons must be PNGs
 export default function SkillList() {

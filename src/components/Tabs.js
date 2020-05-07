@@ -5,8 +5,8 @@ import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import Grid from '@material-ui/core/Grid';
 import SchoolIcon from '@material-ui/icons/School';
 import LaptopWindowsIcon from '@material-ui/icons/LaptopWindows';
-import SkillIcon from './images/brain.svg';
-import InvolvementIcon from './images/group.svg';
+import SkillIcon from './assets/images/brain.svg';
+import InvolvementIcon from './assets/images/group.svg';
 
 const useStyles = makeStyles(theme => ({
   root: {

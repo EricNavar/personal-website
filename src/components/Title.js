@@ -16,13 +16,13 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Title(props) {
+export default function Title({title}) {
   const classes = useStyles();
-  let title_no_whitespace = props.title.replace(/ /g,'');
+  let title_no_whitespace = title.replace(/ /g,'');
   return (
     <Box>
       <Typography id={title_no_whitespace} variant="h3" className={classes.title}>
-        {props.title}
+        {title}
       </Typography>
     </Box>
   );

@@ -4,23 +4,27 @@ import ListItem from '@material-ui/core/ListItem';
 import Typography from '@material-ui/core/Typography';
 import Section from './Section';
 
-export default function Education(props) {
+export default function Education() {
   const coursework = [
     "Programming 1 & 2",
     "Discrete Structures",
     "Data Structures",
     "Computer Organization",
-    "Software Engineering"
+    "Software Engineering",
+    "Intro to Databases"
   ];
-  const courseworkList = coursework.map((x) =>
-    <ListItem>
-      {x}
-    </ListItem>
-  );
+  function CourseworkListItems() {
+    return (
+      coursework.map(course => 
+        <ListItem key={course}>
+          {course}
+        </ListItem>
+      )
+    )
+  };
 
-  const contents = (
-    <div>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+  return (
+    <Section title="Education">
       <Typography variant="h5">
         University of Florida
       </Typography>
@@ -34,15 +38,8 @@ export default function Education(props) {
         Relevant coursework
       </Typography>
       <List>
-        {courseworkList}
+        <CourseworkListItems/>
       </List>
-    </div>
-  );
-
-  return (
-    <Section
-      title = "Education"
-      details = {contents}
-    />
+    </Section>
   );
 }

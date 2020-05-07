@@ -1,11 +1,10 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
 import PhoneIcon from '@material-ui/icons/Phone';
 import EmailIcon from '@material-ui/icons/Email';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import ContactInfoItem from './ContactInfoItem';
-import Grid from '@material-ui/core/Grid';
-import CardMedia from '@material-ui/core/CardMedia';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
 const useStyles = makeStyles(theme => ({
@@ -26,6 +25,7 @@ const useStyles = makeStyles(theme => ({
   profile: {
     height: 200,
     width: 200,
+    borderRadius: '50%'
   },
 }));
 
@@ -36,27 +36,20 @@ export default function ContactInfo() {
       container
       justify="center"
       alignItems="center"
-      spacing={2}
+      direction="row"
+      spacing={0}
       className={classes.root}
     >
       <Grid item>
-        <CardMedia
+        <img
           className={classes.profile}
-          image={require ("./../images/ProfilePic.jpg")}
-          title="Eric Navar"
+          src={require ("./../images/ProfilePic.jpg")}
+          alt=""
         />
       </Grid>
-      <Grid 
-        className={classes.contacts}
-        item
-      >
+      <Grid className={classes.contacts} item>
         <ContactInfoItem label="(813) 506 0973" icon={<PhoneIcon style={{ color:'black' }}/>}/>
         <ContactInfoItem label="ericnavar@ufl.edu" icon={<EmailIcon style={{ color:'black' }}/>}/>
-      </Grid>
-      <Grid 
-        className={classes.contacts}
-        item
-      >
         <ContactInfoItem label="Github" href="https://github.com/EricNavar" icon={<GitHubIcon style={{ color:'black' }}/>}/>
         <ContactInfoItem label="LinkedIn" href="https://www.linkedin.com/in/ericnavar/" icon={<LinkedInIcon style={{ color:'black' }}/>}/>
       </Grid>

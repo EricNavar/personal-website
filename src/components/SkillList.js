@@ -8,18 +8,12 @@ import GitIcon from './../images/Git.png';
 
 //icons must be PNGs
 export default function SkillList() {
-  const contents = (
-    <div>
+  return(
+    <Section title = "Skills">
       <SkillItem skill="C++" value={4} icon={CppIcon}/>
       <SkillItem skill="Java" value={3} icon={JavaIcon}/>
       <SkillItem skill="React" value={2} icon={ReactIcon}/>
       <SkillItem skill="Git" value={3} icon={GitIcon}/>
-    </div>
-  );
-  return(
-    <Section
-      title = "Skills"
-      details = {contents}
-    />
+    </Section>
   );
 }

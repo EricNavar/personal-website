@@ -10,7 +10,6 @@ const useStyles = makeStyles(theme => ({
   parent: {
     display: "flex",
     color:'textSecondary',
-    variant: 'body2'
   },
   position: {
     flex: 1,
@@ -25,47 +24,49 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function InvolvementItem(props) {
+export default function InvolvementItem({link, description, time_period, linkDescription, title, position, icon}) {
   const classes = useStyles();
-  let link = null;
-  if (props.link != null)
-  {
-    link = (
-      <ListItem>
-        <Link href={props.link}>
-          {props.linkDescription}
-        </Link>
-      </ListItem>
-    );
-  }
+  const getLink = () => {
+    if (link != null) {
+      return (
+        <ListItem>
+          <Link href={link}>
+            {linkDescription}
+          </Link>
+        </ListItem>
+      );
+    }
+  };
   
-  let description = null;
-  if (Array.isArray(props.description))
-    description = props.description.map((x) =>
-      <ListItem>
-        {x}
-      </ListItem>
-    );
+  const getDescription = () => {
+    if (Array.isArray(description)) {
+      description = description.map((x) =>
+        <ListItem>
+          {x}
+        </ListItem>
+      );
+    }
+  };
 
   return (
     <div className={classes.root}>
       <div className={classes.flex}>
         <Typography variant="h5">
-          {props.title}
+          {title}
         </Typography>
-        <Avatar variant="square" src={props.icon}/>
+        <Avatar variant="square" src={icon}/>
       </div>
       <div className={classes.parent}>
         <Typography className={classes.position}>
-          {props.position}
+          {position}
         </Typography>
         <Typography className={classes.time_period}>
-          {props.time_period}
+          {time_period}
         </Typography>
       </div>
       <List>
-        {description}
-        {link}
+        {getDescription()}
+        {getLink()}
       </List>
     </div>
   );

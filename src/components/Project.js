@@ -2,7 +2,6 @@ import React from 'react';
 import Link from '@material-ui/core/Link';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
@@ -11,27 +10,16 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Project(props) {
+export default function Project({link, title, description}) {
   const classes = useStyles();
-  let title = null;
-  if (props.link == null)
-    title = (
-      <Typography variant="h5">
-        {props.title}
-      </Typography>
-    );
-  else
-    title = (
-      <Link variant="h5" href={props.link}>
-        {props.title}
-      </Link>
-    );
   return (
     <div className={classes.root}>
-      {title}
+      <Link variant="h5" href={link}>
+        {title}
+      </Link>
       <List>
         <ListItem>
-          {props.description}
+          {description}
         </ListItem>
       </List>
     </div>

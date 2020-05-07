@@ -7,9 +7,9 @@ import OSCIcon from './../images/OpenSourceClub.png'
 import HackFSUIcon from './../images/HackFSU.png'
 
 //icons must be PNGs
-export default function InvolvementList(props) {
-  const contents = (
-    <div>
+export default function InvolvementList() {
+  return (
+    <Section title = "Involvement">
       <InvolvementItem
         title = "Programming Team"
         position = "Club member"
@@ -49,13 +49,6 @@ export default function InvolvementList(props) {
         linkDescription="Link to repository"
         icon={HackFSUIcon}
       />
-    </div>
-  );
-
-  return (
-    <Section
-      title = "Involvement"
-      details = {contents}
-    />
+    </Section>
   );
 }

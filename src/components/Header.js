@@ -114,7 +114,7 @@ export default function Blog() {
   return (
     <div>
       <Collapse in={open} timeout="auto" unmountOnExit>
-        <Footer/>
+        <Footer top={true}/>
       </Collapse>
       <ul id='cool card' className={classes.background}>
         <li></li>

@@ -23,7 +23,7 @@ export default function Home() {
         </Grid>
         <InvolvementList/>
       </div>
-      <Footer/>
+      <Footer top={false}/>
     </React.Fragment>
   );
 }

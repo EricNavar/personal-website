@@ -3,15 +3,15 @@ import InvolvementItem from './InvolvementItem';
 import Section from './Section';
 import ACMIcon from './../images/UFACM.png';
 import SSDIcon from './../images/SSD.png';
-import OSCIcon from './../images/OpenSourceClub.png';
-import HackFSUIcon from './../images/HackFSU.png';
+import OSCIcon from './../images/OpenSourceClub.webp';
+import HackFSUIcon from './../images/HackFSU.webp';
 import Grid from '@material-ui/core/Grid';
 
 //icons must be PNGs
 export default function InvolvementList() {
   return (
     <Section title = "Involvement">
-      <Grid container>
+      <Grid container spacing={4}>
         <InvolvementItem
           title = "Programming Team"
           position = "Club member"
@@ -25,8 +25,6 @@ export default function InvolvementList() {
           position = "Member"
           time_period = "September 2019 - present"
           description={["Study software design concepts such as testing", "API design, and writing documentation"]}
-          link="https://github.com/EricNavar/Proof"
-          linkDescription="Practice test-driven development"
           icon={SSDIcon}
         />
         <InvolvementItem

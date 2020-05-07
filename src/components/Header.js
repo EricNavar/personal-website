@@ -15,8 +15,6 @@ const useStyles = makeStyles(theme => ({
     overflow: 'hidden',
     display: 'block',
     listStyleType: 'disc',
-    marginBlockStart: '1em',
-    marginBlockEnd: '1em',
     paddingInlineStart: 40,
     unicodeBidi: 'isolate',
     textAlign: 'center',

@@ -3,14 +3,17 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
+import Resume from './../images/EricNResume.pdf';
 
 const useStyles = makeStyles({
   personalStatement: {
+    textAlign: 'center'
   },
   profile: {
     height: 200,
     width: 200,
-    borderRadius: '50%'
+    borderRadius: '50%',
+    marginTop: 32
   },
   button: {
     marginTop: 24,
@@ -42,19 +45,20 @@ export default function PersonalStatement() {
       className={classes.personalStatement}
       spacing={4}
     >
-      <Grid item>
+      <Grid item xs>
         <img
           className={classes.profile}
           src={require("./../images/ProfilePic.jpg")}
           alt=""
         />
       </Grid>
-      <Grid item>
+      <Grid item xs>
         <Typography variant='body1' style={{fontSize:16}}>
           I am a Computer Science student looking for experience. I can write software and work with teams I'm always eager to learn new things.
         </Typography>
         <Button
-          href="https://drive.google.com/uc?authuser=0&id=1LNjRMXFBT13MNAg1AuNCuHdbCBlRjsld&export=download"
+          href={Resume}
+          target="_blank"
           download
           fullWidth
           variant="outlined"

@@ -11,11 +11,13 @@ export default function Home() {
   return (
     <React.Fragment>
       <Header/>
-      <PersonalStatement/>
-      <SkillList/>
-      <InvolvementList/>
-      <ProjectList/>
-      <Education/>
+      <div style={{marginRight: 40, marginLeft: 40}}>
+        <PersonalStatement/>
+        <SkillList/>
+        <InvolvementList/>
+        <ProjectList/>
+        <Education/>
+      </div>
       <Footer/>
     </React.Fragment>
   );

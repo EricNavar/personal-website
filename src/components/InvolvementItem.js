@@ -3,7 +3,6 @@ import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import Avatar from '@material-ui/core/Avatar';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
@@ -54,7 +53,7 @@ export default function InvolvementItem({link, description, time_period, linkDes
         <Typography variant="h5">
           {title}
         </Typography>
-        <Avatar variant="square" src={icon}/>
+        <img style={{height:32}} alt="" src={icon}/>
       </div>
       <div className={classes.parent}>
         <Typography className={classes.position}>

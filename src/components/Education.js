@@ -16,7 +16,7 @@ export default function Education() {
   function CourseworkListItems() {
     return (
       coursework.map(course => 
-        <ListItem key={course}>
+        <ListItem key={course} divider dense>
           {course}
         </ListItem>
       )
@@ -37,7 +37,7 @@ export default function Education() {
       <Typography variant="h6">
         Relevant coursework
       </Typography>
-      <List>
+      <List style={{width:'max-content'}}>
         <CourseworkListItems/>
       </List>
     </Section>

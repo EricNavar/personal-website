@@ -8,15 +8,14 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 const useStyles = makeStyles({
     footer: {
         backgroundColor: '#19202D',
-        padding: 18,
+        padding: 10,
         '& svg': {
             padding: '2%',
             color: 'white',
             '&:hover': {
                 opacity: .8
             }
-        },
-        textAlign: 'right',
+        }
     }
 });
 
@@ -26,7 +25,6 @@ export default function Footer() {
         <Grid
             container
             direction="row"
-            justify="flex-end"
             alignItems="center"
             className={classes.footer}
             component='footer'
@@ -41,7 +39,7 @@ export default function Footer() {
                 <IconButton href="https://www.linkedin.com/in/ericnavar/">
                     <LinkedInIcon/>
                 </IconButton>
-                <IconButton href="mailto:test123@gmail.com">
+                <IconButton href="mailto:ericnavar@ufl.edu">
                     <EmailIcon/>
                 </IconButton>
             </Grid>

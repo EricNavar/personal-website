@@ -1,6 +1,10 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import IconButton from '@material-ui/core/IconButton';
+import Collapse from '@material-ui/core/Collapse';
+import MenuIcon from '@material-ui/icons/Menu';
+import Footer from './Footer.js';
 
 const useStyles = makeStyles(theme => ({
   background: {
@@ -83,6 +87,12 @@ const useStyles = makeStyles(theme => ({
     color: 'white',
     fontSize:60
   },
+  menuButton: {
+    top: 4,
+    left: 4,
+    position: 'absolute',
+    color: 'white'
+  },
   "@keyframes myEffect": {
     "0%": {
       opacity: 0,
@@ -96,18 +106,30 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export default function Blog() {
-  const classes = useStyles()
+  const classes = useStyles();
+  const handleClick = event => {
+    setOpen(!open);
+  }
+  const [open, setOpen] = React.useState(false);
   return (
-    <ul id='cool card' className={classes.background}>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <Typography component='h1' className={classes.animatedItem}>
-        Eric Navar
-      </Typography>
-    </ul>
+    <div>
+      <Collapse in={open} timeout="auto" unmountOnExit>
+        <Footer/>
+      </Collapse>
+      <ul id='cool card' className={classes.background}>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <Typography component='h1' className={classes.animatedItem}>
+          Eric Navar
+        </Typography>
+        <IconButton onClick={handleClick} className={classes.menuButton}>
+          <MenuIcon/>
+        </IconButton>
+      </ul>
+    </div>
   )
 }

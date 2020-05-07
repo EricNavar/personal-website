@@ -7,26 +7,10 @@ import OSCIcon from './../assets/images/OpenSourceClub.webp';
 import HackFSUIcon from './../assets/images/HackFSU.webp';
 import Grid from '@material-ui/core/Grid';
 
-//icons must be PNGs
 export default function InvolvementList() {
   return (
     <Section title = "Involvement">
       <Grid container spacing={4}>
-        <InvolvementItem
-          title = "Programming Team"
-          position = "Club member"
-          time_period = "August 2019 - November 2019"
-          description={["Take classes with UF Programming Team.",
-          "Practice contest problems"]}
-          icon={ACMIcon}
-        />
-        <InvolvementItem
-          title = "Society of Software developers"
-          position = "Member"
-          time_period = "September 2019 - present"
-          description={["Study software design concepts such as testing", "API design, and writing documentation"]}
-          icon={SSDIcon}
-        />
         <InvolvementItem
           title = "Open Source Club"
           position = "Member"
@@ -37,12 +21,28 @@ export default function InvolvementList() {
           icon={OSCIcon}
         />
         <InvolvementItem
+          title = "Programming Team"
+          position = "Club member"
+          time_period = "August 2019 - November 2019"
+          description={[
+            "Practice contest problems",
+            "Take classes with UF Programming Team"            
+          ]}
+          icon={ACMIcon}
+        />
+        <InvolvementItem
+          title = "Society of Software developers"
+          position = "Member"
+          time_period = "September 2019 - present"
+          description={["Explore tools and technologies in computer science such as testing and API design to promote well-written, working software."]}
+          icon={SSDIcon}
+        />
+        <InvolvementItem
           title = "Hack FSU"
           position = "Participant"
           time_period = "October 2019"
           description = {[
-            "Use a Raspberry Pi for facial recognition to assign people a score for how many times they have taken out the trash.",
-            "Participants’ scores are posted on a website made with React and Google Material UI API.",
+            "Use a Raspberry Pi for facial recognition to assign people a score for how many times they have taken out the trash. Display the participant’s scores on a website made in React.",
             "Placed 2nd overall"
           ]}
           link = "https://github.com/EricNavar/Trash-Tracker"

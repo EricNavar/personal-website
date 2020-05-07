@@ -5,6 +5,7 @@ import IconButton from '@material-ui/core/IconButton';
 import LinkIcon from '@material-ui/icons/Link';
 import Grid from '@material-ui/core/Grid';
 import Tooltip from '@material-ui/core/Tooltip';
+import ListItem from '@material-ui/core/ListItem';
 
 const useStyles = makeStyles({
   involvementItem: {
@@ -43,6 +44,19 @@ const useStyles = makeStyles({
 
 export default function InvolvementItem({title, description, link, time_period, linkDescription, position, icon}) {
   const classes = useStyles();
+
+  const getDescription = () => {
+    if (Array.isArray(description))
+      return (
+        description.map((line) =>
+          <ListItem dense>
+            <Typography variant="body1" color='textSecondary'>
+              {line}
+            </Typography>
+          </ListItem>
+        )
+      )
+  }
   return (
     <Grid item sm={12} md={6}>
       <div className={classes.involvementItem}>
@@ -66,9 +80,7 @@ export default function InvolvementItem({title, description, link, time_period, 
           <Typography component='span' variant="overline" gutterBottom color='textSecondary'>
             {time_period}
           </Typography>
-          <Typography variant="body1" gutterBottom color='textSecondary'>
-            {description}
-          </Typography>
+          {getDescription()}
         </div>
       </div>
     </Grid>

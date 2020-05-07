@@ -4,6 +4,7 @@ import JavaIcon from './../assets/images/java.png';
 import ReactIcon from './../assets/images/React.png';
 import CppIcon from './../assets/images/Cpp.png';
 import GitIcon from './../assets/images/Git.png';
+import MatlabIcon from './../assets/images/matlab.png';
 import Typography from '@material-ui/core/Typography';
 import Rating from '@material-ui/lab/Rating';
 import { makeStyles } from '@material-ui/core/styles';
@@ -58,8 +59,9 @@ export default function SkillList() {
         <tbody>
           <SkillItem skill="C++" value={4} icon={CppIcon}/>
           <SkillItem skill="Java" value={3} icon={JavaIcon}/>
-          <SkillItem skill="React" value={2} icon={ReactIcon}/>
-          <SkillItem skill="Git" value={3} icon={GitIcon}/>
+          <SkillItem skill="React" value={3} icon={ReactIcon}/>
+          <SkillItem skill="Version control" value={3} icon={GitIcon}/>
+          <SkillItem skill="MATLAB" value={3} icon={MatlabIcon}/>
         </tbody>
       </table>
     </Section>

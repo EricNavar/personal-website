@@ -28,9 +28,10 @@ const useStyles = makeStyles(theme => ({
     '&:active': {
       boxShadow: 'none'
     },
-    textContainer: {
-      maxWidth: 550,
-    }
+  },
+  textContainer: {
+    maxWidth: 550,
+    fontSize: 16
   },
   imgContainer: {
     [theme.breakpoints.up('sm')]: {
@@ -58,7 +59,7 @@ export default function PersonalStatement() {
         />
       </Grid>
       <Grid item xs={12} sm={8} className={classes.textContainer}>
-        <Typography variant='body1' style={{fontSize:16}}>
+        <Typography variant='body1'>
           I am a Computer Science student looking for experience. I can write software and work with teams I'm always eager to learn new things.
         </Typography>
         <Button

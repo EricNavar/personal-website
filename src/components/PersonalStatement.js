@@ -4,16 +4,13 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Resume from './../assets/EricNResume.pdf';
+import ProfilePic from './../assets/images/ProfilePic.jpg';
 
-const useStyles = makeStyles({
-  personalStatement: {
-    textAlign: 'center'
-  },
+const useStyles = makeStyles(theme => ({
   profile: {
     height: 200,
     width: 200,
-    borderRadius: '50%',
-    marginTop: 32
+    borderRadius: '50%'
   },
   button: {
     marginTop: 24,
@@ -30,29 +27,37 @@ const useStyles = makeStyles({
     },
     '&:active': {
       boxShadow: 'none'
+    },
+    textContainer: {
+      maxWidth: 550,
+    }
+  },
+  imgContainer: {
+    [theme.breakpoints.up('sm')]: {
+      textAlign: 'right'
     }
   }
-});
+}));
 
 export default function PersonalStatement() {
   const classes = useStyles();
   return (
     <Grid
       container
+      direction="row"
       justify="center"
       alignItems="center"
-      direction="row"
-      className={classes.personalStatement}
       spacing={4}
+      style={{marginTop:32}}
     >
-      <Grid item xs>
+      <Grid item xs={12} sm={4} className={classes.imgContainer}>
         <img
           className={classes.profile}
-          src={require("./../images/ProfilePic.jpg")}
+          src={ProfilePic}
           alt=""
         />
       </Grid>
-      <Grid item xs>
+      <Grid item xs={12} sm={8} className={classes.textContainer}>
         <Typography variant='body1' style={{fontSize:16}}>
           I am a Computer Science student looking for experience. I can write software and work with teams I'm always eager to learn new things.
         </Typography>

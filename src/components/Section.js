@@ -8,8 +8,9 @@ const useStyles = makeStyles({
     marginBottom: 20
   },
   divider: {
-    background: '#46b5d1',
-    margin: 8,
+    background: '#32407b',
+    marginTop: 8,
+    marginBottom: 8,
     height: 4,
     width: '100%'
   }
@@ -21,7 +22,7 @@ export default function Section({children, title}) {
   return (
     <div className={classes.section}>
       <div style={{width:'min-content'}}>
-        <Typography variant="h3">{title}</Typography>
+        <Typography component='h2' variant='h4'>{title}</Typography>
         <div className={classes.divider}></div>
       </div>
       {children}

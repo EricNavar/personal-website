@@ -5,6 +5,8 @@ import IconButton from '@material-ui/core/IconButton';
 import Collapse from '@material-ui/core/Collapse';
 import MenuIcon from '@material-ui/icons/Menu';
 import Footer from './Footer.js';
+import MoonIcon from '@material-ui/icons/Brightness2';
+import SunIcon from '@material-ui/icons/Brightness5';
 
 const useStyles = makeStyles(theme => ({
   background: {
@@ -93,6 +95,12 @@ const useStyles = makeStyles(theme => ({
     position: 'absolute',
     color: 'white'
   },
+  darkModeButton: {
+    top: 4,
+    right: 4,
+    position: 'absolute',
+    color: 'white'
+  },
   "@keyframes myEffect": {
     "0%": {
       opacity: 0,
@@ -105,9 +113,9 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export default function Blog() {
+export default function Header({darkMode, handleDarkModeClick}) {
   const classes = useStyles();
-  const handleClick = event => {
+  const handleMenuClick = event => {
     setOpen(!open);
   }
   const [open, setOpen] = React.useState(false);
@@ -126,8 +134,11 @@ export default function Blog() {
         <Typography component='h1' className={classes.animatedItem}>
           Eric Navar
         </Typography>
-        <IconButton onClick={handleClick} className={classes.menuButton}>
+        <IconButton onClick={handleMenuClick} className={classes.menuButton}>
           <MenuIcon/>
+        </IconButton>
+        <IconButton onClick={handleDarkModeClick} className={classes.darkModeButton}>
+          {darkMode ? <SunIcon/> : <MoonIcon/>}
         </IconButton>
       </ul>
     </div>

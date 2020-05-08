@@ -7,11 +7,19 @@ import InvolvementList from './../components/InvolvementList';
 import Education from './../components/Education';
 import Footer from './../components/Footer';
 import Experience from './../components/Experience';
+import { makeStyles } from '@material-ui/core/styles';
 
-export default function Home() {
+const useStyles = makeStyles((theme) => ({
+  background: {
+    background: theme.palette.background.default
+  }
+}));
+
+export default function Home({darkMode, handleDarkModeClick}) {
+  const classes = useStyles();
   return (
-    <React.Fragment>
-      <Header/>
+    <div className={classes.background}>
+      <Header darkMode={darkMode} handleDarkModeClick={handleDarkModeClick}/>
       <div style={{marginRight: 40, marginLeft: 40}}>
         <PersonalStatement/>
         <Grid container spacing={4} justify='center'>
@@ -26,6 +34,6 @@ export default function Home() {
         <InvolvementList/>
       </div>
       <Footer top={false}/>
-    </React.Fragment>
+    </div>
   );
 }

@@ -81,17 +81,14 @@ export default function PersonalStatement() {
             download
             className={classes.button}
             disableRipple
-            dense
           >
             <DownloadIcon/>
           </IconButton>
           <IconButton
             href="/resume"
-            fullWidth
             className={classes.button}
             disableRipple
-            dense
-            >
+          >
             <VisibilityIcon/>
           </IconButton>
         </div>

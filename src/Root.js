@@ -5,7 +5,7 @@ import {
   Route,
   useHistory,
 } from "react-router-dom";
-import { makeStyles } from "@material-ui/core";
+import { ThemeProvider, createMuiTheme, makeStyles } from '@material-ui/core/styles';
 import Home from "./screens/Home.js";
 import Error404Page from "./screens/Error404Page";
 import Resume from "./screens/Resume";
@@ -34,25 +34,41 @@ function ScrollToTop(props) {
 };
 
 export default function Root() {
+  const [darkMode,setDarkMode]=React.useState(false);
+  const theme = createMuiTheme({
+    palette: {
+      type: darkMode ? 'dark' : 'light',
+    },
+    primary: {
+      main: '#151965',
+    },
+    secondary: {
+      main: '#46b5d1',
+    }
+  });
   const classes = useStyles();
-
+  const handleDarkModeClick = () => {
+    setDarkMode(!darkMode);
+  }
   return (
     <Router id="router">
-      <div className={classes.root}>
-        <ScrollToTop>
-          <Switch>
-            <Route exact path="/">
-              <Home/>
-            </Route>
-            <Route exact path="/resume">
-              <Resume/>
-            </Route>
-            <Route>
-              <Error404Page/>
-            </Route>
-          </Switch>
-        </ScrollToTop>
-      </div>
+      <ThemeProvider theme={theme}>
+        <div className={classes.root}>
+          <ScrollToTop>
+            <Switch>
+              <Route exact path="/">
+                <Home darkMode={darkMode} handleDarkModeClick={handleDarkModeClick}/>
+              </Route>
+              <Route exact path="/resume">
+                <Resume/>
+              </Route>
+              <Route>
+                <Error404Page/>
+              </Route>
+            </Switch>
+          </ScrollToTop>
+        </div>
+      </ThemeProvider>
     </Router>
   );
 }

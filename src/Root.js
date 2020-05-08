@@ -9,6 +9,7 @@ import { ThemeProvider, createMuiTheme, makeStyles } from '@material-ui/core/sty
 import Home from "./screens/Home.js";
 import Error404Page from "./screens/Error404Page";
 import Resume from "./screens/Resume";
+import GatoNochesFeedback from "./screens/GatoNochesFeedback";
 
 //https://reacttraining.com/react-router/web/guides/quick-start
 
@@ -74,6 +75,9 @@ export default function Root() {
               </Route>
               <Route exact path="/resume">
                 <Resume/>
+              </Route>
+              <Route exact path="/gatonoches/feedback">
+                <GatoNochesFeedback/>
               </Route>
               <Route>
                 <Error404Page/>

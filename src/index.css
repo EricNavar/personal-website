@@ -11,3 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+::selection {
+  background: rgba(70, 181, 209, .8);
+}
+
+html {
+  scrollbar-width: none;
+}

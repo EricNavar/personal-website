@@ -1,11 +1,12 @@
 import React from 'react';
+import Grid from '@material-ui/core/Grid';
 import SkillList from './../components/SkillList';
 import Header from './../components/Header';
 import PersonalStatement from './../components/PersonalStatement';
 import InvolvementList from './../components/InvolvementList';
 import Education from './../components/Education';
 import Footer from './../components/Footer';
-import Grid from '@material-ui/core/Grid';
+import Experience from './../components/Experience';
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
             <Education/>
           </Grid>
         </Grid>
+        <Experience/>
         <InvolvementList/>
       </div>
       <Footer top={false}/>

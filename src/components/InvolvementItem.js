@@ -49,7 +49,7 @@ export default function InvolvementItem({title, description, link, time_period, 
     if (Array.isArray(description))
       return (
         description.map((line) =>
-          <ListItem dense>
+          <ListItem key={line} dense>
             <Typography variant="body1" color='textSecondary'>
               {line}
             </Typography>
@@ -65,7 +65,9 @@ export default function InvolvementItem({title, description, link, time_period, 
             <Typography className={classes.title} href={link} variant="h5">
               <b>{title}</b>
             </Typography>
-            <img className={classes.img} alt='' src={icon}></img>
+            {icon &&
+              <img className={classes.img} alt='' src={icon}></img>
+            }
             {link &&
               <Tooltip title={linkDescription} aria-label={linkDescription}>
                 <IconButton href={link}>

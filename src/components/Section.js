@@ -18,7 +18,6 @@ const useStyles = makeStyles({
 
 export default function Section({children, title}) {
   const classes = useStyles();
-  console.log(children)
   return (
     <div className={classes.section}>
       <div style={{width:'min-content'}}>

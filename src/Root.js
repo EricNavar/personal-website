@@ -32,7 +32,7 @@ function ScrollToTop(props) {
   return <React.Fragment>{props.children}</React.Fragment>;
 };
 
-export default function App() {
+export default function Root() {
   const classes = useStyles();
 
   return (

@@ -1,10 +1,12 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
-import Resume from './../assets/EricNResume.pdf';
+import Resume from './../assets/Eric Navar Resume.pdf';
 import ProfilePic from './../assets/images/ProfilePic.jpg';
+import DownloadIcon from './../assets/svg/DownloadRounded.js';
+import VisibilityIcon from '@material-ui/icons/Visibility';
 
 const useStyles = makeStyles(theme => ({
   profile: {
@@ -13,21 +15,15 @@ const useStyles = makeStyles(theme => ({
     borderRadius: '50%'
   },
   button: {
-    marginTop: 24,
-    marginBottom: 32,
-    background: 'linear-gradient(90deg, #515585 0%, #151965 100%)',
-    border: 0,
-    boxShadow: '0 3px 5px 2px rgba(50, 64, 123, .3)',
     color: 'white',
-    height: 48,
-    padding: '0 30px',
-    width: 200,
     '&:hover': {
-      opacity: .8
+      '& svg': {
+        color: "#00a8cc"
+      }
     },
-    '&:active': {
-      boxShadow: 'none'
-    },
+    '& *': {
+      transition: ".5s ease-in-out"
+    }
   },
   textContainer: {
     maxWidth: 550,
@@ -38,6 +34,18 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('sm')]: {
       textAlign: 'right'
     }
+  },
+  resume: {
+    width: 'max-content',
+    marginTop: 24,
+    marginBottom: 32,
+    background: 'linear-gradient(90deg, #515585 0%, #151965 100%)',
+    border: 0,
+    color: 'white',
+    height: 48,
+    paddingLeft:16,
+    paddingRight:4,
+    borderRadius: 4
   }
 }));
 
@@ -63,17 +71,30 @@ export default function PersonalStatement() {
         <Typography variant='body1'>
           I am a Computer Science student looking for experience. I can write software and work with teams I'm always eager to learn new things.
         </Typography>
-        <Button
-          href={Resume}
-          target="_blank"
-          download
-          fullWidth
-          variant="outlined"
-          className={classes.button}
-          disableRipple
-        >
-          Resume
-        </Button>
+        <div className={classes.resume}>
+          <Typography variant='button'>
+            Resume:
+          </Typography>
+          <IconButton
+            href={Resume}
+            target="_blank"
+            download
+            className={classes.button}
+            disableRipple
+            dense
+          >
+            <DownloadIcon/>
+          </IconButton>
+          <IconButton
+            href="/resume"
+            fullWidth
+            className={classes.button}
+            disableRipple
+            dense
+            >
+            <VisibilityIcon/>
+          </IconButton>
+        </div>
       </Grid>
     </Grid>
   );

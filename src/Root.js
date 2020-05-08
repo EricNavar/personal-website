@@ -8,6 +8,7 @@ import {
 import { makeStyles } from "@material-ui/core";
 import Home from "./screens/Home.js";
 import Error404Page from "./screens/Error404Page";
+import Resume from "./screens/Resume";
 
 //https://reacttraining.com/react-router/web/guides/quick-start
 
@@ -42,6 +43,9 @@ export default function Root() {
           <Switch>
             <Route exact path="/">
               <Home/>
+            </Route>
+            <Route exact path="/resume">
+              <Resume/>
             </Route>
             <Route>
               <Error404Page/>

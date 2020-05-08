@@ -1,6 +1,6 @@
 import React from 'react';
-import { makeStyles, Grid, IconButton, Popover, Typography } from '@material-ui/core'
-import GitlabIcon from './../assets/svg//Gitlab';
+import { makeStyles, Grid, IconButton, Popover, Typography } from '@material-ui/core';
+import GitlabIcon from './../assets/svg/Gitlab';
 import EmailIcon from '@material-ui/icons/Email';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';

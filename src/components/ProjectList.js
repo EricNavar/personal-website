@@ -1,6 +1,6 @@
 import React from 'react';
-import Project from './Project';
-import Section from './Section';
+import Project from './Project.js';
+import Section from './Section.js';
 
 export default function ProjectList() {
   return (

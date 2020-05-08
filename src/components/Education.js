@@ -2,7 +2,7 @@ import React from 'react';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Typography from '@material-ui/core/Typography';
-import Section from './Section';
+import Section from './Section.js';
 
 import { makeStyles } from '@material-ui/core/styles';
 

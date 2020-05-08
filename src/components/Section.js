@@ -21,7 +21,7 @@ export default function Section({children, title}) {
   return (
     <div className={classes.section}>
       <div style={{width:'min-content'}}>
-        <Typography component='h2' variant='h4'>{title}</Typography>
+        <Typography component='h2' variant='h4' color='textPrimary'>{title}</Typography>
         <div className={classes.divider}></div>
       </div>
       {children}

@@ -11,7 +11,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import LensIcon from '@material-ui/icons/Lens';
 
 //icons must be PNGs
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   table: {
     '& td': {
       paddingRight: 4,
@@ -23,8 +23,11 @@ const useStyles = makeStyles({
   img: {
     width:32,
     borderRadius: 8
+  },
+  rating: {
+    color: theme.palette.secondary.main
   }
-});
+}));
 
 function SkillItem({skill, icon, value}) {
   const classes = useStyles();
@@ -34,7 +37,7 @@ function SkillItem({skill, icon, value}) {
         <img alt="" className={classes.img} src={icon}/>
       </td>
       <td>
-        <Typography>
+        <Typography variant='body1' color='textPrimary'>
           {skill}
         </Typography>
       </td>
@@ -44,7 +47,7 @@ function SkillItem({skill, icon, value}) {
           value={value}
           readOnly
           icon={<LensIcon/>}
-          style={{color:'#46b5d1'}}
+          className={classes.rating}
         />
       </td>
     </tr>

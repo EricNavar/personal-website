@@ -35,16 +35,29 @@ function ScrollToTop(props) {
 
 export default function Root() {
   const [darkMode,setDarkMode]=React.useState(false);
-  const theme = createMuiTheme({
+  const lightTheme = createMuiTheme({
     palette: {
-      type: darkMode ? 'dark' : 'light',
+      type: 'light',
+      primary: {
+        main: '#151965',
+      },
+      secondary: {
+        main: '#46b5d1',
+      },
+      itemContainer: 'linear-gradient(90deg, rgba(241,245,248,1) 0%, rgba(228,232,235,1) 85%, rgba(215,218,225,1) 100%)'
     },
-    primary: {
-      main: '#151965',
+  });
+  const darkTheme = createMuiTheme({
+    palette: {
+      type: 'dark',
+      primary: {
+        main: '#151965',
+      },
+      secondary: {
+        main: '#46b5d1',
+      },
+      itemContainer: 'rgba(0, 0, 0, 0) linear-gradient(to right, rgb(72, 85, 99), rgb(41, 50, 60)) repeat scroll 0% 0%'
     },
-    secondary: {
-      main: '#46b5d1',
-    }
   });
   const classes = useStyles();
   const handleDarkModeClick = () => {
@@ -52,7 +65,7 @@ export default function Root() {
   }
   return (
     <Router id="router">
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
         <div className={classes.root}>
           <ScrollToTop>
             <Switch>

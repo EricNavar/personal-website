@@ -68,7 +68,7 @@ export default function PersonalStatement() {
         />
       </Grid>
       <Grid item xs={12} sm={8} className={classes.textContainer}>
-        <Typography variant='body1'>
+        <Typography variant='body1' color='textPrimary'>
           I am a Computer Science student looking for experience. I can write software and work with teams I'm always eager to learn new things.
         </Typography>
         <div className={classes.resume}>

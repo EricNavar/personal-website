@@ -27,8 +27,10 @@ export default function Education() {
   function CourseworkListItems() {
     return (
       coursework.map(course => 
-        <ListItem key={course} divider dense>
-          {course}
+        <ListItem key={course} divider dense color='textPrimary'>
+          <Typography variant='body1' color='textPrimary'>
+            {course}
+          </Typography>
         </ListItem>
       )
     )
@@ -36,16 +38,16 @@ export default function Education() {
 
   return (
     <Section title="Education">
-      <Typography variant="h5" component='span'>
+      <Typography component='span' variant='h5' color='textPrimary'>
         University of Florida
       </Typography>
       <Typography component='span' variant='overline' color='textSecondary' style={{marginLeft: 16, fontSize:14}}>
         May 2022
       </Typography>
-      <Typography className={classes.gpa} variant='body1'>
+      <Typography className={classes.gpa} variant='body1' color='textPrimary'>
         <b>GPA:</b> 3.93
       </Typography>
-      <Typography component='p' variant="h6">
+      <Typography component='p' variant='h6' color='textPrimary'>
         Relevant Coursework
       </Typography>
       <List style={{width:'max-content'}}>

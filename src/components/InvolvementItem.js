@@ -7,11 +7,11 @@ import Grid from '@material-ui/core/Grid';
 import Tooltip from '@material-ui/core/Tooltip';
 import ListItem from '@material-ui/core/ListItem';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   involvementItem: {
     overflow: 'hidden',
     borderRadius: 4,
-    background: 'linear-gradient(90deg, rgba(241,245,248,1) 0%, rgba(228,232,235,1) 85%, rgba(215,218,225,1) 100%)',
+    background: theme.palette.itemContainer,
     height:'100%',
     '&:hover': {
       '& svg': {
@@ -40,7 +40,7 @@ const useStyles = makeStyles({
     borderRadius: 8,
     width: 50
   }
-});
+}));
 
 export default function InvolvementItem({title, description, link, time_period, linkDescription, position, icon}) {
   const classes = useStyles();
@@ -76,7 +76,7 @@ export default function InvolvementItem({title, description, link, time_period, 
               </Tooltip>
             }
           </div>
-          <Typography component='span' variant="overline" gutterBottom>
+          <Typography component='span' variant="overline" gutterBottom color='textPrimary'>
             {position}&emsp;
           </Typography>
           <Typography component='span' variant="overline" gutterBottom color='textSecondary'>

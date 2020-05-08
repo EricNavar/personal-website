@@ -114,6 +114,8 @@ const useStyles = makeStyles(theme => ({
 }))
 
 export default function Header({darkMode, handleDarkModeClick}) {
+  React.useEffect(() => {
+  }, [])
   const classes = useStyles();
   const handleMenuClick = event => {
     setOpen(!open);

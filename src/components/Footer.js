@@ -1,10 +1,11 @@
 import React from 'react';
-import { makeStyles, Grid, IconButton, Popover, Typography } from '@material-ui/core';
+import { makeStyles, Grid, IconButton, Typography } from '@material-ui/core';
 import GitlabIcon from './../assets/svg/Gitlab';
 import EmailIcon from '@material-ui/icons/Email';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import PhoneIcon from '@material-ui/icons/Phone';
+import FileCopyIcon from '@material-ui/icons/FileCopy';
 
 const useStyles = makeStyles(theme => ({
   footer: {
@@ -16,6 +17,9 @@ const useStyles = makeStyles(theme => ({
       '&:hover': {
         opacity: .8
       }
+    },
+    '& *': {
+      transition: ".5s ease-in-out"
     }
   },
   popover: {
@@ -24,35 +28,31 @@ const useStyles = makeStyles(theme => ({
   paper: {
     padding: theme.spacing(1)
   },
-  phoneContainer: {
-    display:'inline-flex',
-    verticalAlign:'middle',
-    padding:12
+  open: {
+    color:'white',
+    width: '100%',
+    paddingRight:12,
+    borderRadius:24,
+    background: '#364561',
+  },
+  closed: {
+    width: 48,
   }
 }));
 
 //top is true if the footer is being rendered at the top of the screen
-export default function Footer({top}) {
+export default function Footer() {
   const classes = useStyles();
-  const [phoneAnchorEl, setPhoneAnchorEl] = React.useState(null);
-  const [emailAnchorEl, setEmailAnchorEl] = React.useState(null);
-
-  const handlePhonePopoverOpen = (event) => {
-    setPhoneAnchorEl(event.currentTarget);
-  };
-  const handlePhonePopoverClose = () => {
-    setPhoneAnchorEl(null);
+  const [emailOpen, setEmailOpen] = React.useState(false);
+  const toggleEmailOpen = (event) => {
+    setEmailOpen(!emailOpen);
   };
 
-  const handleEmailPopoverOpen = (event) => {
-    setEmailAnchorEl(event.currentTarget);
-  };
-  const handleEmailPopoverClose = () => {
-    setEmailAnchorEl(null);
+  const [phoneOpen, setPhoneOpen] = React.useState(false);
+  const togglePhoneOpen = (event) => {
+    setPhoneOpen(!phoneOpen);
   };
 
-  const phoneOpen = Boolean(phoneAnchorEl);
-  const emailOpen = Boolean(emailAnchorEl);
   return (
     <Grid
       container
@@ -60,7 +60,7 @@ export default function Footer({top}) {
       alignItems="center"
       className={classes.footer}
     >
-      <Grid item>
+      <Grid item style={{display:'flex', alignItems:'center'}}>
         <IconButton href="https://github.com/EricNavar">
           <GitHubIcon />
         </IconButton>
@@ -70,68 +70,53 @@ export default function Footer({top}) {
         <IconButton href="https://www.linkedin.com/in/ericnavar/">
           <LinkedInIcon />
         </IconButton>
-        <IconButton
-          aria-owns={emailOpen ? 'email-popover' : undefined}
-          aria-haspopup="true"
-          onMouseEnter={handleEmailPopoverOpen}
-          onMouseLeave={handleEmailPopoverClose}
-          href="mailto:ericnavar@ufl.edu"
+
+        <Grid
+          container
+          wrap="nowrap"
+          onMouseEnter={toggleEmailOpen}
+          onMouseLeave={toggleEmailOpen}
+          className={emailOpen ? classes.open : classes.closed}
+          alignItems='center'
         >
-          <EmailIcon />
-        </IconButton>
-        <IconButton
-          aria-owns={phoneOpen ? 'phone-popover' : undefined}
-          aria-haspopup="true"
-          onMouseEnter={handlePhonePopoverOpen}
-          onMouseLeave={handlePhonePopoverClose}
-          href='tel:8135060973'
+          <Grid item>
+            <IconButton href="mailto:ericnavar@ufl.edu">
+              <EmailIcon/>
+            </IconButton>
+          </Grid>
+          <Grid item style={{overflow:'hidden'}}>
+            <IconButton>
+              <FileCopyIcon/>
+            </IconButton>
+          </Grid>
+          <Grid item xs zeroMinWidth>
+            <Typography noWrap>ericnavar@ufl.edu</Typography>
+          </Grid>
+        </Grid>
+
+        <Grid
+          container
+          wrap="nowrap"
+          onMouseEnter={togglePhoneOpen}
+          onMouseLeave={togglePhoneOpen}
+          className={emailOpen ? classes.open : classes.closed}
+          alignItems='center'
         >
-          <PhoneIcon />
-        </IconButton>
-        <Popover
-          id="email-popover"
-          className={classes.popover}
-          classes={{
-            paper: classes.paper,
-          }}
-          open={emailOpen}
-          anchorEl={emailAnchorEl}
-          anchorOrigin={{
-            vertical: (top ? 'bottom' : 'top'),
-            horizontal: 'center',
-          }}
-          transformOrigin={{
-            vertical: (top ? 'top' : 'bottom'),
-            horizontal: 'center',
-          }}
-          onClose={handleEmailPopoverClose}
-          disableRestoreFocus
-        >
-          <Typography>
-            ericnavar@ufl.edu
-          </Typography>
-        </Popover>
-        <Popover
-          id="phone-popover"
-          className={classes.popover}
-          classes={{
-            paper: classes.paper,
-          }}
-          open={phoneOpen}
-          anchorEl={phoneAnchorEl}
-          anchorOrigin={{
-            vertical: (top ? 'bottom' : 'top'),
-            horizontal: 'center',
-          }}
-          transformOrigin={{
-            vertical: (top ? 'top' : 'bottom'),
-            horizontal: 'center',
-          }}
-          onClose={handlePhonePopoverClose}
-          disableRestoreFocus
-        >
-          <Typography>(813) 506 0973</Typography>
-        </Popover>
+          <Grid item>
+            <IconButton href='tel:8135060973'>
+              <PhoneIcon/>
+            </IconButton>
+          </Grid>
+          <Grid item style={{overflow:'hidden'}}>
+            <IconButton>
+              <FileCopyIcon/>
+            </IconButton>
+          </Grid>
+          <Grid item xs zeroMinWidth>
+            <Typography noWrap>(813) 506 0973</Typography>
+          </Grid>
+        </Grid>
+
       </Grid>
     </Grid>
   );

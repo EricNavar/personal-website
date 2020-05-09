@@ -31,7 +31,7 @@ export default function InvolvementList() {
           icon={ACMIcon}
         />
         <InvolvementItem
-          title = "Society of Software developers"
+          title = "Society of Software Developers"
           position = "Member"
           time_period = "September 2019 - present"
           description={["Explore tools and technologies in computer science such as testing and API design to promote well-written, working software."]}

@@ -15,7 +15,7 @@ export default function InvolvementList() {
             "Work with a client in an agile environment to create a website that handles user content and admin controls.",
             "Develop front end using React and Material UI."
           ]}
-          link="dcfitness.herokuapp.com/"
+          link="https://dcfitness.herokuapp.com/"
           linkDescription="Link to website"
         />
       </Grid>

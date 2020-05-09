@@ -59,7 +59,6 @@ export default function Footer({top}) {
       direction="row"
       alignItems="center"
       className={classes.footer}
-      component='footer'
     >
       <Grid item>
         <IconButton href="https://github.com/EricNavar">
@@ -80,15 +79,15 @@ export default function Footer({top}) {
         >
           <EmailIcon />
         </IconButton>
-        <div
+        <IconButton
           aria-owns={phoneOpen ? 'phone-popover' : undefined}
           aria-haspopup="true"
           onMouseEnter={handlePhonePopoverOpen}
           onMouseLeave={handlePhonePopoverClose}
-          className={classes.phoneContainer}
+          href='tel:8135060973'
         >
           <PhoneIcon />
-        </div>
+        </IconButton>
         <Popover
           id="email-popover"
           className={classes.popover}

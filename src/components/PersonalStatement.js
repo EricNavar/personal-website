@@ -4,7 +4,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Resume from './../assets/Eric Navar Resume.pdf';
-import ProfilePic from './../assets/images/ProfilePic.jpg';
+import ProfilePic from './../assets/images/ProfilePic.png';
 import DownloadIcon from './../assets/svg/DownloadRounded.js';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 

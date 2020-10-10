@@ -43,7 +43,7 @@ export default function ContactInfo() {
       <Grid item>
         <img
           className={classes.profile}
-          src={require ("./../assets/images/ProfilePic.jpg")}
+          src={require ("./../assets/images/ProfilePic.png")}
           alt=""
         />
       </Grid>

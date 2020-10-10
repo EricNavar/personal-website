@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Resume() {
+export default function EmbeddedResume() {
     return (
         <div style={{width:'100%', height:'100vh'}}>
             <iframe

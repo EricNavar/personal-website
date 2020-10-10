@@ -6,10 +6,11 @@ import {
   useHistory,
 } from "react-router-dom";
 import { ThemeProvider, createMuiTheme, makeStyles } from '@material-ui/core/styles';
-import Home from "./screens/Home.js";
-import Error404Page from "./screens/Error404Page";
-import Resume from "./screens/Resume";
+import Portfolio from "./screens/Portfolio.js";
+import EmbeddedResume from "./screens/EmbeddedResume";
 import GatoNochesFeedback from "./screens/GatoNochesFeedback";
+import GatoNoches from "./screens/GatoNoches";
+import Home from "./screens/Home";
 
 //https://reacttraining.com/react-router/web/guides/quick-start
 
@@ -70,17 +71,20 @@ export default function Root() {
         <div className={classes.root}>
           <ScrollToTop>
             <Switch>
-              <Route exact path="/">
-                <Home darkMode={darkMode} handleDarkModeClick={handleDarkModeClick}/>
+              <Route exact path="/portfolio">
+                <Portfolio darkMode={darkMode} handleDarkModeClick={handleDarkModeClick}/>
               </Route>
               <Route exact path="/resume">
-                <Resume/>
+                <EmbeddedResume/>
+              </Route>
+              <Route exact path="/gatonoches">
+                <GatoNoches/>
               </Route>
               <Route exact path="/gatonoches/feedback">
                 <GatoNochesFeedback/>
               </Route>
               <Route>
-                <Error404Page/>
+                <Home/>
               </Route>
             </Switch>
           </ScrollToTop>

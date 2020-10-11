@@ -8,10 +8,11 @@ import GatoNochesLogo from './../assets/svg/GatoNochesLogo';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import ProfilePic from './../assets/images/ProfilePic.png';
+import {useHistory} from "react-router-dom";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   grid: {
-    minHeight: "100hv",
+    minHeight: "100vh",
     width: "100%"
   },
   bigButton: {
@@ -63,17 +64,21 @@ const useStyles = makeStyles((theme) => ({
   divider: {
     width:"80%"
   }
-}));
+});
 
 export default function Home() {
   const classes = useStyles();
+  const history = useHistory();
+  const redirect = path => {
+    history.push(path);
+  }
   return (
     <div className={classes.home}>
       <Typography
         component='h1'
         variant='h3'
         align='center'
-        style={{marginBottom: 24}}
+        style={{marginBottom: 14}}
       >
         Welcome to my cool personal website!
       </Typography>
@@ -88,12 +93,12 @@ export default function Home() {
         <Grid item xs={12} sm={6}>
           <Paper className={classes.paper} elevation={3}>
             <Button
-              href="/portfolio"
+              onClick={e=>redirect("/portfolio")}
               className={`${classes.bigButton} ${classes.portfolioButton}`}
               disableElevation
             >
               <div>
-                <img className={classes.profilePic} src={ProfilePic}/>
+                <img alt="profile pic" className={classes.profilePic} src={ProfilePic}/>
                 <Typography
                   component='h2'
                   variant='h3'
@@ -109,7 +114,7 @@ export default function Home() {
         <Grid item xs={12} sm={6}>
           <Paper className={classes.paper} elevation={3}>
             <Button
-              href="/gatonoches"
+              onClick={e=>redirect("/gatonoches")}
               className={`${classes.bigButton} ${classes.gatoNochesButton}`}
               disableElevation
             >
@@ -128,7 +133,6 @@ export default function Home() {
           <Paper>
             <Button
               href="https://www.linkedin.com/in/ericnavar"
-              className={classes.button}
               startIcon={<GitHubIcon/>}
               size="large"
               variant="contained"

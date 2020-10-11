@@ -4,6 +4,7 @@ import {
   Switch,
   Route,
   useHistory,
+  Redirect
 } from "react-router-dom";
 import { ThemeProvider, createMuiTheme, makeStyles } from '@material-ui/core/styles';
 import Portfolio from "./screens/Portfolio.js";
@@ -71,6 +72,9 @@ export default function Root() {
         <div className={classes.root}>
           <ScrollToTop>
             <Switch>
+              <Route exact path='/'>
+                <Home/>
+              </Route>
               <Route exact path="/portfolio">
                 <Portfolio darkMode={darkMode} handleDarkModeClick={handleDarkModeClick}/>
               </Route>
@@ -84,7 +88,7 @@ export default function Root() {
                 <GatoNochesFeedback/>
               </Route>
               <Route>
-                <Home/>
+                <Redirect to="/"/>
               </Route>
             </Switch>
           </ScrollToTop>

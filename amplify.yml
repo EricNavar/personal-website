@@ -1,14 +1,16 @@
 version: 0.1
-backend:
-  phases:
-    build:
-      commands:
-        # Install dependencies needed for running tests
-        - amplifyPush --simple
 frontend:
   phases:
+    preBuild:
+      commands:
+        - npm ci
     build:
       commands:
-        - npm install
-        - npm run-script build
-        
+        - npm run build
+  artifacts:
+    baseDirectory: build
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*

@@ -8,15 +8,14 @@ export default function InvolvementList() {
     <Section title = "Experience">
       <Grid container spacing={4}>
         <InvolvementItem
-          title = "DC Fitness"
+          title = "DC Rock Fitness"
           position = "Front End Developer"
-          time_period = "February 2020 - Present"
+          time_period = "February - September 2020"
           description = {[
             "Work with a client in an agile environment to create a website that handles user content and admin controls.",
             "Develop front end using React and Material UI."
           ]}
           link="https://dcfitness.herokuapp.com/"
-          linkDescription="Link to website"
         />
       </Grid>
     </Section>

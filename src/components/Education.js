@@ -17,17 +17,18 @@ const useStyles = makeStyles({
 export default function Education() {
   const classes = useStyles();
   const coursework = [
-    "Programming 1 & 2",
     "Discrete Structures",
-    "Data Structures",
-    "Computer Organization",
-    "Software Engineering",
-    "Intro to Databases"
+    "Intro to Computer Organization",
+    "Data Structures and Algorithms",
+    "Information and Database Systems",
+    "Intro to Software Engineering",
+    "Programming Language Concepts",
+    "Professional Communication for Engineers"
   ];
   function CourseworkListItems() {
     return (
       coursework.map(course => 
-        <ListItem key={course} divider dense color='textPrimary'>
+        <ListItem key={course} divider dense color='textPrimary' style={{paddingTop: 0}}>
           <Typography variant='body1' color='textPrimary'>
             {course}
           </Typography>
@@ -48,7 +49,7 @@ export default function Education() {
         <b>GPA:</b> 3.93
       </Typography>
       <Typography component='p' variant='h6' color='textPrimary'>
-        Relevant Coursework
+        Relevant Coursework:
       </Typography>
       <List style={{width:'max-content'}}>
         <CourseworkListItems/>

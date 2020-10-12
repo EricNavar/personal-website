@@ -47,7 +47,7 @@ export default function Root() {
       secondary: {
         main: '#46b5d1',
       },
-      itemContainer: 'linear-gradient(90deg, rgba(241,245,248,1) 0%, rgba(228,232,235,1) 85%, rgba(215,218,225,1) 100%)'
+      itemContainer: 'rgba(215,218,225,1)'
     },
   });
   const darkTheme = createMuiTheme({

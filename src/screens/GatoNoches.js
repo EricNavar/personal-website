@@ -7,14 +7,18 @@ import {Link as RouteLink} from "react-router-dom";
 
 const useStyles = makeStyles({
   gatoNoches: {
-    minHeight: "100vh",
-    width: "100%",
-    padding: 32,
+    minHeight: "calc(100vh - 64px)",
+    width: "calc(100% - 32px)",
+    paddingTop: 32,
+    paddingBottom: 32,
+    paddingRight: 16,
+    paddingLeft: 16,
     backgroundColor: "#F9E9EA",
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'flex-start',
-    alignItems: 'center'
+    alignItems: 'center',
+    textAlign: "center"
   }
 });
 

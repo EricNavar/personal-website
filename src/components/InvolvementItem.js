@@ -29,7 +29,6 @@ const useStyles = makeStyles(theme => ({
     color: '#151965',
     textAlign: 'left',
     fontSize: 30,
-    width: 'max-content',
     marginRight: 16
   },
   topRow: {

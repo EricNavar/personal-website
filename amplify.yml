@@ -1,0 +1,14 @@
+version: 0.1
+backend:
+  phases:
+    build:
+      commands:
+        # Install dependencies needed for running tests
+        - amplifyPush --simple
+frontend:
+  phases:
+    build:
+      commands:
+        - npm install
+        - npm run-script build
+        

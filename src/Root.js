@@ -11,6 +11,7 @@ import Portfolio from "./screens/Portfolio.js";
 import EmbeddedResume from "./screens/EmbeddedResume";
 import GatoNochesFeedback from "./screens/GatoNochesFeedback";
 import GatoNoches from "./screens/GatoNoches";
+import InspirePage from "./screens/InspirePage";
 import Home from "./screens/Home";
 
 //https://reacttraining.com/react-router/web/guides/quick-start
@@ -86,6 +87,9 @@ export default function Root() {
               </Route>
               <Route exact path="/gatonoches/feedback">
                 <GatoNochesFeedback/>
+              </Route>
+              <Route exact path="/inspire">
+                <InspirePage/>
               </Route>
               <Route>
                 <Redirect to="/"/>

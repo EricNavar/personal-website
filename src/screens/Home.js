@@ -8,6 +8,7 @@ import GatoNochesLogo from './../assets/svg/GatoNochesLogo';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import ProfilePic from './../assets/images/ProfilePic.png';
+import SunIcon from '@material-ui/icons/WbSunny';
 import {useHistory} from "react-router-dom";
 
 const useStyles = makeStyles({
@@ -147,15 +148,29 @@ export default function Home() {
         <Grid item>
           <Paper>
             <Button
-              component={Paper}
               href="https://www.github.com/ericnavar"
               className={classes.smallButton}
               startIcon={<LinkedInIcon fontSize="large"/>}
               size="large"
               variant="contained"
-              >
+            >
               <Typography>
                 LinkedIn
+              </Typography>
+            </Button>
+          </Paper>
+        </Grid>
+        <Grid item>
+          <Paper>
+            <Button
+              href="/inspire"
+              className={classes.smallButton}
+              startIcon={<SunIcon fontSize="large"/>}
+              size="large"
+              variant="contained"
+            >
+              <Typography>
+                Inspiration Generator
               </Typography>
             </Button>
           </Paper>

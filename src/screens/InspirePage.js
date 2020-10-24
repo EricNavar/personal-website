@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     "-webkit-background-clip": "text",
     "-webkit-filter": "invert() sepia()",
     color: "black",
-    fontSize: "4em",
+    fontSize: "3em",
     lineHeight: "1.5em",
     maxWidth: '80vw',
     fontWeight:800,

@@ -70,6 +70,7 @@ export default function Portfolio() {
         variant='contained'
         component={Link}
         to='/'
+        style={{margin:12}}
       >
         Retun to home
       </Button>
@@ -77,6 +78,7 @@ export default function Portfolio() {
         variant='contained'
         component={Link}
         to='/inspire'
+        style={{margin:12}}
       >
         reload
       </Button>

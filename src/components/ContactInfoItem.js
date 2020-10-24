@@ -1,7 +1,7 @@
 import React from 'react';
 import Chip from '@material-ui/core/Chip';
 
-export default function ContactInfo({icon, label, href}) {
+export default function ContactInfoItem({icon, label, href}) {
   return (
     <Chip
       icon={icon}

@@ -2,7 +2,6 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import loremPicsum from "lorem-picsum";
-import RhovasLogo from "./../assets/images/rhovas.png";
 import Quote from 'inspirational-quotes';
 import {Link} from "react-router-dom";
 import Button from "@material-ui/core/Button";
@@ -60,7 +59,6 @@ export default function Portfolio() {
           </Typography>
         </div>
         <div className={classes.rhovas}>
-          <img alt="" src={RhovasLogo} style={{width:32}}/>
           <Typography variant='overline' className={classes.rhovasText}>
             Powered by Rhovas
           </Typography>

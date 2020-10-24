@@ -9,7 +9,8 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import ProfilePic from './../assets/images/ProfilePic.png';
 import SunIcon from '@material-ui/icons/WbSunny';
-import {useHistory} from "react-router-dom";
+import {useHistory,Link} from "react-router-dom";
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles({
   grid: {
@@ -67,12 +68,32 @@ const useStyles = makeStyles({
   }
 });
 
+function HomePageButton({icon, label, link}) {
+  return (
+    <Button
+      startIcon={icon}
+      component={Link}
+      to={link}
+      clickable
+      variant="outlined"
+    >
+      {label}
+    </Button>
+  );
+};
+HomePageButton.propTypes = {
+  link: PropTypes.string.isRequired,
+  icon: PropTypes.object,
+  children: PropTypes.element.isRequired
+};
+
 export default function Home() {
   const classes = useStyles();
   const history = useHistory();
   const redirect = path => {
     history.push(path);
-  }
+  };
+
   return (
     <div className={classes.home}>
       <Typography
@@ -130,51 +151,10 @@ export default function Home() {
             </Button>
           </Paper>
         </Grid>
-        <Grid item>
-          <Paper>
-            <Button
-              href="https://www.linkedin.com/in/ericnavar"
-              startIcon={<GitHubIcon/>}
-              size="large"
-              variant="contained"
-              className={classes.smallButton}
-              >
-              <Typography>
-                Github
-              </Typography>
-            </Button>
-          </Paper>
-        </Grid>
-        <Grid item>
-          <Paper>
-            <Button
-              href="https://www.github.com/ericnavar"
-              className={classes.smallButton}
-              startIcon={<LinkedInIcon fontSize="large"/>}
-              size="large"
-              variant="contained"
-            >
-              <Typography>
-                LinkedIn
-              </Typography>
-            </Button>
-          </Paper>
-        </Grid>
-        <Grid item>
-          <Paper>
-            <Button
-              href="/inspire"
-              className={classes.smallButton}
-              startIcon={<SunIcon fontSize="large"/>}
-              size="large"
-              variant="contained"
-            >
-              <Typography>
-                Inspiration Generator
-              </Typography>
-            </Button>
-          </Paper>
-        </Grid>
+        <HomePageButton label="LinkedIn" link="https://www.linkedin.com/in/ericnavar/" icon={<LinkedInIcon style={{ color:'black' }}/>}/>
+        <HomePageButton label="Github" link="https://www.github.com/ericnavar" icon={<GitHubIcon style={{ color:'black' }}/>}/>
+        <HomePageButton label="Inspiration Generator" link="/inspire" icon={<SunIcon style={{ color:'black' }}/>}/>
+
       </Grid>
     </div>
   );

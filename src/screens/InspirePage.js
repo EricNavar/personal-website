@@ -31,16 +31,29 @@ const useStyles = makeStyles((theme) => ({
     "-webkit-background-clip": "text",
     "-webkit-filter": "invert() sepia()",
     color: "black",
-    fontSize: "3em",
-    lineHeight: "1.5em",
     maxWidth: '80vw',
     fontWeight:800,
     textShadow: "4px 4px 0px rgba(255, 255, 255, 1)",
     display: 'inline-block'
+  },
+  [theme.breakpoints.up('md')]: {
+    fontSize: "3em",
+    lineHeight: "1.5em"
+  },
+  [theme.breakpoints.down('xs')]: {
+    fontSize: "2em",
+    lineHeight: "1.2em"
   }
 }));
 
-export default function Portfolio() {
+export default function InspirePage() {
+  React.useEffect(() => {
+    document.title = 'Inspiration 😌';
+    window.scrollTo({
+      top: 0,
+      left: 0,
+    });
+  },[]);
   const classes = useStyles();
   const inspirationalImage = loremPicsum({
     width: window.innerWidth,
@@ -49,7 +62,6 @@ export default function Portfolio() {
   });
   const quote = Quote.getRandomQuote();
   console.log(loremPicsum);
-  //<img src={inspirationalImage} alt="inspirationa l-image"/>
   return (
     <main>
       <div className={classes.visibleOnLoad} style={{backgroundImage:"url("+inspirationalImage+")"}}>

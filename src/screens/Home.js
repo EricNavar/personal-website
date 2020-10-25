@@ -83,6 +83,7 @@ function HomePageButton({icon, label, link}) {
       to={link}
       clickable
       variant="outlined"
+      style={{margin:4}}
     >
       {label}
     </Button>
@@ -95,6 +96,13 @@ HomePageButton.propTypes = {
 };
 
 export default function Home() {
+  React.useEffect(() => {
+    document.title = 'Eric Navar';
+    window.scrollTo({
+      top: 0,
+      left: 0,
+    });
+  },[]);
   const classes = useStyles();
   const history = useHistory();
   const redirect = path => {

@@ -30,6 +30,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Portfolio({darkMode, handleDarkModeClick}) {
+  React.useEffect(() => {
+    document.title = 'Portfolio | Eric Navar';
+    window.scrollTo({
+      top: 0,
+      left: 0,
+    });
+  },[]);
   const classes = useStyles();
   return (
     <div className={classes.background}>

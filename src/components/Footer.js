@@ -35,6 +35,11 @@ const useStyles = makeStyles(theme => ({
     borderRadius:24,
     background: '#364561',
     alignItems: 'center'
+  },
+  snake: {
+    position: "absolute",
+    bottom: 8,
+    right: 8
   }
 }));
 
@@ -78,6 +83,9 @@ export default function Footer() {
           (813) 506 0973
         </Typography>
       </Grid>
+      <Typography className={classes.snake}>
+        🐍
+      </Typography>
     </Grid>
   );
 }

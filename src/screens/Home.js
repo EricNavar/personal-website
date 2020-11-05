@@ -83,7 +83,6 @@ function HomePageButton({icon, label, link}) {
       startIcon={icon}
       component={Link}
       to={link}
-      clickable
       variant="outlined"
       style={{margin:4}}
     >
@@ -93,8 +92,7 @@ function HomePageButton({icon, label, link}) {
 };
 HomePageButton.propTypes = {
   link: PropTypes.string.isRequired,
-  icon: PropTypes.object,
-  children: PropTypes.element.isRequired
+  icon: PropTypes.object
 };
 
 export default function Home() {

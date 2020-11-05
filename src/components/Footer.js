@@ -83,9 +83,9 @@ export default function Footer() {
           (813) 506 0973
         </Typography>
       </Grid>
-      <Typography className={classes.snake}>
+      <span role="img" aria-label='snake emoji' className={classes.snake}>
         🐍
-      </Typography>
+      </span>
     </Grid>
   );
 }

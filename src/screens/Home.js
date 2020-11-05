@@ -178,7 +178,7 @@ export default function Home() {
         </Grid>
       </Grid>
       <section>
-        <Typography component='p' variant='overline' className={classes.sectionTitle} align='center' className={classes.sectionTitle}>
+        <Typography component='p' variant='overline' className={classes.sectionTitle} align='center'>
           Connect
         </Typography>
         <Grid

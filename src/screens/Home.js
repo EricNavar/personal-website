@@ -3,19 +3,22 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import {makeStyles} from "@material-ui/core/styles";
-import GatoNochesLogo from './../assets/svg/GatoNochesLogo';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
-import ProfilePic from './../assets/images/ProfilePic.png';
-import SunIcon from '@material-ui/icons/WbSunny';
-import {useHistory,Link} from "react-router-dom";
+import {makeStyles} from "@material-ui/core/styles";
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import PropTypes from 'prop-types';
-import CodeIcon from '@material-ui/icons/Code';
-import PersonIcon from '@material-ui/icons/Person';
-import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
+import {useHistory,Link} from "react-router-dom";
+import CardButton from './../components/CardButton.js';
+import ProfilePic from './../assets/images/ProfilePic.png';
+import SSDLogo from './../assets/images/SSD.png';
+import KnightHackLogo from './../assets/images/knighthack.png';
+import InspirationPic from './../assets/images/inspiration.jpg';
+import HectorPic from './../assets/images/hector.png';
+import DCRFLogo from './../assets/images/dcrf.png';
 import GitLabIcon from './../assets/svg/Gitlab.js';
-import StorageIcon from '@material-ui/icons/Storage';
+import GatoNochesLogo from './../assets/svg/GatoNochesLogo';
+import TechNoleLogo from './../assets/images/technole.png';
+import DatabasePic from './../assets/images/database.png';
 
 const useStyles = makeStyles({
   grid: {
@@ -44,16 +47,19 @@ const useStyles = makeStyles({
     fontSize: 18
   },
   home: {
-    padding: 24
+    padding: 24,
+    justifyContent: 'center',
+    display: 'grid'
   },
   gatoNochesLogo: {
-    maxWidth: 400,
+    //so that the height is the same as the profile pic's
+    maxWidth: 335,
     marginBottom: 24,
     marginTop: 24
   },
   profilePic: {
     borderRadius: "50%",
-    maxWidth: 300
+    maxWidth: 260
   },
   portfolioText: {
     fontWeight: 400,
@@ -71,9 +77,12 @@ const useStyles = makeStyles({
   divider: {
     width:"80%"
   },
-  buttonSectionTitles: {
+  sectionTitle: {
     paddingTop: 8,
     fontSize: '14px !important'
+  },
+  cardButton: {
+    maxWidth: 1600
   }
 });
 
@@ -126,9 +135,10 @@ export default function Home() {
         justify="center"
         alignItems="stretch"
         spacing={2}
+        component='section'
       >
         <Grid item xs={12} sm={6}>
-          <Paper className={classes.paper} elevation={3}>
+          <Paper id='portfolio-card' className={classes.paper} elevation={3}>
             <Button
               onClick={e=>redirect("/portfolio")}
               className={`${classes.bigButton} ${classes.portfolioButton}`}
@@ -141,7 +151,7 @@ export default function Home() {
                   variant='h3'
                   align='center'
                   className={classes.portfolioText}
-                >
+                  >
                   Portfolio
                 </Typography>
               </div>
@@ -149,7 +159,7 @@ export default function Home() {
           </Paper>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <Paper className={classes.paper} elevation={3}>
+          <Paper id='gato-noches-card' className={classes.paper} elevation={3}>
             <Button
               onClick={e=>redirect("/gatonoches")}
               className={`${classes.bigButton} ${classes.gatoNochesButton}`}
@@ -167,43 +177,72 @@ export default function Home() {
           </Paper>
         </Grid>
       </Grid>
-      <div style={{textAlign:'center'}}>
-        <Typography variant='overline' className={classes.buttonSectionTitles}>
+      <section>
+        <Typography component='p' variant='overline' className={classes.sectionTitle} align='center' className={classes.sectionTitle}>
           Connect
         </Typography>
-      </div>
-      <Grid
-        container
-        direction="row"
-        justify="center"
-        alignItems="center"
-        spacing={2}
-        style={{marginBottom:8}}
-      >
-        <HomePageButton label="LinkedIn" link="https://www.linkedin.com/in/ericnavar/" icon={<LinkedInIcon style={{ color:'black' }}/>}/>
-        <HomePageButton label="Github" link="https://www.github.com/ericnavar" icon={<GitHubIcon style={{ color:'black' }}/>}/>
-        <HomePageButton label="Gitlab" link="https://www.gitlab.com/ericnavar" icon={<GitLabIcon style={{ color:'black' }}/>}/>
-      </Grid>
-      <div style={{textAlign:'center'}}>
-        <Typography variant='overline' className={classes.buttonSectionTitles}>
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+          spacing={2}
+          style={{marginBottom:8}}
+          >
+          <HomePageButton label="LinkedIn" link="https://www.linkedin.com/in/ericnavar/" icon={<LinkedInIcon style={{ color:'black' }}/>}/>
+          <HomePageButton label="Github" link="https://www.github.com/ericnavar" icon={<GitHubIcon style={{ color:'black' }}/>}/>
+          <HomePageButton label="Gitlab" link="https://www.gitlab.com/ericnavar" icon={<GitLabIcon style={{ color:'black' }}/>}/>
+        </Grid>
+      </section>
+      <section>
+        <Typography component='p' variant='overline' className={classes.sectionTitle} align='center'>
           Other cool things
         </Typography>
-      </div>
-      <Grid
-        container
-        direction="row"
-        justify="center"
-        alignItems="center"
-        spacing={2}
-      >
-        <HomePageButton label="Inspiration Generator" link="/inspire" icon={<SunIcon style={{ color:'black' }}/>}/>
-        <HomePageButton label="How to win a hackathon" link="http://knighthack.com" icon={<CodeIcon style={{ color:'black' }}/>}/>
-        <HomePageButton label="Someone else's portfolio" link="http://hectorrizo.com" icon={<PersonIcon style={{ color:'black' }}/>}/>
-        <HomePageButton label="A cool (but not currently functional) website I helped make" link="https://dcrockfitness.com" icon={<FitnessCenterIcon style={{ color:'black' }}/>}/>
-        <HomePageButton label="SQL injection playground" link="https://sql-ssd.herokuapp.com/login" icon={<StorageIcon style={{ color:'black' }}/>}/>
-        <HomePageButton label="Society of Software Developers" link="https://ssd.ericnavar.com" icon={<CodeIcon style={{ color:'black' }}/>}/>
-        <HomePageButton label="TechNole" link="https://technole.org/" icon={<CodeIcon style={{ color:'black' }}/>}/>
-      </Grid>
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+          spacing={2}
+          className={classes.cardButton}
+        >
+          <CardButton
+            text="Inspiration Generator"
+            link="/inspire"
+            image={InspirationPic}
+          />
+          <CardButton
+            text="How to win a hackathon"
+            link="http://knighthack.com" 
+            image={KnightHackLogo}
+          />
+          <CardButton
+            text="Someone else's portfolio"
+            link="http://hectorrizo.com"
+            image={HectorPic}
+          />
+          <CardButton
+            text="A cool website I helped make (no longer functional)"
+            link="https://dcrockfitness.com"
+            image={DCRFLogo}
+          />
+          <CardButton
+            text="SQL injection playground"
+            link="https://sql-ssd.herokuapp.com/login"
+            image={DatabasePic}
+          />
+          <CardButton
+            text="Society of Software Developers"
+            link="https://ssd.ericnavar.com"
+            image={SSDLogo}
+          />
+          <CardButton
+            text="TechNole"
+            link="https://technole.org/"
+            image={TechNoleLogo}
+          />
+        </Grid>
+      </section>
     </div>
   );
 }

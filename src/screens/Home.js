@@ -14,6 +14,8 @@ import PropTypes from 'prop-types';
 import CodeIcon from '@material-ui/icons/Code';
 import PersonIcon from '@material-ui/icons/Person';
 import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
+import GitLabIcon from './../assets/svg/Gitlab.js';
+import StorageIcon from '@material-ui/icons/Storage';
 
 const useStyles = makeStyles({
   grid: {
@@ -182,6 +184,7 @@ export default function Home() {
       >
         <HomePageButton label="LinkedIn" link="https://www.linkedin.com/in/ericnavar/" icon={<LinkedInIcon style={{ color:'black' }}/>}/>
         <HomePageButton label="Github" link="https://www.github.com/ericnavar" icon={<GitHubIcon style={{ color:'black' }}/>}/>
+        <HomePageButton label="Gitlab" link="https://www.gitlab.com/ericnavar" icon={<GitLabIcon style={{ color:'black' }}/>}/>
       </Grid>
       <div style={{textAlign:'center'}}>
         <Typography variant='overline' className={classes.buttonSectionTitles}>
@@ -199,6 +202,9 @@ export default function Home() {
         <HomePageButton label="How to win a hackathon" link="http://knighthack.com" icon={<CodeIcon style={{ color:'black' }}/>}/>
         <HomePageButton label="Someone else's portfolio" link="http://hectorrizo.com" icon={<PersonIcon style={{ color:'black' }}/>}/>
         <HomePageButton label="A cool (but not currently functional) website I helped make" link="https://dcrockfitness.com" icon={<FitnessCenterIcon style={{ color:'black' }}/>}/>
+        <HomePageButton label="SQL injection playground" link="https://sql-ssd.herokuapp.com/login" icon={<StorageIcon style={{ color:'black' }}/>}/>
+        <HomePageButton label="Society of Software Developers" link="https://ssd.ericnavar.com" icon={<CodeIcon style={{ color:'black' }}/>}/>
+        <HomePageButton label="TechNole" link="https://technole.org/" icon={<CodeIcon style={{ color:'black' }}/>}/>
       </Grid>
     </div>
   );

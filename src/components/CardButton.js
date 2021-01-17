@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function HomePageButton({text, image, link, alt}) {
+export default function HomePageButton({headerText, subText, image, link, alt}) {
   const classes = useStyles();
   return (
     <Grid item xs={12} sm={6} md={4} lg={3}>
@@ -42,8 +42,11 @@ export default function HomePageButton({text, image, link, alt}) {
           />
           <div className={classes.details}>
             <div className={classes.content}>
-              <Typography component="p" variant="h6">
-                {text}
+              <Typography color="textPrimary" component="p" variant="h6">
+                {headerText}
+              </Typography>
+              <Typography color="textSecondary" variant="subtitle1">
+                {subText}
               </Typography>
             </div>
           </div>

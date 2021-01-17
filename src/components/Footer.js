@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles, Grid, IconButton, Typography } from '@material-ui/core';
-import GitlabIcon from './../assets/svg/Gitlab';
 import EmailIcon from '@material-ui/icons/Email';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
@@ -58,11 +57,6 @@ export default function Footer() {
         </IconButton>
       </Grid>
       <Grid item className={classes.item}>
-        <IconButton href="https://gitlab.com/EricNavar">
-          <GitlabIcon />
-        </IconButton>
-      </Grid>
-      <Grid item className={classes.item}>
         <IconButton href="https://www.linkedin.com/in/ericnavar/">
           <LinkedInIcon />
         </IconButton>
@@ -89,3 +83,4 @@ export default function Footer() {
     </Grid>
   );
 }
+

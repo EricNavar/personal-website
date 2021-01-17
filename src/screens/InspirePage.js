@@ -32,18 +32,11 @@ const useStyles = makeStyles((theme) => ({
     "-webkit-filter": "invert() sepia()",
     color: "black",
     maxWidth: '80vw',
-    fontWeight:800,
+    fontWeight: 800,
     textShadow: "4px 4px 0px rgba(255, 255, 255, 1)",
-    display: 'inline-block'
-  },
-  [theme.breakpoints.up('md')]: {
-    fontSize: "3em",
-    lineHeight: "1.5em"
-  },
-  [theme.breakpoints.down('xs')]: {
-    fontSize: "2em",
+    display: 'inline-block',
     lineHeight: "1.2em"
-  }
+  },
 }));
 
 export default function InspirePage() {
@@ -61,12 +54,13 @@ export default function InspirePage() {
     random: true
   });
   const quote = Quote.getRandomQuote();
-  console.log(loremPicsum);
+  const quoteFontSize = Math.min(Math.sqrt(quote.length / 4), 6.5);
+  console.log(quoteFontSize);
   return (
     <main>
       <div className={classes.visibleOnLoad} style={{backgroundImage:"url("+inspirationalImage+")"}}>
         <div>
-          <Typography variant='overline' className={classes.quoteText}>
+          <Typography variant='overline' className={classes.quoteText} style={{fontSize:`${quoteFontSize}vh`}}>
             {quote}
           </Typography>
         </div>
@@ -82,7 +76,7 @@ export default function InspirePage() {
         to='/'
         style={{margin:12}}
       >
-        Retun to home
+        Return to home
       </Button>
       <Button
         variant='contained'

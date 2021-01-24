@@ -38,7 +38,7 @@ const useStyles = makeStyles({
 function SkillItem({ skill, icon }) {
   const classes = useStyles();
   return (
-    <Grid item xs={4} sm={3} xl={2} className={classes.gridItem}>
+    <Grid item xs={4} sm={3} lg={2} className={classes.gridItem}>
       <Paper className={classes.paper} elevation={3} >
         <img className={classes.image} src={icon} alt={skill + "icon"}/>
         <Typography

@@ -1,23 +1,20 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
-import Button from "@material-ui/core/Button";
+import PropTypes from 'prop-types';
 import ButtonBase from "@material-ui/core/ButtonBase";
 import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/core/styles";
-import PropTypes from 'prop-types';
-import {useHistory} from "react-router-dom";
+import SSDLogo from './../assets/images/SSD.webp';
+import DCRFLogo from './../assets/images/dcrf.webp';
+import HectorPic from './../assets/images/hector.webp';
+import ProfilePic from './../assets/images/ProfilePic.webp';
+import CardButton from './../components/home/CardButton.js';
 import GitHubIcon from './../assets/svg/github.svg';
+import DatabasePic from './../assets/images/database.webp';
 import LinkedInIcon from './../assets/svg/linkedin.svg';
-import CardButton from './../components/CardButton.js';
-import ProfilePic from './../assets/images/ProfilePic.png';
-import SSDLogo from './../assets/images/SSD.png';
-import KnightHackLogo from './../assets/images/knighthack.png';
+import KnightHackLogo from './../assets/images/knighthack.jpg';
 import InspirationPic from './../assets/images/inspiration.jpg';
-import HectorPic from './../assets/images/hector.png';
-import DCRFLogo from './../assets/images/dcrf.png';
-import GatoNochesLogo from './../assets/images/GatoNochesLogo.png';
-import DatabasePic from './../assets/images/database.png';
+import GatoNochesLogo from './../assets/images/GatoNochesLogo.webp';
 
 const useStyles = makeStyles({
   grid: {
@@ -73,7 +70,8 @@ const useStyles = makeStyles({
   },
   sectionTitle: {
     paddingTop: 8,
-    fontSize: '14px !important'
+    marginBottom: 8,
+    fontSize: '18px !important',
   },
   cardButton: {
     maxWidth: 1600
@@ -106,10 +104,6 @@ export default function Home() {
     });
   },[]);
   const classes = useStyles();
-  const history = useHistory();
-  const redirect = path => {
-    history.push(path);
-  };
 
   return (
     <div className={classes.home}>
@@ -122,36 +116,9 @@ export default function Home() {
         Welcome to my cool personal website!
       </Typography>
       <hr className={classes.divider}/>
-      <Grid
-        container
-        direction="row"
-        justify="center"
-        alignItems="stretch"
-        component='section'
-      >
-        <Grid item xs={12} component={Paper} id='portfolio-card' className={classes.paper} elevation={3}>
-            <Button
-              onClick={e=>redirect("/portfolio")}
-              className={`${classes.bigButton} ${classes.portfolioButton}`}
-              disableElevation
-            >
-              <div>
-                <img alt="profile pic" className={classes.profilePic} src={ProfilePic}/>
-                <Typography
-                  component='h2'
-                  variant='h3'
-                  align='center'
-                  className={classes.portfolioText}
-                >
-                  Portfolio
-                </Typography>
-              </div>
-            </Button>
-        </Grid>
-      </Grid>
       <section>
-        <Typography component='p' variant='overline' className={classes.sectionTitle} align='center'>
-          Connect
+        <Typography component='h2' variant='h4' className={classes.sectionTitle} align='center'>
+          Cool things I have worked on
         </Typography>
         <Grid
           container
@@ -159,15 +126,35 @@ export default function Home() {
           justify="center"
           alignItems="center"
           spacing={2}
-          style={{marginBottom:8}}
+          className={classes.cardButton}
         >
-          <HomePageButton label="LinkedIn" link="https://www.linkedin.com/in/ericnavar/" icon={LinkedInIcon} circle={false}/>
-          <HomePageButton label="Github" link="https://www.github.com/ericnavar" icon={GitHubIcon} circle={true}/>
+          <CardButton
+            headerText="A cool website I helped make"
+            subText="No longer functional"
+            link="https://dcrockfitness.com"
+            image={DCRFLogo}
+          />
+          <CardButton
+            headerText="SQL injection playground"
+            link="https://sql-ssd.herokuapp.com/login"
+            image={DatabasePic}
+          />
+          <CardButton
+            headerText="Society of Software Developers"
+            link="https://ssd.ericnavar.com"
+            image={SSDLogo}
+          />
+          <CardButton
+            headerText="My Resume"
+            subText="but made with React"
+            link="/portfolio"
+            image={ProfilePic}
+          />
         </Grid>
       </section>
       <section>
-        <Typography component='p' variant='overline' className={classes.sectionTitle} align='center'>
-          Other cool things
+        <Typography component='h2' variant='h4' className={classes.sectionTitle} align='center'>
+          Not cool things I have worked on
         </Typography>
         <Grid
           container
@@ -191,24 +178,9 @@ export default function Home() {
           />
           <CardButton
             headerText="Someone else's portfolio"
+            subText="It's not very good so I don't know why I linked it"
             link="http://hectorrizo.com"
             image={HectorPic}
-          />
-          <CardButton
-            headerText="A cool website I helped make"
-            subText="No longer functional"
-            link="https://dcrockfitness.com"
-            image={DCRFLogo}
-          />
-          <CardButton
-            headerText="SQL injection playground"
-            link="https://sql-ssd.herokuapp.com/login"
-            image={DatabasePic}
-          />
-          <CardButton
-            headerText="Society of Software Developers"
-            link="https://ssd.ericnavar.com"
-            image={SSDLogo}
           />
           <CardButton
             headerText="Gato Noches"
@@ -216,6 +188,22 @@ export default function Home() {
             link="https://ssd.ericnavar.com"
             image={GatoNochesLogo}
           />
+        </Grid>
+      </section>
+      <section>
+        <Typography component='h2' variant='h4' className={classes.sectionTitle} align='center'>
+          Connect
+        </Typography>
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          alignItems="center"
+          spacing={2}
+          style={{marginBottom:8}}
+        >
+          <HomePageButton label="LinkedIn" link="https://www.linkedin.com/in/ericnavar/" icon={LinkedInIcon} circle={false}/>
+          <HomePageButton label="Github" link="https://www.github.com/ericnavar" icon={GitHubIcon} circle={true}/>
         </Grid>
       </section>
     </div>

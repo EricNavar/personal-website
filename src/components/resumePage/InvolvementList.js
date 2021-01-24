@@ -1,10 +1,10 @@
 import React from 'react';
-import InvolvementItem from './InvolvementItem';
-import Section from './Section';
-import SSDIcon from './../assets/images/SSD.png';
-import OSCIcon from './../assets/images/OpenSourceClub.webp';
-import HackFSUIcon from './../assets/images/HackFSU.webp';
 import Grid from '@material-ui/core/Grid';
+import Section from './Section';
+import SSDIcon from './../../assets/images/SSD.webp';
+import OSCIcon from './../../assets/images/OpenSourceClub.webp';
+import HackFSUIcon from './../../assets/images/HackFSU.webp';
+import InvolvementItem from './InvolvementItem';
 
 export default function InvolvementList() {
   return (

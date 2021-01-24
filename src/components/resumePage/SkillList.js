@@ -1,16 +1,15 @@
 import React from 'react';
-import Section from './Section';
-import JavaIcon from './../assets/images/java.png';
-import ReactIcon from './../assets/images/React.png';
-import CppIcon from './../assets/images/Cpp.png';
-import GitIcon from './../assets/images/Git.png';
-import MatlabIcon from './../assets/images/matlab.png';
-import Typography from '@material-ui/core/Typography';
 import Rating from '@material-ui/lab/Rating';
-import { makeStyles } from '@material-ui/core/styles';
 import LensIcon from '@material-ui/icons/Lens';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import GitIcon from './../../assets/images/Git.webp';
+import CppIcon from './../../assets/images/Cpp.webp';
+import Section from './Section';
+import JavaIcon from './../../assets/images/java.webp';
+import ReactIcon from './../../assets/images/React.webp';
+import MatlabIcon from './../../assets/images/matlab.webp';
 
-//icons must be PNGs
 const useStyles = makeStyles(theme => ({
   table: {
     '& td': {

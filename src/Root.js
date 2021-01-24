@@ -7,7 +7,7 @@ import {
   Redirect
 } from "react-router-dom";
 import { ThemeProvider, createMuiTheme, makeStyles } from '@material-ui/core/styles';
-import Portfolio from "./screens/Portfolio.js";
+import Portfolio from "./screens/ResumePage.js";
 import EmbeddedResume from "./screens/EmbeddedResume";
 import GatoNochesFeedback from "./screens/GatoNochesFeedback";
 import GatoNoches from "./screens/GatoNoches";

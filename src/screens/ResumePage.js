@@ -1,13 +1,13 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import SkillList from '../components/SkillList';
-import Header from '../components/Header';
-import PersonalStatement from '../components/PersonalStatement';
-import InvolvementList from '../components/InvolvementList';
-import Education from '../components/Education';
-import Footer from '../components/Footer';
-import Experience from '../components/Experience';
 import { makeStyles } from '@material-ui/core/styles';
+import Footer from '../components/resumePage/Footer';
+import Header from '../components/resumePage/Header';
+import SkillList from '../components/resumePage/SkillList';
+import Education from '../components/resumePage/Education';
+import Experience from '../components/resumePage/Experience';
+import InvolvementList from '../components/resumePage/InvolvementList';
+import PersonalStatement from '../components/resumePage/PersonalStatement';
 
 const useStyles = makeStyles((theme) => ({
   background: {
@@ -29,9 +29,9 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function Portfolio({darkMode, handleDarkModeClick}) {
+export default function ResumePage({darkMode, handleDarkModeClick}) {
   React.useEffect(() => {
-    document.title = 'Portfolio | Eric Navar';
+    document.title = 'Resume | Eric Navar';
     window.scrollTo({
       top: 0,
       left: 0,

@@ -8,6 +8,7 @@ import PhoneIcon from '@material-ui/icons/Phone';
 const useStyles = makeStyles(theme => ({
   footer: {
     backgroundColor: '#19202D',
+    position: "relative",
     padding: 10,
     '& svg': {
       padding: '2%',

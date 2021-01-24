@@ -146,14 +146,14 @@ export default function Home() {
             image={SSDLogo}
           />
           <CardButton
-            headerText="My Resume"
-            subText="but made with React"
-            link="/portfolio"
-            image={ProfilePic}
+            headerText="Inspiration Generator"
+            subText="New inspiration with each refresh!"
+            link="/inspire"
+            image={InspirationPic}
           />
         </Grid>
       </section>
-      <section>
+      <section style={{marginTop: 12}}>
         <Typography component='h2' variant='h4' className={classes.sectionTitle} align='center'>
           Not cool things I have worked on
         </Typography>
@@ -166,22 +166,22 @@ export default function Home() {
           className={classes.cardButtonContainer}
         >
           <CardButton
-            headerText="Inspiration Generator"
-            subText="New inspiration with each refresh!"
-            link="/inspire"
-            image={InspirationPic}
-          />
-          <CardButton
-            headerText="How to win a hackathon"
-            subText="This is guaranteed to work"
-            link="http://knighthack.com" 
-            image={KnightHackLogo}
+            headerText="My Resume"
+            subText="but made with React"
+            link="/portfolio"
+            image={ProfilePic}
           />
           <CardButton
             headerText="Someone else's portfolio"
             subText="It's not very good so I don't know why I linked it"
             link="http://hectorrizo.com"
             image={HectorPic}
+          />
+          <CardButton
+            headerText="How to win a hackathon"
+            subText="This is guaranteed to work"
+            link="http://knighthack.com" 
+            image={KnightHackLogo}
           />
           <CardButton
             headerText="Gato Noches"

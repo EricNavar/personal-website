@@ -5,7 +5,8 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles({
   section: {
     marginTop: 30,
-    marginBottom: 20
+    marginBottom: 20,
+    width: "100%"
   },
   divider: {
     background: '#32407b',

@@ -1,71 +1,81 @@
 import React from 'react';
-import Rating from '@material-ui/lab/Rating';
-import LensIcon from '@material-ui/icons/Lens';
 import Typography from '@material-ui/core/Typography';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
-import GitIcon from './../../assets/images/Git.webp';
-import CppIcon from './../../assets/images/Cpp.webp';
 import Section from './Section';
-import JavaIcon from './../../assets/images/java.webp';
-import ReactIcon from './../../assets/images/React.webp';
-import MatlabIcon from './../../assets/images/matlab.webp';
+import GitIcon from './../../assets/svg/git-white.svg';
+import CppIcon from './../../assets/svg/cpp-white.svg';
+import JavaIcon from './../../assets/svg/java-white.svg';
+import ReactIcon from './../../assets/svg/react-white.svg';
+import MatlabIcon from './../../assets/svg/matlab-white.svg';
+import JavascriptIcon from './../../assets/svg/javascript-white.svg';
+import HtmlIcon from './../../assets/svg/html5-white.svg';
+import CssIcon from './../../assets/svg/css3-white.svg';
+import TypescriptIcon from './../../assets/svg/typescript-white.svg';
+import MySqlIcon from './../../assets/svg/mysql-white.svg';
+import PythonIcon from './../../assets/svg/python-white.svg';
+import AwsIcon from './../../assets/svg/aws-white.svg';
+import MongoDbIcon from './../../assets/svg/mongodb-white.svg';
 
-const useStyles = makeStyles(theme => ({
-  table: {
-    '& td': {
-      paddingRight: 4,
-      paddingLeft: 4,
-      paddingTop:8,
-      paddingBottom: 8
-    }
+const useStyles = makeStyles({
+  paper: {
+    textTransform: "none",
+    textAlign: "center",
+    border: "5px solid white",
+    background: "#3246a8",
+    borderRadius: 8,
+    color: "white"
   },
-  img: {
-    width:32,
-    borderRadius: 8
+  image: {
+    height: 40
   },
-  rating: {
-    color: theme.palette.secondary.main
+  gridItem: {
+
   }
-}));
+});
 
-function SkillItem({skill, icon, value}) {
+function SkillItem({ skill, icon }) {
   const classes = useStyles();
   return (
-    <tr>
-      <td>
-        <img alt="" className={classes.img} src={icon}/>
-      </td>
-      <td>
-        <Typography variant='body1' color='textPrimary'>
+    <Grid item xs={4} sm={3} xl={2} className={classes.gridItem}>
+      <Paper className={classes.paper} elevation={3} >
+        <img className={classes.image} src={icon} alt={skill + "icon"}/>
+        <Typography
+          variant='body1'
+          align='center'
+        >
           {skill}
         </Typography>
-      </td>
-      <td>
-        <Rating
-          name="read-only"
-          value={value}
-          readOnly
-          icon={<LensIcon/>}
-          className={classes.rating}
-        />
-      </td>
-    </tr>
+      </Paper>
+    </Grid>
   );
 }
 
 export default function SkillList() {
-  const classes = useStyles();
-  return(
-    <Section title = "Skills">
-      <table className={classes.table}>
-        <tbody>
-          <SkillItem skill="C++" value={4} icon={CppIcon}/>
-          <SkillItem skill="Java" value={3} icon={JavaIcon}/>
-          <SkillItem skill="React" value={3} icon={ReactIcon}/>
-          <SkillItem skill="Git" value={3} icon={GitIcon}/>
-          <SkillItem skill="MATLAB" value={2} icon={MatlabIcon}/>
-        </tbody>
-      </table>
+  return (
+    <Section title="Skills">
+      <Grid
+        container
+        direction="row"
+        justify="center"
+        alignItems="stretch"
+        spacing={1}
+      >
+        <SkillItem skill="C++" icon={CppIcon} />
+        <SkillItem skill="Java" icon={JavaIcon} />
+        <SkillItem skill="React" icon={ReactIcon} />
+        <SkillItem skill="Git" icon={GitIcon} />
+        <SkillItem skill="MATLAB" icon={MatlabIcon} />
+        <SkillItem skill="HTML" icon={HtmlIcon} />
+        <SkillItem skill="CSS" icon={CssIcon} />
+        <SkillItem skill="Javascript" icon={JavascriptIcon} />
+        <SkillItem skill="TypeScript" icon={TypescriptIcon} />
+        <SkillItem skill="AWS" icon={AwsIcon} />
+        <SkillItem skill="Python" icon={PythonIcon} />
+        <SkillItem skill="MySQL" icon={MySqlIcon} />
+        <SkillItem skill="MongoDB" icon={MongoDbIcon} />
+      </Grid>
     </Section>
   );
 }

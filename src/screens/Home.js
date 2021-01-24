@@ -134,22 +134,30 @@ export default function Home() {
             subText="No longer functional"
             link="https://dcrockfitness.com"
             image={DCRFLogo}
+            alt="DC Rock Fitness Logo"
+            ariaLabel="DC Rock Fitness website"
           />
           <CardButton
             headerText="SQL injection playground"
             link="https://sql-ssd.herokuapp.com/login"
             image={DatabasePic}
+            alt="Database icon"
+            ariaLabel="SWL injection playground"
           />
           <CardButton
             headerText="Society of Software Developers"
             link="https://ssd.ericnavar.com"
             image={SSDLogo}
+            alt="SSD Logo"
+            ariaLabel="SSD Website"
           />
           <CardButton
             headerText="Inspiration Generator"
             subText="New inspiration with each refresh!"
             link="/inspire"
             image={InspirationPic}
+            alt="Mountain"
+            ariaLabel="Inspiration Generator"
           />
         </Grid>
       </section>
@@ -170,24 +178,32 @@ export default function Home() {
             subText="but made with React"
             link="/portfolio"
             image={ProfilePic}
+            alt="Eric Navar"
+            ariaLabel="Eric Navar resume"
           />
           <CardButton
             headerText="Someone else's portfolio"
             subText="It's not very good so I don't know why I linked it"
             link="http://hectorrizo.com"
             image={HectorPic}
+            alt="Hector Rizo"
+            ariaLabel="Hector Rizo's portfolio"
           />
           <CardButton
             headerText="How to win a hackathon"
             subText="This is guaranteed to work"
             link="http://knighthack.com" 
             image={KnightHackLogo}
+            alt="Knight Hack Logo"
+            ariaLabel="How to win a hackathon"
           />
           <CardButton
             headerText="Gato Noches"
             subText="Look at schedule, leave feedback"
             link="https://ssd.ericnavar.com"
             image={GatoNochesLogo}
+            alt="Gato Noches Logo"
+            ariaLabel="Gato Noches Website"
           />
         </Grid>
       </section>
@@ -203,8 +219,8 @@ export default function Home() {
           spacing={2}
           style={{marginBottom:8}}
         >
-          <HomePageButton label="LinkedIn" link="https://www.linkedin.com/in/ericnavar/" icon={LinkedInIcon} circle={false}/>
           <HomePageButton label="Github" link="https://www.github.com/ericnavar" icon={GitHubIcon} circle={true}/>
+          <HomePageButton label="LinkedIn" link="https://www.linkedin.com/in/ericnavar/" icon={LinkedInIcon} circle={false}/>
         </Grid>
       </section>
     </div>

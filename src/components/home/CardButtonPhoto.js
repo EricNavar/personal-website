@@ -22,7 +22,7 @@ const useStyles = makeStyles({
   }
 });
 
-export default function HomePageButton({image, alt}) {
+export default function HomePagePhoto({image, alt}) {
   const classes = useStyles();
   return (
     <div className={classes.wrapper}>
@@ -31,7 +31,7 @@ export default function HomePageButton({image, alt}) {
           className={classes.aspectRatioBoxInside}
           src={image}
           alt={alt}
-          />
+        />
       </div>
     </div>
   );

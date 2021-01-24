@@ -1,6 +1,7 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import EricOutline from './../../assets/images/EricOutline.webp';
 
@@ -14,7 +15,7 @@ const useStyles = makeStyles(theme => ({
     width: 250,
     marginRight: 12,
     borderRadius: "50%",
-    background: '#151965',
+    background: '#0d335d',
     overflow: 'hidden',
     display: 'block',
     listStyleType: 'disc',
@@ -27,7 +28,7 @@ const useStyles = makeStyles(theme => ({
       left: '45vw',
       width: 10,
       height: 10,
-      border: 'solid 1px #46b5d1',
+      border: 'solid 1px #fff3e6',
       color: 'transparent',
       transformOrigin: 'top left',
       transform: 'scale(0) rotate(0deg) translate(-50%, -50%)',
@@ -92,7 +93,9 @@ const useStyles = makeStyles(theme => ({
     }
   },
   textContainer: {
-    maxWidth: 550
+    maxWidth: 550,
+    backgroundColor: "#0d335d",
+    color: "#f5f4f4"
   },
   imgContainer: {
     minWidth:200,
@@ -146,11 +149,11 @@ export default function PersonalStatement() {
         <li></li>
         <img src={EricOutline} alt="" className={classes.profile}/>
       </Grid>
-      <Grid item xs={12} sm={8} className={classes.textContainer}>
-        <Typography variant='body1' color='textPrimary' style={{fontSize:32}}>
+      <Grid item xs={12} sm={8} className={classes.textContainer} component={Paper} elevation={3}>
+        <Typography variant='body1' style={{fontSize:32}}>
           <b>Eric Navar</b>
         </Typography>
-        <Typography variant='body1' color='textPrimary'  style={{fontSize:16}}>
+        <Typography variant='body1' style={{fontSize:16}}>
           I am a Computer Science student looking for experience. I can write software and work with teams I'm always eager to learn new things.
         </Typography>
       </Grid>

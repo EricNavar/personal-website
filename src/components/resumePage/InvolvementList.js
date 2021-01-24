@@ -3,6 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import Section from './Section';
 import SSDIcon from './../../assets/images/SSD.webp';
 import OSCIcon from './../../assets/images/OpenSourceClub.webp';
+import GatorUXIcon from './../../assets/images/GatorUXLogo.webp';
 import HackFSUIcon from './../../assets/images/HackFSU.webp';
 import InvolvementItem from './InvolvementItem';
 
@@ -36,6 +37,13 @@ export default function InvolvementList() {
           link = "https://github.com/EricNavar/Trash-Tracker"
           linkDescription="Link to repository"
           icon={HackFSUIcon}
+        />
+        <InvolvementItem
+          title = "Gator UX"
+          position = "Member"
+          time_period = "September 2020"
+          description = {["Learn about prototyping, principles of user experience and product design"]}
+          icon={GatorUXIcon}
         />
       </Grid>
     </Section>

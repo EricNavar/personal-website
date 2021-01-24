@@ -28,11 +28,10 @@ export default function InvolvementList() {
         />
         <InvolvementItem
           title = "Hack FSU"
-          position = "Participant"
+          position = "2nd Place"
           time_period = "October 2019"
           description = {[
             "Use a Raspberry Pi for facial recognition to assign people a score for how many times they have taken out the trash. Display the participant’s scores on a website made in React.",
-            "Placed 2nd overall"
           ]}
           link = "https://github.com/EricNavar/Trash-Tracker"
           linkDescription="Link to repository"

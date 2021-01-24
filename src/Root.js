@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Suspense, lazy} from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,12 +7,13 @@ import {
   Redirect
 } from "react-router-dom";
 import { ThemeProvider, createMuiTheme, makeStyles } from '@material-ui/core/styles';
-import Portfolio from "./screens/ResumePage.js";
-import EmbeddedResume from "./screens/EmbeddedResume";
-import GatoNochesFeedback from "./screens/GatoNochesFeedback";
-import GatoNoches from "./screens/GatoNoches";
-import InspirePage from "./screens/InspirePage";
 import Home from "./screens/Home";
+const ResumePage = lazy(() => import('./screens/ResumePage.js'));
+const EmbeddedResume = lazy(() => import('./screens/EmbeddedResume'));
+const GatoNochesFeedback = lazy(() => import('./screens/GatoNochesFeedback'));
+const GatoNoches = lazy(() => import('./screens/GatoNoches'));
+const InspirePage = lazy(() => import('./screens/InspirePage'));
+
 
 //https://reacttraining.com/react-router/web/guides/quick-start
 
@@ -76,21 +77,23 @@ export default function Root() {
               <Route exact path='/'>
                 <Home/>
               </Route>
-              <Route exact path="/portfolio">
-                <Portfolio darkMode={darkMode} handleDarkModeClick={handleDarkModeClick}/>
-              </Route>
-              <Route exact path="/resume">
-                <EmbeddedResume/>
-              </Route>
-              <Route exact path="/gatonoches">
-                <GatoNoches/>
-              </Route>
-              <Route exact path="/gatonoches/feedback">
-                <GatoNochesFeedback/>
-              </Route>
-              <Route exact path="/inspire">
-                <InspirePage/>
-              </Route>
+              <Suspense fallback={<div/>}>
+                <Route exact path="/portfolio">
+                  <ResumePage darkMode={darkMode} handleDarkModeClick={handleDarkModeClick}/>
+                </Route>
+                <Route exact path="/resume">
+                  <EmbeddedResume/>
+                </Route>
+                <Route exact path="/gatonoches">
+                  <GatoNoches/>
+                </Route>
+                <Route exact path="/gatonoches/feedback">
+                  <GatoNochesFeedback/>
+                </Route>
+                <Route exact path="/inspire">
+                  <InspirePage/>
+                </Route>
+              </Suspense>
               <Route>
                 <Redirect to="/"/>
               </Route>

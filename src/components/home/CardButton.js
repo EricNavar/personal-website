@@ -9,7 +9,8 @@ const CardButtonPhoto = lazy(() => import('./CardButtonPhoto'));
 const useStyles = makeStyles({
   cardButton: {
     display: 'flex',
-    height: "100%"
+    height: "100%",
+    borderRadius: 8
   },
   details: {
     display: 'flex',
@@ -35,7 +36,7 @@ export default function HomePageButton({headerText, subText, image, link, alt}) 
   const classes = useStyles();
   return (
     <Grid item xs={12} sm={6} lg={3}>
-      <Card className={classes.cardButton} elevation={3}>
+      <Card className={classes.cardButton} elevation={4}>
         <ButtonBase aria-label={alt} href={link} style={{width:'100%'}}>
           <Suspense fallback={<div/>}>
             <CardButtonPhoto image={image} alt={alt}/>

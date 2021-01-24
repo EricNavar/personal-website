@@ -28,8 +28,7 @@ const useStyles = makeStyles(theme => ({
   title: {
     color: '#151965',
     textAlign: 'left',
-    fontSize: 30,
-    marginRight: 16
+    fontSize: 26
   },
   topRow: {
     display: 'flex',
@@ -38,10 +37,14 @@ const useStyles = makeStyles(theme => ({
   img: {
     borderRadius: 8,
     width: 50
+  },
+  timePeriod: {
+    display: "flex",
+    flexWrap: "no-wrap"
   }
 }));
 
-export default function InvolvementItem({title, description, link, time_period, linkDescription, position, icon}) {
+export default function InvolvementItem({title, description, link, time_period, linkDescription, position, icon, wide}) {
   const classes = useStyles();
 
   const getDescription = () => {
@@ -57,16 +60,18 @@ export default function InvolvementItem({title, description, link, time_period, 
       )
   }
   return (
-    <Grid item sm={12} md={6}>
+    <Grid item sm={12} md={6} lg={wide ? 6 : 3}>
       <div className={classes.involvementItem}>
         <div className={classes.involvementItemInner}>
-          <div className={classes.topRow}>
-            <Typography className={classes.title} href={link} variant="h5">
-              <b>{title}</b>
-            </Typography>
-            {icon &&
+          <tr className={classes.topRow}>
+            <td style={{width: "100%"}}>
+              <Typography className={classes.title} href={link} variant="h5">
+                <b>{title}</b>
+              </Typography>
+            </td>
+            <td>
               <img className={classes.img} alt='' src={icon}></img>
-            }
+            </td>
             {link &&
               <Tooltip title={linkDescription} aria-label={linkDescription}>
                 <IconButton href={link}>
@@ -74,11 +79,11 @@ export default function InvolvementItem({title, description, link, time_period, 
                 </IconButton>
               </Tooltip>
             }
-          </div>
-          <Typography component='span' variant="overline" gutterBottom color='textPrimary'>
+          </tr>
+          <Typography component='span' variant="overline" color='textPrimary'>
             {position}&emsp;
           </Typography>
-          <Typography component='span' variant="overline" gutterBottom color='textSecondary'>
+          <Typography component='span' variant="overline" gutterBottom color='textSecondary' className={classes.timePeriod}>
             {time_period}
           </Typography>
           {getDescription()}

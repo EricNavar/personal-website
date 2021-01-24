@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid';
 export default function InvolvementList() {
   return (
     <Section title = "Experience">
-      <Grid container spacing={4}>
+      <Grid container spacing={2}>
         <InvolvementItem
           title = "DC Rock Fitness"
           position = "Front End Developer"
@@ -16,6 +16,7 @@ export default function InvolvementList() {
             "Develop front end using React and Material UI."
           ]}
           link="https://dcfitness.herokuapp.com/"
+          wide={true}
         />
       </Grid>
     </Section>

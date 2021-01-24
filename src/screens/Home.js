@@ -134,21 +134,21 @@ export default function Home() {
             subText="No longer functional"
             link="https://dcrockfitness.com"
             image={DCRFLogo}
-            alt="DC Rock Fitness Logo"
+            altLabel="DC Rock Fitness Logo"
             ariaLabel="DC Rock Fitness website"
           />
           <CardButton
             headerText="SQL injection playground"
             link="https://sql-ssd.herokuapp.com/login"
             image={DatabasePic}
-            alt="Database icon"
+            altLabel="Database icon"
             ariaLabel="SWL injection playground"
           />
           <CardButton
             headerText="Society of Software Developers"
             link="https://ssd.ericnavar.com"
             image={SSDLogo}
-            alt="SSD Logo"
+            altLabel="SSD Logo"
             ariaLabel="SSD Website"
           />
           <CardButton
@@ -156,7 +156,7 @@ export default function Home() {
             subText="New inspiration with each refresh!"
             link="/inspire"
             image={InspirationPic}
-            alt="Mountain"
+            altLabel="Mountain"
             ariaLabel="Inspiration Generator"
           />
         </Grid>
@@ -178,7 +178,7 @@ export default function Home() {
             subText="but made with React"
             link="/portfolio"
             image={ProfilePic}
-            alt="Eric Navar"
+            altLabel="Eric Navar"
             ariaLabel="Eric Navar resume"
           />
           <CardButton
@@ -186,7 +186,7 @@ export default function Home() {
             subText="It's not very good so I don't know why I linked it"
             link="http://hectorrizo.com"
             image={HectorPic}
-            alt="Hector Rizo"
+            altLabel="Hector Rizo"
             ariaLabel="Hector Rizo's portfolio"
           />
           <CardButton
@@ -194,7 +194,7 @@ export default function Home() {
             subText="This is guaranteed to work"
             link="http://knighthack.com" 
             image={KnightHackLogo}
-            alt="Knight Hack Logo"
+            altLabel="Knight Hack Logo"
             ariaLabel="How to win a hackathon"
           />
           <CardButton
@@ -202,7 +202,7 @@ export default function Home() {
             subText="Look at schedule, leave feedback"
             link="https://ssd.ericnavar.com"
             image={GatoNochesLogo}
-            alt="Gato Noches Logo"
+            altLabel="Gato Noches Logo"
             ariaLabel="Gato Noches Website"
           />
         </Grid>

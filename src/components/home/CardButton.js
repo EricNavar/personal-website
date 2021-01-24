@@ -32,14 +32,14 @@ const useStyles = makeStyles({
   }
 });
 
-export default function HomePageButton({headerText, subText, image, link, alt, ariaLabel}) {
+export default function HomePageButton({headerText, subText, image, link, altLabel, ariaLabel}) {
   const classes = useStyles();
   return (
     <Grid item xs={12} sm={6} lg={3}>
       <Card className={classes.cardButton} elevation={4}>
         <ButtonBase aria-label={ariaLabel} href={link} style={{width:'100%'}}>
           <Suspense fallback={<div/>}>
-            <CardButtonPhoto image={image} alt={alt}/>
+            <CardButtonPhoto image={image} alt={altLabel}/>
           </Suspense>          
           <div className={classes.details}>
             <div className={classes.content}>

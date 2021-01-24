@@ -73,8 +73,9 @@ const useStyles = makeStyles({
     marginBottom: 8,
     fontSize: '18px !important',
   },
-  cardButton: {
-    maxWidth: 1600
+  cardButtonContainer: {
+    maxWidth: "100vw",
+    width: "90vw"
   }
 });
 
@@ -124,9 +125,9 @@ export default function Home() {
           container
           direction="row"
           justify="center"
-          alignItems="center"
+          alignItems="stretch"
           spacing={2}
-          className={classes.cardButton}
+          className={classes.cardButtonContainer}
         >
           <CardButton
             headerText="A cool website I helped make"
@@ -160,9 +161,9 @@ export default function Home() {
           container
           direction="row"
           justify="center"
-          alignItems="center"
+          alignItems="stretch"
           spacing={2}
-          className={classes.cardButton}
+          className={classes.cardButtonContainer}
         >
           <CardButton
             headerText="Inspiration Generator"

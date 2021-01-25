@@ -14,8 +14,11 @@ const useStyles = makeStyles(theme => ({
     borderTopRightRadius: 0,
     borderTopLeftRadius: 0,
     top: 0,
-    '& hover': {
+    '&:hover': {
       backgroundColor: "rgba(81, 85, 133, .85)"
+    },
+    '&:active': {
+      boxShadow: "none"
     },
     color: "white"
   },

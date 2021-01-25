@@ -1,9 +1,9 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Chip from '@material-ui/core/Chip';
-import Section from './Section.js';
-
 import { makeStyles } from '@material-ui/core/styles';
+import Section from './Section.js';
+import commonStyles from './../../commonStyles.js';
 
 const useStyles = makeStyles((theme) => ({
   education: {
@@ -21,10 +21,6 @@ const useStyles = makeStyles((theme) => ({
     position: "relative"
   },
   courseworkItem: {
-    backgroundImage: theme.palette.backgroundGradient,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundAttachment: "fixed",
     color: "white",
     border: 0
   }
@@ -46,9 +42,10 @@ export default function Education() {
     "Natural Language Processing"
   ];
   function CourseworkItems() {
+    const commonClasses = commonStyles();
     return (
       coursework.map(course => 
-        <Chip key={course} label={course} className={classes.courseworkItem}/>
+        <Chip key={course} label={course} className={`${classes.courseworkItem} ${commonClasses.backgroundGradient}`}/>
       )
     )
   };

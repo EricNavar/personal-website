@@ -12,7 +12,10 @@ const useStyles = makeStyles(theme => ({
   involvementItem: {
     overflow: 'hidden',
     borderRadius: 4,
-    background: theme.palette.itemContainer,
+    background: theme.palette.type === "light" ? theme.palette.itemContainer : theme.palette.backgroundGradient,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundAttachment: "fixed",
     height:'100%',
     '&:hover': {
       '& svg': {

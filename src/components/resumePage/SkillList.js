@@ -17,16 +17,13 @@ import MySqlIcon from './../../assets/svg/mysql-white.svg';
 import PythonIcon from './../../assets/svg/python-white.svg';
 import AwsIcon from './../../assets/svg/aws-white.svg';
 import MongoDbIcon from './../../assets/svg/mongodb-white.svg';
+import commonStyles from './../../commonStyles.js';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
     textTransform: "none",
     textAlign: "center",
     border: "5px solid white",
-    backgroundImage: theme.palette.backgroundGradient,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundAttachment: "fixed",
     borderRadius: 8,
     color: "white",
     transition: ".5s ease-in-out"
@@ -41,9 +38,10 @@ const useStyles = makeStyles((theme) => ({
 
 function SkillItem({ skill, icon }) {
   const classes = useStyles();
+  const commonClasses = commonStyles();
   return (
     <Grid item xs={4} sm={3} md={4} lg={2} className={classes.gridItem}>
-      <Paper className={classes.paper} elevation={3} >
+      <Paper className={`${classes.paper} ${commonClasses.backgroundGradient}`} elevation={3} >
         <img className={classes.image} src={icon} alt={skill + "icon"}/>
         <Typography
           variant='body1'

@@ -4,6 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import EricOutline from './../../assets/images/EricOutline.webp';
+import commonStyles from './../../commonStyles.js';
 
 const useStyles = makeStyles(theme => ({
   profileBackground: {
@@ -15,10 +16,6 @@ const useStyles = makeStyles(theme => ({
     padding: 0,
     marginRight: 12,
     borderRadius: "50%",
-    backgroundImage: theme.palette.backgroundGradient,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundAttachment: "fixed",
     overflow: 'hidden',
     display: 'block',
     listStyleType: 'disc',
@@ -97,10 +94,6 @@ const useStyles = makeStyles(theme => ({
   },
   textContainer: {
     maxWidth: 400,
-    backgroundImage: theme.palette.backgroundGradient,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundAttachment: "fixed",
     color: "#f5f4f4",
     marginTop: 16,
     padding: 16,
@@ -131,6 +124,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function PersonalStatement() {
   const classes = useStyles();
+  const commonClasses = commonStyles();
   return (
     <Grid
       container
@@ -140,7 +134,7 @@ export default function PersonalStatement() {
       spacing={4}
       className={classes.personalStatementWrapper}
     >
-      <ul className={classes.profileBackground}>
+      <ul className={`${classes.profileBackground} ${commonClasses.backgroundGradient}`}>
         <li></li>
         <li></li>
         <li></li>
@@ -148,7 +142,7 @@ export default function PersonalStatement() {
         <li></li>
         <img src={EricOutline} alt="" className={classes.profile}/>
       </ul>
-      <Paper className={classes.textContainer} elevation={3}>
+      <Paper className={`${classes.textContainer} ${commonClasses.backgroundGradient}`} elevation={3}>
         <Typography variant='body1' style={{fontSize:32}}>
           <b>Eric Navar</b>
         </Typography>

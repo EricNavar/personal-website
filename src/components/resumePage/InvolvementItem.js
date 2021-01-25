@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import List from '@material-ui/core/List';
 import IconButton from '@material-ui/core/IconButton';
 import LinkIcon from '@material-ui/icons/Link';
 import Grid from '@material-ui/core/Grid';
@@ -47,12 +48,12 @@ const useStyles = makeStyles(theme => ({
 export default function InvolvementItem({title, description, link, time_period, linkDescription, position, icon, wide}) {
   const classes = useStyles();
 
-  const getDescription = () => {
+  function Description() {
     if (Array.isArray(description))
       return (
         description.map((line) =>
           <ListItem key={line} dense>
-            <Typography variant="body1" color='textSecondary'>
+            <Typography variant="body1" color='textPrimary'>
               {line}
             </Typography>
           </ListItem>
@@ -63,15 +64,15 @@ export default function InvolvementItem({title, description, link, time_period, 
     <Grid item sm={12} md={6} lg={wide ? 6 : 3}>
       <div className={classes.involvementItem}>
         <div className={classes.involvementItemInner}>
-          <tr className={classes.topRow}>
-            <td style={{width: "100%"}}>
-              <Typography className={classes.title} href={link} variant="h5">
+          <div className={classes.topRow}>
+            <div style={{width: "100%"}}>
+              <Typography className={classes.title} href={link} component="p" variant="h5">
                 <b>{title}</b>
               </Typography>
-            </td>
-            <td>
+            </div>
+            <div>
               <img className={classes.img} alt='' src={icon}></img>
-            </td>
+            </div>
             {link &&
               <Tooltip title={linkDescription} aria-label={linkDescription}>
                 <IconButton href={link}>
@@ -79,14 +80,16 @@ export default function InvolvementItem({title, description, link, time_period, 
                 </IconButton>
               </Tooltip>
             }
-          </tr>
+          </div>
           <Typography component='span' variant="overline" color='textPrimary'>
             {position}&emsp;
           </Typography>
-          <Typography component='span' variant="overline" gutterBottom color='textSecondary' className={classes.timePeriod}>
+          <Typography component='span' variant="overline" gutterBottom color='textPrimary' className={classes.timePeriod}>
             {time_period}
           </Typography>
-          {getDescription()}
+          <List>
+            <Description/>
+          </List>
         </div>
       </div>
     </Grid>

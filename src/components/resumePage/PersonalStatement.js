@@ -10,9 +10,9 @@ const useStyles = makeStyles(theme => ({
     position: 'relative',
     top: 0,
     left: 0,
-    padding: 0,
     height: 250,
     width: 250,
+    padding: 0,
     marginRight: 12,
     borderRadius: "50%",
     backgroundImage: "linear-gradient(rgba(66,179,245,1) 0%, rgba(50,88,168,1) 27%, rgba(99,68,208,1) 100%)",
@@ -96,9 +96,14 @@ const useStyles = makeStyles(theme => ({
     }
   },
   textContainer: {
-    maxWidth: 550,
-    backgroundColor: "#0d335d",
-    color: "#f5f4f4"
+    maxWidth: 400,
+    backgroundImage: "linear-gradient(rgba(66,179,245,1) 0%, rgba(95,44,130,1) 100%)",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundAttachment: "fixed",
+    color: "#f5f4f4",
+    marginTop: 16,
+    padding: 16
   },
   imgContainer: {
     minWidth:200,
@@ -106,29 +111,20 @@ const useStyles = makeStyles(theme => ({
       textAlign: 'right'
     }
   },
-  resume: {
-    width: 'max-content',
-    marginTop: 24,
-    marginBottom: 32,
-    background: 'linear-gradient(90deg, #515585 0%, #151965 100%)',
-    border: 0,
-    color: 'white',
-    height: 48,
-    paddingLeft:16,
-    paddingRight:4,
-    borderRadius: 4
-  },
   animatedItem: {
     animation: `$myEffect 2000ms ${theme.transitions.easing.easeInOut}`,
     transform: "translateY(50%)",
     color: 'white',
-    fontSize:60
+    fontSize: 60
   },
   profile: {
     maxWidth: 200,
     position: "absolute",
     right: 25,
     bottom: 0
+  },
+  personalStatementWrapper: {
+    paddingTop: 20
   }
 }));
 
@@ -141,9 +137,9 @@ export default function PersonalStatement() {
       justify="center"
       alignItems="center"
       spacing={4}
-      style={{padding:32}}
+      className={classes.personalStatementWrapper}
     >
-      <Grid item className={classes.profileBackground}>
+      <ul className={classes.profileBackground}>
         <li></li>
         <li></li>
         <li></li>
@@ -151,15 +147,15 @@ export default function PersonalStatement() {
         <li></li>
         <li></li>
         <img src={EricOutline} alt="" className={classes.profile}/>
-      </Grid>
-      <Grid item xs={12} sm={8} className={classes.textContainer} component={Paper} elevation={3}>
+      </ul>
+      <Paper className={classes.textContainer} elevation={3}>
         <Typography variant='body1' style={{fontSize:32}}>
           <b>Eric Navar</b>
         </Typography>
         <Typography variant='body1' style={{fontSize:16}}>
           I am a Computer Science student looking for experience. I can write software and work with teams I'm always eager to learn new things.
         </Typography>
-      </Grid>
+      </Paper>
     </Grid>
   );
 }

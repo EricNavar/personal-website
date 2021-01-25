@@ -39,7 +39,7 @@ export default function HomePageButton({headerText, subText, image, link, altLab
       <Card className={classes.cardButton} elevation={4}>
         <ButtonBase aria-label={ariaLabel} href={link} style={{width:'100%'}}>
           <Suspense fallback={<div/>}>
-            <CardButtonPhoto image={image} alt={altLabel}/>
+            <CardButtonPhoto image={image} altLabel={altLabel}/>
           </Suspense>          
           <div className={classes.details}>
             <div className={classes.content}>

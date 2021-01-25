@@ -41,7 +41,7 @@ const useStyles = makeStyles({
 function SkillItem({ skill, icon }) {
   const classes = useStyles();
   return (
-    <Grid item xs={4} sm={3} lg={2} className={classes.gridItem}>
+    <Grid item xs={4} sm={3} md={4} lg={2} className={classes.gridItem}>
       <Paper className={classes.paper} elevation={3} >
         <img className={classes.image} src={icon} alt={skill + "icon"}/>
         <Typography
@@ -67,16 +67,16 @@ export default function SkillList() {
       >
         <SkillItem skill="C++" icon={CppIcon} />
         <SkillItem skill="Java" icon={JavaIcon} />
-        <SkillItem skill="React" icon={ReactIcon} />
         <SkillItem skill="Git" icon={GitIcon} />
-        <SkillItem skill="MATLAB" icon={MatlabIcon} />
         <SkillItem skill="HTML" icon={HtmlIcon} />
         <SkillItem skill="CSS" icon={CssIcon} />
         <SkillItem skill="Javascript" icon={JavascriptIcon} />
         <SkillItem skill="TypeScript" icon={TypescriptIcon} />
+        <SkillItem skill="React" icon={ReactIcon} />
         <SkillItem skill="AWS" icon={AwsIcon} />
-        <SkillItem skill="Python" icon={PythonIcon} />
+        <SkillItem skill="MATLAB" icon={MatlabIcon} />
         <SkillItem skill="MySQL" icon={MySqlIcon} />
+        <SkillItem skill="Python" icon={PythonIcon} />
         <SkillItem skill="MongoDB" icon={MongoDbIcon} />
       </Grid>
     </Section>

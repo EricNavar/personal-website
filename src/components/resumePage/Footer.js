@@ -7,7 +7,10 @@ import PhoneIcon from '@material-ui/icons/Phone';
 
 const useStyles = makeStyles(theme => ({
   footer: {
-    backgroundColor: '#19202D',
+    backgroundImage: "linear-gradient(rgba(66,179,245,1) 0%, rgba(95,44,130,1) 100%)",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundAttachment: "fixed",
     position: "relative",
     padding: 10,
     '& svg': {
@@ -33,7 +36,7 @@ const useStyles = makeStyles(theme => ({
   item: {
     color:'white',
     borderRadius:24,
-    background: '#364561',
+    background: 'rgba(255,255,255,.2)',
     alignItems: 'center'
   },
   snake: {

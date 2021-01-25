@@ -23,7 +23,10 @@ const useStyles = makeStyles({
     textTransform: "none",
     textAlign: "center",
     border: "5px solid white",
-    background: "#3246a8",
+    backgroundImage: "linear-gradient(rgba(66,179,245,1) 0%, rgba(95,44,130,1) 100%)",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundAttachment: "fixed",
     borderRadius: 8,
     color: "white"
   },

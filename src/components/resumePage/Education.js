@@ -21,7 +21,7 @@ const useStyles = makeStyles({
     position: "relative"
   },
   courseworkItem: {
-    backgroundImage: "linear-gradient(#42b3f5, #9042f5)",
+    backgroundImage: "linear-gradient(rgba(66,179,245,1) 0%, rgba(95,44,130,1) 100%)",
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundAttachment: "fixed",

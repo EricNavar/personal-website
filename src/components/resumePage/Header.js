@@ -47,12 +47,14 @@ export default function Header({darkMode, handleDarkModeClick}) {
         className={`${classes.button} ${classes.homeButton}`}
         startIcon={<ArrowBackIosIcon/>}
         onClick={e=>redirect("/")}
+        aria-label="Return to home"
       >
         Home
       </Button>
       <IconButton
         onClick={handleDarkModeClick}
         className={`${classes.button} ${classes.darkModeButton}`}
+        aria-label="toggle dark mode"
       >
         {darkMode ? <SunIcon/> : <MoonIcon/>}
       </IconButton>

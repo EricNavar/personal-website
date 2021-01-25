@@ -56,17 +56,17 @@ export default function Footer() {
       className={classes.footer}
     >
       <Grid item className={classes.item}>
-        <IconButton href="https://github.com/EricNavar">
+        <IconButton aria-label="My Github account" href="https://github.com/EricNavar">
           <GitHubIcon />
         </IconButton>
       </Grid>
       <Grid item className={classes.item}>
-        <IconButton href="https://www.linkedin.com/in/ericnavar/">
+        <IconButton aria-label="my LinkedIn profile" href="https://www.linkedin.com/in/ericnavar/">
           <LinkedInIcon />
         </IconButton>
       </Grid>
       <Grid item className={classes.item} style={{display:"flex"}}>
-        <IconButton href='mailto:ericnavar@ufl.edu'>
+        <IconButton aria-label="email" href='mailto:ericnavar@ufl.edu'>
           <EmailIcon/>
         </IconButton>
         <Typography noWrap style={{paddingRight:12}}>
@@ -74,7 +74,7 @@ export default function Footer() {
         </Typography>
       </Grid>
       <Grid item className={classes.item} style={{display:"flex"}}>
-        <IconButton href='tel:8135060973'>
+        <IconButton aria-label="cell phone number" href='tel:8135060973'>
           <PhoneIcon/>
         </IconButton>
         <Typography noWrap style={{paddingRight:12}}>

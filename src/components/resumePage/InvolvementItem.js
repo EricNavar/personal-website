@@ -27,7 +27,6 @@ const useStyles = makeStyles(theme => ({
     padding: 16,
   },
   title: {
-    color: '#151965',
     textAlign: 'left',
     fontSize: 26
   },
@@ -66,12 +65,9 @@ export default function InvolvementItem({title, description, link, time_period, 
         <div className={classes.involvementItemInner}>
           <div className={classes.topRow}>
             <div style={{width: "100%"}}>
-              <Typography className={classes.title} href={link} component="p" variant="h5">
+              <Typography className={classes.title} color="primary" href={link} component="p" variant="h5">
                 <b>{title}</b>
               </Typography>
-            </div>
-            <div>
-              <img className={classes.img} alt='' src={icon}></img>
             </div>
             {link &&
               <Tooltip title={linkDescription} aria-label={linkDescription}>
@@ -80,6 +76,9 @@ export default function InvolvementItem({title, description, link, time_period, 
                 </IconButton>
               </Tooltip>
             }
+            <div>
+              <img className={classes.img} alt={title + " icon"} src={icon}></img>
+            </div>
           </div>
           <Typography component='span' variant="overline" color='textPrimary'>
             {position}&emsp;

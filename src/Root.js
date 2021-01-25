@@ -49,19 +49,25 @@ export default function Root() {
       secondary: {
         main: '#46b5d1',
       },
-      itemContainer: 'rgba(215,218,225,1)'
+      itemContainer: 'rgba(215,218,225,1)',
+      backgroundColor1: "rgba(66,179,245,1)",
+      backgroundColor2: "rgba(95,44,130,1)",
+      backgroundGradient: "linear-gradient(rgba(66,179,245,1) 0%, rgba(95,44,130,1) 100%)"
     },
   });
   const darkTheme = createMuiTheme({
     palette: {
       type: 'dark',
       primary: {
-        main: '#151965',
-      },
-      secondary: {
         main: '#46b5d1',
       },
-      itemContainer: 'rgba(0, 0, 0, 0) linear-gradient(to right, rgb(72, 85, 99), rgb(41, 50, 60)) repeat scroll 0% 0%'
+      secondary: {
+        main: '#151965',
+      },
+      itemContainer: 'rgb(50, 70, 90)',
+      backgroundColor1: "#537895",
+      backgroundColor2: "#09203f",
+      backgroundGradient: "linear-gradient(#537895 0%, #09203f 100%)"
     },
   });
   const classes = useStyles();

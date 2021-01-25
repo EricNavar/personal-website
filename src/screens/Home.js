@@ -200,7 +200,7 @@ export default function Home() {
           <CardButton
             headerText="Gato Noches"
             subText="Look at schedule, leave feedback"
-            link="https://ssd.ericnavar.com"
+            link="/gatoNoches"
             image={GatoNochesLogo}
             altLabel="Gato Noches Logo"
             ariaLabel="Gato Noches Website"

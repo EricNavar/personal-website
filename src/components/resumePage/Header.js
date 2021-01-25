@@ -7,15 +7,15 @@ import SunIcon from '@material-ui/icons/Brightness5';
 import {useHistory} from "react-router-dom";
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   button: {
     position: 'absolute',
-    backgroundColor: "#515585",
+    backgroundColor: theme.palette.backgroundColor1,
     borderTopRightRadius: 0,
     borderTopLeftRadius: 0,
     top: 0,
     '&:hover': {
-      backgroundColor: "rgba(81, 85, 133, .85)"
+      opacity: .85
     },
     '&:active': {
       boxShadow: "none"
@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme => ({
     borderBottomLeftRadius: 0,
     left: 0
   }
-}))
+}));
 
 export default function Header({darkMode, handleDarkModeClick}) {
   React.useEffect(() => {

@@ -17,10 +17,10 @@ const useStyles = makeStyles({
   }
 });
 
-export default function Section({children, title}) {
+export default function Section({children, title, ...props}) {
   const classes = useStyles();
   return (
-    <div className={classes.section}>
+    <div className={classes.section} {...props}>
       <div style={{width:'min-content'}}>
         <Typography component='h2' variant='h4' color='textPrimary'>{title}</Typography>
         <div className={classes.divider}></div>

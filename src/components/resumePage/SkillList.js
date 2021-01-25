@@ -18,17 +18,18 @@ import PythonIcon from './../../assets/svg/python-white.svg';
 import AwsIcon from './../../assets/svg/aws-white.svg';
 import MongoDbIcon from './../../assets/svg/mongodb-white.svg';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   paper: {
     textTransform: "none",
     textAlign: "center",
     border: "5px solid white",
-    backgroundImage: "linear-gradient(rgba(66,179,245,1) 0%, rgba(95,44,130,1) 100%)",
+    backgroundImage: theme.palette.backgroundGradient,
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundAttachment: "fixed",
     borderRadius: 8,
-    color: "white"
+    color: "white",
+    transition: ".5s ease-in-out"
   },
   image: {
     height: 40
@@ -36,7 +37,7 @@ const useStyles = makeStyles({
   gridItem: {
 
   }
-});
+}));
 
 function SkillItem({ skill, icon }) {
   const classes = useStyles();

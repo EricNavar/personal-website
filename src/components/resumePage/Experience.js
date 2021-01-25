@@ -1,7 +1,8 @@
 import React from 'react';
+import Grid from '@material-ui/core/Grid';
 import InvolvementItem from './InvolvementItem';
 import Section from './Section';
-import Grid from '@material-ui/core/Grid';
+import DcrfLogo from './../../assets/images/dcrf.webp';
 
 export default function InvolvementList() {
   return (
@@ -17,6 +18,8 @@ export default function InvolvementList() {
           ]}
           link="https://dcfitness.herokuapp.com/"
           wide={true}
+          linkDescription="link to website (no longer functional)"
+          icon = {DcrfLogo}
         />
       </Grid>
     </Section>

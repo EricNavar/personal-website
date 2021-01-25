@@ -18,6 +18,8 @@ export default function InvolvementList() {
           description = {["Learn about prototyping, principles of user experience and product design"]}
           icon={GatorUXIcon}
           wide={false}
+          link = "https://gatorux.ericnavar.com"
+          linkDescription="Cute little website I made to practice UX"
         />
         <InvolvementItem
           title = "Society of Software Developers"

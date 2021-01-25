@@ -15,16 +15,16 @@ const useStyles = makeStyles(theme => ({
     padding: 0,
     marginRight: 12,
     borderRadius: "50%",
-    backgroundImage: "linear-gradient(rgba(66,179,245,1) 0%, rgba(50,88,168,1) 27%, rgba(99,68,208,1) 100%)",
+    backgroundImage: theme.palette.backgroundGradient,
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundAttachment: "fixed",
     overflow: 'hidden',
     display: 'block',
     listStyleType: 'disc',
-    paddingInlineStart: 40,
     unicodeBidi: 'isolate',
     textAlign: 'center',
+    transition: "background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
     '& li': {
       position: 'absolute',
       top: '80vh',
@@ -97,13 +97,14 @@ const useStyles = makeStyles(theme => ({
   },
   textContainer: {
     maxWidth: 400,
-    backgroundImage: "linear-gradient(rgba(66,179,245,1) 0%, rgba(95,44,130,1) 100%)",
+    backgroundImage: theme.palette.backgroundGradient,
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundAttachment: "fixed",
     color: "#f5f4f4",
     marginTop: 16,
-    padding: 16
+    padding: 16,
+    transition: "background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms"
   },
   imgContainer: {
     minWidth:200,
@@ -140,7 +141,6 @@ export default function PersonalStatement() {
       className={classes.personalStatementWrapper}
     >
       <ul className={classes.profileBackground}>
-        <li></li>
         <li></li>
         <li></li>
         <li></li>

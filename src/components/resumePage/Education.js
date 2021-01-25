@@ -5,10 +5,10 @@ import Section from './Section.js';
 
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles({
-  gpa: {
-    '& b': {
-      color: '#151965'
+const useStyles = makeStyles((theme) => ({
+  education: {
+    '& *': {
+      transition: ".5s ease-in-out"
     }
   },
   courseworkItemsWrapper: {
@@ -21,14 +21,14 @@ const useStyles = makeStyles({
     position: "relative"
   },
   courseworkItem: {
-    backgroundImage: "linear-gradient(rgba(66,179,245,1) 0%, rgba(95,44,130,1) 100%)",
+    backgroundImage: theme.palette.backgroundGradient,
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundAttachment: "fixed",
     color: "white",
     border: 0
   }
-});
+}));
 
 export default function Education() {
   const classes = useStyles();
@@ -54,7 +54,7 @@ export default function Education() {
   };
 
   return (
-    <Section title="Education">
+    <Section title="Education" className={classes.education}>
       <Typography component="p" variant='h5' color='textPrimary'>
         University of Florida
       </Typography>
@@ -64,8 +64,12 @@ export default function Education() {
       <Typography className={classes.gpa} component="span" variant='body1' color='textSecondary'>
         &nbsp; | Digital Arts Minor
       </Typography>
-      <Typography className={classes.gpa} variant='body1' color='textPrimary'>
-        <b>GPA:</b> 3.95
+      <br/>
+      <Typography component="span" variant='body1' color='primary'>
+        <b>GPA:</b>
+      </Typography>
+      <Typography component="span" variant='body1' color='textPrimary'>
+        &nbsp;3.95
       </Typography>
       <Typography component='p' variant='h6' color='textPrimary'>
         Relevant Coursework:

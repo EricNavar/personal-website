@@ -48,14 +48,14 @@ export default function Education() {
   function CourseworkItems() {
     return (
       coursework.map(course => 
-        <Chip label={course} variant='body1' className={classes.courseworkItem}/>
+        <Chip key={course} label={course} className={classes.courseworkItem}/>
       )
     )
   };
 
   return (
     <Section title="Education">
-      <Typography variant='h5' color='textPrimary'>
+      <Typography component="p" variant='h5' color='textPrimary'>
         University of Florida
       </Typography>
       <Typography className={classes.gpa} component="span" variant='body1' color='textPrimary'>

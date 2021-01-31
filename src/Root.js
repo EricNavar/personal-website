@@ -9,9 +9,9 @@ import {
 import { ThemeProvider, createMuiTheme, makeStyles } from '@material-ui/core/styles';
 import Home from "./screens/Home";
 const ResumePage = lazy(() => import('./screens/ResumePage.js'));
-const GatoNochesFeedback = lazy(() => import('./screens/GatoNochesFeedback'));
 const GatoNoches = lazy(() => import('./screens/GatoNoches'));
 const InspirePage = lazy(() => import('./screens/InspirePage'));
+const WorstWebsite = lazy(() => import('./screens/WorstWebsite'));
 
 
 //https://reacttraining.com/react-router/web/guides/quick-start
@@ -92,8 +92,8 @@ export default function Root() {
                 <Route exact path="/inspire">
                   <InspirePage/>
                 </Route>
-                <Route exact path="/gatonoches/feedback">
-                  <GatoNochesFeedback/>
+                <Route exact path="/worst-website">
+                  <WorstWebsite/>
                 </Route>
               </Suspense>
               <Route>

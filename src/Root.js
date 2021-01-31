@@ -9,7 +9,6 @@ import {
 import { ThemeProvider, createMuiTheme, makeStyles } from '@material-ui/core/styles';
 import Home from "./screens/Home";
 const ResumePage = lazy(() => import('./screens/ResumePage.js'));
-const EmbeddedResume = lazy(() => import('./screens/EmbeddedResume'));
 const GatoNochesFeedback = lazy(() => import('./screens/GatoNochesFeedback'));
 const GatoNoches = lazy(() => import('./screens/GatoNoches'));
 const InspirePage = lazy(() => import('./screens/InspirePage'));
@@ -88,16 +87,13 @@ export default function Root() {
                   <ResumePage darkMode={darkMode} handleDarkModeClick={handleDarkModeClick}/>
                 </Route>
                 <Route exact path="/resume">
-                  <EmbeddedResume/>
-                </Route>
-                <Route exact path="/gatonoches">
                   <GatoNoches/>
-                </Route>
-                <Route exact path="/gatonoches/feedback">
-                  <GatoNochesFeedback/>
                 </Route>
                 <Route exact path="/inspire">
                   <InspirePage/>
+                </Route>
+                <Route exact path="/gatonoches/feedback">
+                  <GatoNochesFeedback/>
                 </Route>
               </Suspense>
               <Route>

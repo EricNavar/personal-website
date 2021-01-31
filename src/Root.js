@@ -50,10 +50,10 @@ export default function Root() {
                 <Home/>
               </Route>
               <Suspense fallback={<div/>}>
-                <Route exact path="/portfolio">
+                <Route exact path="/resume">
                   <ResumePage/>
                 </Route>
-                <Route exact path="/resume">
+                <Route exact path="/gato-noches">
                   <GatoNoches/>
                 </Route>
                 <Route exact path="/inspire">

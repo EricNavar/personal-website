@@ -7,13 +7,17 @@ import PropTypes from "prop-types";
 //local files
 const CardButtonPhoto = lazy(() => import('./CardButtonPhoto'));
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   itemWrapper: {
     position: 'relative',
     borderRadius: 8,
     height: "100%",
-    maxWidth: 325,
-    width: 325
+    [theme.breakpoints.down('xs')]: {
+      maxWidth: "100%"
+    },
+    [theme.breakpoints.up('sm')]: {
+      maxWidth: 325
+    },
   },
   item: {
     padding: "16px 20px",
@@ -54,7 +58,7 @@ const useStyles = makeStyles({
       background: '#00c4cc'
     }
   }
-});
+}));
 
 CardButton.propTypes = {
   headerText: PropTypes.string.isRequired,

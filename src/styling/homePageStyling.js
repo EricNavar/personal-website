@@ -28,7 +28,7 @@ export const pageStyles = makeStyles(theme=> ({
   }
 }));
 
-export const homePageStyles = makeStyles({
+export const homePageStyles = makeStyles((theme) => ({
   homePageTitle: {
     position: 'relative',
     textDecoration: 'none',
@@ -67,5 +67,10 @@ export const homePageStyles = makeStyles({
   },
   topicName: {
     marginBottom: 12
+  },
+  cardButtonContainer: {
+    [theme.breakpoints.down('xs')]: {
+      width: "100%"
+    }
   }
-});
+}));

@@ -6,7 +6,8 @@ import {
   useHistory,
   Redirect
 } from "react-router-dom";
-import { ThemeProvider, createMuiTheme, makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
+//local files
 import Home from "./screens/Home";
 const ResumePage = lazy(() => import('./screens/ResumePage.js'));
 const GatoNoches = lazy(() => import('./screens/GatoNoches'));
@@ -38,44 +39,10 @@ function ScrollToTop(props) {
 };
 
 export default function Root() {
-  const [darkMode,setDarkMode]=React.useState(false);
-  const lightTheme = createMuiTheme({
-    palette: {
-      type: 'light',
-      primary: {
-        main: '#151965',
-      },
-      secondary: {
-        main: '#46b5d1',
-      },
-      itemContainer: 'rgba(215,218,225,1)',
-      backgroundColor1: "rgba(66,179,245,1)",
-      backgroundColor2: "rgba(95,44,130,1)",
-      backgroundGradient: "linear-gradient(rgba(66,179,245,1) 0%, rgba(95,44,130,1) 100%)"
-    },
-  });
-  const darkTheme = createMuiTheme({
-    palette: {
-      type: 'dark',
-      primary: {
-        main: '#46b5d1',
-      },
-      secondary: {
-        main: '#151965',
-      },
-      itemContainer: 'rgb(50, 70, 90)',
-      backgroundColor1: "#537895",
-      backgroundColor2: "#09203f",
-      backgroundGradient: "linear-gradient(#537895 0%, #09203f 100%)"
-    },
-  });
+
   const classes = useStyles();
-  const handleDarkModeClick = () => {
-    setDarkMode(!darkMode);
-  }
   return (
     <Router id="router">
-      <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
         <div className={classes.root}>
           <ScrollToTop>
             <Switch>
@@ -84,7 +51,7 @@ export default function Root() {
               </Route>
               <Suspense fallback={<div/>}>
                 <Route exact path="/portfolio">
-                  <ResumePage darkMode={darkMode} handleDarkModeClick={handleDarkModeClick}/>
+                  <ResumePage/>
                 </Route>
                 <Route exact path="/resume">
                   <GatoNoches/>
@@ -102,7 +69,6 @@ export default function Root() {
             </Switch>
           </ScrollToTop>
         </div>
-      </ThemeProvider>
     </Router>
   );
 }

@@ -10,7 +10,7 @@ export default [
   {
     "_id": 1,
     "tools": "MERN Stack web app",
-    "headerText": "DC Fitness",
+    "headerText": "DC Rock Fitness",
     "subText": ["(No longer functional) A website for a fitness center where an admin can create ","blog posts"," and nutrition posts. Clients can view their assigned ", " personalized workout"," plans for the week."],
     "link": "dcrf.ericnavar.com",
     "image": DCRFLogo,

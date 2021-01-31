@@ -3,94 +3,25 @@ import Grid from "@material-ui/core/Grid";
 import PropTypes from 'prop-types';
 import ButtonBase from "@material-ui/core/ButtonBase";
 import Typography from "@material-ui/core/Typography";
-import {makeStyles} from "@material-ui/core/styles";
-import SSDLogo from './../assets/images/SSD.webp';
-import DCRFLogo from './../assets/images/dcrf.webp';
-import HectorPic from './../assets/images/hector.webp';
-import ProfilePic from './../assets/images/ProfilePic.webp';
+//local files
 import CardButton from './../components/home/CardButton.js';
 import GitHubIcon from './../assets/svg/github.svg';
-import DatabasePic from './../assets/images/database.webp';
 import LinkedInIcon from './../assets/svg/linkedin.svg';
-import KnightHackLogo from './../assets/images/knighthack.jpg';
-import InspirationPic from './../assets/images/inspiration.jpg';
-import GatoNochesLogo from './../assets/images/GatoNochesLogo.webp';
+import projectData from './../components/home/projectData'
+import {homePageStyles} from './../styling/homePageStyling.js';
 
-const useStyles = makeStyles({
-  grid: {
-    minHeight: "100vh",
-    width: "100%"
-  },
-  bigButton: {
-    width: "100%",
-    height: "100%",
-    textTransform: "none",
-    border: "6px solid white"
-  },
-  portfolioButton: {
-    backgroundColor: "rgb(19, 39, 67)",
-    "&:hover": {
-      backgroundColor: "rgba(19, 39, 67, .80)",
-    }
-  },
-  bigButtonText: {
-    fontSize: 18
-  },
-  home: {
-    padding: 24,
-    justifyContent: 'center',
-    display: 'grid'
-  },
-  gatoNochesLogo: {
-    //so that the height is the same as the profile pic's
-    maxWidth: 335,
-    marginBottom: 24,
-    marginTop: 24
-  },
-  profilePic: {
-    borderRadius: "50%",
-    maxWidth: 260
-  },
-  portfolioText: {
-    fontWeight: 400,
-    letterSpacing: 3,
-    color: 'white'
-  },
-  smallButton: {
-    backgroundColor: 'lightgrey',
-    color: 'black'
-  },
-  paper: {
-    maxWidth: 500,
-    width: "100%",
-    height: "100%"
-  },
-  divider: {
-    width:"80%"
-  },
-  sectionTitle: {
-    paddingTop: 8,
-    marginBottom: 8,
-    fontSize: '18px !important',
-  },
-  cardButtonContainer: {
-    maxWidth: "100vw",
-    width: "90vw"
-  }
-});
-
-function HomePageButton({icon, circle, link, label}) {
+function SocialLink({ icon, circle, link, label }) {
   return (
     <ButtonBase
       href={link}
       variant="outlined"
-      style={{margin:4, borderRadius: circle ? "50%" : 0}}
+      style={{ margin: 4, borderRadius: circle ? "50%" : 0 }}
     >
-      <img alt={label} src={icon}/>
+      <img alt={label} src={icon} />
     </ButtonBase>
   );
 };
-HomePageButton.propTypes = {
+SocialLink.propTypes = {
   link: PropTypes.string.isRequired,
   circle: PropTypes.bool.isRequired,
   icon: PropTypes.object
@@ -103,8 +34,8 @@ export default function Home() {
       top: 0,
       left: 0,
     });
-  },[]);
-  const classes = useStyles();
+  }, []);
+  const classes = homePageStyles();
 
   return (
     <div className={classes.home}>
@@ -112,99 +43,20 @@ export default function Home() {
         component='h1'
         variant='h3'
         align='center'
-        style={{marginBottom: 14,fontSize:32}}
+        className={classes.homePageTitle}
       >
         Welcome to my cool personal website!
       </Typography>
-      <hr className={classes.divider}/>
-      <section>
-        <Typography component='h2' variant='h4' className={classes.sectionTitle} align='center'>
-          Cool things I have worked on
+      <section id="project-list" className={classes.section}>
+        <Typography component="h2" variant="h4" className={classes.topicName}>
+          <b>Some cool projects I've worked on</b>
         </Typography>
-        <Grid
-          container
-          direction="row"
-          justify="center"
-          alignItems="stretch"
-          spacing={2}
-          className={classes.cardButtonContainer}
-        >
-          <CardButton
-            headerText="A cool website I helped make"
-            subText="No longer functional"
-            link="https://dcrockfitness.com"
-            image={DCRFLogo}
-            altLabel="DC Rock Fitness Logo"
-            ariaLabel="DC Rock Fitness website"
-          />
-          <CardButton
-            headerText="SQL injection playground"
-            link="https://sql-ssd.herokuapp.com/login"
-            image={DatabasePic}
-            altLabel="Database icon"
-            ariaLabel="SWL injection playground"
-          />
-          <CardButton
-            headerText="Society of Software Developers"
-            link="https://ssd.ericnavar.com"
-            image={SSDLogo}
-            altLabel="SSD Logo"
-            ariaLabel="SSD Website"
-          />
-          <CardButton
-            headerText="Inspiration Generator"
-            subText="New inspiration with each refresh!"
-            link="/inspire"
-            image={InspirationPic}
-            altLabel="Mountain"
-            ariaLabel="Inspiration Generator"
-          />
-        </Grid>
-      </section>
-      <section style={{marginTop: 12}}>
-        <Typography component='h2' variant='h4' className={classes.sectionTitle} align='center'>
-          Not cool things I have worked on
-        </Typography>
-        <Grid
-          container
-          direction="row"
-          justify="center"
-          alignItems="stretch"
-          spacing={2}
-          className={classes.cardButtonContainer}
-        >
-          <CardButton
-            headerText="My Resume"
-            subText="but made with React"
-            link="/portfolio"
-            image={ProfilePic}
-            altLabel="Eric Navar"
-            ariaLabel="Eric Navar resume"
-          />
-          <CardButton
-            headerText="Someone else's portfolio"
-            subText="It's not very good so I don't know why I linked it"
-            link="http://hectorrizo.com"
-            image={HectorPic}
-            altLabel="Hector Rizo"
-            ariaLabel="Hector Rizo's portfolio"
-          />
-          <CardButton
-            headerText="How to win a hackathon"
-            subText="This is guaranteed to work"
-            link="http://knighthack.com" 
-            image={KnightHackLogo}
-            altLabel="Knight Hack Logo"
-            ariaLabel="How to win a hackathon"
-          />
-          <CardButton
-            headerText="Gato Noches"
-            subText="Look at schedule, leave feedback"
-            link="/gatoNoches"
-            image={GatoNochesLogo}
-            altLabel="Gato Noches Logo"
-            ariaLabel="Gato Noches Website"
-          />
+        <Grid container spacing={4}>
+          {projectData.map(project => (
+            <Grid key={project._id} item className={classes.cardButtonContainer}>
+              <CardButton {...project}/>
+            </Grid>
+          ))}
         </Grid>
       </section>
       <section>
@@ -215,12 +67,12 @@ export default function Home() {
           container
           direction="row"
           justify="center"
-          alignItems="center"
+          alignItems="stretch"
           spacing={2}
           style={{marginBottom:8}}
         >
-          <HomePageButton label="Github" link="https://www.github.com/ericnavar" icon={GitHubIcon} circle={true}/>
-          <HomePageButton label="LinkedIn" link="https://www.linkedin.com/in/ericnavar/" icon={LinkedInIcon} circle={false}/>
+          <SocialLink label="Github" link="https://www.github.com/ericnavar" icon={GitHubIcon} circle={true}/>
+          <SocialLink label="LinkedIn" link="https://www.linkedin.com/in/ericnavar/" icon={LinkedInIcon} circle={false}/>
         </Grid>
       </section>
     </div>

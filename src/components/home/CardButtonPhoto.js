@@ -3,7 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
   wrapper: {
-    width: "45%"
+    width: "100%",
+    textAlign: "center"
   },
   aspectRatioBox: {
     overflow: 'hidden',

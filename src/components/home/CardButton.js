@@ -1,58 +1,100 @@
 import React, {lazy, Suspense} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
-import ButtonBase from '@material-ui/core/ButtonBase';
-import Grid from "@material-ui/core/Grid";
+import Link from '@material-ui/core/Link';
+import Paper from '@material-ui/core/Paper';
+import PropTypes from "prop-types";
+//local files
 const CardButtonPhoto = lazy(() => import('./CardButtonPhoto'));
 
 const useStyles = makeStyles({
-  cardButton: {
-    display: 'flex',
+  itemWrapper: {
+    position: 'relative',
+    borderRadius: 8,
     height: "100%",
-    borderRadius: 8
+    maxWidth: 325,
+    width: 325
   },
-  details: {
-    display: 'flex',
-    flexDirection: 'column',
-    width: '55%'
+  item: {
+    padding: "16px 20px",
   },
-  content: {
-    flex: '1 0 auto',
-    maxWidth: 'calc(100% - 16px)',
-    width: 'max-content',
-    padding:8
+  topic: {
+    textDecoration: 'none',
+    '&:hover': {
+      color: "#000000"
+    },
+    '&:active': {
+      color: "#000000"
+    }
   },
-  image: {
-    width: '35%',
+  title: {
+    color: '#151965',
+    textAlign: 'left',
+    fontWeight: 'bold',
+    '&:hover': {
+      color: "#00a8cc",
+    },
+    '&:active': {
+      color: "#00a8cc",
+    }
   },
-  playIcon: {
-    height: 38,
-    width: 38
+  underlined: {
+    display: "inline-grid",
+    position: 'relative',
+    textDecoration: 'none',
+    '&::after': {
+      width: '100%',
+      position: 'absolute',
+      content: '""',
+      right: 0,
+      left: 0,
+      bottom: '-2px',
+      borderRadius: 1,
+      height: '2px',
+      background: '#00c4cc'
+    }
   }
 });
 
-export default function HomePageButton({headerText, subText, image, link, altLabel, ariaLabel}) {
+CardButton.propTypes = {
+  headerText: PropTypes.string.isRequired,
+  tools: PropTypes.string.isRequired,
+  subText: PropTypes.isRequired,
+  image: PropTypes.isRequired,
+  link: PropTypes.string.isRequired,
+  altLabel: PropTypes.string.isRequired,
+  ariaLabel: PropTypes.string.isRequired
+};
+
+export default function CardButton({headerText, tools, subText, image, link, altLabel, ariaLabel}) {
   const classes = useStyles();
+
   return (
-    <Grid item xs={12} sm={6} lg={3}>
-      <Card className={classes.cardButton} elevation={4}>
-        <ButtonBase aria-label={ariaLabel} href={link} style={{width:'100%'}}>
-          <Suspense fallback={<div/>}>
-            <CardButtonPhoto image={image} altLabel={altLabel}/>
-          </Suspense>          
-          <div className={classes.details}>
-            <div className={classes.content}>
-              <Typography color="textPrimary" component="p" variant="h6">
-                {headerText}
-              </Typography>
-              <Typography color="textSecondary" component="p" variant="subtitle2">
-                {subText}
-              </Typography>
-            </div>
-          </div>
-        </ButtonBase>
-      </Card>
-    </Grid>
+    <Paper className={classes.itemWrapper} elevation={4}>
+      <div className={classes.item}>
+        <Suspense fallback={<div/>}>
+          <CardButtonPhoto image={image} altLabel={altLabel}/>
+        </Suspense>
+          <Typography variant="overline" display="block" color='textSecondary'>
+            {tools}
+          </Typography>
+        <Link
+          className={classes.title}
+          href={link}
+          variant="h5"
+          style={{textDecoration:'none'}}
+          ariaLabel={ariaLabel}
+        >
+          {headerText}
+        </Link>
+        <Typography variant='body1' style={{marginTop: 12}}>
+          {subText.map((textPiece,value) => (
+            <span key={`${headerText}-subText-${value}`} className={value%2===1?classes.underlined:""}>
+              {textPiece}
+            </span>
+          ))}
+        </Typography>
+      </div>
+    </Paper>
   );
 }

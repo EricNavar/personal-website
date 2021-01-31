@@ -49,7 +49,7 @@ export const homePageStyles = makeStyles({
     }
   },
   section: {
-    marginTop: 40,
+    marginTop: 20,
     marginBottom: 8
   },
   home: {

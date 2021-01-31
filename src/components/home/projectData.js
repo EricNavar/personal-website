@@ -50,7 +50,7 @@ export default [
   {
     "_id": 2,
     "tools": "Flask app",
-    "headerText": "SQL injection playground",
+    "headerText": "SQL Injection Playground",
     "subText": ["A ","flask app"," I got running that serves as an example for how ","SQL injection"," in a website with poor security may occur"],
     "link": "https://sql-ssd.herokuapp.com/login",
     "image": DatabasePic,

@@ -22,7 +22,7 @@ export default [
     "tools": "React app",
     "headerText": "My Resume",
     "subText": ["My resume but with way more CSS than it needs to have and now with dark mode 😎"],
-    "link": "/portfolio",
+    "link": "/resume",
     "image": ProfilePic,
     "altLabel": "Eric Navar",
     "ariaLabel": "Eric Navar resume"

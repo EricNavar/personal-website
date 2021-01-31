@@ -3,23 +3,24 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
+//local files
 import Section from './Section';
-import GitIcon from './../../assets/svg/git-white.svg';
-import CppIcon from './../../assets/svg/cpp-white.svg';
-import JavaIcon from './../../assets/svg/java-white.svg';
-import ReactIcon from './../../assets/svg/react-white.svg';
-import MatlabIcon from './../../assets/svg/matlab-white.svg';
-import JavascriptIcon from './../../assets/svg/javascript-white.svg';
-import HtmlIcon from './../../assets/svg/html5-white.svg';
-import CssIcon from './../../assets/svg/css3-white.svg';
-import TypescriptIcon from './../../assets/svg/typescript-white.svg';
-import MySqlIcon from './../../assets/svg/mysql-white.svg';
-import PythonIcon from './../../assets/svg/python-white.svg';
-import AwsIcon from './../../assets/svg/aws-white.svg';
-import MongoDbIcon from './../../assets/svg/mongodb-white.svg';
+import GitIcon from './../../assets/resumePage/git-white.svg';
+import CppIcon from './../../assets/resumePage/cpp-white.svg';
+import AwsIcon from './../../assets/resumePage/aws-white.svg';
+import CssIcon from './../../assets/resumePage/css3-white.svg';
+import HtmlIcon from './../../assets/resumePage/html5-white.svg';
+import JavaIcon from './../../assets/resumePage/java-white.svg';
+import ReactIcon from './../../assets/resumePage/react-white.svg';
+import MySqlIcon from './../../assets/resumePage/mysql-white.svg';
+import MatlabIcon from './../../assets/resumePage/matlab-white.svg';
+import PythonIcon from './../../assets/resumePage/python-white.svg';
+import MongoDbIcon from './../../assets/resumePage/mongodb-white.svg';
+import JavascriptIcon from './../../assets/resumePage/javascript-white.svg';
+import TypescriptIcon from './../../assets/resumePage/typescript-white.svg';
 import commonStyles from './../../commonStyles.js';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   paper: {
     textTransform: "none",
     textAlign: "center",
@@ -30,11 +31,8 @@ const useStyles = makeStyles((theme) => ({
   },
   image: {
     height: 40
-  },
-  gridItem: {
-
   }
-}));
+});
 
 function SkillItem({ skill, icon }) {
   const classes = useStyles();

@@ -6,8 +6,8 @@ import Fade from '@material-ui/core/Grow';
 import NoSsr from '@material-ui/core/NoSsr';
 import { createStyles, Theme, makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 //local files
-import HandshakePhoto from './../assets/images/handshake.jpg';
-import EricEmoji from './../assets/images/EricEmoji.png';
+import HandshakePhoto from './../assets/worstWebsite/handshake.jpg';
+import EricEmoji from './../assets/worstWebsite/EricEmoji.png';
 import PrivacyNotice from '../components/worstWebsite/PrivacyNotice';
 import Footer from './../components/worstWebsite/Footer';
 import AppBar from './../components/worstWebsite/AppBar';

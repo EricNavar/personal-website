@@ -2,7 +2,7 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import InvolvementItem from './InvolvementItem';
 import Section from './Section';
-import DcrfLogo from './../../assets/images/dcrf.webp';
+import DcrfLogo from './../../assets/homePage/dcrf.webp';
 
 export default function InvolvementList() {
   return (

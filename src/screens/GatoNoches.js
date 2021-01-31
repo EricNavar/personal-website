@@ -1,9 +1,10 @@
 import React from 'react';
 import Link from '@material-ui/core/Link';
-import GatoNochesLogo from './../assets/svg/GatoNochesLogo';
 import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/core/styles";
 import {Link as RouteLink} from "react-router-dom";
+//local files
+import GatoNochesLogo from '../assets/gatoNoches/GatoNochesLogo';
 
 const useStyles = makeStyles({
   gatoNoches: {

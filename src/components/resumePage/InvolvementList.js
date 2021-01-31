@@ -1,10 +1,11 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
+//local files
+import SSDIcon from './../../assets/resumePage/SSD.webp';
+import OSCIcon from './../../assets/resumePage/OpenSourceClub.webp';
+import GatorUXIcon from './../../assets/resumePage/GatorUXLogo.webp';
+import HackFSUIcon from './../../assets/resumePage/HackFSU.webp';
 import Section from './Section';
-import SSDIcon from './../../assets/images/SSD.webp';
-import OSCIcon from './../../assets/images/OpenSourceClub.webp';
-import GatorUXIcon from './../../assets/images/GatorUXLogo.webp';
-import HackFSUIcon from './../../assets/images/HackFSU.webp';
 import InvolvementItem from './InvolvementItem';
 
 export default function InvolvementList() {

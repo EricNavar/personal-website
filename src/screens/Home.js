@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import ButtonBase from "@material-ui/core/ButtonBase";
 import Typography from "@material-ui/core/Typography";
 //local files
+import GitHubIcon from './../assets/homePage/github.svg';
+import LinkedInIcon from './../assets/homePage/linkedin.svg';
 import CardButton from './../components/home/CardButton.js';
-import GitHubIcon from './../assets/svg/github.svg';
-import LinkedInIcon from './../assets/svg/linkedin.svg';
 import projectData from './../components/home/projectData'
 import {homePageStyles} from './../styling/homePageStyling.js';
 

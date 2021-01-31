@@ -1,10 +1,10 @@
-import SSDLogo from './../../assets/images/SSD.webp';
-import DCRFLogo from './../../assets/images/dcrf.webp';
-import HectorPic from './../../assets/images/hector.webp';
-import ProfilePic from './../../assets/images/ProfilePic.webp';
-import DatabasePic from './../../assets/images/database.webp';
-import KnightHackLogo from './../../assets/images/knighthack.jpg';
-import InspirationPic from './../../assets/images/inspiration.jpg';
+import SSDLogo from './../../assets/homePage/SSD.webp';
+import DCRFLogo from './../../assets/homePage/dcrf.webp';
+import HectorPic from './../../assets/homePage/hector.webp';
+import ProfilePic from './../../assets/homePage/ProfilePic.webp';
+import DatabasePic from './../../assets/homePage/database.webp';
+import KnightHackLogo from './../../assets/homePage/knighthack.jpg';
+import InspirationPic from './../../assets/homePage/inspiration.jpg';
 
 export default [
   {
@@ -12,7 +12,7 @@ export default [
     "tools": "MERN Stack web app",
     "headerText": "DC Rock Fitness",
     "subText": ["(No longer functional) A website for a fitness center where an admin can create ","blog posts"," and nutrition posts. Clients can view their assigned ", " personalized workout"," plans for the week."],
-    "link": "dcrf.ericnavar.com",
+    "link": "https://dcrf.ericnavar.com",
     "image": DCRFLogo,
     "altLabel": "DC Rock Fitness Logo",
     "ariaLabel": "DC Rock Fitness website"

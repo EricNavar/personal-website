@@ -15,7 +15,9 @@ const useStyles = makeStyles((theme) => ({
     borderTopLeftRadius: 0,
     top: 0,
     '&:hover': {
-      opacity: .85
+      opacity: .85,
+      boxShadow: "none",
+      backgroundColor: theme.palette.backgroundColor1,
     },
     '&:active': {
       boxShadow: "none"

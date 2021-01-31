@@ -76,7 +76,7 @@ export default function SearchAppBar() {
             color="inherit"
             aria-label="open drawer"
           >
-            🍔
+            <span role="img" aria-labelledby="hamburger-icon">🍔</span>
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
             This header was stolen from open-source

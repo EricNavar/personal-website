@@ -49,23 +49,29 @@ export default function Root() {
               <Route exact path='/'>
                 <Home/>
               </Route>
-              <Suspense fallback={<div/>}>
-                <Route exact path="/resume">
+              <Route path="/resume">
+                <Suspense fallback={<div/>}>
                   <ResumePage/>
-                </Route>
-                <Route exact path="/gato-noches">
-                  <GatoNoches/>
-                </Route>
-                <Route exact path="/inspire">
-                  <InspirePage/>
-                </Route>
-                <Route exact path="/worst-website">
-                  <WorstWebsite/>
-                </Route>
-              </Suspense>
-              <Route>
-                <Redirect to="/"/>
+                </Suspense>
               </Route>
+              <Route path="/gato-noches">
+                <Suspense fallback={<div/>}>
+                  <GatoNoches/>
+                </Suspense>
+              </Route>
+              <Route path="/inspire">
+                <Suspense fallback={<div/>}>
+                  <InspirePage/>
+                </Suspense>
+              </Route>
+              <Route path="/worst-website">
+                <Suspense fallback={<div/>}>
+                  <WorstWebsite/>
+                </Suspense>
+              </Route>
+                <Route path="*">
+                  <Redirect to="/"/>
+                </Route>
             </Switch>
           </ScrollToTop>
         </div>

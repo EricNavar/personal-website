@@ -10,7 +10,7 @@ export default [
   {
     "_id": 1,
     "tools": "MERN Stack web app",
-    "headerText": "A cool website I helped make",
+    "headerText": "DC Fitness",
     "subText": ["(No longer functional) A website for a fitness center where an admin can create ","blog posts"," and nutrition posts. Clients can view their assigned ", " personalized workout"," plans for the week."],
     "link": "dcrf.ericnavar.com",
     "image": DCRFLogo,
@@ -70,8 +70,8 @@ export default [
   {
     "_id": 7,
     "tools": "HTML, CSS",
-    "headerText": "How to win a hackathon",
-    "subText": ["A guide on how to win a hackathon that is ","100% guaranteed"," to work."],
+    "headerText": "How to Win a Hackathon",
+    "subText": ["A guide on how to win a hackathon that is ","100% guaranteed"," to work. This was my submission for ","Knight Hacks"],
     "link": "http://knighthack.com",
     "image": KnightHackLogo,
     "altLabel": "Knight Hack Logo",

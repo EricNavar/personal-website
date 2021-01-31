@@ -83,7 +83,7 @@ export default function CardButton({headerText, tools, subText, image, link, alt
           href={link}
           variant="h5"
           style={{textDecoration:'none'}}
-          ariaLabel={ariaLabel}
+          aria-label={ariaLabel}
         >
           {headerText}
         </Link>

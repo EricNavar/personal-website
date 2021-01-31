@@ -94,7 +94,7 @@ export default function WorstWebsite() {
             <Typography component="h1" variant="h1" style={{backgroundImage: "linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red)"}}>
               JavaScript is poison.<br/><br/>Node JS is bloatware.
             </Typography>
-            <img style={{width:"100vw"}} src={HandshakePhoto}/>
+            <img alt="handshake" style={{width:"100vw"}} src={HandshakePhoto}/>
             <SnackBar/>
             <div className={classes.nyanCat}/>
             <Footer/>

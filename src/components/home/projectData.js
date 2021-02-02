@@ -21,7 +21,7 @@ export default [
     "_id": 5,
     "tools": "React app",
     "headerText": "My Resume",
-    "subText": ["My resume but with way more CSS than it needs to have and now with dark mode 😎"],
+    "subText": ["My resume but with way more CSS than necessary and now with dark mode 😎. Hosted on ","AWS Amplify","."],
     "link": "/resume",
     "image": ProfilePic,
     "altLabel": "Eric Navar",

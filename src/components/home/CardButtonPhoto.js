@@ -11,7 +11,8 @@ const useStyles = makeStyles({
     height: 0,
     position: 'relative',
     width: "100%",
-    paddingTop: "100%"
+    paddingTop: "100%",
+    display: "grid"
   },
   aspectRatioBoxInside: {
     position: 'absolute',
@@ -23,17 +24,17 @@ const useStyles = makeStyles({
   }
 });
 
-export default function HomePagePhoto({image, altLabel}) {
+export default function HomePagePhoto({image, altLabel, link}) {
   const classes = useStyles();
   return (
     <div className={classes.wrapper}>
-      <div className={classes.aspectRatioBox}>
+      <a className={classes.aspectRatioBox} href={link}>
         <img
           className={classes.aspectRatioBoxInside}
           src={image}
           alt={altLabel}
         />
-      </div>
+      </a>
     </div>
   );
 }

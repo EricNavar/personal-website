@@ -77,7 +77,7 @@ export default function CardButton({headerText, tools, subText, image, link, alt
     <Paper className={classes.itemWrapper} elevation={4}>
       <div className={classes.item}>
         <Suspense fallback={<div/>}>
-          <CardButtonPhoto image={image} altLabel={altLabel}/>
+          <CardButtonPhoto image={image} altLabel={altLabel} link={link}/>
         </Suspense>
           <Typography variant="overline" display="block" color='textSecondary'>
             {tools}

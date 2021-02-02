@@ -1,7 +1,7 @@
 import SSDLogo from './../../assets/homePage/SSD.webp';
 import DCRFLogo from './../../assets/homePage/dcrf.webp';
 import HectorPic from './../../assets/homePage/hector.webp';
-import ProfilePic from './../../assets/homePage/ProfilePic.webp';
+import ProfilePic from './../../assets/homePage/Eric Navar.webp';
 import DatabasePic from './../../assets/homePage/database.webp';
 import KnightHackLogo from './../../assets/homePage/knighthack.webp';
 import InspirationPic from './../../assets/homePage/inspiration.webp';

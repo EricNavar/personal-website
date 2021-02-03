@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function Header({darkMode, handleDarkModeClick}) {
+export default function Header({darkMode, toggleDarkMode}) {
   React.useEffect(() => {
     document.title="Portfolio | Eric Navar"
   }, [])
@@ -57,7 +57,7 @@ export default function Header({darkMode, handleDarkModeClick}) {
         Home
       </Button>
       <IconButton
-        onClick={handleDarkModeClick}
+        onClick={toggleDarkMode}
         className={`${classes.button} ${classes.darkModeButton}`}
         aria-label="toggle dark mode"
       >

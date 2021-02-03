@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   item: {
-    padding: "16px 20px",
+    padding: "16px 20px"
   },
   topic: {
     textDecoration: 'none',

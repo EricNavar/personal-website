@@ -39,14 +39,6 @@ export default function Home() {
 
   return (
     <div className={classes.home}>
-      <Typography
-        component='h1'
-        variant='h3'
-        align='center'
-        className={classes.homePageTitle}
-      >
-        Welcome to my cool personal website!
-      </Typography>
       <section id="project-list" className={classes.section}>
         <Typography component="h2" variant="h4" className={classes.topicName}>
           <b>Some cool projects I've worked on</b>

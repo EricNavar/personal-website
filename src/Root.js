@@ -6,7 +6,7 @@ import {
   useHistory,
   Redirect
 } from "react-router-dom";
-import { ThemeProvider, createMuiTheme, makeStyles } from '@material-ui/core/styles';
+import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 //local files
 import Home from "./screens/Home";
 const ResumePage = lazy(() => import('./screens/ResumePage.js'));
@@ -53,15 +53,6 @@ const darkTheme = createMuiTheme({
   }
 });
 
-const useStyles = makeStyles({
-  root: {
-    minHeight: "100vh",
-    "&::selection": {
-      background: "rgba(70, 181, 209, .8)"
-    },
-    fontFamily: '"Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif"'
-  }
-});
 
 function ScrollToTop(props) {
   const history = useHistory();
@@ -83,11 +74,9 @@ export default function Root() {
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
-  const classes = useStyles();
   return (
     <Router id="router">
       <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
-        <div className={classes.root}>
           <ScrollToTop>
             <Switch>
               <Route exact path='/'>
@@ -118,7 +107,6 @@ export default function Root() {
                 </Route>
             </Switch>
           </ScrollToTop>
-        </div>
       </ThemeProvider>
     </Router>
   );

@@ -12,6 +12,7 @@ import PrivacyNotice from '../components/worstWebsite/PrivacyNotice';
 import Footer from './../components/worstWebsite/Footer';
 import AppBar from './../components/worstWebsite/AppBar';
 import SnackBar from './../components/worstWebsite/SnackBar';
+import GangnamStyle from './../components/worstWebsite/GangnamStyle.js';
 
 const myTheme = createMuiTheme({
   palette: {
@@ -58,7 +59,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     nyanCat: {
       backgroundImage: 'url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/cat.gif")',
-      display: "fixed",
+      position: "fixed",
       bottom: 0,
       left: 0,
       width: 200,
@@ -70,6 +71,11 @@ const useStyles = makeStyles((theme: Theme) =>
       letterSpacing: 12,
       width: 75,
       display: "flex"
+    },
+    gangnamStyleWrapper: {
+      position: "fixed",
+      top: "50%",
+      right: 0
     }
   }
 ));
@@ -85,6 +91,9 @@ export default function WorstWebsite() {
             <Paper elevation={24}>
               <AppBar/>
             </Paper>
+            <div style={{background:"white"}}>
+              <h1>&lt;div/&gt;Hello World!&lt;div/&gt;</h1>
+            </div>
             <Box my={4} className={classes.box}>
               <Typography component="h1" variant="h1" style={{color: "white", zIndex: 10}}>
                 Hello welcome to Erics' cool and awesome websit
@@ -97,6 +106,9 @@ export default function WorstWebsite() {
             <img alt="handshake" style={{width:"100vw"}} src={HandshakePhoto}/>
             <SnackBar/>
             <div className={classes.nyanCat}/>
+            <div className={classes.gangnamStyleWrapper}>
+              <GangnamStyle/>
+            </div>
             <Footer/>
           </div>
         </Fade>

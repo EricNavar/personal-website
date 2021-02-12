@@ -76,12 +76,6 @@ CardButton.propTypes = {
   ariaLabel: PropTypes.string.isRequired
 };
 
-/*
-        <Suspense fallback={<div className={classes.loadingImage}/>}>
-          <CardButtonPhoto image={image} altLabel={altLabel} link={link}/>
-        </Suspense>
-        */
-
 export default function CardButton({headerText, tools, subText, image, link, altLabel, ariaLabel}) {
   const classes = useStyles();
 

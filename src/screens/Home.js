@@ -41,7 +41,7 @@ export default function Home() {
     <div className={classes.home}>
       <section id="project-list" className={classes.section}>
         <Typography component="h2" variant="h4" className={classes.topicName}>
-          <b>Some cool projects I've worked on</b>
+          <b>Web Projects I've Worked On</b>
         </Typography>
         <Grid container spacing={4}>
           {projectData.map(project => (

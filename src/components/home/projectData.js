@@ -47,7 +47,7 @@ export default [
   },
   {
     "_id": 6,
-    "tools": "HTML, CSS",
+    "tools": "React",
     "headerText": "Gator UX Website",
     "subText": ["My attempt to make a responsive, well-designed webpage for Gator UX using some ","principles of UX"," I've learned from attending the club."],
     "link": "http://gatorux.ericnavar.com",

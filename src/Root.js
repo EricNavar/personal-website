@@ -31,7 +31,7 @@ const lightTheme = createMuiTheme({
     backgroundGradient: "linear-gradient(rgba(66,179,245,1) 0%, rgba(95,44,130,1) 100%)",
   },
   typography: {
-    fontFamily: "'Merriweather Sans', sans-serif"
+    fontFamily: "'Lato', sans-serif"
   }
 });
 const darkTheme = createMuiTheme({
@@ -49,7 +49,7 @@ const darkTheme = createMuiTheme({
     backgroundGradient: "linear-gradient(#537895 0%, #09203f 100%)"
   },
   typography: {
-    fontFamily: "'Merriweather Sans', sans-serif"
+    fontFamily: "'Lato', sans-serif"
   }
 });
 

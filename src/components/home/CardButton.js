@@ -57,6 +57,12 @@ const useStyles = makeStyles((theme) => ({
       height: '2px',
       background: '#00c4cc'
     }
+  },
+  loadingImage: {
+    width: "100%",
+    paddingBottom: "100%",
+    backgroundColor: "#aaa",
+    borderRadius: 8
   }
 }));
 
@@ -70,15 +76,21 @@ CardButton.propTypes = {
   ariaLabel: PropTypes.string.isRequired
 };
 
+/*
+        <Suspense fallback={<div className={classes.loadingImage}/>}>
+          <CardButtonPhoto image={image} altLabel={altLabel} link={link}/>
+        </Suspense>
+        */
+
 export default function CardButton({headerText, tools, subText, image, link, altLabel, ariaLabel}) {
   const classes = useStyles();
 
   return (
     <Paper className={classes.itemWrapper} elevation={4}>
       <div className={classes.item}>
-        <Suspense fallback={<div/>}>
-          <CardButtonPhoto image={image} altLabel={altLabel} link={link}/>
-        </Suspense>
+          <Suspense fallback={<div className={classes.loadingImage}/>}>
+            <CardButtonPhoto image={image} altLabel={altLabel} link={link}/>
+          </Suspense>
           <Typography variant="overline" display="block" color='textSecondary'>
             {tools}
           </Typography>

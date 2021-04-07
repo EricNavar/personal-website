@@ -72,11 +72,9 @@ export default [
   },
   {
     "_id": 6,
-    "tools": "React",
+    "tools": "React Native, Expo, Mongo DB",
     "headerText": "Clubfinity",
-    "subText": [["Description ",
-      "Description",
-      " Description."]
+    "subText": [["Mobile app that allows school clubs to notify members of events and announcements. Users can easily discover and follow clubs and be notified of events they're going to."]
     ],
     "image": ClubfinityLogo,
     "altLabel": "Gator UX Logo",

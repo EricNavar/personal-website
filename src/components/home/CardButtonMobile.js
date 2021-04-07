@@ -1,4 +1,4 @@
-import React, {lazy, Suspense} from 'react';
+import React, { lazy, Suspense } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
@@ -66,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-CardButton.propTypes = {
+CardButtonMobile.propTypes = {
   headerText: PropTypes.string.isRequired,
   tools: PropTypes.string.isRequired,
   subText: PropTypes.isRequired,
@@ -76,30 +76,30 @@ CardButton.propTypes = {
   ariaLabel: PropTypes.string.isRequired
 };
 
-export default function CardButton({headerText, tools, subText, image, link, altLabel, ariaLabel}) {
+export default function CardButtonMobile({ headerText, tools, subText, image, link, altLabel, ariaLabel }) {
   const classes = useStyles();
 
   return (
     <Paper className={classes.itemWrapper} elevation={4}>
       <div className={classes.item}>
-          <Suspense fallback={<div className={classes.loadingImage}/>}>
-            <CardButtonPhoto image={image} altLabel={altLabel} link={link}/>
-          </Suspense>
-          <Typography variant="overline" display="block" color='textSecondary'>
-            {tools}
-          </Typography>
+        <Suspense fallback={<div className={classes.loadingImage} />}>
+          <CardButtonPhoto image={image} altLabel={altLabel} link={link} />
+        </Suspense>
+        <Typography variant="overline" display="block" color='textSecondary'>
+          {tools}
+        </Typography>
         <Link
           className={classes.title}
           href={link}
           variant="h5"
-          style={{textDecoration:'none'}}
+          style={{ textDecoration: 'none' }}
           aria-label={ariaLabel}
         >
           {headerText}
         </Link>
-        <Typography variant='body1' style={{marginTop: 12}}>
-          {subText.map((textPiece,value) => (
-            <span key={`${headerText}-subText-${value}`} className={value%2===1?classes.underlined:""}>
+        <Typography variant='body1' style={{ marginTop: 12 }}>
+          {subText.map((textPiece, value) => (
+            <span key={`${headerText}-subText-${value}`} className={value % 2 === 1 ? classes.underlined : ""}>
               {textPiece}
             </span>
           ))}

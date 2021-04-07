@@ -3,10 +3,12 @@ import Grid from "@material-ui/core/Grid";
 import PropTypes from 'prop-types';
 import ButtonBase from "@material-ui/core/ButtonBase";
 import Typography from "@material-ui/core/Typography";
+import Hidden from "@material-ui/core/Hidden";
 //local files
 import GitHubIcon from './../assets/homePage/github.svg';
 import LinkedInIcon from './../assets/homePage/linkedin.svg';
-import CardButton from './../components/home/CardButton.js';
+import CardButtonMobile from '../components/home/CardButtonMobile.js';
+import CardButtonDesktop from '../components/home/CardButtonDesktop.js';
 import projectData from './../components/home/projectData'
 import {homePageStyles} from './../styling/homePageStyling.js';
 
@@ -43,15 +45,26 @@ export default function Home() {
         <Typography component="h2" variant="h4" className={classes.topicName}>
           <b>Web Projects I've Worked On</b>
         </Typography>
-        <Grid container spacing={4}>
-          {projectData.map(project => (
-            <Grid key={project._id} item className={classes.cardButtonContainer}>
-              <CardButton {...project}/>
-            </Grid>
-          ))}
-        </Grid>
+        <Hidden smUp>
+          <Grid container spacing={4}>
+            {projectData.map(project => (
+              <Grid key={project._id} item xs={12} className={classes.cardButtonContainer}>
+                <CardButtonMobile {...project}/>
+              </Grid>
+            ))}
+          </Grid>
+        </Hidden>
+        <Hidden only="xs">
+          <Grid container spacing={4}>
+            {projectData.map(project => (
+              <Grid item key={project._id} xs={12} lg={6} className={classes.cardButtonContainer}>
+                <CardButtonDesktop {...project}/>
+              </Grid>
+            ))}
+          </Grid>
+        </Hidden>
       </section>
-      <section>
+      <section id='connect'>
         <Typography component='h2' variant='h4' className={classes.sectionTitle} align='center'>
           Connect
         </Typography>

@@ -1,4 +1,4 @@
-import React, {Suspense, lazy} from "react";
+import React, { Suspense, lazy } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -6,9 +6,12 @@ import {
   useHistory,
   Redirect
 } from "react-router-dom";
+import Hidden from "@material-ui/core/Hidden";
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 //local files
 import Home from "./screens/Home";
+import DesktopNavbar from "./components/DesktopNavbar";
+import MobileNavbar from "./components/MobileNavbar";
 const ResumePage = lazy(() => import('./screens/ResumePage.js'));
 const GatoNoches = lazy(() => import('./screens/GatoNoches'));
 const InspirePage = lazy(() => import('./screens/InspirePage'));
@@ -70,43 +73,49 @@ function ScrollToTop(props) {
 };
 
 export default function Root() {
-  const [darkMode,setDarkMode]=React.useState(false);
+  const [darkMode, setDarkMode] = React.useState(false);
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
   return (
     <Router id="router">
       <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
-          <ScrollToTop>
-            <Switch>
-              <Route exact path='/'>
-                <Home/>
-              </Route>
-              <Route path="/resume">
-                <Suspense fallback={<div/>}>
-                  <ResumePage darkMode={darkMode} toggleDarkMode={toggleDarkMode}/>
-                </Suspense>
-              </Route>
-              <Route path="/gato-noches">
-                <Suspense fallback={<div/>}>
-                  <GatoNoches/>
-                </Suspense>
-              </Route>
-              <Route path="/inspire">
-                <Suspense fallback={<div/>}>
-                  <InspirePage/>
-                </Suspense>
-              </Route>
-              <Route path="/worst-website">
-                <Suspense fallback={<div/>}>
-                  <WorstWebsite/>
-                </Suspense>
-              </Route>
-                <Route path="*">
-                  <Redirect to="/"/>
-                </Route>
-            </Switch>
-          </ScrollToTop>
+        <ScrollToTop>
+          <Hidden xsDown>
+            <DesktopNavbar/>
+          </Hidden>
+          <Hidden smUp>
+            <MobileNavbar/>
+          </Hidden>
+          <Switch>
+            <Route exact path='/'>
+              <Home />
+            </Route>
+            <Route path="/resume">
+              <Suspense fallback={<div />}>
+                <ResumePage darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+              </Suspense>
+            </Route>
+            <Route path="/gato-noches">
+              <Suspense fallback={<div />}>
+                <GatoNoches />
+              </Suspense>
+            </Route>
+            <Route path="/inspire">
+              <Suspense fallback={<div />}>
+                <InspirePage />
+              </Suspense>
+            </Route>
+            <Route path="/worst-website">
+              <Suspense fallback={<div />}>
+                <WorstWebsite />
+              </Suspense>
+            </Route>
+            <Route path="*">
+              <Redirect to="/" />
+            </Route>
+          </Switch>
+        </ScrollToTop>
       </ThemeProvider>
     </Router>
   );

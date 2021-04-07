@@ -131,7 +131,7 @@ export default function NavBar(props) {
         to={to}
         className={match ? classes.activeTab : ''}
         size={isSm ? 'small' : 'medium'}
-        textColor='primary'
+        color='primary'
       >
         {text}
       </Button>

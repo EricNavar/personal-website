@@ -103,10 +103,11 @@ export default function CardButtonDesktop({ headerText, tools, subText, image, l
           variant="h5"
           style={{ textDecoration: 'none' }}
           aria-label={ariaLabel}
+          color='primary'
         >
           {headerText}
         </Link>
-        <Typography variant='body1' className={classes.subTextContainer}>
+        <Typography color='textPrimary' variant='body1' className={classes.subTextContainer}>
           {subText.map((paragraph, value) => (
             <React.Fragment>
               {value !== 0 && <br className={classes.lineBreak}/>}

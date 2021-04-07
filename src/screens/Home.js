@@ -42,7 +42,7 @@ export default function Home() {
   return (
     <div className={classes.home}>
       <section id="project-list" className={classes.section}>
-        <Typography component="h2" variant="h4" className={classes.topicName}>
+        <Typography color='textPrimary' component="h2" variant="h4" className={classes.topicName}>
           <b>Web Projects I've Worked On</b>
         </Typography>
         <Hidden smUp>
@@ -65,7 +65,7 @@ export default function Home() {
         </Hidden>
       </section>
       <section id='connect'>
-        <Typography component='h2' variant='h4' className={classes.sectionTitle} align='center'>
+        <Typography color='textPrimary' component='h2' variant='h4' className={classes.sectionTitle} align='center'>
           Connect
         </Typography>
         <Grid

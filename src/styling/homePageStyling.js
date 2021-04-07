@@ -53,9 +53,14 @@ export const homePageStyles = makeStyles((theme) => ({
     marginBottom: 8
   },
   home: {
+    width: "85%",
+    paddingLeft: "7.5%",
+    paddingRight: "7.5%",
     padding: 24,
     justifyContent: 'center',
-    display: 'grid'
+    display: 'grid',
+    background: theme.palette.background.default,
+    minHeight: '100vh'
   },
   divider: {
     width:"80%"

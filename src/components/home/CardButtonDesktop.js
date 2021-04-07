@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
   item: {
     padding: "16px 20px",
+    width: '100%'
   },
   topic: {
     textDecoration: 'none',
@@ -31,12 +32,6 @@ const useStyles = makeStyles((theme) => ({
   title: {
     textAlign: 'left',
     fontWeight: 'bold',
-    '&:hover': {
-      color: "#00a8cc",
-    },
-    '&:active': {
-      color: "#00a8cc",
-    }
   },
   underlined: {
     display: "inline-grid",
@@ -70,7 +65,15 @@ const useStyles = makeStyles((theme) => ({
   },
   lineBreak: {
     marginBottom: 12
-  }
+  },
+  cardHeader: {
+    display: 'flex',
+    flexDirection: 'row',
+    width: '100%'
+  },
+  cardHeaderText: {
+    flexGrow: 1
+  },
 }));
 
 CardButtonDesktop.propTypes = {
@@ -94,24 +97,33 @@ export default function CardButtonDesktop({ headerText, tools, subText, image, l
         </Suspense>
       </div>
       <div className={classes.item}>
-        <Typography variant="overline" display="block" color='textSecondary'>
-          {tools}
-        </Typography>
-        <Link
-          className={classes.title}
-          href={link}
-          variant="h5"
-          style={{ textDecoration: 'none' }}
-          aria-label={ariaLabel}
-          color='primary'
-        >
-          {headerText}
-        </Link>
+        <div className={classes.cardHeader}>
+          <div className={classes.cardHeaderText}>
+            <Typography variant="overline" display="block" color='textSecondary'>
+              {tools}
+            </Typography>
+            <Typography
+              className={classes.title}
+              href={link}
+              variant="h5"
+              style={{ textDecoration: 'none' }}
+              aria-label={ariaLabel}
+              color='primary'
+            >
+              {headerText}
+            </Typography>
+          </div>
+          {links.map((link) =>
+            <IconButton target="_blank" href={link.hyperlink} aria-label={link.label}>
+              <img alt={link.label} height="32px" width="32px" src={link.icon} />
+            </IconButton>
+          )}
+        </div>
         <Typography color='textPrimary' variant='body1' className={classes.subTextContainer}>
           {subText.map((paragraph, value) => (
             <React.Fragment>
-              {value !== 0 && <br key={`${headerText}-linebreak-${value}`} className={classes.lineBreak}/>}
-              {paragraph.map((textPiece, value) => 
+              {value !== 0 && <br key={`${headerText}-linebreak-${value}`} className={classes.lineBreak} />}
+              {paragraph.map((textPiece, value) =>
                 <span key={`${headerText}-subText-${value}`} className={value % 2 === 1 ? classes.underlined : ""}>
                   {textPiece}
                 </span>
@@ -119,11 +131,6 @@ export default function CardButtonDesktop({ headerText, tools, subText, image, l
             </React.Fragment>
           ))}
         </Typography>
-        {links.map((link) => 
-          <IconButton target="_blank" href={link.hyperlink} aria-label={link.label}>
-            <img alt={link.label} height="32px" width="32px" src={link.icon}/>
-          </IconButton>
-        )}
       </div>
     </Paper>
   );

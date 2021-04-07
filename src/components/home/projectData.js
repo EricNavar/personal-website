@@ -1,5 +1,4 @@
 import DCRFLogo from './../../assets/homePage/dcrf.webp';
-import ProfilePic from './../../assets/homePage/Eric Navar.webp';
 import GatorUXLogo from './../../assets/homePage/gatorux.webp';
 import DatabasePic from './../../assets/homePage/database.webp';
 import InspirationPic from './../../assets/homePage/inspiration.webp';
@@ -14,16 +13,6 @@ export default [
     "image": DCRFLogo,
     "altLabel": "DC Rock Fitness Logo",
     "ariaLabel": "DC Rock Fitness website"
-  },
-  {
-    "_id": 2,
-    "tools": "React app",
-    "headerText": "My Resume",
-    "subText": [["My resume but with way more CSS than necessary and now with dark mode 😎. Hosted on ","AWS Amplify."]],
-    "link": "/resume",
-    "image": ProfilePic,
-    "altLabel": "Eric Navar",
-    "ariaLabel": "Eric Navar resume"
   },
   {
     "_id": 3,

@@ -11,7 +11,8 @@ import PersonalStatement from '../components/resumePage/PersonalStatement';
 
 const useStyles = makeStyles((theme) => ({
   background: {
-    background: theme.palette.background.default
+    background: theme.palette.background.default,
+    marginTop: 8
   },
   gridItem: {
     justifyContent: 'center',

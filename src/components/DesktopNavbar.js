@@ -35,9 +35,9 @@ const useStyles = makeStyles(theme => ({
   },
   //when the navbar is at the top of the screen and is navy blue
   top: {
-    background: "rgba(0,0,0,0)",
+    background: theme.palette.background.default,
     "& span": {
-      color: "#000000"
+      color: theme.palette.text.primary
     }
   },
   logoContainer: {
@@ -77,30 +77,17 @@ const useStyles = makeStyles(theme => ({
   },
   iconButton: {
     position: 'absolute',
-    backgroundColor: theme.palette.backgroundColor1,
-    borderTopRightRadius: 0,
-    borderTopLeftRadius: 0,
-    top: 0,
+    top: 8,
+    right: 0,
+    color: "white",
     '&:hover': {
       opacity: .85,
       boxShadow: "none",
-      backgroundColor: theme.palette.backgroundColor1,
     },
     '&:active': {
       boxShadow: "none"
     },
-    color: "white"
   },
-  darkModeButton: {
-    borderBottomLeftRadius: 12,
-    borderBottomRightRadius: 0,
-    right: 0
-  },
-  homeButton: {
-    borderBottomRightRadius: 12,
-    borderBottomLeftRadius: 0,
-    left: 0
-  }
 }));
 
 function ElevationScroll(props) {
@@ -144,6 +131,7 @@ export default function NavBar(props) {
         to={to}
         className={match ? classes.activeTab : ''}
         size={isSm ? 'small' : 'medium'}
+        textColor='primary'
       >
         {text}
       </Button>
@@ -156,7 +144,9 @@ export default function NavBar(props) {
         <AppBar id="AppBar" className={classes.navbar}>
           <Toolbar className={classes.toolbar}>
             <NavBarItem to="/" text='Projects' />
-            <NavBarItem to="/resume" text='Resume' />
+            <div style={{marginRight: 16, marginLeft: 16}}>
+              <NavBarItem to="/resume" text='Resume' />
+            </div>
             <NavBarItem to="/#connect" text='Connect' />
             <IconButton
               onClick={props.toggleDarkMode}

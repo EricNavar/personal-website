@@ -1,8 +1,8 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 //local files
-import Footer from '../components/resumePage/Footer';
 import SkillList from '../components/resumePage/SkillList';
 import Education from '../components/resumePage/Education';
 import Experience from '../components/resumePage/Experience';
@@ -27,6 +27,10 @@ const useStyles = makeStyles((theme) => ({
       marginRight: 80,
       marginLeft: 80
     },
+  },
+  plead: {
+    paddingTop: 40,
+    paddingBottom: 40
   }
 }));
 
@@ -54,9 +58,10 @@ export default function ResumePage({darkMode, toggleDarkMode}) {
         </Grid>
         <Experience/>
         <InvolvementList/>
-        <div style={{height:40}}></div>
+        <Typography color='textPrimary' variant="h5" conponent='span' align='center' className={classes.plead}>
+          PLEASE HIRE ME <span role='img'>🥺</span>
+        </Typography>
       </div>
-      <Footer top={false}/>
     </div>
   );
 }

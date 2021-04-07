@@ -15,7 +15,6 @@ import ReactIcon from './../../assets/resumePage/react-white.svg';
 import MySqlIcon from './../../assets/resumePage/mysql-white.svg';
 import MatlabIcon from './../../assets/resumePage/matlab-white.svg';
 import PythonIcon from './../../assets/resumePage/python-white.svg';
-import MongoDbIcon from './../../assets/resumePage/mongodb-white.svg';
 import JavascriptIcon from './../../assets/resumePage/javascript-white.svg';
 import TypescriptIcon from './../../assets/resumePage/typescript-white.svg';
 import commonStyles from './../../commonStyles.js';
@@ -74,7 +73,6 @@ export default function SkillList() {
         <SkillItem skill="MATLAB" icon={MatlabIcon} />
         <SkillItem skill="MySQL" icon={MySqlIcon} />
         <SkillItem skill="Python" icon={PythonIcon} />
-        <SkillItem skill="MongoDB" icon={MongoDbIcon} />
       </Grid>
     </Section>
   );

@@ -3,7 +3,6 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 //local files
 import Footer from '../components/resumePage/Footer';
-import Header from '../components/resumePage/Header';
 import SkillList from '../components/resumePage/SkillList';
 import Education from '../components/resumePage/Education';
 import Experience from '../components/resumePage/Experience';
@@ -42,7 +41,6 @@ export default function ResumePage({darkMode, toggleDarkMode}) {
   const classes = useStyles();
   return (
     <div className={classes.background}>
-      <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode}/>
       <div className={classes.sectionContainer}>
         <PersonalStatement/>
         <Grid container spacing={4} justify='center'>

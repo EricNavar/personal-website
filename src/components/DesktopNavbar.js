@@ -1,17 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
 import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
-import useScrollTrigger from "@material-ui/core/useScrollTrigger";
-import { makeStyles } from "@material-ui/core";
-import { useHistory, Link, useRouteMatch } from "react-router-dom";
+import Toolbar from "@material-ui/core/Toolbar";
+import SunIcon from '@material-ui/icons/Brightness5';
+import MoonIcon from '@material-ui/icons/Brightness2';
+import IconButton from '@material-ui/core/IconButton';
 import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { makeStyles } from "@material-ui/core";
+import useScrollTrigger from "@material-ui/core/useScrollTrigger";
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import { useHistory, Link, useRouteMatch } from "react-router-dom";
+//local files
+
 
 //citation: https://material-ui.com/components/app-bar/#hide-app-bar
 
-const useStyles = makeStyles(theme=> ({
+const useStyles = makeStyles(theme => ({
   navbar: {
     height: 64,
   },
@@ -70,6 +76,32 @@ const useStyles = makeStyles(theme=> ({
     '& span': {
       color: 'black'
     }
+  },
+  iconButton: {
+    position: 'absolute',
+    backgroundColor: theme.palette.backgroundColor1,
+    borderTopRightRadius: 0,
+    borderTopLeftRadius: 0,
+    top: 0,
+    '&:hover': {
+      opacity: .85,
+      boxShadow: "none",
+      backgroundColor: theme.palette.backgroundColor1,
+    },
+    '&:active': {
+      boxShadow: "none"
+    },
+    color: "white"
+  },
+  darkModeButton: {
+    borderBottomLeftRadius: 12,
+    borderBottomRightRadius: 0,
+    right: 0
+  },
+  homeButton: {
+    borderBottomRightRadius: 12,
+    borderBottomLeftRadius: 0,
+    left: 0
   }
 }));
 
@@ -101,7 +133,7 @@ export default function NavBar(props) {
   React.useEffect(() => {
     setLoading(false);
   }, []);
-  
+
   const isSm = useMediaQuery(useTheme().breakpoints.down('sm'));
   const classes = useStyles();
   const history = useHistory();
@@ -113,7 +145,7 @@ export default function NavBar(props) {
 
   //returns either the login/register button or the logout button
 
-  function NavBarItem({text, to}) {
+  function NavBarItem({ text, to }) {
     let match = useRouteMatch({
       path: to,
       exact: true
@@ -123,7 +155,7 @@ export default function NavBar(props) {
         component={Link}
         to={to}
         className={match ? classes.activeTab : ''}
-        size={isSm?'small':'medium'}
+        size={isSm ? 'small' : 'medium'}
       >
         {text}
       </Button>
@@ -135,9 +167,16 @@ export default function NavBar(props) {
       <ElevationScroll {...props}>
         <AppBar id="AppBar" className={classes.navbar}>
           <Toolbar className={classes.toolbar}>
-            <NavBarItem to="/" text='Projects'/>
-            <NavBarItem to="/resume" text='Resume'/>
-            <NavBarItem to="/#connect" text='Connect'/>
+            <NavBarItem to="/" text='Projects' />
+            <NavBarItem to="/resume" text='Resume' />
+            <NavBarItem to="/#connect" text='Connect' />
+            <IconButton
+              onClick={props.toggleDarkMode}
+              className={`${classes.iconButton} ${classes.darkModeButton}`}
+              aria-label="toggle dark mode"
+            >
+              {props.darkMode ? <SunIcon /> : <MoonIcon />}
+            </IconButton>
           </Toolbar>
         </AppBar>
       </ElevationScroll>

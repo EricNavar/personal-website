@@ -82,10 +82,10 @@ export default function Root() {
       <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
         <ScrollToTop>
           <Hidden xsDown>
-            <DesktopNavbar/>
+            <DesktopNavbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
           </Hidden>
           <Hidden smUp>
-            <MobileNavbar/>
+            <MobileNavbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
           </Hidden>
           <Switch>
             <Route exact path='/'>
@@ -93,7 +93,7 @@ export default function Root() {
             </Route>
             <Route path="/resume">
               <Suspense fallback={<div />}>
-                <ResumePage darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+                <ResumePage/>
               </Suspense>
             </Route>
             <Route path="/gato-noches">

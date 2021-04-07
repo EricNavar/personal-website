@@ -4,7 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 //local files
-import EricOutline from './../../assets/resumePage/EricOutline.webp';
+import Eric from './../../assets/homePage/Eric Navar.webp';
 import commonStyles from './../../commonStyles.js';
 
 const useStyles = makeStyles(theme => ({
@@ -114,7 +114,6 @@ const useStyles = makeStyles(theme => ({
   },
   profile: {
     maxWidth: 200,
-    position: "absolute",
     right: 25,
     bottom: 0
   },
@@ -135,14 +134,7 @@ export default function PersonalStatement() {
       spacing={4}
       className={classes.personalStatementWrapper}
     >
-      <ul className={`${classes.profileBackground} ${commonClasses.backgroundGradient}`}>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <img src={EricOutline} alt="" className={classes.profile}/>
-      </ul>
+      <img src={Eric} alt="" className={classes.profile}/>
       <Paper className={`${classes.textContainer} ${commonClasses.backgroundGradient}`} elevation={3}>
         <Typography variant='body1' style={{fontSize:32}}>
           <b>Eric Navar</b>

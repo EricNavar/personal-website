@@ -57,7 +57,7 @@ export default function Home() {
         <Hidden only="xs">
           <Grid container spacing={4}>
             {projectData.map(project => (
-              <Grid item key={project._id} xs={12} lg={6} className={classes.cardButtonContainer}>
+              <Grid item key={project._id} xs={12} xl={6} className={classes.cardButtonContainer}>
                 <CardButtonDesktop {...project}/>
               </Grid>
             ))}

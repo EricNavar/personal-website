@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
+import IconButton from '@material-ui/core/IconButton';
 import Paper from '@material-ui/core/Paper';
 import PropTypes from "prop-types";
 //local files
@@ -28,7 +29,6 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   title: {
-    color: '#151965',
     textAlign: 'left',
     fontWeight: 'bold',
     '&:hover': {
@@ -83,7 +83,7 @@ CardButtonDesktop.propTypes = {
   ariaLabel: PropTypes.string.isRequired
 };
 
-export default function CardButtonDesktop({ headerText, tools, subText, image, link, altLabel, ariaLabel }) {
+export default function CardButtonDesktop({ headerText, tools, subText, image, link, altLabel, ariaLabel, links }) {
   const classes = useStyles();
 
   return (
@@ -110,7 +110,7 @@ export default function CardButtonDesktop({ headerText, tools, subText, image, l
         <Typography color='textPrimary' variant='body1' className={classes.subTextContainer}>
           {subText.map((paragraph, value) => (
             <React.Fragment>
-              {value !== 0 && <br className={classes.lineBreak}/>}
+              {value !== 0 && <br key={`${headerText}-linebreak-${value}`} className={classes.lineBreak}/>}
               {paragraph.map((textPiece, value) => 
                 <span key={`${headerText}-subText-${value}`} className={value % 2 === 1 ? classes.underlined : ""}>
                   {textPiece}
@@ -119,6 +119,11 @@ export default function CardButtonDesktop({ headerText, tools, subText, image, l
             </React.Fragment>
           ))}
         </Typography>
+        {links.map((link) => 
+          <IconButton target="_blank" href={link.hyperlink} aria-label={link.label}>
+            <img alt={link.label} height="32px" width="32px" src={link.icon}/>
+          </IconButton>
+        )}
       </div>
     </Paper>
   );

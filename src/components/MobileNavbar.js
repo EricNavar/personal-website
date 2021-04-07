@@ -65,13 +65,8 @@ HideOnScroll.propTypes = {
   window: PropTypes.func
 };
 
-MobileNavbar.propTypes = {
-  setLoggedIn: PropTypes.func.isRequired,
-  admin: PropTypes.bool.isRequired,
-  authed: PropTypes.bool.isRequired
-};
 
-export default function MobileNavbar(props) {
+export default function MobileNavbar() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const history = useHistory();
@@ -103,7 +98,7 @@ export default function MobileNavbar(props) {
   return (
     <React.Fragment>
       <React.Fragment>
-        <HideOnScroll {...props}>
+        <HideOnScroll>
           <AppBar className={classes.MobileAppBar}>
             <Toolbar>
               <Grid

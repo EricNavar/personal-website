@@ -55,7 +55,6 @@ export default function InspirePage() {
   });
   const quote = Quote.getRandomQuote();
   const quoteFontSize = Math.min(Math.sqrt(quote.length / 4), 6.5);
-  console.log(quoteFontSize);
   return (
     <main>
       <div className={classes.visibleOnLoad} style={{backgroundImage:"url("+inspirationalImage+")"}}>

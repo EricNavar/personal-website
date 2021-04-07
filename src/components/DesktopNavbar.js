@@ -10,9 +10,7 @@ import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { makeStyles } from "@material-ui/core";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import { useHistory, Link, useRouteMatch } from "react-router-dom";
-//local files
+import { Link, useRouteMatch } from "react-router-dom";
 
 
 //citation: https://material-ui.com/components/app-bar/#hide-app-bar
@@ -130,18 +128,8 @@ ElevationScroll.propTypes = {
 };
 
 export default function NavBar(props) {
-  React.useEffect(() => {
-    setLoading(false);
-  }, []);
-
   const isSm = useMediaQuery(useTheme().breakpoints.down('sm'));
   const classes = useStyles();
-  const history = useHistory();
-  const [loading, setLoading] = React.useState(false);
-
-  const redirect = path => {
-    history.push(path);
-  };
 
   //returns either the login/register button or the logout button
 

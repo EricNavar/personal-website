@@ -73,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-CardButtonMobile.propTypes = {
+CardButtonDesktop.propTypes = {
   headerText: PropTypes.string.isRequired,
   tools: PropTypes.string.isRequired,
   subText: PropTypes.isRequired,
@@ -83,7 +83,7 @@ CardButtonMobile.propTypes = {
   ariaLabel: PropTypes.string.isRequired
 };
 
-export default function CardButtonMobile({ headerText, tools, subText, image, link, altLabel, ariaLabel }) {
+export default function CardButtonDesktop({ headerText, tools, subText, image, link, altLabel, ariaLabel }) {
   const classes = useStyles();
 
   return (
@@ -109,7 +109,7 @@ export default function CardButtonMobile({ headerText, tools, subText, image, li
         <Typography variant='body1' className={classes.subTextContainer}>
           {subText.map((paragraph, value) => (
             <React.Fragment>
-              {value != 0 && <br className={classes.lineBreak}/>}
+              {value !== 0 && <br className={classes.lineBreak}/>}
               {paragraph.map((textPiece, value) => 
                 <span key={`${headerText}-subText-${value}`} className={value % 2 === 1 ? classes.underlined : ""}>
                   {textPiece}

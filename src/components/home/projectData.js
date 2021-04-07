@@ -88,11 +88,6 @@ export default [
         "icon": AppStoreIcon
       },
       {
-        "label":"Clubfinity Google Play",
-        "hyperlink": "https://play.google.com/apps/internaltest/4699459584934929785",
-        "icon": GooglePlayIcon
-      },
-      {
         "label":"Gitlab source",
         "hyperlink": "https://gitlab.com/ufsec/clubfinity",
         "icon": GitlabIcon

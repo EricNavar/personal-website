@@ -1,25 +1,24 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import MaskedInput from 'react-text-mask';
 import Alert from '@material-ui/lab/Alert';
-import addSeconds from 'date-fns/addSeconds';
-import endOfHour from 'date-fns/endOfHour';
 import { makeStyles } from '@material-ui/core/styles';
-import { DateTimePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
-import { Button, Typography, TextField, Grid, Snackbar, Link } from '@material-ui/core';
+import { Button, Typography, TextField, Grid, Snackbar, ButtonBase } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 //local files
-import MeetIcon from '../assets/homePage/linkedin.svg';
+import GitHubIcon from './../assets/homePage/github.svg';
+import LinkedInIcon from './../assets/homePage/linkedin.svg';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   main: {
-    width: 'auto',
-    marginLeft: 24,
-    marginRight: 24,
+    paddingLeft: '5%',
+    paddingRight: '5%',
     paddingTop: 20,
-    textAlign: 'center'
+    background: theme.palette.background.default,
+    minHeight: '100vh',
+    padding: 'auto'
   },
   form: {
-    marginTop: 16,
+    marginTop: 12,
     width: '100%' // Fix IE 11 issue.
   },
   submit: {
@@ -50,7 +49,6 @@ const useStyles = makeStyles({
     marginTop: 16
   },
   contactInfo: {
-    marginBottom: 4,
     marginTop: 4
   },
   bigTextField: {
@@ -58,32 +56,57 @@ const useStyles = makeStyles({
     marginTop: 16
   },
   formWrapper: {
-    maxWidth: 800
+    maxWidth: 800,
+    marginTop: 24
   },
   margin: {
     marginTop: 16,
     marginBottom: 16
+  },
+  email: {
+    color: '#151965',
+    marginBottom: 12,
+    position: 'relative',
+    fontSize: 18,
+    textDecoration: 'none',
+    '&::after': {
+      position: 'absolute',
+      transition: '.3s',
+      content: '""',
+      width: 0,
+      right: 0,
+      left: 0,
+      bottom: '-2px',
+      borderRadius: 1,
+      height: '2px',
+      background: '#00c4cc'
+    },
+    '&:hover::after': {
+      width: '100%',
+      left: 0
+    },
+    '&:active::after': {
+      width: '100%',
+      left: 0
+    }
   }
-});
+}));
 
-function TextMaskCustom(props) {
-  const { inputRef, ...other } = props;
-
+function SocialLink({ icon, circle, link, label }) {
   return (
-    <MaskedInput
-      {...other}
-      ref={ref => {
-        inputRef(ref ? ref.inputElement : null);
-      }}
-      mask={['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]}
-      placeholderChar={'\u2000'}
-      showMask
-    />
+    <ButtonBase
+      href={link}
+      variant="outlined"
+      style={{ margin: 4, borderRadius: circle ? "50%" : 0 }}
+    >
+      <img alt={label} src={icon} />
+    </ButtonBase>
   );
-}
-
-TextMaskCustom.propTypes = {
-  inputRef: PropTypes.func.isRequired,
+};
+SocialLink.propTypes = {
+  link: PropTypes.string.isRequired,
+  circle: PropTypes.bool.isRequired,
+  icon: PropTypes.object
 };
 
 export default function ScheduleConsultationPage() {
@@ -93,22 +116,17 @@ export default function ScheduleConsultationPage() {
       top: 0,
       left: 0,
     });
-  },[]);
+  }, []);
   const classes = useStyles();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [numberMask, setNumberMask] = React.useState('(   )    -    ');
   const [open, setOpen] = React.useState(false);
   //what the user puts in the field for "Tell me about yourself"
   const [details, setDetails] = React.useState('');
-  const date = new Date();
-  const [selectedDate, handleDateChange] = useState( addSeconds(endOfHour(date),1) );
 
   //if the user submits without entering their name
   const [nameError, setNameError] = useState(false);
   //if the user submits without entering either a email or phone number
-  const [numberError, setNumberError] = useState(false);
-  const [emailError, setEmailError] = useState(false);
   const [detailsError, setDetailsError] = useState(false);
 
   const handleEmailChange = event => {
@@ -117,29 +135,19 @@ export default function ScheduleConsultationPage() {
   const handleNameChange = event => {
     setName(event.target.value)
   };
-  const handleNumberMaskChange = event => {
-    setNumberMask(event.target.value);
-  };
   const handleDetailChange = event => {
     setDetails(event.target.value);
   };
-  //gets just the number from the mask. Removes the parentheses and dash.
-  const getNumber = () => {
-    return numberMask.replace(/[^0-9]/gi, '');
-  };
-  const isValidInput = () => {
+  const isValidInput = async () => {
     setNameError(name === '' || name.trim().split(' ').length < 2);
-    setNumberError(getNumber().length !== 10);
-    setEmailError(email === '');
     setDetailsError(details === '');
-    return name !== '' && name.trim().split(' ').length >= 2 && email !== '' && getNumber().length === 10 && details !== '';
+    return !nameError && !detailsError;
   };
   const handleSubmit = (ev) => {
     ev.preventDefault()
     if (isValidInput()) {
       setOpen(true);
       setName('');
-      setNumberMask('(   )    -    ');
       setEmail('');
       setDetails('');
     }
@@ -153,118 +161,101 @@ export default function ScheduleConsultationPage() {
     <React.Fragment>
       <Snackbar open={open} autoHideDuration={5000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="success">
-          Thank you for your interest!
+          Thanks! I'll get back in touch with you soon.
         </Alert>
       </Snackbar>
       <Grid
         container
         direction="column"
-        justify="center"
         alignItems="center"
         className={classes.main}
         component='main'
       >
-        <Grid item>
-          <img className={classes.logo} alt="" src={MeetIcon}/>
-        </Grid>
-        <Typography component="h4" variant="h5" className={classes.contactInfo}>
+        <div>
+          <Typography color='textPrimary' component="h4" variant="h5" className={classes.contactInfo} align='center'>
             <b>Contact Information</b>
           </Typography>
-          <Link variant="body1" href='mailto:dwan@dcrockfitness.com'>
-            dwan@dcrockfitness.com
-          </Link>
-          <Typography component="p" variant="body1" style={{marginBottom: 8}}>
-            (305) 318-2661
+          <Typography
+            component={Link}
+            to='mailto:ericnavar@ufl.edu'
+            color='primary'
+            className={classes.email}
+            variant="body1"
+          >
+            ericnavar@ufl.edu
           </Typography>
-        <Grid item className={classes.formWrapper}>
-          <Typography component="h2" variant="h4">
-            <b>Schedule a Consultation</b>
-          </Typography>
-          <Typography component="p" variant="body1" color='textSecondary'>
-            Let's talk and we can set up a consultation
-          </Typography>
-          <form className={classes.form}>
-            <Grid
-              container
-              direction="row"
-              justify="center"
-              alignItems="center"
-              spacing={0}
-            >
-              <Grid item xs={12} sm={6} md={4}>
-                <TextField
-                  autoFocus
-                  autoComplete="name"
-                  label="Name"
-                  required
-                  onChange={handleNameChange}
-                  variant="outlined"
-                  margin="dense"
-                  value={name}
-                  error={nameError}
-                  helperText={nameError ? 'Enter your first and last name. Ex: John Doe' : ''}
-                />
+          <div>
+            <SocialLink label="Github" link="https://www.github.com/ericnavar" icon={GitHubIcon} circle={true} />
+            <SocialLink label="LinkedIn" link="https://www.linkedin.com/in/ericnavar/" icon={LinkedInIcon} circle={false} />
+          </div>
+          <Grid item className={classes.formWrapper}>
+            <Typography color='textPrimary' component="h2" variant="h5" align='center'>
+              <b>Send me a message</b>
+            </Typography>
+            <form className={classes.form}>
+              <Grid
+                container
+                direction="row"
+                justify="center"
+                alignItems="stretch"
+                spacing={0}
+              >
+                <Grid item xs={12} sm={5}>
+                  <TextField
+                    autoFocus
+                    autoComplete="name"
+                    label="Name"
+                    required
+                    onChange={handleNameChange}
+                    variant="outlined"
+                    margin="dense"
+                    value={name}
+                    error={nameError}
+                    helperText={nameError ? 'Enter your first and last name. Ex: John Doe' : ''}
+                  />
+                </Grid>
+                <Grid item xs={0} sm={2}></Grid>
+                <Grid item xs={12} sm={5}>
+                  <TextField
+                    id='email'
+                    label="Email"
+                    value={email}
+                    onChange={handleEmailChange}
+                    autoComplete="on"
+                    variant="outlined"
+                    margin="dense"
+                  />
+                </Grid>
+                <Grid item xs={false} md={4}></Grid>
               </Grid>
-              <Grid item xs={false} md={4}></Grid>
-              <Grid item xs={12} sm={6} md={4}></Grid>
-              <Grid item xs={12} sm={6} md={4}>
-                <TextField
-                  id='email'
-                  label="Email"
-                  helperText={emailError ? 'Enter an email address' : ''}
-                  value={email}
-                  onChange={handleEmailChange}
-                  autoComplete="off"
-                  error={emailError}
-                  variant="outlined"
-                  margin="dense"
-                  required
-                />
-              </Grid>
-              <Grid item xs={false} md={4}></Grid>
-              <Grid item xs={12} sm={6} md={4}>
-                <TextField
-                  id='number'
-                  label="Phone number"
-                  helperText={numberError ? 'Enter a phone number' : ''}
-                  value={numberMask}
-                  onChange={handleNumberMaskChange}
-                  autoComplete="off"
-                  error={numberError}
-                  required
-                  margin="dense"
-                  variant='outlined'
-                  InputProps={{ inputComponent: TextMaskCustom }}
-                />
-              </Grid>
-            </Grid>
-            <TextField
-              label="Reason for contact?"
-              helperText={detailsError ? 'Required field' : ''}
-              value={details}
-              margin="dense"
-              onChange={handleDetailChange}
-              error={detailsError}
-              rows="4"
-              required
-              fullWidth
-              multiline
-              variant="outlined"
-              className={classes.bigTextField}
-            />
-          </form>
-          <Grid item>
-            <Button
-              fullWidth
-              variant="outlined"
-              className={classes.submit}
-              onClick={handleSubmit}
-              disableRipple
-            >
-              Submit
+              <TextField
+                label="Reason for contact?"
+                helperText={detailsError ? 'Required field' : ''}
+                value={details}
+                margin="dense"
+                onChange={handleDetailChange}
+                error={detailsError}
+                rows="4"
+                required
+                fullWidth
+                multiline
+                variant="outlined"
+                className={classes.bigTextField}
+              />
+            </form>
+            <Grid item xs={12} style={{ textAlign: 'center' }}>
+              <Button
+                fullWidth
+                variant="outlined"
+                className={classes.submit}
+                onClick={handleSubmit}
+                disableRipple
+              >
+                SEND
             </Button>
+            </Grid>
           </Grid>
-        </Grid>
+        </div>
       </Grid>
     </React.Fragment>
   )

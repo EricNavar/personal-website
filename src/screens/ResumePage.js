@@ -24,8 +24,8 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: 40
     },
     [theme.breakpoints.up('sm')]: {
-      marginRight: 80,
-      marginLeft: 80
+      marginRight: '10%',
+      marginLeft: '10%'
     },
   },
   plead: {
@@ -48,7 +48,7 @@ export default function ResumePage({darkMode, toggleDarkMode}) {
     <div className={classes.background}>
       <div className={classes.sectionContainer}>
         <PersonalStatement/>
-        <Grid container spacing={8} justify='center'>
+        <Grid container spacing={10} justify='center'>
           <Grid id='skill-list-container' item sm={12} md={6} className={classes.gridItem}>
             <SkillList/>
           </Grid>

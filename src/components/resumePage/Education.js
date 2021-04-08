@@ -5,12 +5,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import Section from './Section.js';
 import commonStyles from './../../commonStyles.js';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   education: {
     '& *': {
       transition: ".5s ease-in-out"
     },
-    marginTop: 30
+    marginTop: 30,
   },
   courseworkItemsWrapper: {
     display: 'flex',
@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     border: 0,
     boxShadow: "rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px"
   }
-}));
+});
 
 export default function Education() {
   const classes = useStyles();

@@ -37,7 +37,7 @@ function SkillItem({ skill, icon }) {
   const classes = useStyles();
   const commonClasses = commonStyles();
   return (
-    <Grid item xs={4} sm={3} md={4} lg={2} className={classes.gridItem}>
+    <Grid item xs={4} sm={3} className={classes.gridItem}>
       <Paper className={`${classes.paper} ${commonClasses.backgroundGradient}`} elevation={3} >
         <img className={classes.image} src={icon} alt={skill + "icon"}/>
         <Typography
@@ -60,6 +60,7 @@ export default function SkillList() {
         justify="center"
         alignItems="stretch"
         spacing={1}
+
       >
         <SkillItem skill="C++" icon={CppIcon} />
         <SkillItem skill="Java" icon={JavaIcon} />

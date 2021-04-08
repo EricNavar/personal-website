@@ -74,13 +74,11 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1
   },
   iconButton: {
-    width: 40,
-    height: 40,
+    width: 32,
+    height: 32,
     '& svg': {
       width: 32,
       height: 32,
-    },
-    "& svg": {
       fill: theme.palette.text.primary
     },
     "& path": {

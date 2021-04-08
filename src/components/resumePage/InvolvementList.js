@@ -26,7 +26,7 @@ export default function InvolvementList() {
         <InvolvementItem
           title = "Software Engineering Club"
           position = "Tech Lead"
-          time_period = "January 2019 - April 2019"
+          time_period = "February 2021 - Present"
           description = {["Develop front-end of a React-Native mobile app that will be used discover and manage UF clubs",
             "Collaborate closely with developers and designers through stand-ups and pair programming"
           ]}
@@ -50,7 +50,7 @@ export default function InvolvementList() {
         <InvolvementItem
           title = "Gator UX"
           position = "Member"
-          time_period = "September 2020"
+          time_period = "September 2020 - Present"
           description = {["Explore principles of UX and product design by attending workshops and lectures and gaining resources to learn"]}
           icon={GatorUXIcon}
           wide={false}

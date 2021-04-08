@@ -140,16 +140,22 @@ export default function ScheduleConsultationPage() {
   const isValidInput = async () => {
     setNameError(name === '' || name.trim().split(' ').length < 2);
     setDetailsError(details === '');
-    return !nameError && !detailsError;
+    const valid = await !(name === '' || name.trim().split(' ').length < 2) && !(details === '')
+    return valid;
   };
   const handleSubmit = (ev) => {
     ev.preventDefault()
-    if (isValidInput()) {
-      setOpen(true);
-      setName('');
-      setEmail('');
-      setDetails('');
-    }
+    isValidInput().then((value)=>{
+      if (value === true) {
+        setOpen(true);
+        setName('');
+        setEmail('');
+        setDetails('');
+      }
+      else {
+        console.log('invalid')
+      }
+    })
   };
 
   const handleClose = () => {

@@ -23,6 +23,7 @@ export default [
     "links": [
       {
         "label":"Website",
+        "ariaLabel": "DC Rock Fitness Website",
         "hyperlink": "https://dcrf.ericnavar.com/",
         "icon": WebIcon
       }
@@ -39,6 +40,7 @@ export default [
     "links": [
       {
         "label":"Website",
+        "ariaLabel": "Inspiration Generator",
         "hyperlink": "/inspire",
         "icon": WebIcon
       },
@@ -59,6 +61,7 @@ export default [
     "links": [
       {
         "label":"Website",
+        "ariaLabel": "SQL injection website",
         "hyperlink": "https://sql-ssd.herokuapp.com/login",
         "icon": WebIcon
       },
@@ -80,7 +83,8 @@ export default [
     "ariaLabel": "Gator UX website",
     "links": [
       {
-        "label":"Clubfinity app store",
+        "label":"View in App Store",
+        "ariaLabel": "Clubfinity App Store page",
         "hyperlink": "https://apps.apple.com/tt/app/clubfinity/id1539334633?ign-mpt=uo%3D2",
         "icon": AppStoreIcon
       },

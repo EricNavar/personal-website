@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import Paper from '@material-ui/core/Paper';
+import Popover from '@material-ui/core/Popover';
 import PropTypes from "prop-types";
 //local files
 const CardButtonPhoto = lazy(() => import('./CardButtonPhoto'));
@@ -84,15 +85,73 @@ const useStyles = makeStyles((theme) => ({
     "& path": {
       fill: theme.palette.text.primary
     }
-  }
+  },
+  popover: {
+    pointerEvents: 'none',
+  },
+  paper: {
+    padding: theme.spacing(1),
+  },
 }));
+
+function CardButtonLink(props) {
+  const classes = useStyles();
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handlePopoverOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handlePopoverClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+
+  return (
+    <React.Fragment>
+      <IconButton
+        target="_blank"
+        href={props.hyperlink}
+        aria-label={props.ariaLabel}
+        className={classes.iconButton}
+        aria-owns={open ? 'mouse-over-popover' : undefined}
+        aria-haspopup="true"
+        onMouseEnter={handlePopoverOpen}
+        onMouseLeave={handlePopoverClose}
+      >
+        <props.icon />
+      </IconButton>
+      <Popover
+        id="mouse-over-popover"
+        className={classes.popover}
+        classes={{
+          paper: classes.paper,
+        }}
+        open={open}
+        anchorEl={anchorEl}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
+        transformOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+        onClose={handlePopoverClose}
+        disableRestoreFocus
+      >
+        <Typography>{props.label}</Typography>
+      </Popover>
+    </React.Fragment>
+  )
+}
 
 CardButtonDesktop.propTypes = {
   headerText: PropTypes.string.isRequired,
   tools: PropTypes.string.isRequired,
   subText: PropTypes.isRequired,
   image: PropTypes.isRequired,
-  link: PropTypes.string.isRequired,
   altLabel: PropTypes.string.isRequired,
   ariaLabel: PropTypes.string.isRequired
 };
@@ -124,11 +183,7 @@ export default function CardButtonDesktop({ headerText, tools, subText, image, l
               {headerText}
             </Typography>
           </div>
-          {links.map((link) =>
-            <IconButton target="_blank" href={link.hyperlink} aria-label={link.label} className={classes.iconButton}>
-              <link.icon/>
-            </IconButton>
-          )}
+          {links.map((link) => <CardButtonLink {...link} />)}
         </div>
         <Typography color='textPrimary' variant='body1' className={classes.subTextContainer}>
           {subText.map((paragraph, value) => (

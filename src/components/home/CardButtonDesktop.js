@@ -73,6 +73,20 @@ const useStyles = makeStyles((theme) => ({
   cardHeaderText: {
     flexGrow: 1
   },
+  iconButton: {
+    width: 40,
+    height: 40,
+    '& svg': {
+      width: 32,
+      height: 32,
+    },
+    "& svg": {
+      fill: theme.palette.text.primary
+    },
+    "& path": {
+      fill: theme.palette.text.primary
+    }
+  }
 }));
 
 CardButtonDesktop.propTypes = {
@@ -113,8 +127,8 @@ export default function CardButtonDesktop({ headerText, tools, subText, image, l
             </Typography>
           </div>
           {links.map((link) =>
-            <IconButton target="_blank" href={link.hyperlink} aria-label={link.label}>
-              <img alt={link.label} height="32px" width="32px" src={link.icon} />
+            <IconButton target="_blank" href={link.hyperlink} aria-label={link.label} className={classes.iconButton}>
+              <link.icon/>
             </IconButton>
           )}
         </div>

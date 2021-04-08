@@ -2,7 +2,7 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 //local files
 import SSDIcon from './../../assets/resumePage/SSD.webp';
-import OSCIcon from './../../assets/resumePage/OpenSourceClub.webp';
+import SECIcon from './../../assets/resumePage/sec.png';
 import GatorUXIcon from './../../assets/resumePage/GatorUXLogo.webp';
 import HackFSUIcon from './../../assets/resumePage/HackFSU.webp';
 import Section from './Section';
@@ -16,8 +16,22 @@ export default function InvolvementList() {
           title = "Society of Software Developers"
           position = "Vice President"
           time_period = "April 2020 - present"
-          description={["Explore tools and technologies in computer science such as testing and API design to promote well-written, working software."]}
+          description={["Explore tools and technologies in computer science such as TDD and API design to promote correct, maintainable software design.",
+            "Research topics for presentations and conduct workshops such as a Git workshop for 45 attendees",
+            "Manage team of officers and help plan semester curricula"
+          ]}
           icon={SSDIcon}
+          wide={false}
+        />
+        <InvolvementItem
+          title = "Software Engineering Club"
+          position = "Tech Lead"
+          time_period = "January 2019 - April 2019"
+          description = {["Develop front-end of a React-Native mobile app that will be used discover and manage UF clubs",
+            "Collaborate closely with developers and designers through stand-ups and pair programming"
+          ]}
+          linkDescription="Link to repository"
+          icon={SECIcon}
           wide={false}
         />
         <InvolvementItem
@@ -25,8 +39,8 @@ export default function InvolvementList() {
           position = "2nd Place"
           time_period = "October 2019"
           description = {[
-            "Use a Raspberry Pi for facial recognition to assign people a score for how many times they have taken out the trash.",
-            "Display the participant’s scores on a website made in React."
+            "Utilize OpenCV running on a Raspberry Pi for facial recognition",
+            "Create React app to display users’ score based on how many times they have taken out the trash"
           ]}
           link = "https://github.com/EricNavar/Trash-Tracker"
           linkDescription="Link to repository"
@@ -34,13 +48,14 @@ export default function InvolvementList() {
           wide={false}
         />
         <InvolvementItem
-          title = "Open Source Club"
+          title = "Gator UX"
           position = "Member"
-          time_period = "January 2019 - April 2019"
-          description = {["Work on front end of web app using React-Redux"]}
-          linkDescription="Link to repository"
-          icon={OSCIcon}
+          time_period = "September 2020"
+          description = {["Explore principles of UX and product design by attending workshops and lectures and gaining resources to learn"]}
+          icon={GatorUXIcon}
           wide={false}
+          link = "https://gatorux.ericnavar.com"
+          linkDescription="Cute little website I made to practice UX"
         />
       </Grid>
     </Section>

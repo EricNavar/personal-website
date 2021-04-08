@@ -58,7 +58,7 @@ export default function ResumePage({darkMode, toggleDarkMode}) {
         </Grid>
         <Experience/>
         <InvolvementList/>
-        <Typography color='textPrimary' variant="h5" conponent='span' align='center' className={classes.plead}>
+        <Typography color='textPrimary' variant="h3" conponent='span' align='center' className={classes.plead}>
           PLEASE HIRE ME <span role='img' aria-label="pleading face">🥺</span>
         </Typography>
       </div>

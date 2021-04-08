@@ -13,8 +13,9 @@ export default function InvolvementList() {
           position = "Front End Developer"
           time_period = "February - September 2020"
           description = {[
-            "Work with a client in an agile environment to create a website that handles user content and admin controls.",
-            "Develop front end using React and Material UI."
+            "Develop a MERN stack web app handling user content and admin controls",
+            "Respond to client feedback and requirements in an Agile environment to find the best solution",
+            "Configure backend for a serverless AWS Lambda deployment and minimize costs"
           ]}
           link="https://dcfitness.herokuapp.com/"
           wide={true}

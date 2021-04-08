@@ -64,7 +64,6 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 16
   },
   email: {
-    color: '#151965',
     marginBottom: 12,
     position: 'relative',
     fontSize: 18,

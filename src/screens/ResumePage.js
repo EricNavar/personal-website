@@ -48,7 +48,7 @@ export default function ResumePage({darkMode, toggleDarkMode}) {
     <div className={classes.background}>
       <div className={classes.sectionContainer}>
         <PersonalStatement/>
-        <Grid container spacing={4} justify='center'>
+        <Grid container spacing={8} justify='center'>
           <Grid id='skill-list-container' item sm={12} md={6} className={classes.gridItem}>
             <SkillList/>
           </Grid>

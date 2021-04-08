@@ -42,8 +42,11 @@ const useStyles = makeStyles(theme => ({
     width: 50
   },
   timePeriod: {
-    display: "flex",
-    flexWrap: "no-wrap"
+    fontSize: ".85rem"
+  },
+  position: {
+    flexGrow: 1,
+    fontSize: ".85rem"
   }
 }));
 
@@ -63,7 +66,7 @@ export default function InvolvementItem({title, description, link, time_period, 
       )
   }
   return (
-    <Grid item sm={12} md={6} lg={wide ? 6 : 3}>
+    <Grid item sm={12} md={6}>
       <div className={classes.involvementItem}>
         <div className={classes.involvementItemInner}>
           <div className={classes.topRow}>
@@ -83,12 +86,14 @@ export default function InvolvementItem({title, description, link, time_period, 
               <img className={classes.img} alt={title + " icon"} src={icon}></img>
             </div>
           </div>
-          <Typography component='span' variant="overline" color='textPrimary'>
-            {position}&emsp;
-          </Typography>
-          <Typography component='span' variant="overline" gutterBottom color='textPrimary' className={classes.timePeriod}>
-            {time_period}
-          </Typography>
+          <div style={{display: 'flex'}}>
+            <Typography component='span' variant="overline" color='textPrimary' className={classes.position}>
+              {position}&emsp;
+            </Typography>
+            <Typography component='span' variant="overline" gutterBottom color='textPrimary' className={classes.timePeriod}>
+              {time_period}
+            </Typography>
+          </div>
           <List>
             <Description/>
           </List>

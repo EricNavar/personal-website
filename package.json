@@ -5,13 +5,14 @@
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.57",
     "inspirational-quotes": "^1.0.8",
     "lorem-picsum": "^1.0.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.2.0",
-    "typescript": "^4.1.3"
+    "typescript": "^4.2.4"
   },
   "scripts": {
     "start": "react-scripts start",

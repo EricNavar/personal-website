@@ -10,6 +10,7 @@ import Hidden from "@material-ui/core/Hidden";
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 //local files
 import Home from "./screens/Home";
+import ContactPage from "./screens/ContactPage";
 import DesktopNavbar from "./components/DesktopNavbar";
 import MobileNavbar from "./components/MobileNavbar";
 const ResumePage = lazy(() => import('./screens/ResumePage.js'));
@@ -94,6 +95,11 @@ export default function Root() {
             <Route path="/resume">
               <Suspense fallback={<div />}>
                 <ResumePage/>
+              </Suspense>
+            </Route>
+            <Route path="/contact">
+              <Suspense fallback={<div />}>
+                <ContactPage/>
               </Suspense>
             </Route>
             <Route path="/gato-noches">

@@ -147,7 +147,7 @@ export default function NavBar(props) {
             <div style={{marginRight: 16, marginLeft: 16}}>
               <NavBarItem to="/resume" text='Resume' />
             </div>
-            <NavBarItem to="/#connect" text='Connect' />
+            <NavBarItem to="/contact" text='Contact' />
             <IconButton
               onClick={props.toggleDarkMode}
               className={`${classes.iconButton} ${classes.darkModeButton}`}

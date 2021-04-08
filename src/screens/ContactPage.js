@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
   },
   formWrapper: {
     maxWidth: 800,
-    marginTop: 24
+    marginTop: 32
   },
   margin: {
     marginTop: 16,
@@ -174,18 +174,21 @@ export default function ScheduleConsultationPage() {
           <Typography color='textPrimary' component="h4" variant="h5" className={classes.contactInfo} align='center'>
             <b>Contact Information</b>
           </Typography>
-          <Typography
-            component={Link}
-            to='mailto:ericnavar@ufl.edu'
-            color='primary'
-            className={classes.email}
-            variant="body1"
-          >
-            ericnavar@ufl.edu
-          </Typography>
-          <div>
+          <div style={{textAlign:'center'}}>
             <SocialLink label="Github" link="https://www.github.com/ericnavar" icon={GitHubIcon} circle={true} />
             <SocialLink label="LinkedIn" link="https://www.linkedin.com/in/ericnavar/" icon={LinkedInIcon} circle={false} />
+          </div>
+          <div style={{textAlign:'center'}}>
+            <Typography
+              component={Link}
+              to='mailto:ericnavar@ufl.edu'
+              color='primary'
+              className={classes.email}
+              variant="body1"
+              align='center'
+              >
+              ericnavar@ufl.edu
+            </Typography>
           </div>
           <Grid item className={classes.formWrapper}>
             <Typography color='textPrimary' component="h2" variant="h5" align='center'>

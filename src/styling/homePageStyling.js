@@ -57,7 +57,7 @@ export const homePageStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     display: 'grid',
     background: theme.palette.background.default,
-    minHeight: '100vh',
+    minHeight: 'calc(100vh - 112px)',
     [theme.breakpoints.up('xl')]: {
       width: "85%",
       paddingLeft: "7.5%",

@@ -10,6 +10,7 @@ import ListItem from '@material-ui/core/ListItem';
 
 const useStyles = makeStyles(theme => ({
   involvementItem: {
+    boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
     overflow: 'hidden',
     borderRadius: 4,
     background: theme.palette.type === "light" ? theme.palette.itemContainer : theme.palette.backgroundGradient,

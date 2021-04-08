@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   title: {
-    color: '#151965',
+    color: '#09203f',
     textAlign: 'left',
     fontWeight: 'bold',
     '&:hover': {

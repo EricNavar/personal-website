@@ -45,7 +45,7 @@ export const homePageStyles = makeStyles((theme) => ({
       bottom: '-8px',
       borderRadius: 1,
       height: '3px',
-      background: '#151965'
+      background: '#09203f'
     }
   },
   section: {

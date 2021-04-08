@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   submit: {
     marginTop: 24,
     marginBottom: 32,
-    background: 'linear-gradient(90deg, #515585 0%, #151965 100%)',
+    background: 'linear-gradient(90deg, #537895 0%, #09203f 100%)',
     border: 0,
     boxShadow: '0 3px 5px 2px rgba(50, 64, 123, .3)',
     color: 'white',

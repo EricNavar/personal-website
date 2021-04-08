@@ -24,10 +24,10 @@ const lightTheme = createMuiTheme({
   palette: {
     type: 'light',
     primary: {
-      main: '#151965',
+      main: '#09203f',
     },
     secondary: {
-      main: '#46b5d1',
+      main: '#4fcff0',
     },
     itemContainer: 'rgba(215,218,225,1)',
     backgroundColor1: "rgba(66,179,245,1)",
@@ -42,10 +42,10 @@ const darkTheme = createMuiTheme({
   palette: {
     type: 'dark',
     primary: {
-      main: '#46b5d1',
+      main: '#4fcff0',
     },
     secondary: {
-      main: '#151965',
+      main: '#09203f',
     },
     itemContainer: 'rgb(50, 70, 90)',
     backgroundColor1: "#537895",

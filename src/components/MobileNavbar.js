@@ -33,7 +33,7 @@ const useStyles = makeStyles({
     }
   },
   MobileAppBar: {
-    background: "#151965",
+    background: "#09203f",
     width: "calc(100% - 16px)",
     margin: 8,
     borderRadius: 4,

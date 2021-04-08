@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center'
   },
   scrolled: {
-    background: "#151965",
+    background: "#09203f",
     "& span": {
       color: "white"
     },
@@ -54,11 +54,11 @@ const useStyles = makeStyles(theme => ({
   buttonWrapper: {
     position: 'relative',
     '& svg': {
-      color: '#46b5d1'
+      color: '#4fcff0'
     }
   },
   buttonProgress: {
-    color: '#46b5d1',
+    color: '#4fcff0',
     position: 'absolute',
     top: '50%',
     left: '50%',

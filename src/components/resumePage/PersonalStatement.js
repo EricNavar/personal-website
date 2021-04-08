@@ -8,80 +8,6 @@ import Eric from './../../assets/homePage/Eric Navar.webp';
 import commonStyles from './../../commonStyles.js';
 
 const useStyles = makeStyles(theme => ({
-  profileBackground: {
-    position: 'relative',
-    top: 0,
-    left: 0,
-    height: 250,
-    width: 250,
-    padding: 0,
-    marginRight: 12,
-    borderRadius: "50%",
-    overflow: 'hidden',
-    display: 'block',
-    listStyleType: 'disc',
-    unicodeBidi: 'isolate',
-    textAlign: 'center',
-    transition: "background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
-    '& li': {
-      position: 'absolute',
-      top: '80vh',
-      left: '45vw',
-      width: 10,
-      height: 10,
-      border: 'solid 1px #fff3e6',
-      color: 'transparent',
-      transformOrigin: 'top left',
-      transform: 'scale(0) rotate(0deg) translate(-50%, -50%)',
-      animation: '$cube 7s ease-in forwards infinite',
-    },
-
-    '& li:nth-child(0)': {
-      animationDelay: '0s',
-      left: '63vw',
-      top: '6vh',
-    },
-
-    '& li:nth-child(1)': {
-      animationDelay: '2s',
-      left: '36%',
-      top: '23%',
-    },
-
-    '& li:nth-child(2)': {
-      animationDelay: '4s',
-      left: '77%',
-      top: '63%',
-    },
-
-    '& li:nth-child(3)': {
-      animationDelay: '6s',
-      left: '87%',
-      top: '44%',
-    },
-
-    '& li:nth-child(4)': {
-      animationDelay: '8s',
-      left: '27%',
-      top: '72%',
-    },
-
-    '& li:nth-child(5)': {
-      animationDelay: '10s',
-      left: '12%',
-      top: '85%',
-    },
-  },
-  '@keyframes cube': {
-    'from': {
-      transform: 'scale(0) rotate(0deg) translate(-50%, -50%)',
-      opacity: 1,
-    },
-    'to': {
-      transform: 'scale(20) rotate(960deg) translate(-50%, -50%)',
-      opacity: 0,
-    }
-  },
   button: {
     color: 'white',
     '&:hover': {
@@ -94,7 +20,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   textContainer: {
-    maxWidth: 400,
+    maxWidth: 450,
     color: "#f5f4f4",
     marginTop: 16,
     padding: 16,
@@ -113,12 +39,15 @@ const useStyles = makeStyles(theme => ({
     fontSize: 60
   },
   profile: {
-    maxWidth: 200,
+    maxWidth: 250,
     right: 25,
-    bottom: 0
+    bottom: 0,
+    borderRadius: '50%',
+    marginRight: 32
   },
   personalStatementWrapper: {
-    paddingTop: 20
+    paddingTop: 20,
+    paddingBottom: 30
   }
 }));
 
@@ -140,7 +69,7 @@ export default function PersonalStatement() {
           <b>Eric Navar</b>
         </Typography>
         <Typography variant='body1' style={{fontSize:16}}>
-          I am a Computer Science student looking for experience. I can write software and work with teams I'm always eager to learn new things.
+          I'm a computer science major and digital arts minor at UF interested in learning new things. I'm always working on a front-end development project and I'm also trying to learn UX design.
         </Typography>
       </Paper>
     </Grid>

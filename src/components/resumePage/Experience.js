@@ -19,7 +19,7 @@ export default function InvolvementList() {
           ]}
           link="https://dcfitness.herokuapp.com/"
           wide={true}
-          linkDescription="link to website (no longer functional)"
+          linkDescription="link to website (Not currently operational)"
           icon = {DcrfLogo}
         />
       </Grid>

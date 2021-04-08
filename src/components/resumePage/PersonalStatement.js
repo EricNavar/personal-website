@@ -24,7 +24,8 @@ const useStyles = makeStyles(theme => ({
     color: "#f5f4f4",
     marginTop: 16,
     padding: 16,
-    transition: "background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms"
+    transition: "background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
+    boxShadow: "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px"
   },
   imgContainer: {
     minWidth:200,
@@ -43,7 +44,8 @@ const useStyles = makeStyles(theme => ({
     right: 25,
     bottom: 0,
     borderRadius: '50%',
-    marginRight: 32
+    marginRight: 32,
+    boxShadow: "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px"
   },
   personalStatementWrapper: {
     paddingTop: 20,

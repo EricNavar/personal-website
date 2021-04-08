@@ -6,7 +6,7 @@ import DcrfLogo from './../../assets/homePage/dcrf.webp';
 
 export default function InvolvementList() {
   return (
-    <Section title = "Experience">
+    <Section title = "Experience" style={{marginTop:40}}>
       <Grid container spacing={4}>
         <InvolvementItem
           title = "DC Rock Fitness"

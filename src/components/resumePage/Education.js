@@ -9,7 +9,8 @@ const useStyles = makeStyles((theme) => ({
   education: {
     '& *': {
       transition: ".5s ease-in-out"
-    }
+    },
+    marginTop: 30
   },
   courseworkItemsWrapper: {
     display: 'flex',

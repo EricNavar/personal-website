@@ -3,7 +3,6 @@ import ClubfinityLogo from './../../assets/homePage/clubfinity.png';
 import DatabasePic from './../../assets/homePage/database.webp';
 import InspirationPic from './../../assets/homePage/inspiration.webp';
 import GithubIcon from './../../assets/homePage/github_fluent.svg';
-import GooglePlayIcon from './../../assets/homePage/google_play_fluent.svg';
 import AppStoreIcon from './../../assets/homePage/app_store_fluent.svg';
 import WebIcon from './../../assets/homePage/web_fluent.svg';
 import GitlabIcon from './../../assets/homePage/gitlab_ios.svg';

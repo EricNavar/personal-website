@@ -5,6 +5,7 @@ import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
 import PropTypes from "prop-types";
 //local files
+import CardButtonLink from './CardButtonLink.js';
 const CardButtonPhoto = lazy(() => import('./CardButtonPhoto'));
 
 const useStyles = makeStyles((theme) => ({
@@ -75,34 +76,39 @@ CardButtonMobile.propTypes = {
   ariaLabel: PropTypes.string.isRequired
 };
 
-export default function CardButtonMobile({ headerText, tools, subText, image, link, altLabel, ariaLabel }) {
+export default function CardButtonMobile({ headerText, tools, subText, image, links, altLabel, ariaLabel }) {
   const classes = useStyles();
 
   return (
     <Paper className={classes.itemWrapper} elevation={4}>
       <div className={classes.item}>
         <Suspense fallback={<div className={classes.loadingImage} />}>
-          <CardButtonPhoto image={image} altLabel={altLabel} link={link} />
+          <CardButtonPhoto image={image} altLabel={altLabel} />
         </Suspense>
         <Typography variant="overline" display="block" color='textSecondary'>
           {tools}
         </Typography>
         <Link
           className={classes.title}
-          href={link}
           variant="h5"
           style={{ textDecoration: 'none' }}
           aria-label={ariaLabel}
         >
           {headerText}
         </Link>
-        <Typography variant='body1' style={{ marginTop: 12 }}>
-          {subText.map((textPiece, value) => (
-            <span key={`${headerText}-subText-${value}`} className={value % 2 === 1 ? classes.underlined : ""}>
-              {textPiece}
-            </span>
+        <Typography color='textPrimary' variant='body1' className={classes.subTextContainer}>
+          {subText.map((paragraph, value1) => (
+            <React.Fragment>
+              {value1 !== 0 && <br key={`${headerText}-linebreak-${value1}`} className={classes.lineBreak} />}
+              {paragraph.map((textPiece, value2) =>
+                <span key={`${headerText}-subText-${value1}-${value2}`} className={value2 % 2 === 1 ? classes.underlined : ""}>
+                  {textPiece}
+                </span>
+              )}
+            </React.Fragment>
           ))}
         </Typography>
+        {links.map((link, value) => <CardButtonLink key={`link-${value}`} {...link} />)}
       </div>
     </Paper>
   );

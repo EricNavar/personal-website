@@ -26,7 +26,7 @@ function SocialLink({ icon, circle, link, label }) {
 SocialLink.propTypes = {
   link: PropTypes.string.isRequired,
   circle: PropTypes.bool.isRequired,
-  icon: PropTypes.object
+  icon: PropTypes.string.isRequired
 };
 
 export default function Home() {

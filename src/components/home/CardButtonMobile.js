@@ -69,7 +69,7 @@ const useStyles = makeStyles((theme) => ({
 CardButtonMobile.propTypes = {
   headerText: PropTypes.string.isRequired,
   tools: PropTypes.string.isRequired,
-  subText: PropTypes.isRequired,
+  subText: PropTypes.array.isRequired,
   image: PropTypes.isRequired,
   altLabel: PropTypes.string.isRequired,
   ariaLabel: PropTypes.string.isRequired

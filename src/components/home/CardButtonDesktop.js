@@ -150,20 +150,20 @@ function CardButtonLink(props) {
 CardButtonDesktop.propTypes = {
   headerText: PropTypes.string.isRequired,
   tools: PropTypes.string.isRequired,
-  subText: PropTypes.isRequired,
-  image: PropTypes.isRequired,
+  subText: PropTypes.array.isRequired,
   altLabel: PropTypes.string.isRequired,
-  ariaLabel: PropTypes.string.isRequired
+  ariaLabel: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired
 };
 
-export default function CardButtonDesktop({ headerText, tools, subText, image, link, altLabel, ariaLabel, links }) {
+export default function CardButtonDesktop({ headerText, tools, subText, image, altLabel, ariaLabel, links }) {
   const classes = useStyles();
 
   return (
     <Paper className={classes.itemWrapper} elevation={4}>
       <div className={classes.photoWrapper}>
         <Suspense fallback={<div className={classes.loadingImage} />}>
-          <CardButtonPhoto image={image} altLabel={altLabel} link={link} />
+          <CardButtonPhoto image={image} altLabel={altLabel} />
         </Suspense>
       </div>
       <div className={classes.item}>
@@ -174,7 +174,6 @@ export default function CardButtonDesktop({ headerText, tools, subText, image, l
             </Typography>
             <Typography
               className={classes.title}
-              href={link}
               variant="h5"
               style={{ textDecoration: 'none' }}
               aria-label={ariaLabel}
@@ -183,14 +182,14 @@ export default function CardButtonDesktop({ headerText, tools, subText, image, l
               {headerText}
             </Typography>
           </div>
-          {links.map((link) => <CardButtonLink {...link} />)}
+          {links.map((link, value) => <CardButtonLink key={`link-${value}`} {...link} />)}
         </div>
         <Typography color='textPrimary' variant='body1' className={classes.subTextContainer}>
-          {subText.map((paragraph, value) => (
+          {subText.map((paragraph, value1) => (
             <React.Fragment>
-              {value !== 0 && <br key={`${headerText}-linebreak-${value}`} className={classes.lineBreak} />}
-              {paragraph.map((textPiece, value) =>
-                <span key={`${headerText}-subText-${value}`} className={value % 2 === 1 ? classes.underlined : ""}>
+              {value1 !== 0 && <br key={`${headerText}-linebreak-${value1}`} className={classes.lineBreak} />}
+              {paragraph.map((textPiece, value2) =>
+                <span key={`${headerText}-subText-${value1}-${value2}`} className={value2 % 2 === 1 ? classes.underlined : ""}>
                   {textPiece}
                 </span>
               )}

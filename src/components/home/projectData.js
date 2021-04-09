@@ -53,7 +53,8 @@ export default [
     "subText": [["A ", "flask app",
       " I got running that serves as an example for how ",
       "SQL injection",
-      " in a website with poor security may occur"]
+      " in a website with poor security may occur."],
+      ["(May take a few seconds to load)"]
     ],
     "image": DatabasePic,
     "altLabel": "Database icon",

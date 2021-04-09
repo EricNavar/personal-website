@@ -1,23 +1,24 @@
-import React from 'react';
+import React, {Suspense, lazy} from 'react';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 //local files
 import Section from './Section';
-import GitIcon from './../../assets/resumePage/git-white.svg';
-import CppIcon from './../../assets/resumePage/cpp-white.svg';
-import AwsIcon from './../../assets/resumePage/aws-white.svg';
-import CssIcon from './../../assets/resumePage/css3-white.svg';
-import HtmlIcon from './../../assets/resumePage/html5-white.svg';
-import JavaIcon from './../../assets/resumePage/java-white.svg';
-import ReactIcon from './../../assets/resumePage/react-white.svg';
-import MySqlIcon from './../../assets/resumePage/mysql-white.svg';
-import MatlabIcon from './../../assets/resumePage/matlab-white.svg';
-import PythonIcon from './../../assets/resumePage/python-white.svg';
-import JavascriptIcon from './../../assets/resumePage/javascript-white.svg';
-import TypescriptIcon from './../../assets/resumePage/typescript-white.svg';
 import commonStyles from './../../commonStyles.js';
+
+const GitIcon = lazy(() => import('./../../assets/resumePage/git-white.js'));
+const AwsIcon = lazy(() => import( './../../assets/resumePage/aws-white.js'));
+const CssIcon = lazy(() => import( './../../assets/resumePage/css3-white.js'));
+const HtmlIcon = lazy(() => import( './../../assets/resumePage/html5-white.js'));
+const JavaIcon = lazy(() => import( './../../assets/resumePage/java-white.js'));
+const ReactIcon = lazy(() => import( './../../assets/resumePage/react-white.js'));
+const MySqlIcon = lazy(() => import( './../../assets/resumePage/mysql-white.js'));
+const MatlabIcon = lazy(() => import( './../../assets/resumePage/matlab-white.js'));
+const PythonIcon = lazy(() => import( './../../assets/resumePage/python-white.js'));
+const JavascriptIcon = lazy(() => import( './../../assets/resumePage/javascript-white.js'));
+const TypescriptIcon = lazy(() => import( './../../assets/resumePage/typescript-white.js'));
+const CppIcon = lazy(() => import('./../../assets/resumePage/cpp-white.js'));
 
 const useStyles = makeStyles({
   paper: {
@@ -33,13 +34,13 @@ const useStyles = makeStyles({
   }
 });
 
-function SkillItem({ skill, icon }) {
+function SkillItem({ children, skill }) {
   const classes = useStyles();
   const commonClasses = commonStyles();
   return (
     <Grid item xs={4} sm={3} className={classes.gridItem}>
       <Paper className={`${classes.paper} ${commonClasses.backgroundGradient}`} elevation={3} >
-        <img className={classes.image} src={icon} alt={skill + "icon"}/>
+        {children}
         <Typography
           variant='body1'
           align='center'
@@ -62,18 +63,18 @@ export default function SkillList() {
         spacing={1}
 
       >
-        <SkillItem skill="C++" icon={CppIcon} />
-        <SkillItem skill="Java" icon={JavaIcon} />
-        <SkillItem skill="Git" icon={GitIcon} />
-        <SkillItem skill="HTML" icon={HtmlIcon} />
-        <SkillItem skill="CSS" icon={CssIcon} />
-        <SkillItem skill="Javascript" icon={JavascriptIcon} />
-        <SkillItem skill="TypeScript" icon={TypescriptIcon} />
-        <SkillItem skill="React" icon={ReactIcon} />
-        <SkillItem skill="AWS" icon={AwsIcon} />
-        <SkillItem skill="MATLAB" icon={MatlabIcon} />
-        <SkillItem skill="MySQL" icon={MySqlIcon} />
-        <SkillItem skill="Python" icon={PythonIcon} />
+        <SkillItem skill="C++"><Suspense fallback={<div/>}><CppIcon/></Suspense></SkillItem>
+        <SkillItem skill="Java"><Suspense fallback={<div/>}><JavaIcon/></Suspense></SkillItem>
+        <SkillItem skill="Git"><Suspense fallback={<div/>}><GitIcon/></Suspense></SkillItem>
+        <SkillItem skill="HTML"><Suspense fallback={<div/>}><HtmlIcon/></Suspense></SkillItem>
+        <SkillItem skill="CSS"><Suspense fallback={<div/>}><CssIcon/></Suspense></SkillItem>
+        <SkillItem skill="Javascript"><Suspense fallback={<div/>}><JavascriptIcon/></Suspense></SkillItem>
+        <SkillItem skill="TypeScript"><Suspense fallback={<div/>}><TypescriptIcon/></Suspense></SkillItem>
+        <SkillItem skill="React"><Suspense fallback={<div/>}><ReactIcon/></Suspense></SkillItem>
+        <SkillItem skill="AWS"><Suspense fallback={<div/>}><AwsIcon/></Suspense></SkillItem>
+        <SkillItem skill="MATLAB"><Suspense fallback={<div/>}><MatlabIcon/></Suspense></SkillItem>
+        <SkillItem skill="MySQL"><Suspense fallback={<div/>}><MySqlIcon/></Suspense></SkillItem>
+        <SkillItem skill="Python"><Suspense fallback={<div/>}><PythonIcon/></Suspense></SkillItem>
       </Grid>
     </Section>
   );

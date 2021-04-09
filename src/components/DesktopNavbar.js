@@ -150,7 +150,7 @@ export default function NavBar(props) {
             <NavBarItem to="/contact" text='Contact' />
             <IconButton
               onClick={props.toggleDarkMode}
-              className={`${classes.iconButton} ${classes.darkModeButton}`}
+              className={classes.iconButton}
               aria-label="toggle dark mode"
             >
               {props.darkMode ? <SunIcon /> : <MoonIcon />}

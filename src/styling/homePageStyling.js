@@ -28,6 +28,92 @@ export const pageStyles = makeStyles(theme=> ({
   }
 }));
 
+export const cardButtonStyles = makeStyles((theme) => ({
+  itemWrapper: {
+    position: 'relative',
+    borderRadius: 8,
+    height: "100%",
+    maxWidth: "100%",
+    display: 'flex'
+  },
+  item: {
+    padding: "16px 20px",
+    width: '100%'
+  },
+  topic: {
+    textDecoration: 'none',
+    '&:hover': {
+      color: "#000000"
+    },
+    '&:active': {
+      color: "#000000"
+    }
+  },
+  title: {
+    textAlign: 'left',
+    fontWeight: 'bold',
+  },
+  underlined: {
+    display: "inline-grid",
+    position: 'relative',
+    textDecoration: 'none',
+    '&::after': {
+      width: '100%',
+      position: 'absolute',
+      content: '""',
+      right: 0,
+      left: 0,
+      bottom: '-2px',
+      borderRadius: 1,
+      height: '2px',
+      background: '#00c4cc'
+    }
+  },
+  loadingImage: {
+    width: "100%",
+    paddingBottom: "100%",
+    backgroundColor: "#aaa",
+    borderRadius: 8
+  },
+  photoWrapper: {
+    maxWidth: 300,
+    minWidth: 250
+  },
+  subTextContainer: {
+    marginTop: 12,
+    fontSize: "1.1rem"
+  },
+  lineBreak: {
+    marginBottom: 12
+  },
+  cardHeader: {
+    display: 'flex',
+    flexDirection: 'row',
+    width: '100%'
+  },
+  cardHeaderText: {
+    flexGrow: 1
+  },
+  iconButton: {
+    width: 32,
+    height: 32,
+    '& svg': {
+      width: 32,
+      height: 32,
+      fill: theme.palette.text.primary
+    },
+    "& path": {
+      fill: theme.palette.text.primary
+    }
+  },
+  popover: {
+    pointerEvents: 'none',
+  },
+  paper: {
+    padding: theme.spacing(1),
+  },
+}));
+
 export const homePageStyles = makeStyles((theme) => ({
   homePageTitle: {
     position: 'relative',

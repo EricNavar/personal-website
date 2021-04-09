@@ -34,7 +34,6 @@ const useStyles = makeStyles(theme => ({
     }
   },
   animatedItem: {
-    animation: `$myEffect 2000ms ${theme.transitions.easing.easeInOut}`,
     transform: "translateY(50%)",
     color: 'white',
     fontSize: 60

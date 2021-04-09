@@ -105,7 +105,7 @@ function SocialLink({ icon, circle, link, label }) {
 SocialLink.propTypes = {
   link: PropTypes.string.isRequired,
   circle: PropTypes.bool.isRequired,
-  icon: PropTypes.object
+  icon: PropTypes.string.isRequired
 };
 
 export default function ScheduleConsultationPage() {
@@ -222,7 +222,7 @@ export default function ScheduleConsultationPage() {
                     helperText={nameError ? 'Enter your first and last name. Ex: John Doe' : ''}
                   />
                 </Grid>
-                <Grid item xs={0} sm={2}></Grid>
+                <Grid item xs={false} sm={2}></Grid>
                 <Grid item xs={12} sm={5}>
                   <TextField
                     id='email'

@@ -70,7 +70,7 @@ CardButtonMobile.propTypes = {
   headerText: PropTypes.string.isRequired,
   tools: PropTypes.string.isRequired,
   subText: PropTypes.array.isRequired,
-  image: PropTypes.isRequired,
+  image: PropTypes.string.isRequired,
   altLabel: PropTypes.string.isRequired,
   ariaLabel: PropTypes.string.isRequired
 };

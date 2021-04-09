@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {Suspense, lazy} from 'react';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 //local files
-import Eric from './../../assets/homePage/Eric Navar.webp';
 import commonStyles from './../../commonStyles.js';
+const ProfilePicture = lazy(() => import('./ProfilePicture.js'));
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -39,17 +39,16 @@ const useStyles = makeStyles(theme => ({
     color: 'white',
     fontSize: 60
   },
-  profile: {
-    maxWidth: 250,
-    right: 25,
-    bottom: 0,
-    borderRadius: '50%',
-    marginRight: 32,
-    boxShadow: "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px"
-  },
   personalStatementWrapper: {
     paddingTop: 20,
     paddingBottom: 30
+  },
+  profilePicWrapper: {
+    maxWidth: 250,
+    maxHeight: 250,
+    borderRadius: '50%',
+    marginRight: 32,
+    boxShadow: "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px"
   }
 }));
 
@@ -65,7 +64,11 @@ export default function PersonalStatement() {
       spacing={4}
       className={classes.personalStatementWrapper}
     >
-      <img src={Eric} alt="" className={classes.profile}/>
+      <div className={classes.profilePicWrapper}>
+        <Suspense fallback={<div/>}>
+          <ProfilePicture/>
+        </Suspense>
+      </div>
       <Paper className={`${classes.textContainer} ${commonClasses.backgroundGradient}`} elevation={3}>
         <Typography variant='body1' style={{fontSize:32}}>
           <b>Eric Navar</b>

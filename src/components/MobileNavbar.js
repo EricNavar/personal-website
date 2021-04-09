@@ -6,7 +6,6 @@ import Slide from "@material-ui/core/Slide";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import ListItem from "@material-ui/core/ListItem";
-import ButtonBase from "@material-ui/core/ButtonBase";
 import IconButton from "@material-ui/core/IconButton";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -14,7 +13,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import { useHistory, useRouteMatch } from "react-router-dom";
-import {Link} from "react-router-dom";
 
 //icons
 import MenuIcon from "@material-ui/icons/Menu";
@@ -22,7 +20,8 @@ import HomeIcon from "@material-ui/icons/Home";
 import InfoIcon from "@material-ui/icons/Info";
 import CloseIcon from "@material-ui/icons/Close";
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import Logo from "../assets/homePage/linkedin.svg";
+import SunIcon from '@material-ui/icons/Brightness5';
+import MoonIcon from '@material-ui/icons/Brightness2';
 
 //citation: https://material-ui.com/components/app-bar/#back-to-top
 
@@ -43,7 +42,7 @@ const useStyles = makeStyles({
   },
   activeLink: {
     background: 'rgba(81, 85, 133, 0.6)',
-  }
+  },
 });
 
 function HideOnScroll(props) {
@@ -66,7 +65,7 @@ HideOnScroll.propTypes = {
 };
 
 
-export default function MobileNavbar() {
+export default function MobileNavbar(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const history = useHistory();
@@ -100,29 +99,21 @@ export default function MobileNavbar() {
       <React.Fragment>
         <HideOnScroll>
           <AppBar className={classes.MobileAppBar}>
-            <Toolbar>
-              <Grid
-                container
-                direction="row"
-                justify="space-between"
-                alignItems="center"
+            <Toolbar style={{justifyContent:'space-between'}}>
+              <IconButton
+                color="inherit"
+                onClick={toggleDrawer}
+                aria-label="open menu icon"
               >
-                <Grid item xs={4}>
-                  <IconButton color="inherit" onClick={toggleDrawer}>
-                    <MenuIcon />
-                  </IconButton>
-                </Grid>
-                <Grid item xs={4} style={{textAlign:'center'}}>
-                  <ButtonBase
-                    className={classes.logo}
-                    component={Link} to="/"
-                  >
-                    <img src={Logo} alt="Logo"/>
-                  </ButtonBase>
-                </Grid>
-                <Grid item xs={4} style={{textAlign:'right'}}>
-                </Grid>
-              </Grid>
+                <MenuIcon />
+              </IconButton>
+              <IconButton
+                color="inherit"
+                onClick={props.toggleDarkMode}
+                aria-label="toggle dark mode"
+              >
+                {props.darkMode ? <SunIcon /> : <MoonIcon />}
+              </IconButton>
             </Toolbar>
           </AppBar>
         </HideOnScroll>

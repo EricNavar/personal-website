@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {lazy, Suspense} from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -6,8 +6,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import SkillList from '../components/resumePage/SkillList';
 import Education from '../components/resumePage/Education';
 import Experience from '../components/resumePage/Experience';
-import InvolvementList from '../components/resumePage/InvolvementList';
 import PersonalStatement from '../components/resumePage/PersonalStatement';
+const InvolvementList = lazy(() => import('../components/resumePage/InvolvementList'));
 
 const useStyles = makeStyles((theme) => ({
   background: {
@@ -57,10 +57,12 @@ export default function ResumePage({darkMode, toggleDarkMode}) {
           </Grid>
         </Grid>
         <Experience/>
-        <InvolvementList/>
-        <Typography color='textPrimary' variant="h3" conponent='span' align='center' className={classes.plead}>
-          PLEASE HIRE ME <span role='img' aria-label="pleading face">🥺</span>
-        </Typography>
+        <Suspense fallback={<div/>}>
+          <InvolvementList/>
+          <Typography color='textPrimary' variant="h3" conponent='span' align='center' className={classes.plead}>
+            PLEASE HIRE ME <span role='img' aria-label="pleading face">🥺</span>
+          </Typography>
+        </Suspense>
       </div>
     </div>
   );

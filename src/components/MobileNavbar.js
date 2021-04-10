@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import List from "@material-ui/core/List";
-import Grid from "@material-ui/core/Grid";
 import Slide from "@material-ui/core/Slide";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";

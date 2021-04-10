@@ -9,7 +9,7 @@ import GitHubIcon from './../assets/homePage/github.svg';
 import LinkedInIcon from './../assets/homePage/linkedin.svg';
 import CardButtonMobile from '../components/home/CardButtonMobile.js';
 import CardButtonDesktop from '../components/home/CardButtonDesktop.js';
-import projectData from './../components/home/projectData'
+import projectData from './../data/projectData.js';
 import {homePageStyles} from './../styling/homePageStyling.js';
 
 function SocialLink({ icon, circle, link, label }) {

@@ -58,7 +58,7 @@ export default function InvolvementItem({title, description, link, time_period, 
     if (Array.isArray(description))
       return (
         description.map((line) =>
-          <ListItem key={line} dense>
+          <ListItem key={line}>
             <Typography variant="body1" color='textPrimary'>
               {line}
             </Typography>
@@ -95,7 +95,7 @@ export default function InvolvementItem({title, description, link, time_period, 
               {time_period}
             </Typography>
           </div>
-          <List>
+          <List style={{paddingLeft:12}}>
             <Description/>
           </List>
         </div>

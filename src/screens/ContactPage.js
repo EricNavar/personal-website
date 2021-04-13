@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import Alert from '@material-ui/lab/Alert';
 import { makeStyles } from '@material-ui/core/styles';
-import { Button, Typography, TextField, Grid, Snackbar, ButtonBase } from '@material-ui/core';
+import { Button, Typography, TextField, Grid, Snackbar } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 //local files
 import GitHubIcon from './../assets/homePage/github.svg';

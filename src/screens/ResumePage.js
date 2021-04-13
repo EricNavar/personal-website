@@ -1,13 +1,14 @@
-import React, {lazy, Suspense} from 'react';
+import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 //local files
 import SkillList from '../components/resumePage/SkillList';
 import Education from '../components/resumePage/Education';
-import Experience from '../components/resumePage/Experience';
 import PersonalStatement from '../components/resumePage/PersonalStatement';
-const InvolvementList = lazy(() => import('../components/resumePage/InvolvementList'));
+import InvolvementList from '../components/resumePage/InvolvementList';
+import experienceData from './../data/experienceData.js';
+import involvementData from './../data/involvementData.js';
 
 const useStyles = makeStyles((theme) => ({
   background: {
@@ -56,13 +57,11 @@ export default function ResumePage({darkMode, toggleDarkMode}) {
             <Education/>
           </Grid>
         </Grid>
-        <Experience/>
-        <Suspense fallback={<div/>}>
-          <InvolvementList/>
-          <Typography color='textPrimary' variant="h3" conponent='span' align='center' className={classes.plead}>
-            PLEASE HIRE ME <span role='img' aria-label="pleading face">🥺</span>
-          </Typography>
-        </Suspense>
+        <InvolvementList title="Experience" data={experienceData}/>
+        <InvolvementList title="Involvement" data={involvementData}/>
+        <Typography color='textPrimary' variant="h3" conponent='span' align='center' className={classes.plead}>
+          PLEASE HIRE ME <span role='img' aria-label="pleading face">🥺</span>
+        </Typography>
       </div>
     </div>
   );

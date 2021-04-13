@@ -4,7 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 //local files
-import commonStyles from './../../commonStyles.js';
+import commonStyles from './../../styling/commonStyles.js';
 const ProfilePicture = lazy(() => import('./ProfilePicture.js'));
 
 const useStyles = makeStyles(theme => ({

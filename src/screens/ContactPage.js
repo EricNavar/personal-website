@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 //local files
 import GitHubIcon from './../assets/homePage/github.svg';
 import LinkedInIcon from './../assets/homePage/linkedin.svg';
+import SocialLink from './../components/home/SocialLink.js';
 
 const useStyles = makeStyles((theme) => ({
   main: {
@@ -90,23 +91,6 @@ const useStyles = makeStyles((theme) => ({
     }
   }
 }));
-
-function SocialLink({ icon, circle, link, label }) {
-  return (
-    <ButtonBase
-      href={link}
-      variant="outlined"
-      style={{ margin: 4, borderRadius: circle ? "50%" : 0 }}
-    >
-      <img alt={label} src={icon} />
-    </ButtonBase>
-  );
-};
-SocialLink.propTypes = {
-  link: PropTypes.string.isRequired,
-  circle: PropTypes.bool.isRequired,
-  icon: PropTypes.string.isRequired
-};
 
 export default function ScheduleConsultationPage() {
   React.useEffect(() => {

@@ -3,7 +3,7 @@ import Typography from '@material-ui/core/Typography';
 import Chip from '@material-ui/core/Chip';
 import { makeStyles } from '@material-ui/core/styles';
 import Section from './Section.js';
-import commonStyles from './../../commonStyles.js';
+import commonStyles from './../../styling/commonStyles.js';
 
 const useStyles = makeStyles({
   education: {

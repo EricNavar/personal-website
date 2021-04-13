@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 //local files
 import Section from './Section';
-import commonStyles from './../../commonStyles.js';
+import commonStyles from './../../styling/commonStyles.js';
 
 const GitIcon = lazy(() => import('./../../assets/resumePage/git-white.js'));
 const AwsIcon = lazy(() => import( './../../assets/resumePage/aws-white.js'));

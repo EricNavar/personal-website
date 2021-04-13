@@ -11,23 +11,7 @@ import CardButtonMobile from '../components/home/CardButtonMobile.js';
 import CardButtonDesktop from '../components/home/CardButtonDesktop.js';
 import projectData from './../data/projectData.js';
 import {homePageStyles} from './../styling/homePageStyling.js';
-
-function SocialLink({ icon, circle, link, label }) {
-  return (
-    <ButtonBase
-      href={link}
-      variant="outlined"
-      style={{ margin: 4, borderRadius: circle ? "50%" : 0 }}
-    >
-      <img alt={label} src={icon} />
-    </ButtonBase>
-  );
-};
-SocialLink.propTypes = {
-  link: PropTypes.string.isRequired,
-  circle: PropTypes.bool.isRequired,
-  icon: PropTypes.string.isRequired
-};
+import SocialLink from './../components/home/SocialLink.js';
 
 export default function Home() {
   React.useEffect(() => {

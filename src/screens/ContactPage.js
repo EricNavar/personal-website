@@ -202,7 +202,7 @@ export default function ScheduleConsultationPage() {
                     margin="dense"
                     value={name}
                     error={nameError}
-                    helperText={nameError ? 'Enter your first and last name. Ex: John Doe' : ''}
+                    helperText={nameError ? 'Enter first and last name' : ''}
                   />
                 </Grid>
                 <Grid item xs={false} sm={2}></Grid>

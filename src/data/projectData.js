@@ -1,11 +1,11 @@
-import DCRFLogo from './../assets/homePage/dcrf.webp';
-import ClubfinityLogo from './../assets/homePage/clubfinity.png';
-import DatabasePic from './../assets/homePage/database.webp';
-import InspirationPic from './../assets/homePage/inspiration.webp';
-import GithubIcon from './../assets/homePage/github_fluent.js';
-import AppStoreIcon from './../assets/homePage/app_store_fluent.js';
-import WebIcon from './../assets/homePage/web_fluent.js';
-import GitlabIcon from './../assets/homePage/gitlab_ios.js';
+import DCRFLogo from './../assets/projects/dcrf.webp';
+import ClubfinityLogo from './../assets/projects/clubfinity.webp';
+import DatabasePic from './../assets/projects/database.webp';
+import InspirationPic from './../assets/projects/inspiration.webp';
+import GithubIcon from './../assets/icons/github_fluent.js';
+import AppStoreIcon from './../assets/icons/app_store_fluent.js';
+import WebIcon from '../assets/icons/web_fluent.js';
+import GitlabIcon from '../assets/icons/gitlab_ios.js';
 
 export default [
   {

@@ -4,8 +4,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Button, Typography, TextField, Grid, Snackbar } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 //local files
-import GitHubIcon from './../assets/homePage/github.svg';
-import LinkedInIcon from './../assets/homePage/linkedin.svg';
+import GitHubIcon from './../assets/icons/github.svg';
+import LinkedInIcon from './../assets/icons/linkedin.svg';
 import SocialLink from './../components/home/SocialLink.js';
 
 const useStyles = makeStyles((theme) => ({

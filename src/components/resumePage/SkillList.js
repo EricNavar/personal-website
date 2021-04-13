@@ -7,18 +7,18 @@ import { makeStyles } from '@material-ui/core/styles';
 import Section from './Section';
 import commonStyles from './../../styling/commonStyles.js';
 
-const GitIcon = lazy(() => import('./../../assets/resumePage/git-white.js'));
-const AwsIcon = lazy(() => import( './../../assets/resumePage/aws-white.js'));
-const CssIcon = lazy(() => import( './../../assets/resumePage/css3-white.js'));
-const HtmlIcon = lazy(() => import( './../../assets/resumePage/html5-white.js'));
-const JavaIcon = lazy(() => import( './../../assets/resumePage/java-white.js'));
-const ReactIcon = lazy(() => import( './../../assets/resumePage/react-white.js'));
-const MySqlIcon = lazy(() => import( './../../assets/resumePage/mysql-white.js'));
-const MongoDbIcon = lazy(() => import( './../../assets/resumePage/mongodb-white.js'));
-const PythonIcon = lazy(() => import( './../../assets/resumePage/python-white.js'));
-const JavascriptIcon = lazy(() => import( './../../assets/resumePage/javascript-white.js'));
-const TypescriptIcon = lazy(() => import( './../../assets/resumePage/typescript-white.js'));
-const CppIcon = lazy(() => import('./../../assets/resumePage/cpp-white.js'));
+const GitIcon = lazy(() => import('./../../assets/skills/git-white.js'));
+const AwsIcon = lazy(() => import( './../../assets/skills/aws-white.js'));
+const CssIcon = lazy(() => import( './../../assets/skills/css3-white.js'));
+const HtmlIcon = lazy(() => import( './../../assets/skills/html5-white.js'));
+const JavaIcon = lazy(() => import( './../../assets/skills/java-white.js'));
+const ReactIcon = lazy(() => import( './../../assets/skills/react-white.js'));
+const MySqlIcon = lazy(() => import( './../../assets/skills/mysql-white.js'));
+const MongoDbIcon = lazy(() => import( './../../assets/skills/mongodb-white.js'));
+const PythonIcon = lazy(() => import( './../../assets/skills/python-white.js'));
+const JavascriptIcon = lazy(() => import( './../../assets/skills/javascript-white.js'));
+const TypescriptIcon = lazy(() => import( '../../assets/skills/typescript-white.js'));
+const CppIcon = lazy(() => import('./../../assets/skills/cpp-white.js'));
 
 const useStyles = makeStyles({
   paper: {

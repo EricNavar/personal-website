@@ -3,8 +3,8 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Hidden from "@material-ui/core/Hidden";
 //local files
-import GitHubIcon from './../assets/homePage/github.svg';
-import LinkedInIcon from './../assets/homePage/linkedin.svg';
+import GitHubIcon from './../assets/icons/github.svg';
+import LinkedInIcon from './../assets/icons/linkedin.svg';
 import CardButtonMobile from '../components/home/CardButtonMobile.js';
 import CardButtonDesktop from '../components/home/CardButtonDesktop.js';
 import projectData from './../data/projectData.js';

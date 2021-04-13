@@ -1,7 +1,7 @@
-import SSDIcon from './../assets/resumePage/SSD.webp';
-import SECIcon from './../assets/resumePage/sec.png';
-import GatorUXIcon from './../assets/resumePage/GatorUXLogo.webp';
-import HackFSUIcon from './../assets/resumePage/HackFSU.webp';
+import SSDIcon from './../assets/involvement/SSD.webp';
+import SECIcon from './../assets/involvement/sec.webp';
+import GatorUXIcon from './../assets/involvement/GatorUXLogo.webp';
+import HackFSUIcon from './../assets/involvement/HackFSU.webp';
 
 export default [
   {

@@ -1,4 +1,4 @@
-import DcrfLogo from './../assets/homePage/dcrf.webp';
+import DcrfLogo from './../assets/projects/dcrf.webp';
 
 export default [
   {

@@ -4,7 +4,7 @@ import Typography from "@material-ui/core/Typography";
 import {makeStyles} from "@material-ui/core/styles";
 import {Link as RouteLink} from "react-router-dom";
 //local files
-import GatoNochesLogo from '../assets/gatoNoches/GatoNochesLogo';
+import GatoNochesLogo from '../assets/other/GatoNochesLogo';
 
 const useStyles = makeStyles({
   gatoNoches: {

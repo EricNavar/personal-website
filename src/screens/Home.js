@@ -7,9 +7,9 @@ import GitHubIcon from './../assets/icons/github.svg';
 import LinkedInIcon from './../assets/icons/linkedin.svg';
 import CardButtonMobile from '../components/home/CardButtonMobile.js';
 import CardButtonDesktop from '../components/home/CardButtonDesktop.js';
-import projectData from './../data/projectData.js';
-import {homePageStyles} from './../styling/homePageStyling.js';
-import SocialLink from './../components/home/SocialLink.js';
+import projectData from '../data/projectData.js';
+import {homePageStyles} from '../styling/homePageStyling.js';
+import SocialLink from '../components/home/SocialLink.js';
 
 export default function Home() {
   React.useEffect(() => {
@@ -25,7 +25,7 @@ export default function Home() {
     <div className={classes.home}>
       <section id="project-list" className={classes.section}>
         <Typography color='textPrimary' component="h2" variant="h4" className={classes.topicName}>
-          <b>Web Projects I've Worked On</b>
+          <b>Web Coding Projects I've Worked On</b>
         </Typography>
         <Hidden smUp>
           <Grid container spacing={4}>

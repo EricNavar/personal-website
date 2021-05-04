@@ -17,6 +17,7 @@ const ResumePage = lazy(() => import('./screens/ResumePage.js'));
 const GatoNoches = lazy(() => import('./screens/GatoNoches'));
 const InspirePage = lazy(() => import('./screens/InspirePage'));
 const WorstWebsite = lazy(() => import('./screens/WorstWebsite'));
+const UXPortfolio = lazy(() => import('./screens/UXPortfolio'));
 
 //https://reacttraining.com/react-router/web/guides/quick-start
 
@@ -95,6 +96,11 @@ export default function Root() {
             <Route path="/resume">
               <Suspense fallback={<div />}>
                 <ResumePage/>
+              </Suspense>
+            </Route>
+            <Route path="/ux">
+              <Suspense fallback={<div />}>
+                <UXPortfolio/>
               </Suspense>
             </Route>
             <Route path="/contact">

@@ -3,7 +3,7 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import PropTypes from "prop-types";
 //local files
-import {cardButtonStyles} from './../../styling/homePageStyling.js';
+import {cardButtonStyles} from '../../styling/homePageStyling.js';
 import CardButtonLink from './CardButtonLink.js';
 const CardButtonPhoto = lazy(() => import('./CardButtonPhoto'));
 

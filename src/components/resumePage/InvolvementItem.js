@@ -37,10 +37,12 @@ const useStyles = makeStyles(theme => ({
   topRow: {
     display: 'flex',
     alignItems: 'center',
+    marginBottom: 16
   },
   img: {
     borderRadius: 8,
-    width: 50
+    width: 50,
+    marginRight: 16
   },
   timePeriod: {
     fontSize: ".85rem"
@@ -71,7 +73,10 @@ export default function InvolvementItem({title, description, link, time_period, 
       <div className={classes.involvementItem}>
         <div className={classes.involvementItemInner}>
           <div className={classes.topRow}>
-            <div style={{width: "100%"}}>
+            <div>
+              <img className={classes.img} alt={title + " icon"} src={icon}></img>
+            </div>
+            <div>
               <Typography className={classes.title} color="primary" href={link} component="p" variant="h5">
                 <b>{title}</b>
               </Typography>
@@ -83,9 +88,6 @@ export default function InvolvementItem({title, description, link, time_period, 
                 </IconButton>
               </Tooltip>
             }
-            <div>
-              <img className={classes.img} alt={title + " icon"} src={icon}></img>
-            </div>
           </div>
           <div style={{display: 'flex'}}>
             <Typography component='span' variant="overline" color='textPrimary' className={classes.position}>

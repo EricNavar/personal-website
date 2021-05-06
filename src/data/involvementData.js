@@ -13,7 +13,6 @@ export default [
       "Manage team of officers and help plan semester curricula"
     ],
     icon: SSDIcon,
-    wide: false
   },
   {
     title: "Software Engineering Club",
@@ -24,7 +23,6 @@ export default [
     ],
     linkDescription: "Link to repository",
     icon: SECIcon,
-    wide: false
   },
   {
     title: "Hack FSU",
@@ -37,7 +35,6 @@ export default [
     link: "https://github.com/EricNavar/Trash-Tracker",
     linkDescription: "Link to repository",
     icon: HackFSUIcon,
-    wide: false
   },
   {
     title: "Gator UX",
@@ -45,7 +42,6 @@ export default [
     time_period: "September 2020 - Present",
     description: ["Explore principles of UX and product design by attending workshops and lectures and gaining resources to learn"],
     icon: GatorUXIcon,
-    wide: false,
     link: "https://gatorux.ericnavar.com",
     linkDescription: "Cute little website I made to practice UX"
   }

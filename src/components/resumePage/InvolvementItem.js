@@ -51,7 +51,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function InvolvementItem({title, description, link, time_period, linkDescription, position, icon, wide}) {
+export default function InvolvementItem({title, description, link, time_period, linkDescription, position, icon}) {
   const classes = useStyles();
 
   function Description() {

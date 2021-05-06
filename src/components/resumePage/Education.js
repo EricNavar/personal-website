@@ -13,6 +13,7 @@ const useStyles = makeStyles({
     marginTop: 30,
   },
   courseworkItemsWrapper: {
+    marginTop: 16,
     display: 'flex',
     justifyContent: 'left',
     flexWrap: 'wrap',
@@ -54,9 +55,19 @@ export default function Education() {
 
   return (
     <Section title="Education" className={classes.education}>
-      <Typography component="p" variant='h5' color='textPrimary'>
-        University of Florida
-      </Typography>
+      <div style={{display:'flex'}}>
+        <Typography component="span" variant='h5' color='textPrimary' style={{flexGrow:1}}>
+          University of Florida
+        </Typography>
+        <span style={{marginRight:'4rem'}}>
+          <Typography component="span" variant='body1' color='primary'>
+            <b>GPA:</b>
+          </Typography>
+          <Typography component="span" variant='body1' color='textPrimary'>
+            &nbsp;3.94
+          </Typography>
+        </span>
+      </div>
       <Typography className={classes.gpa} component="span" variant='body1' color='textPrimary'>
         Computer Science Major
       </Typography>
@@ -64,13 +75,7 @@ export default function Education() {
         &nbsp; | Digital Arts Minor
       </Typography>
       <br/>
-      <Typography component="span" variant='body1' color='primary'>
-        <b>GPA:</b>
-      </Typography>
-      <Typography component="span" variant='body1' color='textPrimary'>
-        &nbsp;3.95
-      </Typography>
-      <Typography component='p' variant='h6' color='textPrimary'>
+      <Typography component='p' variant='h6' color='textPrimary' style={{marginTop: 24}}>
         Relevant Coursework:
       </Typography>
       <div className={classes.courseworkItemsWrapper}>

@@ -63,18 +63,18 @@ export default function SkillList() {
         spacing={1}
 
       >
-        <SkillItem skill="C++"><Suspense fallback={<div/>}><CppIcon/></Suspense></SkillItem>
-        <SkillItem skill="Java"><Suspense fallback={<div/>}><JavaIcon/></Suspense></SkillItem>
         <SkillItem skill="Git"><Suspense fallback={<div/>}><GitIcon/></Suspense></SkillItem>
+        <SkillItem skill="Javascript"><Suspense fallback={<div/>}><JavascriptIcon/></Suspense></SkillItem>
         <SkillItem skill="HTML"><Suspense fallback={<div/>}><HtmlIcon/></Suspense></SkillItem>
         <SkillItem skill="CSS"><Suspense fallback={<div/>}><CssIcon/></Suspense></SkillItem>
-        <SkillItem skill="Javascript"><Suspense fallback={<div/>}><JavascriptIcon/></Suspense></SkillItem>
-        <SkillItem skill="TypeScript"><Suspense fallback={<div/>}><TypescriptIcon/></Suspense></SkillItem>
+        <SkillItem skill="C++"><Suspense fallback={<div/>}><CppIcon/></Suspense></SkillItem>
         <SkillItem skill="React"><Suspense fallback={<div/>}><ReactIcon/></Suspense></SkillItem>
+        <SkillItem skill="Java"><Suspense fallback={<div/>}><JavaIcon/></Suspense></SkillItem>
+        <SkillItem skill="Python"><Suspense fallback={<div/>}><PythonIcon/></Suspense></SkillItem>
+        <SkillItem skill="TypeScript"><Suspense fallback={<div/>}><TypescriptIcon/></Suspense></SkillItem>
         <SkillItem skill="AWS"><Suspense fallback={<div/>}><AwsIcon/></Suspense></SkillItem>
         <SkillItem skill="MongoDB"><Suspense fallback={<div/>}><MongoDbIcon/></Suspense></SkillItem>
         <SkillItem skill="MySQL"><Suspense fallback={<div/>}><MySqlIcon/></Suspense></SkillItem>
-        <SkillItem skill="Python"><Suspense fallback={<div/>}><PythonIcon/></Suspense></SkillItem>
       </Grid>
     </Section>
   );

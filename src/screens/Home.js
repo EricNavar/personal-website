@@ -5,8 +5,8 @@ import Hidden from "@material-ui/core/Hidden";
 //local files
 import GitHubIcon from './../assets/icons/github.svg';
 import LinkedInIcon from './../assets/icons/linkedin.svg';
-import CardButtonMobile from '../components/home/CardButtonMobile.js';
-import CardButtonDesktop from '../components/home/CardButtonDesktop.js';
+import CardButtonMobile from '../components/home/CodingProjectMobile.js';
+import CardButtonDesktop from '../components/home/CodingProjectDesktop.js';
 import projectData from '../data/projectData.js';
 import {homePageStyles} from '../styling/homePageStyling.js';
 import SocialLink from '../components/home/SocialLink.js';

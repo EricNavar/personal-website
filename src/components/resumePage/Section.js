@@ -4,8 +4,8 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
   section: {
-    marginTop: 30,
-    marginBottom: 20,
+    marginTop: 50,
+    marginBottom: 30,
     width: "100%"
   },
   divider: {
@@ -25,7 +25,7 @@ const useStyles = makeStyles({
 export default function Section({children, title, ...props}) {
   const classes = useStyles();
   return (
-    <div className={classes.section} {...props}>
+    <section className={classes.section} {...props}>
       <div style={{width:'min-content'}}>
         <Typography className={classes.title} component='h2' variant='h4' color='textPrimary'>
           {title}
@@ -33,6 +33,6 @@ export default function Section({children, title, ...props}) {
         <div className={classes.divider}></div>
       </div>
       {children}
-    </div>
+    </section>
   );
 }

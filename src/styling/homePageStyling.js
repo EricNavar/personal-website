@@ -37,7 +37,7 @@ export const cardButtonStyles = makeStyles((theme) => ({
     display: 'flex'
   },
   item: {
-    padding: "16px 20px",
+    padding: "24px 36px",
     width: '100%'
   },
   topic: {

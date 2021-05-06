@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   involvementItemInner: {
-    padding: 16,
+    padding: 24,
   },
   title: {
     textAlign: 'left',

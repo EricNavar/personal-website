@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 //local files
 import {cardButtonStyles} from '../../styling/homePageStyling.js';
 import CardButtonLink from './CardButtonLink.js';
-const CardButtonPhoto = lazy(() => import('./CardButtonPhoto'));
+const CodingProjectThumbnail = lazy(() => import('./CodingProjectThumbnail'));
 
 CardButtonDesktop.propTypes = {
   headerText: PropTypes.string.isRequired,
@@ -23,7 +23,7 @@ export default function CardButtonDesktop({ headerText, tools, subText, image, a
     <Paper className={classes.itemWrapper} elevation={4}>
       <div className={classes.photoWrapper}>
         <Suspense fallback={<div className={classes.loadingImage} />}>
-          <CardButtonPhoto image={image} altLabel={altLabel} />
+          <CodingProjectThumbnail image={image} altLabel={altLabel} />
         </Suspense>
       </div>
       <div className={classes.item}>

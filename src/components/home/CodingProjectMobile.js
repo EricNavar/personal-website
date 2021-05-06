@@ -4,8 +4,8 @@ import Paper from '@material-ui/core/Paper';
 import PropTypes from "prop-types";
 //local files
 import CardButtonLink from './CardButtonLink.js';
-import {cardButtonStyles} from './../../styling/homePageStyling.js';
-const CardButtonPhoto = lazy(() => import('./CardButtonPhoto'));
+import {cardButtonStyles} from '../../styling/homePageStyling.js';
+const CodingProjectThumbnail = lazy(() => import('./CodingProjectThumbnail'));
 
 CardButtonMobile.propTypes = {
   headerText: PropTypes.string.isRequired,
@@ -23,7 +23,7 @@ export default function CardButtonMobile({ headerText, tools, subText, image, al
     <Paper className={classes.itemWrapper} elevation={4}>
       <div className={classes.item}>
         <Suspense fallback={<div className={classes.loadingImage} />}>
-          <CardButtonPhoto image={image} altLabel={altLabel} />
+          <CodingProjectThumbnail image={image} altLabel={altLabel} />
         </Suspense>
         <Typography variant="overline" display="block" color='textSecondary'>
           {tools}

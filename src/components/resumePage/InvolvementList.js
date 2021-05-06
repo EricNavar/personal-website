@@ -7,7 +7,7 @@ import InvolvementItem from './InvolvementItem';
 export default function InvolvementList({title, data}) {
   return (
     <Section title = {title}>
-      <Grid container spacing={4}>
+      <Grid container spacing={5}>
         {data.map((item) => <InvolvementItem key={item.title} {...item}/>)}
       </Grid>
     </Section>

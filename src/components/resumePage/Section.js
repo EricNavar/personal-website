@@ -14,7 +14,8 @@ const useStyles = makeStyles({
     marginBottom: 8,
     height: 4,
     width: '100%',
-    borderRadius: 2
+    borderRadius: 2,
+    marginBottom: 24
   },
   title: {
     fontWeight: 'bold',

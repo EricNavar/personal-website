@@ -28,7 +28,7 @@ export default function Home() {
           <b>Web Coding Projects I've Worked On</b>
         </Typography>
         <Hidden smUp>
-          <Grid container spacing={4}>
+          <Grid container spacing={6}>
             {projectData.map(project => (
               <Grid key={project._id} item xs={12} className={classes.cardButtonContainer}>
                 <CardButtonMobile {...project}/>
@@ -37,7 +37,7 @@ export default function Home() {
           </Grid>
         </Hidden>
         <Hidden only="xs">
-          <Grid container spacing={4}>
+          <Grid container spacing={6}>
             {projectData.map(project => (
               <Grid item key={project._id} xs={12} xl={6} className={classes.cardButtonContainer}>
                 <CardButtonDesktop {...project}/>
@@ -46,7 +46,7 @@ export default function Home() {
           </Grid>
         </Hidden>
       </section>
-      <section id='connect'>
+      <section id='connect' style={{marginTop: 40}}>
         <Typography color='textPrimary' component='h2' variant='h4' className={classes.sectionTitle} align='center'>
           Connect
         </Typography>

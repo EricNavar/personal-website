@@ -3,6 +3,17 @@ import AsurionLogo from './../assets/involvement/asurion.webp';
 
 export default [
   {
+    "title": "Asurion",
+    "position": "Software Engineer Intern",
+      "time_period": "May - August 2021",
+      "description": [
+        "Develop React website and React Native app of an experience to show insurance plan and claim details to customers of varying Asurion partners",
+        "Learn to collaborate with remotely with developers and product designers in the team and across other teams  to analyze requirements and understand business value to find a solution",
+        "Review user sessions and write component tests to find visual and logic bugs and increase testing capacity"
+    ],
+    "icon": AsurionLogo
+  },
+  {
     "title": "DC Rock Fitness",
     "position": "Front End Developer",
       "time_period": "February - September 2020",
@@ -14,17 +25,5 @@ export default [
     "link":"https://dcfitness.herokuapp.com/",
     "linkDescription":"link to website (Not currently operational)",
     "icon": DcrfLogo
-  },
-  {
-    "title": "Asurion",
-    "position": "Software Engineer",
-      "time_period": "May 2021 - Present",
-      "description": [
-        "Document and present solution designs to supervisors and other members of the team",
-        "Research and develop proof of concepts to help solve existing business and tech problems",
-        "Participate in collaboration sessions, technical designs, retrospectives, daily standups"
-    ],
-    "linkDescription":"link to website (Not currently operational)",
-    "icon": AsurionLogo
   }
 ];

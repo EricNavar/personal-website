@@ -30,6 +30,7 @@ export default function CardButtonMobile({ headerText, tools, subText, image, al
         </Typography>
         <Typography
           className={classes.title}
+          componet="span"
           variant="h5"
           aria-label={ariaLabel}
           color='primary'

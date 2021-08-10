@@ -183,6 +183,9 @@ export default function ScheduleConsultationPage() {
             <Typography color='textPrimary' component="h2" variant="h5" align='center'>
               <b>Send me a message</b>
             </Typography>
+            <Typography color='textPrimary' component="h2" variant="body1" align='center'>
+              (Except don't because this doesn't work yet)
+            </Typography>
             <form className={classes.form}>
               <Grid
                 container

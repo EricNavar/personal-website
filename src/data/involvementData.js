@@ -17,7 +17,7 @@ export default [
   {
     title: "Software Engineering Club",
     position: "Tech Lead",
-    time_period: "February 2021 - Present",
+    time_period: "January - May 2021",
     description: ["Develop front-end of a React-Native mobile app that will be used discover and manage UF clubs",
       "Collaborate closely with developers and designers through stand-ups and pair programming"
     ],

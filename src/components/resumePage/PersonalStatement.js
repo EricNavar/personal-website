@@ -73,7 +73,7 @@ export default function PersonalStatement() {
           <b>Eric Navar</b>
         </Typography>
         <Typography variant='body1' style={{fontSize:16}}>
-          I'm a computer science major and digital arts minor at UF interested in learning new things. I'm always working on a front-end development project and I'm also trying to learn UX design.
+          I'm a computer science major and digital arts minor at UF interested in learning new things. I have lots of cool experience in frontend and I'm also trying to learn UX design. Feel free to reach out!
         </Typography>
       </Paper>
     </Grid>

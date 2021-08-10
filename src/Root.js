@@ -14,7 +14,6 @@ import ContactPage from "./screens/ContactPage";
 import DesktopNavbar from "./components/DesktopNavbar";
 import MobileNavbar from "./components/MobileNavbar";
 const ResumePage = lazy(() => import('./screens/ResumePage.js'));
-const GatoNoches = lazy(() => import('./screens/GatoNoches'));
 const InspirePage = lazy(() => import('./screens/InspirePage'));
 const WorstWebsite = lazy(() => import('./screens/WorstWebsite'));
 const UXPortfolio = lazy(() => import('./screens/UXPortfolio'));
@@ -106,11 +105,6 @@ export default function Root() {
             <Route path="/contact">
               <Suspense fallback={<div />}>
                 <ContactPage/>
-              </Suspense>
-            </Route>
-            <Route path="/gato-noches">
-              <Suspense fallback={<div />}>
-                <GatoNoches />
               </Suspense>
             </Route>
             <Route path="/inspire">

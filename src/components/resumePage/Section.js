@@ -11,7 +11,6 @@ const useStyles = makeStyles({
   divider: {
     background: '#32407b',
     marginTop: 2,
-    marginBottom: 8,
     height: 4,
     width: '100%',
     borderRadius: 2,

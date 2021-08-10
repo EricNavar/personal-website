@@ -64,7 +64,7 @@ export default function ResumePage({darkMode, toggleDarkMode}) {
             <Education/>
           </Grid>
         </Grid>
-        <InvolvementList title="Experience" data={experienceData}/>
+        <InvolvementList title="Internship Experience" data={experienceData}/>
         <InvolvementList title="Involvement" data={involvementData}/>
         <Typography color='textPrimary' variant="h3" conponent='span' align='center' className={classes.plead}>
           PLEASE HIRE ME <span role='img' aria-label="pleading face">🥺</span>

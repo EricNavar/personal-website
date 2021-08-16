@@ -9,7 +9,7 @@ export default function SocialLink({ icon, circle, link, label }) {
         variant="outlined"
         style={{ margin: 4, borderRadius: circle ? "50%" : 0 }}
       >
-        <img alt={label} src={icon} />
+        <img height="48px" width="48px" alt={label} src={icon} />
       </ButtonBase>
     );
   };

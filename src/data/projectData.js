@@ -69,6 +69,7 @@ export default [
       {
         "label":"Github source",
         "hyperlink": "https://github.com/ufssd/sql-injection-demo",
+        "ariaLabel": "Github source code",
         "icon": GithubIcon
       }
     ]
@@ -92,6 +93,7 @@ export default [
       {
         "label":"Gitlab source",
         "hyperlink": "https://gitlab.com/ufsec/clubfinity",
+        "ariaLabel": "Gitlab source code",
         "icon": GitlabIcon
       }
     ]

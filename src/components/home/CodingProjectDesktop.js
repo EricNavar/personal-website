@@ -34,7 +34,7 @@ export default function CardButtonDesktop({ headerText, tools, subText, image, a
             </Typography>
             <Typography
               className={classes.title}
-              componet="span"
+              component="span"
               variant="h5"
               aria-label={ariaLabel}
               color='primary'

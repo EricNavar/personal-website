@@ -10,6 +10,7 @@
     "lorem-picsum": "^1.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-fullstory": "^1.4.0",
     "react-material-ui-carousel": "^2.2.4",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",
@@ -38,6 +39,7 @@
     ]
   },
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "eslint-config-react-app": "^5.0.2"
   }
 }

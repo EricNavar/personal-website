@@ -13,6 +13,7 @@ import Home from "./screens/Home";
 import ContactPage from "./screens/ContactPage";
 import DesktopNavbar from "./components/DesktopNavbar";
 import MobileNavbar from "./components/MobileNavbar";
+import FullStory from 'react-fullstory';
 const ResumePage = lazy(() => import('./screens/ResumePage.js'));
 const InspirePage = lazy(() => import('./screens/InspirePage'));
 const WorstWebsite = lazy(() => import('./screens/WorstWebsite'));
@@ -79,51 +80,54 @@ export default function Root() {
     setDarkMode(!darkMode);
   };
   return (
-    <Router id="router">
-      <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
-        <ScrollToTop>
-          <Hidden xsDown>
-            <DesktopNavbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-          </Hidden>
-          <Hidden smUp>
-            <MobileNavbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-          </Hidden>
-          <Switch>
-            <Route exact path='/'>
-              <Home />
-            </Route>
-            <Route path="/resume">
-              <Suspense fallback={<div />}>
-                <ResumePage/>
-              </Suspense>
-            </Route>
-            <Route path="/ux">
-              <Suspense fallback={<div />}>
-                <UXPortfolio/>
-              </Suspense>
-            </Route>
-            <Route path="/contact">
-              <Suspense fallback={<div />}>
-                <ContactPage/>
-              </Suspense>
-            </Route>
-            <Route path="/inspire">
-              <Suspense fallback={<div />}>
-                <InspirePage />
-              </Suspense>
-            </Route>
-            <Route path="/worst-website">
-              <Suspense fallback={<div />}>
-                <WorstWebsite />
-              </Suspense>
-            </Route>
-            <Route path="*">
-              <Redirect to="/" />
-            </Route>
-          </Switch>
-        </ScrollToTop>
-      </ThemeProvider>
-    </Router>
+    <>
+      <FullStory org={process.env.REACT_APP_ORG_ID} />
+      <Router id="router">
+        <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+          <ScrollToTop>
+            <Hidden xsDown>
+              <DesktopNavbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+            </Hidden>
+            <Hidden smUp>
+              <MobileNavbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+            </Hidden>
+            <Switch>
+              <Route exact path='/'>
+                <Home />
+              </Route>
+              <Route path="/resume">
+                <Suspense fallback={<div />}>
+                  <ResumePage />
+                </Suspense>
+              </Route>
+              <Route path="/ux">
+                <Suspense fallback={<div />}>
+                  <UXPortfolio />
+                </Suspense>
+              </Route>
+              <Route path="/contact">
+                <Suspense fallback={<div />}>
+                  <ContactPage />
+                </Suspense>
+              </Route>
+              <Route path="/inspire">
+                <Suspense fallback={<div />}>
+                  <InspirePage />
+                </Suspense>
+              </Route>
+              <Route path="/worst-website">
+                <Suspense fallback={<div />}>
+                  <WorstWebsite />
+                </Suspense>
+              </Route>
+              <Route path="*">
+                <Redirect to="/" />
+              </Route>
+            </Switch>
+          </ScrollToTop>
+        </ThemeProvider>
+      </Router>
+    </>
   );
 }
 //citation: https://stackoverflow.com/questions/36904185/react-router-scroll-to-top-on-every-transition

@@ -54,20 +54,7 @@ export const cardButtonStyles = makeStyles((theme) => ({
     fontWeight: 'bold',
   },
   underlined: {
-    display: "inline-grid",
-    position: 'relative',
-    textDecoration: 'none',
-    '&::after': {
-      width: '100%',
-      position: 'absolute',
-      content: '""',
-      right: 0,
-      left: 0,
-      bottom: '-2px',
-      borderRadius: 1,
-      height: '2px',
-      background: '#00c4cc'
-    }
+    backgroundColor: '#6ac1c4'
   },
   loadingImage: {
     width: "100%",

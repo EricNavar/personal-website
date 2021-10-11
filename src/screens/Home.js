@@ -2,6 +2,7 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Hidden from "@material-ui/core/Hidden";
+import Link from "@material-ui/core/Link";
 //local files
 import GitHubIcon from './../assets/icons/github.svg';
 import LinkedInIcon from './../assets/icons/linkedin.svg';
@@ -23,9 +24,14 @@ export default function Home() {
 
   return (
     <div className={classes.home}>
+      <section>
+        <Typography component="p" variant="h5" color="primary">
+          This website is under construction because it's bad
+        </Typography>
+      </section>
       <section id="project-list" className={classes.section}>
         <Typography color='textPrimary' component="h2" variant="h4" className={classes.topicName}>
-          <b>Web Coding Projects I've Worked On</b>
+          <b>Software Projects I've Worked On</b>
         </Typography>
         <Hidden smUp>
           <Grid container spacing={6}>
@@ -61,6 +67,17 @@ export default function Home() {
           <SocialLink label="Github" link="https://www.github.com/ericnavar" icon={GitHubIcon} circle={true}/>
           <SocialLink label="LinkedIn" link="https://www.linkedin.com/in/ericnavar/" icon={LinkedInIcon} circle={false}/>
         </Grid>
+      </section>
+      <section style={{marginBottom: 40}}>
+        <Typography color='textPrimary' component='h2' variant='h4' className={classes.sectionTitle} align='center'>
+          Other projects
+        </Typography>
+        <Link variant="body1" href="/worst-website">
+          Worst website
+        </Link>
+        <Link variant="body1" href="https://simplifunction.ericnavar.com" style={{marginLeft: 20}}>
+          SimpliFunction
+        </Link>
       </section>
     </div>
   );

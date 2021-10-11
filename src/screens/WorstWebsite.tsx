@@ -13,6 +13,7 @@ import Footer from './../components/worstWebsite/Footer';
 import AppBar from './../components/worstWebsite/AppBar';
 import SnackBar from './../components/worstWebsite/SnackBar';
 import GangnamStyle from './../components/worstWebsite/GangnamStyle.js';
+import '../styling/worstWebsite.css';
 
 const myTheme = createMuiTheme({
   palette: {
@@ -76,8 +77,21 @@ const useStyles = makeStyles((theme: Theme) =>
       position: "fixed",
       top: "50%",
       right: 0
-    }
-  }
+    },
+    plead: {
+      width: 'max-content',
+      padding: 40,
+      boxShadow: "rgba(66,179,245, 0.4) 5px 5px, rgba(66,179,245, 0.3) 10px 10px, rgba(66,179,245, 0.2) 15px 15px, rgba(66,179,245, 0.1) 20px 20px, rgba(66,179,245, 0.05) 25px 25px",
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      borderWidth: 4,
+      borderRadius: 8,
+      borderColor: 'rgba(66,179,245, 0.6)',
+      borderStyle: 'solid',
+      fontFamily: "Poppins",
+      fontWeight: "bold",
+    },
+  },
 ));
 
 export default function WorstWebsite() {
@@ -116,6 +130,17 @@ export default function WorstWebsite() {
               <GangnamStyle/>
             </div>
             <Footer/>
+            <div className="wrapper">
+              <Typography color='textPrimary' variant="h3" component='span' align='center' className={classes.plead}>
+                I'M WATCHING YOU WITH FULLSTORY <span role='img' aria-label="pleading face">😈🥵😳</span>
+              </Typography>
+              <Typography color='textPrimary' variant="h3" component='span' align='center' className={classes.plead}>
+                I'M WATCHING YOU WITH FULLSTORY <span role='img' aria-label="pleading face">😈🥵😳</span>
+              </Typography>
+              <Typography color='textPrimary' variant="h3" component='span' align='center' className={classes.plead}>
+                I'M WATCHING YOU WITH FULLSTORY <span role='img' aria-label="pleading face">😈🥵😳</span>
+              </Typography>
+            </div>
           </div>
         </Fade>
       </NoSsr>

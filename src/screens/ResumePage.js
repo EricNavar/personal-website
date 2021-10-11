@@ -1,6 +1,5 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 //local files
 import SkillList from '../components/resumePage/SkillList';
@@ -66,9 +65,6 @@ export default function ResumePage({darkMode, toggleDarkMode}) {
         </Grid>
         <InvolvementList title="Internship Experience" data={experienceData}/>
         <InvolvementList title="Involvement" data={involvementData}/>
-        <Typography color='textPrimary' variant="h3" conponent='span' align='center' className={classes.plead}>
-          PLEASE HIRE ME <span role='img' aria-label="pleading face">🥺</span>
-        </Typography>
         <div style={{height:80}}/>
       </div>
     </div>

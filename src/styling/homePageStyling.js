@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export const pageStyles = makeStyles(theme=> ({
+export const pageStyles = makeStyles(theme => ({
   blogs: {
     marginTop: 40,
     marginBottom: 40,
@@ -68,6 +68,7 @@ export const cardButtonStyles = makeStyles((theme) => ({
   },
   subTextContainer: {
     marginTop: 12,
+    marginBottom: 12,
     fontSize: "1.1rem"
   },
   lineBreak: {
@@ -143,7 +144,7 @@ export const homePageStyles = makeStyles((theme) => ({
     },
   },
   divider: {
-    width:"80%"
+    width: "80%"
   },
   sectionTitle: {
     paddingTop: 8,
@@ -157,5 +158,10 @@ export const homePageStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('xs')]: {
       width: "100%"
     }
-  }
+  },
+  disclaimer: {
+    backgroundColor: "#fff7cf",
+    width: 'max-content',
+    marginBottom: 32,
+  },
 }));

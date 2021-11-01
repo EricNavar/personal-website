@@ -1,13 +1,9 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-import Popover from '@material-ui/core/Popover';
+import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   iconButton: {
-    width: 32,
-    height: 32,
     '& svg': {
       width: 32,
       height: 32,
@@ -27,53 +23,20 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CardButtonLink(props) {
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-
-  const handlePopoverOpen = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handlePopoverClose = () => {
-    setAnchorEl(null);
-  };
-
-  const open = Boolean(anchorEl);
 
   return (
     <React.Fragment>
-      <IconButton
+      <Button
         target="_blank"
         href={props.hyperlink}
         aria-label={props.ariaLabel}
         className={classes.iconButton}
-        aria-owns={open ? 'mouse-over-popover' : undefined}
         aria-haspopup="true"
-        onMouseEnter={handlePopoverOpen}
-        onMouseLeave={handlePopoverClose}
+        startIcon={<props.icon />}
+        variant='outlined'
       >
-        <props.icon />
-      </IconButton>
-      <Popover
-        id="mouse-over-popover"
-        className={classes.popover}
-        classes={{
-          paper: classes.paper,
-        }}
-        open={open}
-        anchorEl={anchorEl}
-        anchorOrigin={{
-          vertical: 'top',
-          horizontal: 'center',
-        }}
-        transformOrigin={{
-          vertical: 'bottom',
-          horizontal: 'center',
-        }}
-        onClose={handlePopoverClose}
-        disableRestoreFocus
-      >
-        <Typography>{props.label}</Typography>
-      </Popover>
+        {props.label}
+      </Button>
     </React.Fragment>
   )
 }

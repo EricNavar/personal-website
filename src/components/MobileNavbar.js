@@ -140,7 +140,6 @@ export default function MobileNavbar(props) {
         <List className={classes.list}>
           <div>
             <SideBarItem text="Coding Projects" link="/home" icon={<InfoIcon/>} />
-            <SideBarItem text="UX Portfolio" link="/ux" icon={<InfoIcon/>} />
             <SideBarItem text="Resume" link="/resume" icon={<DashboardIcon/>} />
             <SideBarItem text="Connect" link="/home/#connect" icon={<HomeIcon/>} />
           </div>

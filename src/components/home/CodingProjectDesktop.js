@@ -42,7 +42,6 @@ export default function CardButtonDesktop({ headerText, tools, subText, image, a
               {headerText}
             </Typography>
           </div>
-          {links.map((link, value) => <CardButtonLink key={`link-${value}`} {...link} />)}
         </div>
         <Typography color='textPrimary' variant='body1' className={classes.subTextContainer}>
           {subText.map((paragraph, value1) => (
@@ -56,6 +55,7 @@ export default function CardButtonDesktop({ headerText, tools, subText, image, a
             </React.Fragment>
           ))}
         </Typography>
+        {links.map((link, value) => <CardButtonLink key={`link-${value}`} {...link} />)}
       </div>
     </Paper>
   );

@@ -14,7 +14,6 @@ const HtmlIcon = lazy(() => import( './../../assets/skills/html5-white.js'));
 const JavaIcon = lazy(() => import( './../../assets/skills/java-white.js'));
 const ReactIcon = lazy(() => import( './../../assets/skills/react-white.js'));
 const MySqlIcon = lazy(() => import( './../../assets/skills/mysql-white.js'));
-const MongoDbIcon = lazy(() => import( './../../assets/skills/mongodb-white.js'));
 const PythonIcon = lazy(() => import( './../../assets/skills/python-white.js'));
 const JavascriptIcon = lazy(() => import( './../../assets/skills/javascript-white.js'));
 const TypescriptIcon = lazy(() => import( '../../assets/skills/typescript-white.js'));
@@ -73,9 +72,9 @@ export default function SkillList() {
         <SkillItem skill="Python"><Suspense fallback={<div/>}><PythonIcon/></Suspense></SkillItem>
         <SkillItem skill="TypeScript"><Suspense fallback={<div/>}><TypescriptIcon/></Suspense></SkillItem>
         <SkillItem skill="AWS"><Suspense fallback={<div/>}><AwsIcon/></Suspense></SkillItem>
-        <SkillItem skill="MongoDB"><Suspense fallback={<div/>}><MongoDbIcon/></Suspense></SkillItem>
         <SkillItem skill="MySQL"><Suspense fallback={<div/>}><MySqlIcon/></Suspense></SkillItem>
       </Grid>
     </Section>
   );
 }
+// <SkillItem skill="MongoDB"><Suspense fallback={<div/>}><MongoDbIcon/></Suspense></SkillItem>

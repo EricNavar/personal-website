@@ -8,7 +8,7 @@ import Mockup from '../components/uxportfolio/Mockup.js';
 import UXProjectData from '../data/UXProjectData.js';
 import { homePageStyles } from '../styling/homePageStyling.js';
 
-export default function Home() {
+function CommonGround() {
   React.useEffect(() => {
     document.title = 'Eric Navar | UX Portfolio';
     window.scrollTo({
@@ -20,8 +20,8 @@ export default function Home() {
 
   return (
     <section className={classes.home}>
-      <Grid container spacing={10} style={{marginTop:40,marginBottom:40}}>
-        <Grid item style={{maxWidth:800}}>
+      <Grid container spacing={10} style={{ marginTop: 40, marginBottom: 40 }}>
+        <Grid item style={{ maxWidth: 800 }}>
           <Typography color='textPrimary' component="h2" variant="h4" className={classes.topicName}>
             <b>UX Projects I've Worked On</b>
           </Typography>
@@ -44,7 +44,7 @@ export default function Home() {
             </Grid>
           </Hidden>
         </Grid>
-        <Grid item style={{display:'flex',justifyContent:'center'}}>
+        <Grid item style={{ display: 'flex', justifyContent: 'center' }}>
           <Mockup />
         </Grid>
       </Grid>
@@ -52,3 +52,5 @@ export default function Home() {
     </section>
   );
 }
+
+export { CommonGround };

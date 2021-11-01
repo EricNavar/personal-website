@@ -145,9 +145,6 @@ export default function NavBar(props) {
           <Toolbar className={classes.toolbar}>
             <NavBarItem to="/" text='Coding Projects' />
             <div style={{marginRight: 16, marginLeft: 16}}>
-              <NavBarItem to="/ux" text='UX Portolio' />
-            </div>
-            <div style={{marginRight: 16}}>
               <NavBarItem to="/resume" text='Resume' />
             </div>
             <NavBarItem to="/contact" text='Contact' />

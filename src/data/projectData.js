@@ -47,34 +47,6 @@ export default [
     ]
   },
   {
-    "_id": 5,
-    "tools": "Flask app",
-    "headerText": "SQL Injection Demo",
-    "subText": [["A ", "flask app",
-      " I got running that serves as an example for how ",
-      "SQL injection",
-      " in a website with poor security may occur."],
-      ["(May take a few seconds to load)"]
-    ],
-    "image": DatabasePic,
-    "altLabel": "Database icon",
-    "ariaLabel": "SQL injection playground. I made it for SSD's meeting on databases.",
-    "links": [
-      {
-        "label":"Website",
-        "ariaLabel": "SQL injection website",
-        "hyperlink": "https://sql-ssd.herokuapp.com/login",
-        "icon": WebIcon
-      },
-      {
-        "label":"Github source",
-        "hyperlink": "https://github.com/ufssd/sql-injection-demo",
-        "ariaLabel": "Github source code",
-        "icon": GithubIcon
-      }
-    ]
-  },
-  {
     "_id": 6,
     "tools": "React Native, Expo, Mongo DB",
     "headerText": "Clubfinity",

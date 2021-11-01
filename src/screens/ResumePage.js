@@ -4,7 +4,6 @@ import { makeStyles } from '@material-ui/core/styles';
 //local files
 import SkillList from '../components/resumePage/SkillList';
 import Education from '../components/resumePage/Education';
-import PersonalStatement from '../components/resumePage/PersonalStatement';
 import InvolvementList from '../components/resumePage/InvolvementList';
 import experienceData from './../data/experienceData.js';
 import involvementData from './../data/involvementData.js';
@@ -54,7 +53,6 @@ export default function ResumePage({darkMode, toggleDarkMode}) {
   return (
     <div className={classes.background}>
       <div className={classes.sectionContainer}>
-        <PersonalStatement/>
         <Grid container spacing={10} justify='center'>
           <Grid id='skill-list-container' item sm={12} md={6} className={classes.gridItem}>
             <SkillList/>

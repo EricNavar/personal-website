@@ -17,7 +17,7 @@ import FullStory from 'react-fullstory';
 const ResumePage = lazy(() => import('./screens/ResumePage.js'));
 const InspirePage = lazy(() => import('./screens/InspirePage'));
 const WorstWebsite = lazy(() => import('./screens/WorstWebsite'));
-const UXPortfolio = lazy(() => import('./screens/UXPortfolio'));
+const { CommonGround } = lazy(() => import('./screens/CommonGround'));
 
 //https://reacttraining.com/react-router/web/guides/quick-start
 
@@ -100,9 +100,9 @@ export default function Root() {
                   <ResumePage />
                 </Suspense>
               </Route>
-              <Route path="/ux">
+              <Route path="/common-ground">
                 <Suspense fallback={<div />}>
-                  <UXPortfolio />
+                  <CommonGround />
                 </Suspense>
               </Route>
               <Route path="/contact">

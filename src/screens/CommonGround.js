@@ -8,7 +8,7 @@ import Mockup from '../components/uxportfolio/Mockup.js';
 import UXProjectData from '../data/UXProjectData.js';
 import { homePageStyles } from '../styling/homePageStyling.js';
 
-function CommonGround() {
+export default function CommonGround() {
   React.useEffect(() => {
     document.title = 'Eric Navar | UX Portfolio';
     window.scrollTo({
@@ -48,9 +48,6 @@ function CommonGround() {
           <Mockup />
         </Grid>
       </Grid>
-
     </section>
   );
 }
-
-export { CommonGround };

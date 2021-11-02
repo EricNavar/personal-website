@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import GitHubIcon from './../assets/icons/github.svg';
 import LinkedInIcon from './../assets/icons/linkedin.svg';
 import SocialLink from './../components/home/SocialLink.js';
+import { sendEmail } from '../util.js';
 
 const useStyles = makeStyles((theme) => ({
   main: {
@@ -49,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 16
   },
   contactInfo: {
-    marginTop: 4
+    marginTop: 16
   },
   bigTextField: {
     width: '100%',
@@ -127,9 +128,10 @@ export default function ScheduleConsultationPage() {
     return valid;
   };
   const handleSubmit = (ev) => {
-    ev.preventDefault()
-    isValidInput().then((value)=>{
+    ev.preventDefault();
+    isValidInput().then((value) => {
       if (value === true) {
+        sendEmail(name, details, email);
         setOpen(true);
         setName('');
         setEmail('');
@@ -160,31 +162,9 @@ export default function ScheduleConsultationPage() {
         component='main'
       >
         <div>
-          <Typography color='textPrimary' component="h4" variant="h5" className={classes.contactInfo} align='center'>
-            <b>Contact Information</b>
-          </Typography>
-          <div style={{textAlign:'center'}}>
-            <SocialLink label="Github" link="https://www.github.com/ericnavar" icon={GitHubIcon} circle={true} />
-            <SocialLink label="LinkedIn" link="https://www.linkedin.com/in/ericnavar/" icon={LinkedInIcon} circle={false} />
-          </div>
-          <div style={{textAlign:'center'}}>
-            <Typography
-              component={Link}
-              to='mailto:ericnavar@ufl.edu'
-              color='primary'
-              className={classes.email}
-              variant="body1"
-              align='center'
-              >
-              ericnavar@ufl.edu
-            </Typography>
-          </div>
           <Grid item className={classes.formWrapper}>
             <Typography color='textPrimary' component="h2" variant="h5" align='center'>
               <b>Send me a message</b>
-            </Typography>
-            <Typography color='textPrimary' component="h2" variant="body1" align='center'>
-              (Except don't because this doesn't work yet)
             </Typography>
             <form className={classes.form}>
               <Grid
@@ -246,9 +226,28 @@ export default function ScheduleConsultationPage() {
                 disableRipple
               >
                 SEND
-            </Button>
+              </Button>
             </Grid>
           </Grid>
+        </div>
+        <Typography color='textPrimary' component="h4" variant="h5" className={classes.contactInfo} align='center'>
+          <b>Contact Information</b>
+        </Typography>
+        <div style={{ textAlign: 'center' }}>
+          <SocialLink label="Github" link="https://www.github.com/ericnavar" icon={GitHubIcon} circle={true} />
+          <SocialLink label="LinkedIn" link="https://www.linkedin.com/in/ericnavar/" icon={LinkedInIcon} circle={false} />
+        </div>
+        <div style={{ textAlign: 'center' }}>
+          <Typography
+            component={Link}
+            to='mailto:ericnavar@ufl.edu'
+            color='primary'
+            className={classes.email}
+            variant="body1"
+            align='center'
+          >
+            ericnavar@ufl.edu
+          </Typography>
         </div>
       </Grid>
     </React.Fragment>

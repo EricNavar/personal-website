@@ -17,7 +17,7 @@ import FullStory from 'react-fullstory';
 const ResumePage = lazy(() => import('./screens/ResumePage.js'));
 const InspirePage = lazy(() => import('./screens/InspirePage'));
 const WorstWebsite = lazy(() => import('./screens/WorstWebsite'));
-const { CommonGround } = lazy(() => import('./screens/CommonGround'));
+const CommonGround = lazy(() => import('./screens/CommonGround'));
 
 //https://reacttraining.com/react-router/web/guides/quick-start
 

@@ -54,10 +54,10 @@ export default function ResumePage({darkMode, toggleDarkMode}) {
     <div className={classes.background}>
       <div className={classes.sectionContainer}>
         <Grid container spacing={10} justify='center'>
-          <Grid id='skill-list-container' item sm={12} md={6} className={classes.gridItem}>
+          <Grid id='skill-list-container' item sm={12} lg={6} className={classes.gridItem}>
             <SkillList/>
           </Grid>
-          <Grid id='education-container' item sm={12} md={6} className={classes.gridItem}>
+          <Grid id='education-container' item sm={12} lg={6} className={classes.gridItem}>
             <Education/>
           </Grid>
         </Grid>

@@ -50,6 +50,10 @@ const useStyles = makeStyles(theme => ({
   position: {
     flexGrow: 1,
     fontSize: ".85rem"
+  },
+  descriptionList: {
+    paddingLeft: 12,
+    display: "flow-root list-item"
   }
 }));
 
@@ -69,7 +73,7 @@ export default function InvolvementItem({title, description, link, time_period, 
       )
   }
   return (
-    <Grid item sm={12} md={6}>
+    <Grid item sm={12} lg={6}>
       <div className={classes.involvementItem}>
         <div className={classes.involvementItemInner}>
           <div className={classes.topRow}>
@@ -97,7 +101,7 @@ export default function InvolvementItem({title, description, link, time_period, 
               {time_period}
             </Typography>
           </div>
-          <List style={{paddingLeft:12}}>
+          <List className={classes.descriptionList}>
             <Description/>
           </List>
         </div>

@@ -40,7 +40,8 @@ const useStyles = makeStyles(theme => ({
   },
   personalStatementWrapper: {
     paddingTop: 20,
-    paddingBottom: 30
+    paddingBottom: 30,
+    marginBottom: 20
   },
   profilePicWrapper: {
     maxWidth: 200,
@@ -48,6 +49,10 @@ const useStyles = makeStyles(theme => ({
     borderRadius: '50%',
     marginRight: 48,
     boxShadow: "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px"
+  },
+  personalStatementHeader: {
+    fontSize:32,
+    marginBottom: 8
   }
 }));
 
@@ -69,8 +74,8 @@ export default function PersonalStatement() {
         </Suspense>
       </div>
       <Paper className={`${classes.textContainer} ${commonClasses.backgroundGradient}`} elevation={3}>
-        <Typography variant='body1' style={{fontSize:32}}>
-          <b>Eric Navar</b>
+        <Typography variant='body1' className={classes.personalStatementHeader}>
+          <b>Hi, I'm Eric Navar</b>
         </Typography>
         <Typography variant='body1' style={{fontSize:16}}>
           I'm a computer science major and digital arts minor at UF interested in learning new things. I have lots of cool experience in frontend and I'm also trying to learn UX design. Feel free to reach out!

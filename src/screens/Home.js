@@ -25,17 +25,12 @@ export default function Home() {
 
   return (
     <div className={classes.home}>
-      <section>
-        <Typography component="p" variant="h5" color="primary" className={classes.disclaimer}>
-          This website is under construction because it's bad
-        </Typography>
-      </section>
       <PersonalStatement/>
       <section id="project-list" className={classes.section}>
         <Typography color='textPrimary' component="h2" variant="h4" className={classes.topicName}>
-          <b>Software Projects I've Worked On</b>
+          Software Projects I've Worked On
         </Typography>
-        <Hidden smUp>
+        <Hidden mdUp>
           <Grid container spacing={6}>
             {projectData.map(project => (
               <Grid key={project._id} item xs={12} className={classes.cardButtonContainer}>
@@ -44,7 +39,7 @@ export default function Home() {
             ))}
           </Grid>
         </Hidden>
-        <Hidden only="xs">
+        <Hidden smDown>
           <Grid container spacing={6}>
             {projectData.map(project => (
               <Grid item key={project._id} xs={12} xl={6} className={classes.cardButtonContainer}>
@@ -54,24 +49,13 @@ export default function Home() {
           </Grid>
         </Hidden>
       </section>
-      <section id='connect' style={{marginTop: 40}}>
-        <Typography color='textPrimary' component='h2' variant='h4' className={classes.sectionTitle} align='center'>
-          Connect
-        </Typography>
-        <Grid
-          container
-          direction="row"
-          justify="center"
-          alignItems="stretch"
-          spacing={2}
-          style={{marginBottom:8}}
+      <section className={classes.homeSection}>
+        <Typography
+          color='textPrimary'
+          component='h2'
+          variant='h4'
+          className={classes.topicName}
         >
-          <SocialLink label="Github" link="https://www.github.com/ericnavar" icon={GitHubIcon} circle={true}/>
-          <SocialLink label="LinkedIn" link="https://www.linkedin.com/in/ericnavar/" icon={LinkedInIcon} circle={false}/>
-        </Grid>
-      </section>
-      <section style={{marginBottom: 40}}>
-        <Typography color='textPrimary' component='h2' variant='h4' className={classes.sectionTitle} align='center'>
           Other projects
         </Typography>
         <Link variant="body1" href="/worst-website">
@@ -80,6 +64,25 @@ export default function Home() {
         <Link variant="body1" href="https://simplifunction.ericnavar.com" style={{marginLeft: 20}}>
           SimpliFunction
         </Link>
+      </section>
+      <section id='connect' className={classes.homeSection}>
+        <Typography
+          color='textPrimary'
+          component='h2'
+          variant='h4'
+          className={classes.topicName}
+        >
+          Connect
+        </Typography>
+        <Grid
+          container
+          direction="row"
+          alignItems="stretch"
+          spacing={2}
+        >
+          <SocialLink label="LinkedIn" link="https://www.linkedin.com/in/ericnavar/" icon={LinkedInIcon} circle={false}/>
+          <SocialLink label="Github" link="https://www.github.com/ericnavar" icon={GitHubIcon} circle={true}/>
+        </Grid>
       </section>
     </div>
   );

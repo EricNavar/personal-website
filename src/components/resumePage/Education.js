@@ -32,17 +32,17 @@ const useStyles = makeStyles({
 export default function Education() {
   const classes = useStyles();
   const coursework = [
-    "Discrete Structures",
-    "Intro to Computer Organization",
     "Data Structures and Algorithms",
     "Information and Database Systems",
-    "Intro to Software Engineering",
     "Programming Language Concepts",
     "Professional Communication for Engineers",
-    "Operating Systems",
+    "Intro to Software Engineering",
     "Project Methodologies",
     "Principles of Interaction and Usability",
-    "Natural Language Processing"
+    "Human-Computer Interaction",
+    "Computer Architecture",
+    "Computer Network Fundamentals",
+    "Operating Systems"
   ];
   function CourseworkItems() {
     const commonClasses = commonStyles();

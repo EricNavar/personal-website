@@ -9,14 +9,12 @@ import commonStyles from './../../styling/commonStyles.js';
 
 const GitIcon = lazy(() => import('./../../assets/skills/git-white.js'));
 const AwsIcon = lazy(() => import( './../../assets/skills/aws-white.js'));
-const CssIcon = lazy(() => import( './../../assets/skills/css3-white.js'));
-const HtmlIcon = lazy(() => import( './../../assets/skills/html5-white.js'));
+const HtmlIcon = lazy(() => import( '../../assets/skills/html5-css3-white.js'));
 const JavaIcon = lazy(() => import( './../../assets/skills/java-white.js'));
 const ReactIcon = lazy(() => import( './../../assets/skills/react-white.js'));
 const MySqlIcon = lazy(() => import( './../../assets/skills/mysql-white.js'));
 const PythonIcon = lazy(() => import( './../../assets/skills/python-white.js'));
 const JavascriptIcon = lazy(() => import( './../../assets/skills/javascript-white.js'));
-const TypescriptIcon = lazy(() => import( '../../assets/skills/typescript-white.js'));
 const CppIcon = lazy(() => import('./../../assets/skills/cpp-white.js'));
 
 const useStyles = makeStyles({
@@ -26,10 +24,20 @@ const useStyles = makeStyles({
     border: "5px solid white",
     borderRadius: 8,
     color: "white",
-    transition: ".5s ease-in-out"
+    transition: ".5s ease-in-out",
+    height: '100%',
+    '& svg': {
+      marginLeft:'auto',
+      marginRight:'auto'
+    },
+    alignContent: 'center',
+    display: 'grid'
   },
   image: {
     height: 40
+  },
+  gridItem: {
+    marginBottom: 12
   }
 });
 
@@ -60,17 +68,14 @@ export default function SkillList() {
         justify="center"
         alignItems="stretch"
         spacing={1}
-
       >
         <SkillItem skill="Git"><Suspense fallback={<div/>}><GitIcon/></Suspense></SkillItem>
-        <SkillItem skill="Javascript"><Suspense fallback={<div/>}><JavascriptIcon/></Suspense></SkillItem>
-        <SkillItem skill="HTML"><Suspense fallback={<div/>}><HtmlIcon/></Suspense></SkillItem>
-        <SkillItem skill="CSS"><Suspense fallback={<div/>}><CssIcon/></Suspense></SkillItem>
-        <SkillItem skill="C++"><Suspense fallback={<div/>}><CppIcon/></Suspense></SkillItem>
-        <SkillItem skill="React"><Suspense fallback={<div/>}><ReactIcon/></Suspense></SkillItem>
+        <SkillItem skill="HTML/CSS"><Suspense fallback={<div/>}><HtmlIcon/></Suspense></SkillItem>
+        <SkillItem skill="JavaScript/ TypeScript"><Suspense fallback={<div/>}><JavascriptIcon/></Suspense></SkillItem>
+        <SkillItem skill="React / React Native"><Suspense fallback={<div/>}><ReactIcon/></Suspense></SkillItem>
         <SkillItem skill="Java"><Suspense fallback={<div/>}><JavaIcon/></Suspense></SkillItem>
         <SkillItem skill="Python"><Suspense fallback={<div/>}><PythonIcon/></Suspense></SkillItem>
-        <SkillItem skill="TypeScript"><Suspense fallback={<div/>}><TypescriptIcon/></Suspense></SkillItem>
+        <SkillItem skill="C++"><Suspense fallback={<div/>}><CppIcon/></Suspense></SkillItem>
         <SkillItem skill="AWS"><Suspense fallback={<div/>}><AwsIcon/></Suspense></SkillItem>
         <SkillItem skill="MySQL"><Suspense fallback={<div/>}><MySqlIcon/></Suspense></SkillItem>
       </Grid>

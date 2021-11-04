@@ -152,7 +152,8 @@ export const homePageStyles = makeStyles((theme) => ({
     fontSize: '18px !important',
   },
   topicName: {
-    marginBottom: 30
+    marginTop: 20,
+    marginBottom: 20
   },
   cardButtonContainer: {
     [theme.breakpoints.down('xs')]: {
@@ -164,4 +165,7 @@ export const homePageStyles = makeStyles((theme) => ({
     width: 'max-content',
     marginBottom: 32,
   },
+  homeSection: {
+    marginBottom: 40
+  }
 }));

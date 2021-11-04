@@ -11,7 +11,8 @@ const useStyles = makeStyles((theme) => ({
     },
     "& path": {
       fill: theme.palette.text.primary
-    }
+    },
+    marginRight: 10
   },
   popover: {
     pointerEvents: 'none',
@@ -25,18 +26,16 @@ export default function CardButtonLink(props) {
   const classes = useStyles();
 
   return (
-    <React.Fragment>
-      <Button
-        target="_blank"
-        href={props.hyperlink}
-        aria-label={props.ariaLabel}
-        className={classes.iconButton}
-        aria-haspopup="true"
-        startIcon={<props.icon />}
-        variant='outlined'
-      >
-        {props.label}
-      </Button>
-    </React.Fragment>
+    <Button
+      target="_blank"
+      href={props.hyperlink}
+      aria-label={props.ariaLabel}
+      className={classes.iconButton}
+      aria-haspopup="true"
+      startIcon={<props.icon />}
+      variant='outlined'
+    >
+      {props.label}
+    </Button>
   )
 }

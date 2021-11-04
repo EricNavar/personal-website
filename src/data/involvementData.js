@@ -8,9 +8,9 @@ export default [
     title: "Society of Software Developers",
     position: "President",
     time_period: "April 2021 - present",
-    description: ["Explore tools and technologies in computer science such as TDD and API design to promote correct, maintainable software design.",
-      "Research topics for presentations and conduct workshops such as a Git workshop for 45 attendees",
-      "Manage team of officers and help plan semester curricula"
+    description: ["Support the team of officers in planning semester curricula and preparing weekly meetings.",
+      "Host presentations and conduct interactive workshops on topics such as Git and TDD to promote correct, maintainable software design",
+      "Foster community of software developers through social events and online discussion"
     ],
     icon: SSDIcon,
   },

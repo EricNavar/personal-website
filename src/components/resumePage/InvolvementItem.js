@@ -81,13 +81,20 @@ export default function InvolvementItem({title, description, link, time_period, 
               <img className={classes.img} alt={title + " icon"} src={icon}></img>
             </div>
             <div>
-              <Typography className={classes.title} color="primary" href={link} component="p" variant="h5">
+              <Typography
+                className={classes.title}
+                color="primary"
+                href={link}
+                target="_blank"
+                component="p"
+                variant="h5"
+              >
                 <b>{title}</b>
               </Typography>
             </div>
             {link &&
               <Tooltip title={linkDescription} aria-label={linkDescription}>
-                <IconButton href={link}>
+                <IconButton target="_blank" href={link}>
                   <LinkIcon/>
                 </IconButton>
               </Tooltip>

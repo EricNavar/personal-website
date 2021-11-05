@@ -61,7 +61,12 @@ export default function Home() {
         <Link variant="body1" href="/worst-website">
           Worst website
         </Link>
-        <Link variant="body1" href="https://simplifunction.ericnavar.com" style={{marginLeft: 20}}>
+        <Link
+          variant="body1"
+          target="_blank"
+          href="https://simplifunction.ericnavar.com"
+          style={{marginLeft: 20}}
+        >
           SimpliFunction
         </Link>
       </section>

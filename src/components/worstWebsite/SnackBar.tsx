@@ -19,7 +19,7 @@ export default function SimpleSnackbar() {
 
   return (
     <div>
-      <Button style={{}} onClick={handleClick}>Open very important message</Button>
+      <Button onClick={handleClick}>Open very important message</Button>
       <Snackbar
         anchorOrigin={{
           vertical: 'bottom',

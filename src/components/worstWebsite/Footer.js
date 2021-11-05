@@ -136,16 +136,6 @@ export default function Footer() {
             component='footer'
         >
             <LogoButton/>
-            <Grid item xs={8} sm={6} md={4} className={classes.address}>
-                <div style={{width:'max-content'}}>
-                    {/*
-                        <Typography style={{color:'white'}}>
-                            123 Sample Address<br/>
-                            Gainesville, FL, 322614
-                        </Typography>
-                    */}
-                </div>
-            </Grid>
             <Grid item sm={6} className={classes.buffer}></Grid>
             <Contact/>
         </Grid>

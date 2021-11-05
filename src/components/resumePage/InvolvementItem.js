@@ -53,7 +53,16 @@ const useStyles = makeStyles(theme => ({
   },
   descriptionList: {
     paddingLeft: 12,
-    display: "flow-root list-item"
+    listStyle: "initial"
+  },
+  listItem: {
+    display: "flow-root list-item",
+    "&::marker": {
+      color: theme.palette.primary.main
+    }
+  },
+  positionLine: {
+    display: 'flex'
   }
 }));
 
@@ -64,7 +73,7 @@ export default function InvolvementItem({title, description, link, time_period, 
     if (Array.isArray(description))
       return (
         description.map((line) =>
-          <ListItem key={line}>
+          <ListItem key={line} className={classes.listItem}>
             <Typography variant="body1" color='textPrimary'>
               {line}
             </Typography>
@@ -72,6 +81,20 @@ export default function InvolvementItem({title, description, link, time_period, 
         )
       )
   }
+
+  function Positions() {
+    return (
+      <div className={classes.positionLine}>
+        <Typography component='span' variant="overline" color='textPrimary' className={classes.position}>
+          {position}&emsp;
+        </Typography>
+        <Typography component='span' variant="overline" gutterBottom color='textPrimary' className={classes.timePeriod}>
+          {time_period}
+        </Typography>
+      </div>
+    );
+  }
+
   return (
     <Grid item sm={12} lg={6}>
       <div className={classes.involvementItem}>
@@ -100,14 +123,7 @@ export default function InvolvementItem({title, description, link, time_period, 
               </Tooltip>
             }
           </div>
-          <div style={{display: 'flex'}}>
-            <Typography component='span' variant="overline" color='textPrimary' className={classes.position}>
-              {position}&emsp;
-            </Typography>
-            <Typography component='span' variant="overline" gutterBottom color='textPrimary' className={classes.timePeriod}>
-              {time_period}
-            </Typography>
-          </div>
+          <Positions />
           <List className={classes.descriptionList}>
             <Description/>
           </List>

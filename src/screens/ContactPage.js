@@ -89,6 +89,9 @@ const useStyles = makeStyles((theme) => ({
       width: '100%',
       left: 0
     }
+  },
+  centerText: {
+    textAlign: 'center'
   }
 }));
 
@@ -217,7 +220,7 @@ export default function ScheduleConsultationPage() {
                 className={classes.bigTextField}
               />
             </form>
-            <Grid item xs={12} style={{ textAlign: 'center' }}>
+            <Grid item xs={12} className={classes.centerText}>
               <Button
                 fullWidth
                 variant="outlined"
@@ -233,11 +236,11 @@ export default function ScheduleConsultationPage() {
         <Typography color='textPrimary' component="h4" variant="h5" className={classes.contactInfo} align='center'>
           <b>Contact Information</b>
         </Typography>
-        <div style={{ textAlign: 'center' }}>
+        <div className={classes.centerText} >
           <SocialLink label="Github" link="https://www.github.com/ericnavar" icon={GitHubIcon} circle={true} />
           <SocialLink label="LinkedIn" link="https://www.linkedin.com/in/ericnavar/" icon={LinkedInIcon} circle={false} />
         </div>
-        <div style={{ textAlign: 'center' }}>
+        <div >
           <Typography
             component={Link}
             to='mailto:ericnavar@ufl.edu'

@@ -29,6 +29,15 @@ const useStyles = makeStyles({
   },
   relevantCoursework: {
     marginTop: 24
+  },
+  university: {
+    flexGrow:1
+  },
+  gpa: {
+    marginRight:'4rem'
+  },
+  firstLine: {
+    display:'flex'
   }
 });
 
@@ -58,11 +67,11 @@ export default function Education() {
 
   return (
     <Section title="Education" className={classes.education}>
-      <div style={{display:'flex'}}>
-        <Typography component="span" variant='h5' color='textPrimary' style={{flexGrow:1}}>
+      <div className={classes.firstLine}>
+        <Typography component="span" variant='h5' color='textPrimary' className={classes.university}>
           University of Florida
         </Typography>
-        <span style={{marginRight:'4rem'}}>
+        <span className={classes.gpa}>
           <Typography component="span" variant='body1' color='primary'>
             <b>GPA:</b>
           </Typography>
@@ -71,11 +80,11 @@ export default function Education() {
           </Typography>
         </span>
       </div>
-      <Typography className={classes.gpa} component="span" variant='body1' color='textPrimary'>
-        Computer Science Major
+      <Typography component="span" variant='body1' color='textPrimary'>
+        B.S. Computer Science
       </Typography>
-      <Typography className={classes.gpa} component="span" variant='body1' color='textSecondary'>
-        &nbsp; | Digital Arts Minor
+      <Typography component="span" variant='body1' color='textSecondary'>
+        &nbsp;| Digital Arts Minor
       </Typography>
       <br/>
       <Typography

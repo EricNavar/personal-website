@@ -97,6 +97,14 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function WorstWebsite() {
   const classes = useStyles();
 
+  function JavaScriptIsPoison() {
+    return (
+      <Typography component="h1" variant="h1" style={{backgroundImage: "linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red)"}}>
+        JavaScript is poison.<br/><br/>Node JS is bloatware.
+      </Typography>
+    )
+  }
+
   return (
     <ThemeProvider theme={myTheme}>
       <NoSsr>
@@ -114,15 +122,9 @@ export default function WorstWebsite() {
               </Typography>
               <PrivacyNotice/>
             </Box>
-            <Typography component="h1" variant="h1" style={{backgroundImage: "linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red)"}}>
-              JavaScript is poison.<br/><br/>Node JS is bloatware.
-            </Typography>
-            <Typography component="h1" variant="h1" style={{backgroundImage: "linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red)"}}>
-              JavaScript is poison.<br/><br/>Node JS is bloatware.
-            </Typography>
-            <Typography component="h1" variant="h1" style={{backgroundImage: "linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red)"}}>
-              JavaScript is poison.<br/><br/>Node JS is bloatware.
-            </Typography>
+            <JavaScriptIsPoison/>
+            <JavaScriptIsPoison/>
+            <JavaScriptIsPoison/>
             <img alt="handshake" style={{width:"100vw"}} src={HandshakePhoto}/>
             <SnackBar/>
             <div className={classes.nyanCat}/>

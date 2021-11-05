@@ -37,6 +37,9 @@ const useStyles = makeStyles((theme) => ({
     display: 'inline-block',
     lineHeight: "1.2em"
   },
+  margin: {
+    margin: 12
+  }
 }));
 
 export default function InspirePage() {
@@ -73,7 +76,7 @@ export default function InspirePage() {
         variant='contained'
         component={Link}
         to='/'
-        style={{margin:12}}
+        className={classes.margin}
       >
         Return to home
       </Button>
@@ -81,7 +84,7 @@ export default function InspirePage() {
         variant='contained'
         component={Link}
         to='/inspire'
-        style={{margin:12}}
+        className={classes.margin}
       >
         reload
       </Button>

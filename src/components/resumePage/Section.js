@@ -19,6 +19,9 @@ const useStyles = makeStyles({
   title: {
     fontWeight: 'bold',
     fontSize: '2rem'
+  },
+  maxContent: {
+    width: "max-content"
   }
 });
 
@@ -26,7 +29,7 @@ export default function Section({children, title, ...props}) {
   const classes = useStyles();
   return (
     <section className={classes.section} {...props}>
-      <div style={{width:'min-content'}}>
+      <div className={classes.maxContent}>
         <Typography className={classes.title} component='h2' variant='h4' color='textPrimary'>
           {title}
         </Typography>

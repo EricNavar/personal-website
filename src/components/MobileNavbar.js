@@ -42,6 +42,12 @@ const useStyles = makeStyles({
   activeLink: {
     background: 'rgba(81, 85, 133, 0.6)',
   },
+  toolbar: {
+    marginBottom: 24
+  },
+  textRight: {
+    textAlign:'right'
+  }
 });
 
 function HideOnScroll(props) {
@@ -116,7 +122,7 @@ export default function MobileNavbar(props) {
             </Toolbar>
           </AppBar>
         </HideOnScroll>
-        <Toolbar style={{marginBottom:24}}/>
+        <Toolbar className={classes.toolbar}/>
       </React.Fragment>
       <SwipeableDrawer
         open={open}
@@ -132,7 +138,7 @@ export default function MobileNavbar(props) {
           }
         }}
       >
-        <div style={{textAlign:'right'}}>
+        <div className={classes.textRight}>
           <IconButton onClick={toggleDrawer} style={{color:'#32407b'}}>
             <CloseIcon/>
           </IconButton>

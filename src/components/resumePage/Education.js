@@ -26,6 +26,9 @@ const useStyles = makeStyles({
     color: "white",
     border: 0,
     boxShadow: "rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px"
+  },
+  relevantCoursework: {
+    marginTop: 24
   }
 });
 
@@ -75,7 +78,12 @@ export default function Education() {
         &nbsp; | Digital Arts Minor
       </Typography>
       <br/>
-      <Typography component='p' variant='h6' color='textPrimary' style={{marginTop: 24}}>
+      <Typography
+        component='p'
+        variant='h6'
+        color='textPrimary'
+        className={classes.relevantCoursework}
+      >
         Relevant Coursework:
       </Typography>
       <div className={classes.courseworkItemsWrapper}>

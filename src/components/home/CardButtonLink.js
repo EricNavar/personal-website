@@ -27,11 +27,10 @@ export default function CardButtonLink(props) {
 
   return (
     <Button
-      target="_blank"
+      target="noopener"
       href={props.hyperlink}
       aria-label={props.ariaLabel}
       className={classes.iconButton}
-      aria-haspopup="true"
       startIcon={<props.icon />}
       variant='outlined'
     >

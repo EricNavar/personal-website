@@ -53,6 +53,9 @@ const useStyles = makeStyles(theme => ({
   personalStatementHeader: {
     fontSize:32,
     marginBottom: 8
+  },
+  text: {
+    fontSize:16
   }
 }));
 
@@ -77,7 +80,7 @@ export default function PersonalStatement() {
         <Typography variant='body1' className={classes.personalStatementHeader}>
           <b>Hi, I'm Eric Navar</b>
         </Typography>
-        <Typography variant='body1' style={{fontSize:16}}>
+        <Typography variant='body1' className={classes.text}>
           I'm a computer science major and digital arts minor at UF interested in learning new things. I have lots of cool experience in frontend and I'm also trying to learn UX design. Feel free to reach out!
         </Typography>
       </Paper>

@@ -26,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
       marginRight: '10%',
       marginLeft: '10%'
     },
+    marginBottom: 80
   },
   plead: {
     width: 'max-content',
@@ -40,14 +41,14 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function ResumePage({darkMode, toggleDarkMode}) {
+export default function ResumePage({ darkMode, toggleDarkMode }) {
   React.useEffect(() => {
     document.title = 'Resume | Eric Navar';
     window.scrollTo({
       top: 0,
       left: 0,
     });
-  },[]);
+  }, []);
 
   const classes = useStyles();
   return (
@@ -55,15 +56,14 @@ export default function ResumePage({darkMode, toggleDarkMode}) {
       <div className={classes.sectionContainer}>
         <Grid container spacing={10} justify='center'>
           <Grid id='skill-list-container' item sm={12} lg={6} className={classes.gridItem}>
-            <SkillList/>
+            <SkillList />
           </Grid>
           <Grid id='education-container' item sm={12} lg={6} className={classes.gridItem}>
-            <Education/>
+            <Education />
           </Grid>
         </Grid>
-        <InvolvementList title="Internship Experience" data={experienceData}/>
-        <InvolvementList title="Involvement" data={involvementData}/>
-        <div style={{height:80}}/>
+        <InvolvementList title="Internship Experience" data={experienceData} />
+        <InvolvementList title="Involvement" data={involvementData} />
       </div>
     </div>
   );

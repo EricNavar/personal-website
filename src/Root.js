@@ -79,7 +79,6 @@ export default function Root() {
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
-  console.log(process.env);
   return (
     <>
       <FullStory org={process.env.REACT_APP_ORG_ID} />

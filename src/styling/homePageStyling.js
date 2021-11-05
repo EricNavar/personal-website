@@ -32,21 +32,21 @@ export const cardButtonStyles = makeStyles((theme) => ({
   itemWrapper: {
     position: 'relative',
     borderRadius: 8,
-    height: "100%",
-    maxWidth: "100%",
+    height: '100%',
+    maxWidth: '100%',
     display: 'flex'
   },
   item: {
-    padding: "24px 36px",
+    padding: '24px 36px',
     width: '100%'
   },
   topic: {
     textDecoration: 'none',
     '&:hover': {
-      color: "#000000"
+      color: '#000000'
     },
     '&:active': {
-      color: "#000000"
+      color: '#000000'
     }
   },
   title: {
@@ -57,9 +57,9 @@ export const cardButtonStyles = makeStyles((theme) => ({
     backgroundColor: '#6ac1c4'
   },
   loadingImage: {
-    width: "100%",
-    paddingBottom: "100%",
-    backgroundColor: "#aaa",
+    width: '100%',
+    paddingBottom: '100%',
+    backgroundColor: '#aaa',
     borderRadius: 8
   },
   photoWrapper: {
@@ -69,7 +69,7 @@ export const cardButtonStyles = makeStyles((theme) => ({
   subTextContainer: {
     marginTop: 12,
     marginBottom: 12,
-    fontSize: "1.1rem"
+    fontSize: '1.1rem'
   },
   lineBreak: {
     marginBottom: 12
@@ -90,7 +90,7 @@ export const cardButtonStyles = makeStyles((theme) => ({
       height: 32,
       fill: theme.palette.text.primary
     },
-    "& path": {
+    '& path': {
       fill: theme.palette.text.primary
     }
   },
@@ -108,8 +108,8 @@ export const homePageStyles = makeStyles((theme) => ({
     textDecoration: 'none',
     marginBottom: 14,
     fontSize: 32,
-    width: "max-width",
-    margin: "auto",
+    width: 'max-width',
+    margin: 'auto',
     '&::after': {
       width: '100%',
       position: 'absolute',
@@ -133,18 +133,18 @@ export const homePageStyles = makeStyles((theme) => ({
     background: theme.palette.background.default,
     minHeight: 'calc(100vh - 112px)',
     [theme.breakpoints.up('xl')]: {
-      width: "85%",
-      paddingLeft: "7.5%",
-      paddingRight: "7.5%",
+      width: '85%',
+      paddingLeft: '7.5%',
+      paddingRight: '7.5%',
     },
     [theme.breakpoints.down('lg')]: {
-      width: "75%",
-      paddingLeft: "12.5%",
-      paddingRight: "12.5%",
+      width: '75%',
+      paddingLeft: '12.5%',
+      paddingRight: '12.5%',
     },
   },
   divider: {
-    width: "80%"
+    width: '80%'
   },
   sectionTitle: {
     paddingTop: 8,
@@ -157,11 +157,11 @@ export const homePageStyles = makeStyles((theme) => ({
   },
   cardButtonContainer: {
     [theme.breakpoints.down('xs')]: {
-      width: "100%"
+      width: '100%'
     }
   },
   disclaimer: {
-    backgroundColor: "#fff7cf",
+    backgroundColor: '#fff7cf',
     width: 'max-content',
     marginBottom: 32,
   },

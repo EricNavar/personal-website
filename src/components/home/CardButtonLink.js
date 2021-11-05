@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
       height: 32,
       fill: theme.palette.text.primary
     },
-    "& path": {
+    '& path': {
       fill: theme.palette.text.primary
     },
     marginRight: 10
@@ -36,5 +36,5 @@ export default function CardButtonLink(props) {
     >
       {props.label}
     </Button>
-  )
+  );
 }

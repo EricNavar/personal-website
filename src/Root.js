@@ -1,19 +1,20 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   useHistory,
   Redirect
-} from "react-router-dom";
-import Hidden from "@material-ui/core/Hidden";
+} from 'react-router-dom';
+import Hidden from '@material-ui/core/Hidden';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 //local files
-import Home from "./screens/Home";
-import { ContactPage } from "./screens/ContactPage";
-import DesktopNavbar from "./components/DesktopNavbar";
-import MobileNavbar from "./components/MobileNavbar";
+import Home from './screens/Home';
+import { ContactPage } from './screens/ContactPage';
+import DesktopNavbar from './components/DesktopNavbar';
+import MobileNavbar from './components/MobileNavbar';
 import FullStory from 'react-fullstory';
+import PropTypes from 'prop-types';
 const ResumePage = lazy(() => import('./screens/ResumePage.js'));
 const InspirePage = lazy(() => import('./screens/InspirePage'));
 const WorstWebsite = lazy(() => import('./screens/WorstWebsite'));
@@ -31,12 +32,12 @@ const lightTheme = createMuiTheme({
       main: '#4fcff0',
     },
     itemContainer: 'rgba(215,218,225,1)',
-    backgroundColor1: "rgba(66,179,245,1)",
-    backgroundColor2: "rgba(95,44,130,1)",
-    backgroundGradient: "linear-gradient(rgba(66,179,245,1) 0%, rgba(95,44,130,1) 100%)",
+    backgroundColor1: 'rgba(66,179,245,1)',
+    backgroundColor2: 'rgba(95,44,130,1)',
+    backgroundGradient: 'linear-gradient(rgba(66,179,245,1) 0%, rgba(95,44,130,1) 100%)',
   },
   typography: {
-    fontFamily: "Poppins, 'Lato', sans-serif"
+    fontFamily: 'Poppins, \'Lato\', sans-serif'
   }
 });
 const darkTheme = createMuiTheme({
@@ -49,15 +50,18 @@ const darkTheme = createMuiTheme({
       main: '#09203f',
     },
     itemContainer: 'rgb(50, 70, 90)',
-    backgroundColor1: "#537895",
-    backgroundColor2: "#09203f",
-    backgroundGradient: "linear-gradient(#537895 0%, #09203f 100%)"
+    backgroundColor1: '#537895',
+    backgroundColor2: '#09203f',
+    backgroundGradient: 'linear-gradient(#537895 0%, #09203f 100%)'
   },
   typography: {
-    fontFamily: "Poppins, 'Lato', sans-serif"
+    fontFamily: 'Poppins, \'Lato\', sans-serif'
   }
 });
 
+ScrollToTop.propTypes = {
+  children: PropTypes.element.isRequired,
+};
 
 function ScrollToTop(props) {
   const history = useHistory();
@@ -72,7 +76,7 @@ function ScrollToTop(props) {
   }, [history]);
 
   return <React.Fragment>{props.children}</React.Fragment>;
-};
+}
 
 export default function Root() {
   const [darkMode, setDarkMode] = React.useState(false);

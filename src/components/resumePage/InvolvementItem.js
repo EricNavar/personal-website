@@ -10,21 +10,21 @@ import ListItem from '@material-ui/core/ListItem';
 
 const useStyles = makeStyles(theme => ({
   involvementItem: {
-    boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px",
+    boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px',
     overflow: 'hidden',
     borderRadius: 4,
-    background: theme.palette.type === "light" ? theme.palette.itemContainer : theme.palette.backgroundGradient,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundAttachment: "fixed",
+    background: theme.palette.type === 'light' ? theme.palette.itemContainer : theme.palette.backgroundGradient,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundAttachment: 'fixed',
     height: '100%',
     '&:hover': {
       '& svg': {
-        color: "#00a8cc"
+        color: '#00a8cc'
       }
     },
     '& *': {
-      transition: ".5s ease-in-out"
+      transition: '.5s ease-in-out'
     }
   },
   involvementItemInner: {
@@ -45,19 +45,19 @@ const useStyles = makeStyles(theme => ({
     marginRight: 16
   },
   timePeriod: {
-    fontSize: ".85rem"
+    fontSize: '.85rem'
   },
   position: {
     flexGrow: 1,
-    fontSize: ".85rem"
+    fontSize: '.85rem'
   },
   descriptionList: {
     paddingLeft: 12,
-    listStyle: "initial"
+    listStyle: 'initial'
   },
   listItem: {
-    display: "flow-root list-item",
-    "&::marker": {
+    display: 'flow-root list-item',
+    '&::marker': {
       color: theme.palette.primary.main
     }
   },
@@ -79,7 +79,7 @@ export default function InvolvementItem({ title, description, link, linkDescript
             </Typography>
           </ListItem>
         )
-      )
+      );
   }
 
   function Positions() {
@@ -103,7 +103,7 @@ export default function InvolvementItem({ title, description, link, linkDescript
         <div className={classes.involvementItemInner}>
           <div className={classes.topRow}>
             <div>
-              <img className={classes.img} alt={title + " icon"} src={icon}></img>
+              <img className={classes.img} alt={title + ' icon'} src={icon}></img>
             </div>
             <div>
               <Typography

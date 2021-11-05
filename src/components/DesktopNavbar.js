@@ -1,16 +1,16 @@
-import React from "react";
-import PropTypes from "prop-types";
-import AppBar from "@material-ui/core/AppBar";
-import Button from "@material-ui/core/Button";
-import Toolbar from "@material-ui/core/Toolbar";
+import React from 'react';
+import PropTypes from 'prop-types';
+import AppBar from '@material-ui/core/AppBar';
+import Button from '@material-ui/core/Button';
+import Toolbar from '@material-ui/core/Toolbar';
 import SunIcon from '@material-ui/icons/Brightness5';
 import MoonIcon from '@material-ui/icons/Brightness2';
 import IconButton from '@material-ui/core/IconButton';
 import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { makeStyles } from "@material-ui/core";
-import useScrollTrigger from "@material-ui/core/useScrollTrigger";
-import { Link, useRouteMatch } from "react-router-dom";
+import { makeStyles } from '@material-ui/core';
+import useScrollTrigger from '@material-ui/core/useScrollTrigger';
+import { Link, useRouteMatch } from 'react-router-dom';
 
 
 //citation: https://material-ui.com/components/app-bar/#hide-app-bar
@@ -25,18 +25,18 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center'
   },
   scrolled: {
-    background: "#09203f",
-    "& span": {
-      color: "white"
+    background: '#09203f',
+    '& span': {
+      color: 'white'
     },
-    "& use": {
-      fill: "white"
+    '& use': {
+      fill: 'white'
     }
   },
   //when the navbar is at the top of the screen and is navy blue
   top: {
     background: theme.palette.background.default,
-    "& span": {
+    '& span': {
       color: theme.palette.text.primary
     }
   },
@@ -79,13 +79,13 @@ const useStyles = makeStyles(theme => ({
     position: 'absolute',
     top: 8,
     right: 0,
-    color: "white",
+    color: 'white',
     '&:hover': {
       opacity: .85,
-      boxShadow: "none",
+      boxShadow: 'none',
     },
     '&:active': {
-      boxShadow: "none"
+      boxShadow: 'none'
     },
   },
 }));

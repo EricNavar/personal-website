@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   plead: {
     width: 'max-content',
     padding: 40,
-    boxShadow: "rgba(66,179,245, 0.4) 5px 5px, rgba(66,179,245, 0.3) 10px 10px, rgba(66,179,245, 0.2) 15px 15px, rgba(66,179,245, 0.1) 20px 20px, rgba(66,179,245, 0.05) 25px 25px",
+    boxShadow: 'rgba(66,179,245, 0.4) 5px 5px, rgba(66,179,245, 0.3) 10px 10px, rgba(66,179,245, 0.2) 15px 15px, rgba(66,179,245, 0.1) 20px 20px, rgba(66,179,245, 0.05) 25px 25px',
     marginLeft: 'auto',
     marginRight: 'auto',
     borderWidth: 4,

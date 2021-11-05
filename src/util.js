@@ -11,17 +11,17 @@ function sendEmail(name, text, email) {
     from: 'ericn2413@gmail.com',
     subject: name + ' has sent you a message from ericnavar.com. Sender email: ' + email,
     text: text,
-  }
+  };
 
   sgMail
-  .send(msg)
-  .then(() => {
-    console.log('Email sent');
-  })
-  .catch((error) => {
-    console.log('caught error in sendEmail()');
-    console.error(error)
-  })
+    .send(msg)
+    .then(() => {
+      console.log('Email sent');
+    })
+    .catch((error) => {
+      console.log('caught error in sendEmail()');
+      console.error(error);
+    });
 }
 
-export { sendEmail }
+export { sendEmail };

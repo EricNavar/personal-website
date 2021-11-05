@@ -3,16 +3,16 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
   wrapper: {
-    width: "100%",
-    textAlign: "center"
+    width: '100%',
+    textAlign: 'center'
   },
   aspectRatioBox: {
     overflow: 'hidden',
     height: 0,
     position: 'relative',
-    width: "100%",
-    paddingTop: "100%",
-    display: "grid"
+    width: '100%',
+    paddingTop: '100%',
+    display: 'grid'
   },
   aspectRatioBoxInside: {
     position: 'absolute',

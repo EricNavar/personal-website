@@ -19,12 +19,12 @@ const CppIcon = lazy(() => import('./../../assets/skills/cpp-white.js'));
 
 const useStyles = makeStyles({
   paper: {
-    textTransform: "none",
-    textAlign: "center",
-    border: "5px solid white",
+    textTransform: 'none',
+    textAlign: 'center',
+    border: '5px solid white',
     borderRadius: 8,
-    color: "white",
-    transition: ".5s ease-in-out",
+    color: 'white',
+    transition: '.5s ease-in-out',
     height: '100%',
     '& svg': {
       marginLeft:'auto',

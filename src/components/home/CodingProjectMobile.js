@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 //local files
 import CardButtonLink from './CardButtonLink.js';
 import {cardButtonStyles} from '../../styling/homePageStyling.js';
@@ -42,7 +42,7 @@ export default function CardButtonMobile({ headerText, tools, subText, image, al
             <React.Fragment>
               {value1 !== 0 && <br key={`${headerText}-linebreak-${value1}`} className={classes.lineBreak} />}
               {paragraph.map((textPiece, value2) =>
-                <span key={`${headerText}-subText-${value1}-${value2}`} className={value2 % 2 === 1 ? classes.underlined : ""}>
+                <span key={`${headerText}-subText-${value1}-${value2}`} className={value2 % 2 === 1 ? classes.underlined : ''}>
                   {textPiece}
                 </span>
               )}

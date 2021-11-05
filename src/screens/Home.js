@@ -1,8 +1,8 @@
-import React from "react";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import Hidden from "@material-ui/core/Hidden";
-import Link from "@material-ui/core/Link";
+import React from 'react';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import Hidden from '@material-ui/core/Hidden';
+import Link from '@material-ui/core/Link';
 //local files
 import PersonalStatement from '../components/resumePage/PersonalStatement';
 import GitHubIcon from './../assets/icons/github.svg';

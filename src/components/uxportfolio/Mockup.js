@@ -1,6 +1,6 @@
 import React from 'react';
 import Carousel from 'react-material-ui-carousel';
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from '@material-ui/core/styles';
 import Slide1 from './../../assets/ux/common_ground/explore_page.webp';
 import Slide2 from './../../assets/ux/common_ground/wheel.webp';
 import Slide3 from './../../assets/ux/common_ground/restaurant_view.webp';
@@ -12,7 +12,7 @@ const useStyles = makeStyles({
     borderRadius: 6,
     position: 'absolute',
     top: 0,
-    width: "88.276%",
+    width: '88.276%',
     marginLeft: '5.862%',
     marginRight: '5.862%',
     height: '94.438%',
@@ -28,17 +28,17 @@ const useStyles = makeStyles({
     textAlign: 'center',
     paddingTop: 8,
     paddingBottom: 8,
-    position: "absolute",
+    position: 'absolute',
     top: 0,
     left: 0,
-    width: "100%"
+    width: '100%'
   },
   item: {
-    maxWidth: "100vw",
+    maxWidth: '100vw',
     width: '100%'
   },
   photo: {
-    width: "100%",
+    width: '100%',
     height: '100%'
   },
   carousel: {
@@ -69,7 +69,7 @@ function PrototypeCarousel() {
     {
       photo: Slide3
     }
-  ]
+  ];
   const classes = useStyles();
   return (
     <div id='carousel' className={classes.carouselContainer}>
@@ -95,14 +95,14 @@ function PrototypeCarousel() {
         {items.map((item, i) => <Photo key={i} item={item} />)}
       </Carousel>
     </div>
-  )
+  );
 }
 
 function Photo(props) {
   const classes = useStyles();
   return (
     <img alt="" src={props.item.photo} className={classes.photo} />
-  )
+  );
 }
 
 export default function Mockup() {

@@ -116,10 +116,10 @@ function ContactPage() {
   const [detailsError, setDetailsError] = useState(false);
 
   const handleEmailChange = event => {
-    setEmail(event.target.value)
+    setEmail(event.target.value);
   };
   const handleNameChange = event => {
-    setName(event.target.value)
+    setName(event.target.value);
   };
   const handleDetailChange = event => {
     setDetails(event.target.value);
@@ -127,7 +127,7 @@ function ContactPage() {
   const isValidInput = async () => {
     setNameError(name === '' || name.trim().split(' ').length < 2);
     setDetailsError(details === '');
-    const valid = await !(name === '' || name.trim().split(' ').length < 2) && !(details === '')
+    const valid = await !(name === '' || name.trim().split(' ').length < 2) && !(details === '');
     return valid;
   };
   const handleSubmit = (ev) => {
@@ -141,9 +141,9 @@ function ContactPage() {
         setDetails('');
       }
       else {
-        console.log('invalid')
+        console.log('invalid');
       }
-    })
+    });
   };
 
   const handleClose = () => {
@@ -254,7 +254,7 @@ function ContactPage() {
         </div>
       </Grid>
     </React.Fragment>
-  )
+  );
 }
 
-export { ContactPage }
+export { ContactPage };

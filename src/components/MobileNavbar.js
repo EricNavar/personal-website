@@ -1,23 +1,23 @@
-import React from "react";
-import PropTypes from "prop-types";
-import List from "@material-ui/core/List";
-import Slide from "@material-ui/core/Slide";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import ListItem from "@material-ui/core/ListItem";
-import IconButton from "@material-ui/core/IconButton";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import { makeStyles } from "@material-ui/core/styles";
-import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
-import useScrollTrigger from "@material-ui/core/useScrollTrigger";
-import { useHistory, useRouteMatch } from "react-router-dom";
+import React from 'react';
+import PropTypes from 'prop-types';
+import List from '@material-ui/core/List';
+import Slide from '@material-ui/core/Slide';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import ListItem from '@material-ui/core/ListItem';
+import IconButton from '@material-ui/core/IconButton';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import { makeStyles } from '@material-ui/core/styles';
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
+import useScrollTrigger from '@material-ui/core/useScrollTrigger';
+import { useHistory, useRouteMatch } from 'react-router-dom';
 
 //icons
-import MenuIcon from "@material-ui/icons/Menu";
-import HomeIcon from "@material-ui/icons/Home";
-import InfoIcon from "@material-ui/icons/Info";
-import CloseIcon from "@material-ui/icons/Close";
+import MenuIcon from '@material-ui/icons/Menu';
+import HomeIcon from '@material-ui/icons/Home';
+import InfoIcon from '@material-ui/icons/Info';
+import CloseIcon from '@material-ui/icons/Close';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import SunIcon from '@material-ui/icons/Brightness5';
 import MoonIcon from '@material-ui/icons/Brightness2';
@@ -31,8 +31,8 @@ const useStyles = makeStyles({
     }
   },
   MobileAppBar: {
-    background: "#09203f",
-    width: "calc(100% - 16px)",
+    background: '#09203f',
+    width: 'calc(100% - 16px)',
     margin: 8,
     borderRadius: 4,
     '& use': {
@@ -133,7 +133,7 @@ export default function MobileNavbar(props) {
           style:{
             borderTopRightRadius:8,
             borderBottomRightRadius:8,
-            height: "calc(100% - 24px)",
+            height: 'calc(100% - 24px)',
             marginTop: 12
           }
         }}
@@ -153,4 +153,4 @@ export default function MobileNavbar(props) {
       </SwipeableDrawer>
     </React.Fragment>
   );
-};
+}

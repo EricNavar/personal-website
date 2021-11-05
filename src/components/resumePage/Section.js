@@ -6,7 +6,7 @@ const useStyles = makeStyles({
   section: {
     marginTop: 50,
     marginBottom: 30,
-    width: "100%"
+    width: '100%'
   },
   divider: {
     background: '#32407b',
@@ -21,7 +21,7 @@ const useStyles = makeStyles({
     fontSize: '2rem'
   },
   maxContent: {
-    width: "max-content"
+    width: 'max-content'
   }
 });
 

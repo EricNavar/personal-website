@@ -8,7 +8,7 @@ import commonStyles from './../../styling/commonStyles.js';
 const useStyles = makeStyles({
   education: {
     '& *': {
-      transition: ".5s ease-in-out"
+      transition: '.5s ease-in-out'
     },
     marginTop: 30,
   },
@@ -20,12 +20,12 @@ const useStyles = makeStyles({
     '& > *': {
       margin: 4
     },
-    position: "relative"
+    position: 'relative'
   },
   courseworkItem: {
-    color: "white",
+    color: 'white',
     border: 0,
-    boxShadow: "rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px"
+    boxShadow: 'rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px'
   },
   relevantCoursework: {
     marginTop: 24
@@ -44,17 +44,17 @@ const useStyles = makeStyles({
 export default function Education() {
   const classes = useStyles();
   const coursework = [
-    "Data Structures and Algorithms",
-    "Information and Database Systems",
-    "Programming Language Concepts",
-    "Professional Communication for Engineers",
-    "Intro to Software Engineering",
-    "Project Methodologies",
-    "Principles of Interaction and Usability",
-    "Human-Computer Interaction",
-    "Computer Architecture",
-    "Computer Network Fundamentals",
-    "Operating Systems"
+    'Data Structures and Algorithms',
+    'Information and Database Systems',
+    'Programming Language Concepts',
+    'Professional Communication for Engineers',
+    'Intro to Software Engineering',
+    'Project Methodologies',
+    'Principles of Interaction and Usability',
+    'Human-Computer Interaction',
+    'Computer Architecture',
+    'Computer Network Fundamentals',
+    'Operating Systems'
   ];
   function CourseworkItems() {
     const commonClasses = commonStyles();
@@ -62,8 +62,8 @@ export default function Education() {
       coursework.map(course => 
         <Chip key={course} label={course} className={`${classes.courseworkItem} ${commonClasses.backgroundGradient}`}/>
       )
-    )
-  };
+    );
+  }
 
   return (
     <Section title="Education" className={classes.education}>

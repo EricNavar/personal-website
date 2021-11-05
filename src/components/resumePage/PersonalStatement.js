@@ -12,20 +12,20 @@ const useStyles = makeStyles(theme => ({
     color: 'white',
     '&:hover': {
       '& svg': {
-        color: "#00a8cc"
+        color: '#00a8cc'
       }
     },
     '& *': {
-      transition: ".5s ease-in-out"
+      transition: '.5s ease-in-out'
     }
   },
   textContainer: {
     maxWidth: 450,
-    color: "#f5f4f4",
+    color: '#f5f4f4',
     marginTop: 16,
     padding: 16,
-    transition: "background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
-    boxShadow: "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px"
+    transition: 'background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
+    boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px'
   },
   imgContainer: {
     minWidth:200,
@@ -34,7 +34,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   animatedItem: {
-    transform: "translateY(50%)",
+    transform: 'translateY(50%)',
     color: 'white',
     fontSize: 60
   },
@@ -48,7 +48,7 @@ const useStyles = makeStyles(theme => ({
     maxHeight: 200,
     borderRadius: '50%',
     marginRight: 48,
-    boxShadow: "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px"
+    boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px'
   },
   personalStatementHeader: {
     fontSize:32,

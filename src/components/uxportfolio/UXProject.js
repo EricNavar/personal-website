@@ -2,7 +2,7 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 //local files
 import {cardButtonStyles} from '../../styling/UXPortfolioStyling.js';
 
@@ -28,7 +28,7 @@ export default function UXProject({ headerText, subText, image, wireframeLink, u
             <React.Fragment>
               {value1 !== 0 && <br key={`${headerText}-linebreak-${value1}`} className={classes.lineBreak} />}
               {paragraph.map((textPiece, value2) =>
-                <span key={value2} className={value2 % 2 === 1 ? classes.underlined : ""}>
+                <span key={value2} className={value2 % 2 === 1 ? classes.underlined : ''}>
                   {textPiece}
                 </span>
               )}

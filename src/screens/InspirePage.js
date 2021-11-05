@@ -1,10 +1,10 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import loremPicsum from "lorem-picsum";
+import loremPicsum from 'lorem-picsum';
 import Quote from 'inspirational-quotes';
-import {Link} from "react-router-dom";
-import Button from "@material-ui/core/Button";
+import {Link} from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
   visibleOnLoad: {
@@ -14,28 +14,28 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center'
   },
   rhovas: {
-    position: "absolute",
+    position: 'absolute',
     zIndex: 1,
     bottom:1,
     right:1
   },
   rhovasText: {
-    position: "relative",
+    position: 'relative',
     backgroundImage: 'inherit',
-    "-webkit-background-clip": "text",
-    "-webkit-filter": "invert() sepia()"
+    '-webkit-background-clip': 'text',
+    '-webkit-filter': 'invert() sepia()'
   },
   quoteText: {
-    position: "relative",
+    position: 'relative',
     backgroundImage: 'inherit',
-    "-webkit-background-clip": "text",
-    "-webkit-filter": "invert() sepia()",
-    color: "black",
+    '-webkit-background-clip': 'text',
+    '-webkit-filter': 'invert() sepia()',
+    color: 'black',
     maxWidth: '80vw',
     fontWeight: 800,
-    textShadow: "4px 4px 0px rgba(255, 255, 255, 1)",
+    textShadow: '4px 4px 0px rgba(255, 255, 255, 1)',
     display: 'inline-block',
-    lineHeight: "1.2em"
+    lineHeight: '1.2em'
   },
   margin: {
     margin: 12
@@ -60,7 +60,7 @@ export default function InspirePage() {
   const quoteFontSize = Math.min(Math.sqrt(quote.length / 4), 6.5);
   return (
     <main>
-      <div className={classes.visibleOnLoad} style={{backgroundImage:"url("+inspirationalImage+")"}}>
+      <div className={classes.visibleOnLoad} style={{backgroundImage:'url('+inspirationalImage+')'}}>
         <div>
           <Typography variant='overline' className={classes.quoteText} style={{fontSize:`${quoteFontSize}vh`}}>
             {quote}

@@ -95,9 +95,9 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function ScheduleConsultationPage() {
+function ContactPage() {
   React.useEffect(() => {
-    document.title = 'Schedule Consultation | DC Rock Fitness';
+    document.title = 'Contact | Eric Navar';
     window.scrollTo({
       top: 0,
       left: 0,
@@ -256,3 +256,5 @@ export default function ScheduleConsultationPage() {
     </React.Fragment>
   )
 }
+
+export { ContactPage }

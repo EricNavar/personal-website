@@ -10,7 +10,7 @@ import Hidden from "@material-ui/core/Hidden";
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 //local files
 import Home from "./screens/Home";
-import ContactPage from "./screens/ContactPage";
+import { ContactPage } from "./screens/ContactPage";
 import DesktopNavbar from "./components/DesktopNavbar";
 import MobileNavbar from "./components/MobileNavbar";
 import FullStory from 'react-fullstory';

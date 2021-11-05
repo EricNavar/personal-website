@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundAttachment: "fixed",
-    height:'100%',
+    height: '100%',
     '&:hover': {
       '& svg': {
         color: "#00a8cc"
@@ -66,7 +66,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function InvolvementItem({title, description, link, time_period, linkDescription, position, icon}) {
+export default function InvolvementItem({ title, description, link, linkDescription, positions, icon }) {
   const classes = useStyles();
 
   function Description() {
@@ -84,14 +84,16 @@ export default function InvolvementItem({title, description, link, time_period, 
 
   function Positions() {
     return (
-      <div className={classes.positionLine}>
-        <Typography component='span' variant="overline" color='textPrimary' className={classes.position}>
-          {position}&emsp;
-        </Typography>
-        <Typography component='span' variant="overline" gutterBottom color='textPrimary' className={classes.timePeriod}>
-          {time_period}
-        </Typography>
-      </div>
+      Object.keys(positions).map((position, index) =>
+        <div className={classes.positionLine} key={index}>
+          <Typography component='span' variant="overline" color='textPrimary' className={classes.position}>
+            {position}&emsp;
+          </Typography>
+          <Typography component='span' variant="overline" gutterBottom color='textPrimary' className={classes.timePeriod}>
+            {positions[position]}
+          </Typography>
+        </div>
+      )
     );
   }
 
@@ -118,14 +120,14 @@ export default function InvolvementItem({title, description, link, time_period, 
             {link &&
               <Tooltip title={linkDescription} aria-label={linkDescription}>
                 <IconButton target="_blank" href={link}>
-                  <LinkIcon/>
+                  <LinkIcon />
                 </IconButton>
               </Tooltip>
             }
           </div>
           <Positions />
           <List className={classes.descriptionList}>
-            <Description/>
+            <Description />
           </List>
         </div>
       </div>

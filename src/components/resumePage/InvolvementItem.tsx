@@ -1,19 +1,13 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import List from '@material-ui/core/List';
-import IconButton from '@material-ui/core/IconButton';
-import LinkIcon from '@material-ui/icons/Link';
-import Grid from '@material-ui/core/Grid';
-import Tooltip from '@material-ui/core/Tooltip';
-import ListItem from '@material-ui/core/ListItem';
+import { Typography, List, IconButton, Link, Grid, Tooltip, ListItem } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   involvementItem: {
     boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px',
     overflow: 'hidden',
     borderRadius: 4,
-    background: theme.palette.type === 'light' ? theme.palette.itemContainer : theme.palette.backgroundGradient,
+    background: theme.palette.type === 'light' ? theme.palette.grey['800'] : `linear-gradient(${theme.palette.info.light} 0%, ${theme.palette.info.dark} 100%)`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundAttachment: 'fixed',
@@ -66,34 +60,43 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function InvolvementItem({ title, description, link, linkDescription, positions, icon }) {
+function InvolvementItem(props: any) {
+  const { title, description, link, linkDescription, positions, icon } = props;
   const classes = useStyles();
 
   function Description() {
-    if (Array.isArray(description))
+    if (Array.isArray(description)) {
       return (
-        description.map((line) =>
-          <ListItem key={line} className={classes.listItem}>
-            <Typography variant="body1" color='textPrimary'>
-              {line}
-            </Typography>
-          </ListItem>
-        )
+        <>
+          {description.map((line) =>
+            <ListItem key={line} className={classes.listItem}>
+              <Typography variant="body1" color='textPrimary'>
+                {line}
+              </Typography>
+            </ListItem>
+          )}
+        </>
       );
+    }
+    else {
+      return <></>
+    }
   }
 
   function Positions() {
     return (
-      Object.keys(positions).map((position, index) =>
-        <div className={classes.positionLine} key={index}>
-          <Typography component='span' variant="overline" color='textPrimary' className={classes.position}>
-            {position}&emsp;
-          </Typography>
-          <Typography component='span' variant="overline" gutterBottom color='textPrimary' className={classes.timePeriod}>
-            {positions[position]}
-          </Typography>
-        </div>
-      )
+      <>
+        {Object.keys(positions).map((position, index) =>
+          <div className={classes.positionLine} key={index}>
+            <Typography component='span' variant="overline" color='textPrimary' className={classes.position}>
+              {position}&emsp;
+            </Typography>
+            <Typography component='span' variant="overline" gutterBottom color='textPrimary' className={classes.timePeriod}>
+              {positions[position]}
+            </Typography>
+          </div>
+        )}
+      </>
     );
   }
 
@@ -106,7 +109,7 @@ export default function InvolvementItem({ title, description, link, linkDescript
               <img className={classes.img} alt={title + ' icon'} src={icon}></img>
             </div>
             <div>
-              <Typography
+              <Link
                 className={classes.title}
                 color="primary"
                 href={link}
@@ -115,12 +118,12 @@ export default function InvolvementItem({ title, description, link, linkDescript
                 variant="h5"
               >
                 <b>{title}</b>
-              </Typography>
+              </Link>
             </div>
             {link &&
               <Tooltip title={linkDescription} aria-label={linkDescription}>
                 <IconButton target="_blank" href={link}>
-                  <LinkIcon />
+                  <Link />
                 </IconButton>
               </Tooltip>
             }
@@ -134,3 +137,5 @@ export default function InvolvementItem({ title, description, link, linkDescript
     </Grid>
   );
 }
+
+export { InvolvementItem }

@@ -2,7 +2,7 @@ import React from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
 import SvgIcon, { SvgIconProps } from '@material-ui/core/SvgIcon';
-import Typography from '@material-ui/core/Typography';
+import { Typography } from '@material-ui/core';
 
 function LightBulbIcon(props: SvgIconProps) {
   return (
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export default function ProTip() {
+function ProTip() {
   const classes = useStyles();
   return (
     <Typography className={classes.root} color="textSecondary">
@@ -35,3 +35,5 @@ export default function ProTip() {
     </Typography>
   );
 }
+
+export { ProTip }

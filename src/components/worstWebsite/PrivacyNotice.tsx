@@ -1,6 +1,5 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
+import { Button, Dialog } from '@material-ui/core';
 import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -20,7 +19,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }
 ));
 
-export default function PrivacyNotice() {
+function PrivacyNotice() {
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
     setOpen(true);
@@ -45,3 +44,5 @@ export default function PrivacyNotice() {
     </React.Fragment>
   );
 }
+
+export { PrivacyNotice }

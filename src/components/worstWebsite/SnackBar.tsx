@@ -1,9 +1,8 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
-import Snackbar from '@material-ui/core/Snackbar';
+import { Button, Snackbar } from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
 
-export default function SimpleSnackbar() {
+function SimpleSnackBar() {
   const [open, setOpen] = React.useState(true);
 
   const handleClick = () => {
@@ -29,7 +28,7 @@ export default function SimpleSnackbar() {
         autoHideDuration={6000}
         onClose={handleClose}
         message="I DONT USE COOKIES!!! 🍪🍪🍪🍪🍪🍪"
-        style={{fontSize:20}}
+        style={{ fontSize: 20 }}
         action={
           <React.Fragment>
             <Button color="secondary" size="small" onClick={handleClose}>
@@ -44,3 +43,5 @@ export default function SimpleSnackbar() {
     </div>
   );
 }
+
+export { SimpleSnackBar }

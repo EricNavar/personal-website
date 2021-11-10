@@ -2,8 +2,8 @@
 // https://github.com/sendgrid/sendgrid-nodejs
 import sgMail from '@sendgrid/mail';
 
-function sendEmail(name, text, email) {
-  sgMail.setApiKey(process.env.REACT_APP_SENDGRID_API_KEY);
+function sendEmail(name:string, text:string, email:string) {
+  sgMail.setApiKey(process.env.REACT_APP_SENDGRID_API_KEY!);
   console.log(process.env.REACT_APP_SENDGRID_API_KEY);
 
   const msg = {

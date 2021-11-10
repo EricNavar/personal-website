@@ -1,18 +1,14 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import Paper from '@material-ui/core/Paper';
-import Fade from '@material-ui/core/Grow';
-import NoSsr from '@material-ui/core/NoSsr';
+import { Typography, Box, Paper, Fade, NoSsr } from '@material-ui/core';
 import { createStyles, Theme, makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 //local files
 import HandshakePhoto from './../assets/other/handshake.jpg';
 import EricEmoji from './../assets/other/EricEmoji.png';
-import PrivacyNotice from '../components/worstWebsite/PrivacyNotice';
-import Footer from './../components/worstWebsite/Footer';
-import AppBar from './../components/worstWebsite/AppBar';
-import SnackBar from './../components/worstWebsite/SnackBar';
-import GangnamStyle from './../components/worstWebsite/GangnamStyle.js';
+import { PrivacyNotice } from '../components/worstWebsite/PrivacyNotice';
+import { Footer } from './../components/worstWebsite/Footer';
+import { MyAppBar } from './../components/worstWebsite/AppBar';
+import { SimpleSnackBar } from './../components/worstWebsite/SnackBar';
+import { GangnamStyle } from './../components/worstWebsite/GangnamStyle';
 import '../styling/worstWebsite.css';
 
 const myTheme = createMuiTheme({
@@ -92,15 +88,15 @@ const useStyles = makeStyles((theme: Theme) =>
       fontWeight: "bold",
     },
   },
-));
+  ));
 
-export default function WorstWebsite() {
+function WorstWebsite() {
   const classes = useStyles();
 
   function JavaScriptIsPoison() {
     return (
-      <Typography component="h1" variant="h1" style={{backgroundImage: "linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red)"}}>
-        JavaScript is poison.<br/><br/>Node JS is bloatware.
+      <Typography component="h1" variant="h1" style={{ backgroundImage: "linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red)" }}>
+        JavaScript is poison.<br /><br />Node JS is bloatware.
       </Typography>
     )
   }
@@ -111,27 +107,27 @@ export default function WorstWebsite() {
         <Fade in={true}>
           <div className={classes.root}>
             <Paper elevation={24}>
-              <AppBar/>
+              <MyAppBar />
             </Paper>
-            <div style={{background:"white"}}>
+            <div style={{ background: "white" }}>
               <h1>&lt;div/&gt;Hello World!&lt;div/&gt;</h1>
             </div>
             <Box my={4} className={classes.box}>
-              <Typography component="h1" variant="h1" style={{color: "white", zIndex: 10}}>
+              <Typography component="h1" variant="h1" style={{ color: "white", zIndex: 10 }}>
                 Hello welcome to Erics' cool and awesome websit
               </Typography>
-              <PrivacyNotice/>
+              <PrivacyNotice />
             </Box>
-            <JavaScriptIsPoison/>
-            <JavaScriptIsPoison/>
-            <JavaScriptIsPoison/>
-            <img alt="handshake" style={{width:"100vw"}} src={HandshakePhoto}/>
-            <SnackBar/>
-            <div className={classes.nyanCat}/>
+            <JavaScriptIsPoison />
+            <JavaScriptIsPoison />
+            <JavaScriptIsPoison />
+            <img alt="handshake" style={{ width: "100vw" }} src={HandshakePhoto} />
+            <SimpleSnackBar />
+            <div className={classes.nyanCat} />
             <div className={classes.gangnamStyleWrapper}>
-              <GangnamStyle/>
+              <GangnamStyle />
             </div>
-            <Footer/>
+            <Footer />
             <div className="wrapper">
               <Typography color='textPrimary' variant="h3" component='span' align='center' className={classes.plead}>
                 I'M WATCHING YOU WITH FULLSTORY <span role='img' aria-label="pleading face">😈🥵😳</span>
@@ -149,3 +145,5 @@ export default function WorstWebsite() {
     </ThemeProvider>
   );
 }
+
+export { WorstWebsite }

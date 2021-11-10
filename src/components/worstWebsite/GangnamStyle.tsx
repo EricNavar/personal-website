@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function GangnamStyle() {
+function GangnamStyle() {
   return (
     <iframe
       title="Gangnam Style"
@@ -10,7 +10,8 @@ export default function GangnamStyle() {
       frameBorder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowFullScreen
-      autoPlay="1"
     ></iframe>
   );
 }
+
+export { GangnamStyle }

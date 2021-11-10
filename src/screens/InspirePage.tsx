@@ -1,10 +1,11 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
+import { Typography, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+/* @ts-expect-error tslint:disable-next-line */
 import loremPicsum from 'lorem-picsum';
+/* @ts-expect-error tslint:disable-next-line */
 import Quote from 'inspirational-quotes';
 import {Link} from 'react-router-dom';
-import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
   visibleOnLoad: {

@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
+import { Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CardButtonLink(props) {
+function CardButtonLink(props:any) {
   const classes = useStyles();
 
   return (
@@ -38,3 +38,5 @@ export default function CardButtonLink(props) {
     </Button>
   );
 }
+
+export { CardButtonLink }

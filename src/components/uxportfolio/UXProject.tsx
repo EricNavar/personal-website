@@ -4,14 +4,15 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
 //local files
-import {cardButtonStyles} from '../../styling/UXPortfolioStyling.js';
+import {cardButtonStyles} from '../../styling/UXPortfolioStyling';
 
 UXProject.propTypes = {
   headerText: PropTypes.string.isRequired,
   subText: PropTypes.array.isRequired,
 };
 
-export default function UXProject({ headerText, subText, image, wireframeLink, userflowLink, finalReportLink, prototypeLink }) {
+function UXProject(props:any) {
+  const { headerText, subText, image, wireframeLink, userflowLink, finalReportLink, prototypeLink } = props;
   const classes = cardButtonStyles();
 
   return (
@@ -24,7 +25,7 @@ export default function UXProject({ headerText, subText, image, wireframeLink, u
         </div>
         <h1 className={classes.invisibleHeader}>{headerText}</h1>
         <Typography color='textPrimary' variant='body1' className={classes.subTextContainer}>
-          {subText.map((paragraph, value1) => (
+          {subText.map((paragraph:Array<string>, value1:number) => (
             <React.Fragment>
               {value1 !== 0 && <br key={`${headerText}-linebreak-${value1}`} className={classes.lineBreak} />}
               {paragraph.map((textPiece, value2) =>
@@ -59,3 +60,5 @@ export default function UXProject({ headerText, subText, image, wireframeLink, u
     </Paper>
   );
 }
+
+export { UXProject }

@@ -3,12 +3,12 @@ import SECIcon from './../assets/involvement/sec.webp';
 import GatorUXIcon from './../assets/involvement/GatorUXLogo.webp';
 import HackFSUIcon from './../assets/involvement/HackFSU.webp';
 
-export default [
+const involvementData = [
   {
     title: 'Society of Software Developers',
     positions: { 'Vice President': 'April 2020 - April 2021', 'President': 'April 2021 - present' },
     description: ['Support the team of officers in planning semester curricula and preparing weekly meetings.',
-      'Host presentations and conduct interactive workshops on topics such as Git and TDD to promote correct, maintainable software design',
+      'Host presentations and conduct interactive workshops on topics such as Git, TDD, and deployment to promote correct, maintainable software design',
       'Foster community of software developers through social events and online discussion'
     ],
     icon: SSDIcon,
@@ -42,3 +42,5 @@ export default [
     linkDescription: 'Cute little website I made to practice UX'
   }
 ];
+
+export { involvementData };

@@ -1,16 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import List from '@material-ui/core/List';
-import Slide from '@material-ui/core/Slide';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import ListItem from '@material-ui/core/ListItem';
-import IconButton from '@material-ui/core/IconButton';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
+import { List, Slide, AppBar, Toolbar, ListItem, IconButton, ListItemIcon, ListItemText, SwipeableDrawer, useScrollTrigger } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
-import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import { useHistory, useRouteMatch } from 'react-router-dom';
 
 //icons
@@ -46,16 +37,16 @@ const useStyles = makeStyles({
     marginBottom: 24
   },
   textRight: {
-    textAlign:'right'
+    textAlign: 'right'
   }
 });
 
-function HideOnScroll(props) {
+function HideOnScroll(props: any) {
   const { children, window } = props;
   // Note that you normally won't need to set the window ref as useScrollTrigger
   // will default to window.
   // This is only being set here because the demo is in an iframe.
-  const trigger = useScrollTrigger({ target: window ? window() : undefined });
+  const trigger = useScrollTrigger({ target: window ? window : undefined });
 
   return (
     <Slide appear={false} direction="down" in={!trigger}>
@@ -70,7 +61,7 @@ HideOnScroll.propTypes = {
 };
 
 
-export default function MobileNavbar(props) {
+function MobileNavbar(props: any) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const history = useHistory();
@@ -79,12 +70,13 @@ export default function MobileNavbar(props) {
     setOpen(!open);
   };
 
-  const redirect = path => {
+  const redirect = (path:any) => {
     history.push(path);
     setOpen(false);
   };
 
-  function SideBarItem({text, link, icon}){
+  function SideBarItem(props:any) {
+    const { text, link, icon } = props;
     let match = useRouteMatch({
       path: link,
       exact: true
@@ -104,7 +96,7 @@ export default function MobileNavbar(props) {
       <React.Fragment>
         <HideOnScroll>
           <AppBar className={classes.MobileAppBar}>
-            <Toolbar style={{justifyContent:'space-between'}}>
+            <Toolbar style={{ justifyContent: 'space-between' }}>
               <IconButton
                 color="inherit"
                 onClick={toggleDrawer}
@@ -122,35 +114,37 @@ export default function MobileNavbar(props) {
             </Toolbar>
           </AppBar>
         </HideOnScroll>
-        <Toolbar className={classes.toolbar}/>
+        <Toolbar className={classes.toolbar} />
       </React.Fragment>
       <SwipeableDrawer
         open={open}
         onClose={toggleDrawer}
         onOpen={toggleDrawer}
         anchor="left"
-        PaperProps= {{
-          style:{
-            borderTopRightRadius:8,
-            borderBottomRightRadius:8,
+        PaperProps={{
+          style: {
+            borderTopRightRadius: 8,
+            borderBottomRightRadius: 8,
             height: 'calc(100% - 24px)',
             marginTop: 12
           }
         }}
       >
         <div className={classes.textRight}>
-          <IconButton onClick={toggleDrawer} style={{color:'#32407b'}}>
-            <CloseIcon/>
+          <IconButton onClick={toggleDrawer} style={{ color: '#32407b' }}>
+            <CloseIcon />
           </IconButton>
         </div>
         <List className={classes.list}>
           <div>
-            <SideBarItem text="Coding Projects" link="/home" icon={<InfoIcon/>} />
-            <SideBarItem text="Resume" link="/resume" icon={<DashboardIcon/>} />
-            <SideBarItem text="Connect" link="/home/#connect" icon={<HomeIcon/>} />
+            <SideBarItem text="Coding Projects" link="/home" icon={<InfoIcon />} />
+            <SideBarItem text="Resume" link="/resume" icon={<DashboardIcon />} />
+            <SideBarItem text="Connect" link="/home/#connect" icon={<HomeIcon />} />
           </div>
         </List>
       </SwipeableDrawer>
     </React.Fragment>
   );
 }
+
+export { MobileNavbar }

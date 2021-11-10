@@ -24,7 +24,8 @@ const useStyles = makeStyles({
   }
 });
 
-export default function HomePagePhoto({image, altLabel}) {
+function CodingProjectThumbnail(props:any) {
+  const {image, altLabel} = props;
   const classes = useStyles();
   return (
     <div className={classes.wrapper}>
@@ -38,3 +39,5 @@ export default function HomePagePhoto({image, altLabel}) {
     </div>
   );
 }
+
+export { CodingProjectThumbnail }

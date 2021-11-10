@@ -1,7 +1,7 @@
 import DcrfLogo from './../assets/projects/dcrf.webp';
 import AsurionLogo from './../assets/involvement/asurion.webp';
 
-export default [
+const experienceData = [
   {
     'title': 'Asurion',
     'positions': { 'Software Engineer Intern': 'May - August 2021' },
@@ -25,3 +25,5 @@ export default [
     'icon': DcrfLogo
   }
 ];
+
+export { experienceData };

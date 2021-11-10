@@ -1,5 +1,5 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
+import { Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
@@ -25,10 +25,15 @@ const useStyles = makeStyles({
   }
 });
 
-export default function Section({children, title, ...props}) {
+type SectionProps = {
+  children: JSX.Element,
+  title: string,
+  className?: string
+}
+function Section({ children, title, className }: SectionProps) {
   const classes = useStyles();
   return (
-    <section className={classes.section} {...props}>
+    <section className={`${classes.section} ${className}`}>
       <div className={classes.maxContent}>
         <Typography className={classes.title} component='h2' variant='h4' color='textPrimary'>
           {title}
@@ -39,3 +44,5 @@ export default function Section({children, title, ...props}) {
     </section>
   );
 }
+
+export { Section }

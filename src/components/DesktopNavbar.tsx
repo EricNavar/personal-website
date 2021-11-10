@@ -1,17 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import AppBar from '@material-ui/core/AppBar';
-import Button from '@material-ui/core/Button';
-import Toolbar from '@material-ui/core/Toolbar';
+import { AppBar, Button, Toolbar, useMediaQuery, makeStyles, useScrollTrigger } from '@material-ui/core';
 import SunIcon from '@material-ui/icons/Brightness5';
 import MoonIcon from '@material-ui/icons/Brightness2';
 import IconButton from '@material-ui/core/IconButton';
 import { useTheme } from '@material-ui/core/styles';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { makeStyles } from '@material-ui/core';
-import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import { Link, useRouteMatch } from 'react-router-dom';
-
 
 //citation: https://material-ui.com/components/app-bar/#hide-app-bar
 
@@ -90,17 +83,21 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function ElevationScroll(props) {
+
+type ElevatorScrollProps = {
+  children: JSX.Element,
+}
+function ElevationScroll(props: ElevatorScrollProps) {
   const classes = useStyles();
 
-  const { children, window } = props;
+  const { children } = props;
   // Note that you normally won't need to set the window ref as useScrollTrigger
   // will default to window.
   // This is only being set here because the demo is in an iframe.
   const trigger = useScrollTrigger({
     disableHysteresis: true,
     threshold: 0,
-    target: window ? window() : undefined
+    target: window ? window : undefined
   });
 
   return React.cloneElement(children, {
@@ -109,56 +106,57 @@ function ElevationScroll(props) {
   });
 }
 
-ElevationScroll.propTypes = {
-  children: PropTypes.element.isRequired,
-  window: PropTypes.func
-};
-
-export default function NavBar(props) {
+function NavBarItem(props: any) {
+  const classes = useStyles();
+  const { text, to } = props;
   const isSm = useMediaQuery(useTheme().breakpoints.down('sm'));
+  let match = useRouteMatch({
+    path: to,
+    exact: true
+  })
+
+  return (
+    <Button component={Link}
+      to={to}
+      className={match ? classes.activeTab : ''}
+      size={isSm ? 'small' : 'medium'}
+      color='primary'>
+      {text}
+    </Button>
+  );
+}
+
+type DesktopNavbarProps = {
+  darkMode: boolean,
+  toggleDarkMode:any
+}
+function DesktopNavbar(props: DesktopNavbarProps) {
   const classes = useStyles();
 
   //returns either the login/register button or the logout button
 
-  function NavBarItem({ text, to }) {
-    let match = useRouteMatch({
-      path: to,
-      exact: true
-    });
-    return (
-      <Button
-        component={Link}
-        to={to}
-        className={match ? classes.activeTab : ''}
-        size={isSm ? 'small' : 'medium'}
-        color='primary'
-      >
-        {text}
-      </Button>
-    );
-  }
-
   return (
     <React.Fragment>
-      <ElevationScroll {...props}>
-        <AppBar id="AppBar" className={classes.navbar}>
+      <ElevationScroll {...props} >
+        <AppBar id="AppBar" className={classes.navbar} >
           <Toolbar className={classes.toolbar}>
             <NavBarItem to="/" text='Coding Projects' />
-            <div style={{marginRight: 16, marginLeft: 16}}>
+            <div style={{ marginRight: 16, marginLeft: 16 }}>
               <NavBarItem to="/resume" text='Resume' />
             </div>
-            <NavBarItem to="/contact" text='Contact' />
+            < NavBarItem to="/contact" text='Contact' />
             <IconButton
               onClick={props.toggleDarkMode}
               className={classes.iconButton}
-              aria-label="toggle dark mode"
             >
-              {props.darkMode ? <SunIcon /> : <MoonIcon />}
+            {props.darkMode ? <SunIcon /> : <MoonIcon />}
             </IconButton>
           </Toolbar>
         </AppBar>
       </ElevationScroll>
-      <Toolbar />
-    </React.Fragment>
+      < Toolbar />
+    </React.Fragment >
   );
 }
+
+export { DesktopNavbar }

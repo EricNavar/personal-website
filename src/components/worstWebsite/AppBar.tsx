@@ -1,9 +1,5 @@
 import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
+import { AppBar, Toolbar, IconButton, Typography, InputBase } from '@material-ui/core';
 import { createStyles, fade, Theme, makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -63,7 +59,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export default function SearchAppBar() {
+function MyAppBar() {
   const classes = useStyles();
 
   return (
@@ -99,3 +95,5 @@ export default function SearchAppBar() {
     </div>
   );
 }
+
+export { MyAppBar }

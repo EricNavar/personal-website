@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles, ButtonBase, Grid, IconButton /*,Typography*/ } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 
-const useStyles = makeStyles(theme =>({
+const useStyles = makeStyles(theme => ({
   footer: {
     backgroundColor: '#19202D',
     paddingTop: 16,
@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme =>({
     color: 'white',
     //svg logo
     '& use': {
-      fill:'white'
+      fill: 'white'
     },
     '&:hover': {
       opacity: .8
@@ -56,12 +56,12 @@ const useStyles = makeStyles(theme =>({
     },
     display: 'flex',
     '& div:not(:first-child)': {
-      marginTop:8
+      marginTop: 8
     }
   },
   contactItem: {
     display: 'flex',
-    alignItems:'center',
+    alignItems: 'center',
     '& a': {
       color: 'white'
     }
@@ -73,7 +73,7 @@ const useStyles = makeStyles(theme =>({
   },
   address: {
     justifyContent: 'center',
-    display:'flex'
+    display: 'flex'
   }
 }));
 
@@ -84,11 +84,11 @@ const scrollToTop = () => {
   });
 };
 
-export default function Footer() {
+function Footer() {
   const classes = useStyles();
   const history = useHistory();
 
-  const redirect = path => {
+  const redirect = (path:string) => {
     console.log(history);
   };
 
@@ -99,10 +99,10 @@ export default function Footer() {
           className={classes.logoButton}
           onClick={false ? scrollToTop : () => redirect('/')}
           TouchRippleProps={{
-            style:{color:'white'}
+            style: { color: 'white' }
           }}
         >
-                    help
+          help
         </ButtonBase>
       </Grid>
     );
@@ -111,13 +111,13 @@ export default function Footer() {
   const Contact = () => {
     return (
       <Grid item xs={12} sm={6} md={4} className={classes.contact}>
-        <div style={{width:'min-content'}}>
+        <div style={{ width: 'min-content' }}>
 
           <div className={classes.contactItem}>
             <IconButton href='https://www.google.com' size='small'>
             </IconButton>
             <a href='https://www.google.com' className={classes.contactLink}>
-                            google.com
+              google.com
             </a>
           </div>
         </div>
@@ -135,9 +135,11 @@ export default function Footer() {
       className={classes.footer}
       component='footer'
     >
-      <LogoButton/>
+      <LogoButton />
       <Grid item sm={6} className={classes.buffer}></Grid>
-      <Contact/>
+      <Contact />
     </Grid>
   );
 }
+
+export { Footer }

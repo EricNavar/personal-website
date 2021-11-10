@@ -1,12 +1,13 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
+import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 //local files
-import SkillList from '../components/resumePage/SkillList';
-import Education from '../components/resumePage/Education';
-import InvolvementList from '../components/resumePage/InvolvementList';
-import experienceData from './../data/experienceData.js';
-import involvementData from './../data/involvementData.js';
+import { SkillList } from '../components/resumePage/SkillList';
+import { Education } from '../components/resumePage/Education';
+import { InvolvementList } from '../components/resumePage/InvolvementList';
+import { Interests } from '../components/resumePage/Interests';
+import { experienceData } from '../data/experienceData';
+import { involvementData } from '../data/involvementData';
 
 const useStyles = makeStyles((theme) => ({
   background: {
@@ -26,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
       marginRight: '10%',
       marginLeft: '10%'
     },
-    marginBottom: 80
+    paddingBottom: 80
   },
   plead: {
     width: 'max-content',
@@ -41,7 +42,8 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function ResumePage({ darkMode, toggleDarkMode }) {
+export default function ResumePage(props: any) {
+  const { darkMode, toggleDarkMode } = props;
   React.useEffect(() => {
     document.title = 'Resume | Eric Navar';
     window.scrollTo({
@@ -64,6 +66,7 @@ export default function ResumePage({ darkMode, toggleDarkMode }) {
         </Grid>
         <InvolvementList title="Internship Experience" data={experienceData} />
         <InvolvementList title="Involvement" data={involvementData} />
+        <Interests />
       </div>
     </div>
   );

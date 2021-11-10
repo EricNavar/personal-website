@@ -1,11 +1,9 @@
-import React, {Suspense, lazy} from 'react';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
+import React, { Suspense, lazy } from 'react';
+import { Typography, Grid, Paper } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 //local files
-import commonStyles from './../../styling/commonStyles.js';
-const ProfilePicture = lazy(() => import('./ProfilePicture.js'));
+import { commonStyles } from '../../styling/commonStyles';
+const ProfilePicture = lazy(() => import('./ProfilePicture'));
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -28,7 +26,7 @@ const useStyles = makeStyles(theme => ({
     boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px'
   },
   imgContainer: {
-    minWidth:200,
+    minWidth: 200,
     [theme.breakpoints.up('sm')]: {
       textAlign: 'right'
     }
@@ -51,15 +49,15 @@ const useStyles = makeStyles(theme => ({
     boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px'
   },
   personalStatementHeader: {
-    fontSize:32,
+    fontSize: 32,
     marginBottom: 8
   },
   text: {
-    fontSize:16
+    fontSize: 16
   }
 }));
 
-export default function PersonalStatement() {
+function PersonalStatement() {
   const classes = useStyles();
   const commonClasses = commonStyles();
   return (
@@ -72,8 +70,8 @@ export default function PersonalStatement() {
       className={classes.personalStatementWrapper}
     >
       <div className={classes.profilePicWrapper}>
-        <Suspense fallback={<div/>}>
-          <ProfilePicture/>
+        <Suspense fallback={<div />}>
+          <ProfilePicture />
         </Suspense>
       </div>
       <Paper className={`${classes.textContainer} ${commonClasses.backgroundGradient}`} elevation={3}>
@@ -87,3 +85,5 @@ export default function PersonalStatement() {
     </Grid>
   );
 }
+
+export { PersonalStatement }

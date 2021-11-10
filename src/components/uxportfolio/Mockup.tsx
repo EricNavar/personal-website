@@ -55,6 +55,9 @@ const useStyles = makeStyles({
   mockup: {
     width:500,
     position:'relative',
+  },
+  front: {
+    zIndex: 1
   }
 });
 
@@ -81,16 +84,6 @@ function PrototypeCarousel() {
         navButtonsAlwaysVisible={true}
         cycleNavigation={true}
         className={classes.carousel}
-        navButtonsProps={{
-          style:{
-            zIndex: 1
-          }
-        }}
-        navButtonsWrapperProps={{
-          style:{
-            zIndex: 1
-          }
-        }}
       >
         {items.map((item, i) => <Photo key={i} item={item} />)}
       </Carousel>
@@ -98,14 +91,14 @@ function PrototypeCarousel() {
   );
 }
 
-function Photo(props) {
+function Photo(props:any) {
   const classes = useStyles();
   return (
     <img alt="" src={props.item.photo} className={classes.photo} />
   );
 }
 
-export default function Mockup() {
+function Mockup() {
   const classes = useStyles();
   return (
     <div className={classes.mockup}>
@@ -115,3 +108,4 @@ export default function Mockup() {
   );
 }
 
+export { Mockup }

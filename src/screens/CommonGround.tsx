@@ -1,14 +1,12 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import Hidden from '@material-ui/core/Hidden';
+import { Grid, Typography, Hidden } from '@material-ui/core';
 //local files
-import UXProject from '../components/uxportfolio/UXProject.js';
-import Mockup from '../components/uxportfolio/Mockup.js';
-import UXProjectData from '../data/UXProjectData.js';
-import { homePageStyles } from '../styling/homePageStyling.js';
+import { UXProject } from '../components/uxportfolio/UXProject';
+import { Mockup } from '../components/uxportfolio/Mockup';
+import { UXProjectData } from '../data/UXProjectData';
+import { homePageStyles } from '../styling/homePageStyling';
 
-export default function CommonGround() {
+function CommonGround() {
   React.useEffect(() => {
     document.title = 'Eric Navar | UX Portfolio';
     window.scrollTo({
@@ -51,3 +49,5 @@ export default function CommonGround() {
     </section>
   );
 }
+
+export { CommonGround }

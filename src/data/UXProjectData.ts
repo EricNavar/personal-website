@@ -1,6 +1,6 @@
 import CommonGroundLogo from './../assets/projects/common_ground.png';
 
-export default [
+const UXProjectData = [
   {
     '_id': 1,
     'headerText': 'Common Ground',
@@ -16,3 +16,5 @@ export default [
     'prototypeLink': 'https://www.figma.com/file/HnVBZomDCnMLV9Ti4La3Ah/DIG3124-Final-Project-Common-Ground?node-id=0%3A1'
   }
 ];
+
+export { UXProjectData }

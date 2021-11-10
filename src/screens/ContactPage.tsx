@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 //local files
 import GitHubIcon from './../assets/icons/github.svg';
 import LinkedInIcon from './../assets/icons/linkedin.svg';
-import SocialLink from './../components/home/SocialLink.js';
-import { sendEmail } from '../util.js';
+import { SocialLink } from '../components/home/SocialLink';
+import { sendEmail } from '../util';
 
 const useStyles = makeStyles((theme) => ({
   main: {
@@ -115,13 +115,13 @@ function ContactPage() {
   //if the user submits without entering either a email or phone number
   const [detailsError, setDetailsError] = useState(false);
 
-  const handleEmailChange = event => {
+  const handleEmailChange = (event:any) => {
     setEmail(event.target.value);
   };
-  const handleNameChange = event => {
+  const handleNameChange = (event:any) => {
     setName(event.target.value);
   };
-  const handleDetailChange = event => {
+  const handleDetailChange = (event:any) => {
     setDetails(event.target.value);
   };
   const isValidInput = async () => {
@@ -130,7 +130,7 @@ function ContactPage() {
     const valid = await !(name === '' || name.trim().split(' ').length < 2) && !(details === '');
     return valid;
   };
-  const handleSubmit = (ev) => {
+  const handleSubmit = (ev:any) => {
     ev.preventDefault();
     isValidInput().then((value) => {
       if (value === true) {

@@ -42,8 +42,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function ResumePage(props: any) {
-  const { darkMode, toggleDarkMode } = props;
+export default function ResumePage() {
   React.useEffect(() => {
     document.title = 'Resume | Eric Navar';
     window.scrollTo({

@@ -55,15 +55,10 @@ function Home() {
         >
           Joke projects
         </Typography>
-        <Link variant="body1" target="_blank" href="/worst-website">
+        <Link variant="body1" target="_blank" href="/worst-website" className={classes.jokeProjectLink}>
           Worst website
         </Link>
-        <Link
-          variant="body1"
-          target="_blank"
-          href="https://knighthack.com"
-          style={{ marginLeft: 20 }}
-        >
+        <Link variant="body1" target="_blank" href="https://knighthack.com" className={classes.jokeProjectLink}>
           How to win a hackathon
         </Link>
       </section>

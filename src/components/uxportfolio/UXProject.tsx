@@ -1,7 +1,5 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
+import { Typography, Paper, Button } from '@material-ui/core';
 import PropTypes from 'prop-types';
 //local files
 import {cardButtonStyles} from '../../styling/UXPortfolioStyling';

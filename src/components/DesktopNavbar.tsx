@@ -1,8 +1,7 @@
 import React from 'react';
-import { AppBar, Button, Toolbar, useMediaQuery, makeStyles, useScrollTrigger } from '@material-ui/core';
+import { AppBar, Button, Toolbar, useMediaQuery, makeStyles, useScrollTrigger, IconButton } from '@material-ui/core';
 import SunIcon from '@material-ui/icons/Brightness5';
 import MoonIcon from '@material-ui/icons/Brightness2';
-import IconButton from '@material-ui/core/IconButton';
 import { useTheme } from '@material-ui/core/styles';
 import { Link, useRouteMatch } from 'react-router-dom';
 

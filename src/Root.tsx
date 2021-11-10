@@ -15,8 +15,12 @@ import { DesktopNavbar } from './components/DesktopNavbar';
 import { MobileNavbar } from './components/MobileNavbar';
 import FullStory from 'react-fullstory';
 import PropTypes from 'prop-types';
-const ResumePage = lazy(() => import('./screens/ResumePage'));
-const InspirePage = lazy(() => import('./screens/InspirePage'));
+const ResumePage = lazy(() => import('./screens/ResumePage').then((module) => ({
+  default: module.ResumePage,
+})));
+const InspirePage = lazy(() => import('./screens/InspirePage').then((module) => ({
+  default: module.InspirePage,
+})));
 const WorstWebsite = lazy(() => import('./screens/WorstWebsite').then((module) => ({
   default: module.WorstWebsite,
 })));

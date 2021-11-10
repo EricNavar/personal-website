@@ -142,6 +142,11 @@ export const homePageStyles = makeStyles((theme) => ({
       paddingLeft: '12.5%',
       paddingRight: '12.5%',
     },
+    [theme.breakpoints.down('xs')]: {
+      width: '88%',
+      paddingLeft: '6%',
+      paddingRight: '6%',
+    },
   },
   divider: {
     width: '80%'
@@ -167,5 +172,10 @@ export const homePageStyles = makeStyles((theme) => ({
   },
   homeSection: {
     marginBottom: 40
+  },
+  jokeProjectLink: {
+    marginRight: 20,
+    flexWrap: "nowrap",
+    display: 'inline-flex'
   }
 }));

@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function ResumePage() {
+function ResumePage() {
   React.useEffect(() => {
     document.title = 'Resume | Eric Navar';
     window.scrollTo({
@@ -70,3 +70,5 @@ export default function ResumePage() {
     </div>
   );
 }
+
+export { ResumePage }

@@ -47,6 +47,24 @@ const projectData:Array<Project> = [
     ]
   },
   {
+    _id: 7,
+    tools: '',
+    headerText: 'SimpliFunction',
+    subText: [['Website that allows users to create formulas for Microsoft Excel and Google Sheets without needing to know Visual Basic For Applications syntax or any programming.']
+    ],
+    image: SimplifunctionLogo,
+    altLabel: 'Simplifunction Logo',
+    ariaLabel: 'Simplifunction website',
+    links: [
+      {
+        label:'Website',
+        ariaLabel: 'Simplifunction Logo',
+        hyperlink: 'https://apps.apple.com/tt/app/clubfinity/id1539334633?ign-mpt=uo%3D2',
+        icon: WebIcon
+      },
+    ]
+  },
+  {
     _id: 6,
     tools: 'React Native, Expo, Mongo DB',
     headerText: 'Clubfinity',
@@ -68,24 +86,6 @@ const projectData:Array<Project> = [
         ariaLabel: 'Gitlab source code',
         icon: GitlabIcon
       }
-    ]
-  },
-  {
-    _id: 7,
-    tools: 'React Native, Expo, Mongo DB',
-    headerText: 'SimpliFunction',
-    subText: [['Mobile app that allows school clubs to notify members of events and announcements. Users can easily discover and follow clubs and be notified of events they\'re going to.']
-    ],
-    image: SimplifunctionLogo,
-    altLabel: 'Simplifunction Logo',
-    ariaLabel: 'Simplifunction website',
-    links: [
-      {
-        label:'Website',
-        ariaLabel: 'Simplifunction Logo',
-        hyperlink: 'https://apps.apple.com/tt/app/clubfinity/id1539334633?ign-mpt=uo%3D2',
-        icon: WebIcon
-      },
     ]
   }
 ];

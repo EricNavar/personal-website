@@ -1,8 +1,8 @@
 import React, { lazy, Suspense } from 'react';
-import { Typography,Paper} from '@material-ui/core';
+import { Typography, Paper } from '@material-ui/core';
 import PropTypes from 'prop-types';
 //local files
-import {cardButtonStyles} from '../../styling/homePageStyling';
+import { cardButtonStyles } from '../../styling/homePageStyling';
 import { CardButtonLink } from './CardButtonLink';
 const CodingProjectThumbnail = lazy(() => import('./CodingProjectThumbnail').then((module) => ({
   default: module.CodingProjectThumbnail,
@@ -17,7 +17,7 @@ CardButtonDesktop.propTypes = {
   image: PropTypes.string.isRequired
 };
 
-function CardButtonDesktop(props:any) {
+function CardButtonDesktop(props: any) {
   const { headerText, tools, subText, image, altLabel, ariaLabel, links } = props;
   const classes = cardButtonStyles();
 
@@ -46,7 +46,7 @@ function CardButtonDesktop(props:any) {
           </div>
         </div>
         <Typography color='textPrimary' variant='body1' className={classes.subTextContainer}>
-          {subText.map((paragraph:Array<string>, value1:number) => (
+          {subText.map((paragraph: Array<string>, value1: number) => (
             <React.Fragment>
               {value1 !== 0 && <br key={`${headerText}-linebreak-${value1}`} className={classes.lineBreak} />}
               {paragraph.map((textPiece, value2) =>
@@ -57,7 +57,7 @@ function CardButtonDesktop(props:any) {
             </React.Fragment>
           ))}
         </Typography>
-        {links.map((link:string, value:number) => <CardButtonLink key={`link-${value}`} {...link} />)}
+        {links.map((link: string, value: number) => <CardButtonLink key={`link-${value}`} {...link} />)}
       </div>
     </Paper>
   );

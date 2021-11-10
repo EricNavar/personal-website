@@ -3,7 +3,9 @@ import { Typography, Grid, Paper } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 //local files
 import { commonStyles } from '../../styling/commonStyles';
-const ProfilePicture = lazy(() => import('./ProfilePicture'));
+const ProfilePicture = lazy(() => import('./ProfilePicture').then((module) => ({
+  default: module.ProfilePicture,
+})));
 
 const useStyles = makeStyles(theme => ({
   button: {

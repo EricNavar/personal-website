@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import loremPicsum from 'lorem-picsum';
 /* @ts-expect-error tslint:disable-next-line */
 import Quote from 'inspirational-quotes';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   visibleOnLoad: {
@@ -17,8 +17,8 @@ const useStyles = makeStyles((theme) => ({
   rhovas: {
     position: 'absolute',
     zIndex: 1,
-    bottom:1,
-    right:1
+    bottom: 1,
+    right: 1
   },
   rhovasText: {
     position: 'relative',
@@ -43,14 +43,14 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function InspirePage() {
+function InspirePage() {
   React.useEffect(() => {
     document.title = 'Inspiration 😌';
     window.scrollTo({
       top: 0,
       left: 0,
     });
-  },[]);
+  }, []);
   const classes = useStyles();
   const inspirationalImage = loremPicsum({
     width: window.innerWidth,
@@ -61,9 +61,9 @@ export default function InspirePage() {
   const quoteFontSize = Math.min(Math.sqrt(quote.length / 4), 6.5);
   return (
     <main>
-      <div className={classes.visibleOnLoad} style={{backgroundImage:'url('+inspirationalImage+')'}}>
+      <div className={classes.visibleOnLoad} style={{ backgroundImage: 'url(' + inspirationalImage + ')' }}>
         <div>
-          <Typography variant='overline' className={classes.quoteText} style={{fontSize:`${quoteFontSize}vh`}}>
+          <Typography variant='overline' className={classes.quoteText} style={{ fontSize: `${quoteFontSize}vh` }}>
             {quote}
           </Typography>
         </div>
@@ -92,3 +92,5 @@ export default function InspirePage() {
     </main>
   );
 }
+
+export { InspirePage }

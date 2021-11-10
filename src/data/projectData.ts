@@ -1,6 +1,7 @@
 import DCRFLogo from './../assets/projects/dcrf.webp';
 import ClubfinityLogo from './../assets/projects/clubfinity.webp';
 import InspirationPic from './../assets/projects/inspiration.webp';
+import SimplifunctionLogo from './../assets/projects/simplifunction.webp';
 import AppStoreIcon from '../assets/icons/app_store_fluent';
 import WebIcon from '../assets/icons/web_fluent';
 import GitlabIcon from '../assets/icons/gitlab_ios';
@@ -52,8 +53,8 @@ const projectData:Array<Project> = [
     subText: [['Mobile app that allows school clubs to notify members of events and announcements. Users can easily discover and follow clubs and be notified of events they\'re going to.']
     ],
     image: ClubfinityLogo,
-    altLabel: 'Gator UX Logo',
-    ariaLabel: 'Gator UX website',
+    altLabel: 'Clubfinity Logo',
+    ariaLabel: 'Clubfinity website',
     links: [
       {
         label:'View in App Store',
@@ -75,22 +76,16 @@ const projectData:Array<Project> = [
     headerText: 'SimpliFunction',
     subText: [['Mobile app that allows school clubs to notify members of events and announcements. Users can easily discover and follow clubs and be notified of events they\'re going to.']
     ],
-    image: ClubfinityLogo,
-    altLabel: 'Gator UX Logo',
-    ariaLabel: 'Gator UX website',
+    image: SimplifunctionLogo,
+    altLabel: 'Simplifunction Logo',
+    ariaLabel: 'Simplifunction website',
     links: [
       {
-        label:'View in App Store',
-        ariaLabel: 'Clubfinity App Store page',
+        label:'Website',
+        ariaLabel: 'Simplifunction Logo',
         hyperlink: 'https://apps.apple.com/tt/app/clubfinity/id1539334633?ign-mpt=uo%3D2',
-        icon: AppStoreIcon
+        icon: WebIcon
       },
-      {
-        label:'Gitlab source',
-        hyperlink: 'https://gitlab.com/ufsec/clubfinity',
-        ariaLabel: 'Gitlab source code',
-        icon: GitlabIcon
-      }
     ]
   }
 ];

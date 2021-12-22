@@ -39,7 +39,12 @@ const useStyles = makeStyles({
   }
 });
 
-function SkillItem(props:any) {
+type SkillItemProps = {
+  children: JSX.Element,
+  skill: string
+}
+
+function SkillItem(props: SkillItemProps) {
   const { children, skill } = props;
   const classes = useStyles();
   const commonClasses = commonStyles();
@@ -58,7 +63,7 @@ function SkillItem(props:any) {
   );
 }
 
-function SkillList() {
+function SkillList():JSX.Element {
   return (
     <Section title="Skills">
       <Grid
@@ -83,4 +88,4 @@ function SkillList() {
 }
 // <SkillItem skill="MongoDB"><Suspense fallback={<div/>}><MongoDbIcon/></Suspense></SkillItem>
 
-export { SkillList }
+export { SkillList };

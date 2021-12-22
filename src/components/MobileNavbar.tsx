@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { List, Slide, AppBar, Toolbar, ListItem, IconButton, ListItemIcon, ListItemText, SwipeableDrawer, useScrollTrigger } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { useHistory, useRouteMatch } from 'react-router-dom';
@@ -41,8 +40,12 @@ const useStyles = makeStyles({
   }
 });
 
-function HideOnScroll(props: any) {
-  const { children, window } = props;
+type HideOnScrollProps = {
+  children: JSX.Element
+};
+
+function HideOnScroll(props: HideOnScrollProps) {
+  const { children } = props;
   // Note that you normally won't need to set the window ref as useScrollTrigger
   // will default to window.
   // This is only being set here because the demo is in an iframe.
@@ -55,41 +58,47 @@ function HideOnScroll(props: any) {
   );
 }
 
-HideOnScroll.propTypes = {
-  children: PropTypes.element.isRequired,
-  window: PropTypes.func
-};
+type SideBarItemProps = {
+  text: string,
+  link: string,
+  icon: JSX.Element,
+  setOpen: (open:boolean)=>void
+}
 
+function SideBarItem(props: SideBarItemProps) {
+  const { text, link, icon } = props;
+  const classes = useStyles();
+  const match = useRouteMatch({
+    path: link,
+    exact: true
+  });
+  const history = useHistory();
+  const redirect = (path: string) => {
+    history.push(path);
+    props.setOpen(false);
+  };
+  return (
+    <ListItem className={match ? classes.activeLink : ''} button onClick={() => redirect(link)}>
+      <ListItemIcon>
+        {icon}
+      </ListItemIcon>
+      <ListItemText primary={text} />
+    </ListItem>
+  );
+}
 
-function MobileNavbar(props: any) {
+type MobileNavbarProps = {
+  darkMode: boolean,
+  toggleDarkMode: (darkMode:boolean)=>void
+}
+
+function MobileNavbar(props: MobileNavbarProps): JSX.Element {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-  const history = useHistory();
 
   const toggleDrawer = () => {
     setOpen(!open);
   };
-
-  const redirect = (path:any) => {
-    history.push(path);
-    setOpen(false);
-  };
-
-  function SideBarItem(props:any) {
-    const { text, link, icon } = props;
-    let match = useRouteMatch({
-      path: link,
-      exact: true
-    });
-    return (
-      <ListItem className={match ? classes.activeLink : ''} button onClick={() => redirect(link)}>
-        <ListItemIcon>
-          {icon}
-        </ListItemIcon>
-        <ListItemText primary={text} />
-      </ListItem>
-    );
-  }
 
   return (
     <React.Fragment>
@@ -137,9 +146,9 @@ function MobileNavbar(props: any) {
         </div>
         <List className={classes.list}>
           <div>
-            <SideBarItem text="Coding Projects" link="/home" icon={<InfoIcon />} />
-            <SideBarItem text="Resume" link="/resume" icon={<DashboardIcon />} />
-            <SideBarItem text="Connect" link="/home/#connect" icon={<HomeIcon />} />
+            <SideBarItem text='Coding Projects' link="/home" icon={<InfoIcon />} setOpen={setOpen} />
+            <SideBarItem text='Resume' link='/resume' icon={<DashboardIcon />} setOpen={setOpen} />
+            <SideBarItem text='Connect' link='/home/#connect' icon={<HomeIcon />} setOpen={setOpen} />
           </div>
         </List>
       </SwipeableDrawer>
@@ -147,4 +156,4 @@ function MobileNavbar(props: any) {
   );
 }
 
-export { MobileNavbar }
+export { MobileNavbar };

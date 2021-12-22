@@ -8,7 +8,14 @@ const useStyles = makeStyles({
   }
 });
 
-function SocialLink(props:any) {
+type SocialLinkProps = {
+  icon: string,
+  circle: boolean,
+  link: string,
+  label: string
+}
+
+function SocialLink(props: SocialLinkProps): JSX.Element {
   const { icon, circle, link, label } = props;
   const classes = useStyles();
 
@@ -17,10 +24,11 @@ function SocialLink(props:any) {
       className={classes.socialLink}
       style={{ borderRadius: circle ? '50%' : 0 }}
       href={link}
+      target="_blank"
     >
       <img height="48px" width="48px" alt={label} src={icon} />
     </IconButton>
   );
 }
 
-export { SocialLink }
+export { SocialLink };

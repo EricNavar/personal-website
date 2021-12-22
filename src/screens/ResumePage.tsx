@@ -8,8 +8,9 @@ import { InvolvementList } from '../components/resumePage/InvolvementList';
 import { Interests } from '../components/resumePage/Interests';
 import { experienceData } from '../data/experienceData';
 import { involvementData } from '../data/involvementData';
+import { Theme } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   background: {
     background: theme.palette.background.default,
     marginTop: 8
@@ -42,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function ResumePage() {
+function ResumePage():JSX.Element {
   React.useEffect(() => {
     document.title = 'Resume | Eric Navar';
     window.scrollTo({
@@ -71,4 +72,4 @@ function ResumePage() {
   );
 }
 
-export { ResumePage }
+export { ResumePage };

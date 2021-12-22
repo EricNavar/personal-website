@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Snackbar, IconButton } from '@material-ui/core';
 
-function SimpleSnackBar() {
+function SimpleSnackBar(): JSX.Element {
   const [open, setOpen] = React.useState(true);
 
   const handleClick = () => {
@@ -43,4 +43,4 @@ function SimpleSnackBar() {
   );
 }
 
-export { SimpleSnackBar }
+export { SimpleSnackBar };

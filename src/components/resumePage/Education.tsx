@@ -40,7 +40,7 @@ const useStyles = makeStyles({
   }
 });
 
-function CourseworkItems() {
+function CourseworkItems():JSX.Element {
   const coursework = [
     'Data Structures and Algorithms',
     'Information and Database Systems',
@@ -50,44 +50,42 @@ function CourseworkItems() {
     'Project Methodologies',
     'Principles of Interaction and Usability',
     'Human-Computer Interaction',
-    'Computer Architecture',
     'Computer Network Fundamentals',
-    'Operating Systems'
   ];
   const classes = useStyles();
   const commonClasses = commonStyles();
   return (
-    <>
+    <React.Fragment>
       {coursework.map((course: string) =>
         <Chip key={course} label={course} className={`${classes.courseworkItem} ${commonClasses.backgroundGradient}`} />
       )}
-    </>
+    </React.Fragment>
   );
 }
 
-function Education() {
+function Education():JSX.Element {
   const classes = useStyles();
 
   return (
-    <Section title="Education" className={classes.education}>
+    <Section title='Education' className={classes.education}>
       <>
         <div className={classes.firstLine}>
-          <Typography component="span" variant='h5' color='textPrimary' className={classes.university}>
+          <Typography component='span' variant='h5' color='textPrimary' className={classes.university}>
             University of Florida
           </Typography>
           <span className={classes.gpa}>
-            <Typography component="span" variant='body1' color='primary'>
+            <Typography component='span' variant='body1' color='primary'>
               <b>GPA:</b>
             </Typography>
-            <Typography component="span" variant='body1' color='textPrimary'>
+            <Typography component='span' variant='body1' color='textPrimary'>
               &nbsp;3.94
             </Typography>
           </span>
         </div>
-        <Typography component="span" variant='body1' color='textPrimary'>
+        <Typography component='span' variant='body1' color='textPrimary'>
           B.S. Computer Science
         </Typography>
-        <Typography component="span" variant='body1' color='textSecondary'>
+        <Typography component='span' variant='body1' color='textSecondary'>
           &nbsp;| Digital Arts Minor
         </Typography>
         <br />
@@ -107,4 +105,4 @@ function Education() {
   );
 }
 
-export { Education }
+export { Education };

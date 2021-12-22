@@ -4,13 +4,13 @@ import { Grid, Typography, Hidden, Link } from '@material-ui/core';
 import GitHubIcon from './../assets/icons/github.svg';
 import LinkedInIcon from './../assets/icons/linkedin.svg';
 import { PersonalStatement } from '../components/resumePage/PersonalStatement';
-import { CardButtonMobile } from '../components/home/CodingProjectMobile';
-import { CardButtonDesktop } from '../components/home/CodingProjectDesktop';
+import { CodingProjectMobile } from '../components/home/CodingProjectMobile';
+import { CodingProjectDesktop } from '../components/home/CodingProjectDesktop';
 import { projectData } from '../data/projectData';
 import { homePageStyles } from '../styling/homePageStyling';
 import { SocialLink } from '../components/home/SocialLink';
 
-function Home() {
+function Home():JSX.Element {
   React.useEffect(() => {
     document.title = 'Eric Navar';
     window.scrollTo({
@@ -25,13 +25,13 @@ function Home() {
       <PersonalStatement />
       <section id="project-list" className={classes.section}>
         <Typography color='textPrimary' component="h2" variant="h4" className={classes.topicName}>
-          Software Projects I've Worked On
+          Software Projects I&apos;ve Worked On
         </Typography>
         <Hidden mdUp>
           <Grid container spacing={6}>
             {projectData.map(project => (
               <Grid key={project._id} item xs={12} className={classes.cardButtonContainer}>
-                <CardButtonMobile {...project} />
+                <CodingProjectMobile project={project} />
               </Grid>
             ))}
           </Grid>
@@ -40,7 +40,7 @@ function Home() {
           <Grid container spacing={6}>
             {projectData.map(project => (
               <Grid item key={project._id} xs={12} xl={6} className={classes.cardButtonContainer}>
-                <CardButtonDesktop {...project} />
+                <CodingProjectDesktop project={project} />
               </Grid>
             ))}
           </Grid>
@@ -85,4 +85,4 @@ function Home() {
   );
 }
 
-export { Home }
+export { Home };

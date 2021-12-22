@@ -115,13 +115,13 @@ function ContactPage() {
   //if the user submits without entering either a email or phone number
   const [detailsError, setDetailsError] = useState(false);
 
-  const handleEmailChange = (event:any) => {
+  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
   };
-  const handleNameChange = (event:any) => {
+  const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
   };
-  const handleDetailChange = (event:any) => {
+  const handleDetailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setDetails(event.target.value);
   };
   const isValidInput = async () => {
@@ -130,7 +130,7 @@ function ContactPage() {
     const valid = await !(name === '' || name.trim().split(' ').length < 2) && !(details === '');
     return valid;
   };
-  const handleSubmit = (ev:any) => {
+  const handleSubmit = (ev: any) => {
     ev.preventDefault();
     isValidInput().then((value) => {
       if (value === true) {

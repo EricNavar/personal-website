@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import React, { Suspense, lazy } from 'react';
 import {
   BrowserRouter as Router,
@@ -10,11 +11,10 @@ import { Hidden } from '@material-ui/core';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 //local files
 import { Home } from './screens/Home';
-import { ContactPage } from './screens/ContactPage';
+//import { ContactPage } from './screens/ContactPage';
 import { DesktopNavbar } from './components/DesktopNavbar';
 import { MobileNavbar } from './components/MobileNavbar';
 import FullStory from 'react-fullstory';
-import PropTypes from 'prop-types';
 const ResumePage = lazy(() => import('./screens/ResumePage').then((module) => ({
   default: module.ResumePage,
 })));
@@ -46,7 +46,7 @@ const lightTheme = createMuiTheme({
       main: 'rgba(66,179,245,1)',
       light: 'rgba(66,179,245,1)',
       dark: 'rgba(95,44,130,1)',
-    }    
+    }
   },
   typography: {
     fontFamily: 'Poppins, \'Lato\', sans-serif'
@@ -75,11 +75,11 @@ const darkTheme = createMuiTheme({
   }
 });
 
-ScrollToTop.propTypes = {
-  children: PropTypes.element.isRequired,
+type ScrollToTopProps = {
+  children: JSX.Element,
 };
 
-function ScrollToTop(props:any) {
+function ScrollToTop(props: ScrollToTopProps) {
   const history = useHistory();
   React.useEffect(() => {
     const unlisten = history.listen(() => {
@@ -94,7 +94,7 @@ function ScrollToTop(props:any) {
   return <React.Fragment>{props.children}</React.Fragment>;
 }
 
-function Root() {
+function Root():JSX.Element {
   const [darkMode, setDarkMode] = React.useState(false);
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
@@ -116,33 +116,35 @@ function Root() {
                 <Route exact path='/'>
                   <Home />
                 </Route>
-                <Route path="/resume">
+                <Route path='/resume'>
                   <Suspense fallback={<div />}>
                     <ResumePage />
                   </Suspense>
                 </Route>
-                <Route path="/common-ground">
+                <Route path='/common-ground'>
                   <Suspense fallback={<div />}>
                     <CommonGround />
                   </Suspense>
                 </Route>
-                <Route path="/contact">
-                  <Suspense fallback={<div />}>
-                    <ContactPage />
-                  </Suspense>
-                </Route>
-                <Route path="/inspire">
+                {/*
+                  <Route path='/contact'>
+                    <Suspense fallback={<div />}>
+                      <ContactPage />
+                    </Suspense>
+                  </Route>
+                */}
+                <Route path='/inspire'>
                   <Suspense fallback={<div />}>
                     <InspirePage />
                   </Suspense>
                 </Route>
-                <Route path="/worst-website">
+                <Route path='/worst-website'>
                   <Suspense fallback={<div />}>
                     <WorstWebsite />
                   </Suspense>
                 </Route>
-                <Route path="*">
-                  <Redirect to="/" />
+                <Route path='*'>
+                  <Redirect to='/' />
                 </Route>
               </Switch>
             </>
@@ -154,4 +156,4 @@ function Root() {
 }
 //citation: https://stackoverflow.com/questions/36904185/react-router-scroll-to-top-on-every-transition
 
-export { Root }
+export { Root };

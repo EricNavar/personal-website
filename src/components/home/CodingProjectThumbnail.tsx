@@ -24,8 +24,13 @@ const useStyles = makeStyles({
   }
 });
 
-function CodingProjectThumbnail(props:any) {
-  const {image, altLabel} = props;
+type CodingProjectThumbnailProps = {
+  image: string,
+  altLabel: string
+}
+
+function CodingProjectThumbnail(props: CodingProjectThumbnailProps): JSX.Element {
+  const { image, altLabel } = props;
   const classes = useStyles();
   return (
     <div className={classes.wrapper}>
@@ -40,4 +45,4 @@ function CodingProjectThumbnail(props:any) {
   );
 }
 
-export { CodingProjectThumbnail }
+export { CodingProjectThumbnail };

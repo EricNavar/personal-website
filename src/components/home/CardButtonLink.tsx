@@ -22,7 +22,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function CardButtonLink(props:any) {
+type CardButtonLinkProps = {
+  icon: JSX.Element,
+  label: string,
+  hyperlink: string,
+  ariaLabel: string
+}
+
+function CardButtonLink(props: CardButtonLinkProps): JSX.Element {
   const classes = useStyles();
 
   return (
@@ -39,4 +46,4 @@ function CardButtonLink(props:any) {
   );
 }
 
-export { CardButtonLink }
+export { CardButtonLink };

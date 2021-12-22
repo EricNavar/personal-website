@@ -16,10 +16,10 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function Interests() {
+function Interests():JSX.Element {
   const classes = useStyles();
   return (
-    <Section title="Interests">
+    <Section title='Interests'>
       <List className={classes.descriptionList}>
         <Typography variant='body1' color='textPrimary' gutterBottom className={classes.listItem}>
           Frontend Dev
@@ -28,11 +28,11 @@ function Interests() {
           UX Design
         </Typography>
         <Typography variant='body1' color='textPrimary' gutterBottom className={classes.listItem}>
-          The fact that we apparently haven't run out of IP addresses
+          The fact that we apparently haven&apos;t run out of IP addresses
         </Typography>
       </List>
     </Section>
   );
 }
 
-export { Interests }
+export { Interests };

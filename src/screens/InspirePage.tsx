@@ -7,7 +7,7 @@ import loremPicsum from 'lorem-picsum';
 import Quote from 'inspirational-quotes';
 import { Link } from 'react-router-dom';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   visibleOnLoad: {
     height: window.innerHeight,
     textAlign: 'center',
@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function InspirePage() {
+function InspirePage(): JSX.Element {
   React.useEffect(() => {
     document.title = 'Inspiration 😌';
     window.scrollTo({
@@ -93,4 +93,4 @@ function InspirePage() {
   );
 }
 
-export { InspirePage }
+export { InspirePage };

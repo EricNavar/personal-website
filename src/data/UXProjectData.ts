@@ -17,4 +17,4 @@ const UXProjectData = [
   }
 ];
 
-export { UXProjectData }
+export { UXProjectData };

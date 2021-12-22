@@ -45,24 +45,24 @@ const useStyles = makeStyles({
     position: 'static',
     //right button wrapper
     '& div:nth-of-type(2)': {
-      right:-90
+      right: -90
     },
     //left button wrapper
     '& div:nth-of-type(3)': {
-      left:-90
+      left: -90
     }
   },
   mockup: {
-    width:500,
-    position:'relative',
+    width: 500,
+    position: 'relative',
   },
   front: {
     zIndex: 1
   }
 });
 
-function PrototypeCarousel() {
-  var items = [
+function PrototypeCarousel(): JSX.Element {
+  const items = [
     {
       photo: Slide1
     },
@@ -85,27 +85,31 @@ function PrototypeCarousel() {
         cycleNavigation={true}
         className={classes.carousel}
       >
-        {items.map((item, i) => <Photo key={i} item={item} />)}
+        {items.map((item, i) => <Photo key={i} src={item.photo} />)}
       </Carousel>
     </div>
   );
 }
 
-function Photo(props:any) {
+type PhotoProps = {
+  src: string
+}
+
+function Photo(props: PhotoProps) {
   const classes = useStyles();
   return (
-    <img alt="" src={props.item.photo} className={classes.photo} />
+    <img alt='' src={props.src} className={classes.photo} />
   );
 }
 
-function Mockup() {
+function Mockup():JSX.Element {
   const classes = useStyles();
   return (
     <div className={classes.mockup}>
-      <img src={IPhone11ProMaxMockup} alt="" style={{width:'100%',zIndex:1,position:'relative'}}/>
-      <PrototypeCarousel/>
+      <img src={IPhone11ProMaxMockup} alt='' style={{ width: '100%', zIndex: 1, position: 'relative' }} />
+      <PrototypeCarousel />
     </div>
   );
 }
 
-export { Mockup }
+export { Mockup };

@@ -2,7 +2,8 @@
 // https://github.com/sendgrid/sendgrid-nodejs
 import sgMail from '@sendgrid/mail';
 
-function sendEmail(name:string, text:string, email:string) {
+function sendEmail(name: string, text: string, email: string) {
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   sgMail.setApiKey(process.env.REACT_APP_SENDGRID_API_KEY!);
   console.log(process.env.REACT_APP_SENDGRID_API_KEY);
 

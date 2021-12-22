@@ -86,7 +86,7 @@ const useStyles = makeStyles(theme => ({
 type ElevatorScrollProps = {
   children: JSX.Element,
 }
-function ElevationScroll(props: ElevatorScrollProps) {
+function ElevationScroll(props: ElevatorScrollProps):JSX.Element {
   const classes = useStyles();
 
   const { children } = props;
@@ -105,14 +105,19 @@ function ElevationScroll(props: ElevatorScrollProps) {
   });
 }
 
-function NavBarItem(props: any) {
+type NavBarItemProps = {
+  text: string,
+  to: string
+}
+
+function NavBarItem(props: NavBarItemProps):JSX.Element {
   const classes = useStyles();
   const { text, to } = props;
   const isSm = useMediaQuery(useTheme().breakpoints.down('sm'));
-  let match = useRouteMatch({
+  const match = useRouteMatch({
     path: to,
     exact: true
-  })
+  });
 
   return (
     <Button component={Link}
@@ -127,9 +132,9 @@ function NavBarItem(props: any) {
 
 type DesktopNavbarProps = {
   darkMode: boolean,
-  toggleDarkMode:any
+  toggleDarkMode: (darkMode:boolean)=>void
 }
-function DesktopNavbar(props: DesktopNavbarProps) {
+function DesktopNavbar(props: DesktopNavbarProps):JSX.Element {
   const classes = useStyles();
 
   //returns either the login/register button or the logout button
@@ -137,18 +142,18 @@ function DesktopNavbar(props: DesktopNavbarProps) {
   return (
     <React.Fragment>
       <ElevationScroll {...props} >
-        <AppBar id="AppBar" className={classes.navbar} >
+        <AppBar id='AppBar' className={classes.navbar} >
           <Toolbar className={classes.toolbar}>
-            <NavBarItem to="/" text='Coding Projects' />
+            <NavBarItem to='/' text='Coding Projects' />
             <div style={{ marginRight: 16, marginLeft: 16 }}>
-              <NavBarItem to="/resume" text='Resume' />
+              <NavBarItem to='/resume' text='Resume' />
             </div>
-            < NavBarItem to="/contact" text='Contact' />
+            {/*< NavBarItem to='/contact' text='Contact' />*/}
             <IconButton
               onClick={props.toggleDarkMode}
               className={classes.iconButton}
             >
-            {props.darkMode ? <SunIcon /> : <MoonIcon />}
+              {props.darkMode ? <SunIcon /> : <MoonIcon />}
             </IconButton>
           </Toolbar>
         </AppBar>
@@ -158,4 +163,4 @@ function DesktopNavbar(props: DesktopNavbarProps) {
   );
 }
 
-export { DesktopNavbar }
+export { DesktopNavbar };

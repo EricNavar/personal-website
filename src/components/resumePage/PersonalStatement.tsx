@@ -59,7 +59,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function PersonalStatement() {
+function PersonalStatement():JSX.Element {
   const classes = useStyles();
   const commonClasses = commonStyles();
   return (
@@ -78,14 +78,14 @@ function PersonalStatement() {
       </div>
       <Paper className={`${classes.textContainer} ${commonClasses.backgroundGradient}`} elevation={3}>
         <Typography variant='body1' className={classes.personalStatementHeader}>
-          <b>Hi, I'm Eric Navar</b>
+          <b>Hi, I&apos;m Eric Navar</b>
         </Typography>
         <Typography variant='body1' className={classes.text}>
-          I'm a computer science major and digital arts minor at UF interested in learning new things. I have lots of cool experience in frontend and I'm also trying to learn UX design. Feel free to reach out!
+          I&apos;m a computer science major and digital arts minor at UF interested in learning new things. I have lots of cool experience in frontend and I&apos;m also trying to learn UX design. Feel free to reach out!
         </Typography>
       </Paper>
     </Grid>
   );
 }
 
-export { PersonalStatement }
+export { PersonalStatement };

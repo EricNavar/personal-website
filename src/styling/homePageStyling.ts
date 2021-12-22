@@ -175,7 +175,7 @@ export const homePageStyles = makeStyles((theme) => ({
   },
   jokeProjectLink: {
     marginRight: 20,
-    flexWrap: "nowrap",
+    flexWrap: 'nowrap',
     display: 'inline-flex'
   }
 }));

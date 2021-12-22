@@ -30,7 +30,7 @@ type SectionProps = {
   title: string,
   className?: string
 }
-function Section({ children, title, className }: SectionProps) {
+function Section({ children, title, className }: SectionProps): JSX.Element {
   const classes = useStyles();
   return (
     <section className={`${classes.section} ${className}`}>
@@ -45,4 +45,4 @@ function Section({ children, title, className }: SectionProps) {
   );
 }
 
-export { Section }
+export { Section };

@@ -59,22 +59,22 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-function MyAppBar() {
+function MyAppBar(): JSX.ELement {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position='static'>
         <Toolbar>
           <IconButton
-            edge="start"
+            edge='start'
             className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
+            color='inherit'
+            aria-label='open drawer'
           >
-            <span role="img" aria-labelledby="hamburger-icon">🍔</span>
+            <span role='img' aria-labelledby='hamburger-icon'>🍔</span>
           </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
+          <Typography className={classes.title} variant='h6' noWrap>
             This header was stolen from open-source
           </Typography>
           <div className={classes.search}>
@@ -82,7 +82,7 @@ function MyAppBar() {
               Search
             </div>
             <InputBase
-              placeholder="Search…"
+              placeholder='Search…'
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,
@@ -96,4 +96,4 @@ function MyAppBar() {
   );
 }
 
-export { MyAppBar }
+export { MyAppBar };

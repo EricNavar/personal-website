@@ -1,6 +1,5 @@
 import React from 'react';
-import { makeStyles, ButtonBase, Grid, IconButton /*,Typography*/ } from '@material-ui/core';
-import { useHistory } from 'react-router-dom';
+import { makeStyles, ButtonBase, Grid, IconButton } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   footer: {
@@ -77,27 +76,14 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const scrollToTop = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  });
-};
-
-function Footer() {
+function Footer():JSX.Element {
   const classes = useStyles();
-  const history = useHistory();
-
-  const redirect = (path:string) => {
-    console.log(history);
-  };
 
   const LogoButton = () => {
     return (
       <Grid item xs={4} sm={6} md={4} className={classes.logoButton}>
         <ButtonBase
           className={classes.logoButton}
-          onClick={false ? scrollToTop : () => redirect('/')}
           TouchRippleProps={{
             style: { color: 'white' }
           }}
@@ -142,4 +128,4 @@ function Footer() {
   );
 }
 
-export { Footer }
+export { Footer };

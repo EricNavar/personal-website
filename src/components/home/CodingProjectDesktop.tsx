@@ -1,24 +1,19 @@
 import React, { lazy, Suspense } from 'react';
 import { Typography, Paper } from '@material-ui/core';
-import PropTypes from 'prop-types';
 //local files
 import { cardButtonStyles } from '../../styling/homePageStyling';
 import { CardButtonLink } from './CardButtonLink';
+import { Project, LinkProps } from '../../commonTypes';
 const CodingProjectThumbnail = lazy(() => import('./CodingProjectThumbnail').then((module) => ({
   default: module.CodingProjectThumbnail,
 })));
 
-CardButtonDesktop.propTypes = {
-  headerText: PropTypes.string.isRequired,
-  tools: PropTypes.string.isRequired,
-  subText: PropTypes.array.isRequired,
-  altLabel: PropTypes.string.isRequired,
-  ariaLabel: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired
+type CodingProjectDesktopProps = {
+  project: Project
 };
 
-function CardButtonDesktop(props: any) {
-  const { headerText, tools, subText, image, altLabel, ariaLabel, links } = props;
+function CodingProjectDesktop(props: CodingProjectDesktopProps): JSX.Element {
+  const { headerText, tools, subText, image, altLabel, ariaLabel, links } = props.project;
   const classes = cardButtonStyles();
 
   return (
@@ -47,7 +42,7 @@ function CardButtonDesktop(props: any) {
         </div>
         <Typography color='textPrimary' variant='body1' className={classes.subTextContainer}>
           {subText.map((paragraph: Array<string>, value1: number) => (
-            <React.Fragment>
+            <React.Fragment key={value1}>
               {value1 !== 0 && <br key={`${headerText}-linebreak-${value1}`} className={classes.lineBreak} />}
               {paragraph.map((textPiece, value2) =>
                 <span key={`${headerText}-subText-${value1}-${value2}`} className={value2 % 2 === 1 ? classes.underlined : ''}>
@@ -57,10 +52,10 @@ function CardButtonDesktop(props: any) {
             </React.Fragment>
           ))}
         </Typography>
-        {links.map((link: string, value: number) => <CardButtonLink key={`link-${value}`} {...link} />)}
+        {links.map((link: LinkProps, value: number) => <CardButtonLink key={`link-${value}`} {...link} />)}
       </div>
     </Paper>
   );
 }
 
-export { CardButtonDesktop }
+export { CodingProjectDesktop };

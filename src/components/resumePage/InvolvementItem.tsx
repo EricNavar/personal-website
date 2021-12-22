@@ -1,10 +1,11 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography, List, IconButton, Link, Grid, Tooltip, ListItem } from '@material-ui/core';
+import { Project } from '../../commonTypes';
 
 const useStyles = makeStyles(theme => ({
   involvementItem: {
-    boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px',
+    boxShadow:  'rgba(0,0,0, 0.1) 0px 8px 24px',
     overflow: 'hidden',
     borderRadius: 4,
     background: theme.palette.type === 'light' ? theme.palette.grey['800'] : `linear-gradient(${theme.palette.info.light} 0%, ${theme.palette.info.dark} 100%)`,
@@ -60,8 +61,12 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function InvolvementItem(props: any) {
-  const { title, description, link, linkDescription, positions, icon } = props;
+type InvolvementItemProps = {
+  involvementItem: Project
+}
+
+function InvolvementItem(props: InvolvementItemProps):JSX.Element {
+  const { title, description, link, linkDescription, positions, icon } = props.involvementItem;
   const classes = useStyles();
 
   function Description() {
@@ -70,7 +75,7 @@ function InvolvementItem(props: any) {
         <>
           {description.map((line) =>
             <ListItem key={line} className={classes.listItem}>
-              <Typography variant="body1" color='textPrimary'>
+              <Typography variant='body1' color='textPrimary'>
                 {line}
               </Typography>
             </ListItem>
@@ -79,19 +84,19 @@ function InvolvementItem(props: any) {
       );
     }
     else {
-      return <></>
+      return <></>;
     }
   }
 
   function Positions() {
     return (
       <>
-        {Object.keys(positions).map((position, index) =>
+        {Object.keys(positions).map((position: string, index: number) =>
           <div className={classes.positionLine} key={index}>
-            <Typography component='span' variant="overline" color='textPrimary' className={classes.position}>
+            <Typography component='span' variant='overline' color='textPrimary' className={classes.position}>
               {position}&emsp;
             </Typography>
-            <Typography component='span' variant="overline" gutterBottom color='textPrimary' className={classes.timePeriod}>
+            <Typography component='span' variant='overline' gutterBottom color='textPrimary' className={classes.timePeriod}>
               {positions[position]}
             </Typography>
           </div>
@@ -111,18 +116,18 @@ function InvolvementItem(props: any) {
             <div>
               <Link
                 className={classes.title}
-                color="primary"
+                color='primary'
                 href={link}
-                target="_blank"
-                component="p"
-                variant="h5"
+                target='_blank'
+                component='p'
+                variant='h5'
               >
                 <b>{title}</b>
               </Link>
             </div>
             {link &&
               <Tooltip title={linkDescription} aria-label={linkDescription}>
-                <IconButton target="_blank" href={link}>
+                <IconButton target='_blank' href={link}>
                   <Link />
                 </IconButton>
               </Tooltip>
@@ -138,4 +143,4 @@ function InvolvementItem(props: any) {
   );
 }
 
-export { InvolvementItem }
+export { InvolvementItem };

@@ -1,24 +1,19 @@
 import React, { lazy, Suspense } from 'react';
 import { Typography, Paper } from '@material-ui/core';
-import PropTypes from 'prop-types';
 //local files
 import { CardButtonLink } from './CardButtonLink';
 import { cardButtonStyles } from '../../styling/homePageStyling';
+import { Project, LinkProps } from '../../commonTypes';
 const CodingProjectThumbnail = lazy(() => import('./CodingProjectThumbnail').then((module) => ({
   default: module.CodingProjectThumbnail,
 })));
 
-CardButtonMobile.propTypes = {
-  headerText: PropTypes.string.isRequired,
-  tools: PropTypes.string.isRequired,
-  subText: PropTypes.array.isRequired,
-  image: PropTypes.string.isRequired,
-  altLabel: PropTypes.string.isRequired,
-  ariaLabel: PropTypes.string.isRequired
+type CodingProjectMobileProps = {
+  project: Project
 };
 
-function CardButtonMobile(props: any) {
-  const { headerText, tools, subText, image, altLabel, ariaLabel, links } = props;
+function CodingProjectMobile(props: CodingProjectMobileProps):JSX.Element {
+  const { headerText, tools, subText, image, altLabel, ariaLabel, links } = props.project;
   const classes = cardButtonStyles();
 
   return (
@@ -35,13 +30,13 @@ function CardButtonMobile(props: any) {
           component="span"
           variant="h5"
           aria-label={ariaLabel}
-//          color='primary'
+        //          color='primary'
         >
           {headerText}
         </Typography>
         <Typography color='textPrimary' variant='body1' className={classes.subTextContainer}>
-          {subText.map((paragraph:Array<string>, value1:number) => (
-            <React.Fragment>
+          {subText.map((paragraph: Array<string>, value1: number) => (
+            <React.Fragment key={value1}>
               {value1 !== 0 && <br key={`${headerText}-linebreak-${value1}`} className={classes.lineBreak} />}
               {paragraph.map((textPiece, value2) =>
                 <span key={`${headerText}-subText-${value1}-${value2}`} className={value2 % 2 === 1 ? classes.underlined : ''}>
@@ -51,10 +46,10 @@ function CardButtonMobile(props: any) {
             </React.Fragment>
           ))}
         </Typography>
-        {links.map((link:string, value:number) => <CardButtonLink key={`link-${value}`} {...link} />)}
+        {links.map((link: LinkProps, value: number) => <CardButtonLink key={`link-${value}`} {...link} />)}
       </div>
     </Paper>
   );
 }
 
-export { CardButtonMobile }
+export { CodingProjectMobile };

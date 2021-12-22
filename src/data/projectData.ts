@@ -90,4 +90,4 @@ const projectData:Array<Project> = [
   }
 ];
 
-export { projectData }
+export { projectData };

@@ -2,8 +2,9 @@ import SSDIcon from './../assets/involvement/SSD.webp';
 import SECIcon from './../assets/involvement/sec.webp';
 import GatorUXIcon from './../assets/involvement/GatorUXLogo.webp';
 import HackFSUIcon from './../assets/involvement/HackFSU.webp';
+import { Project } from '../commonTypes';
 
-const involvementData = [
+const involvementData:Array<Project> = [
   {
     title: 'Society of Software Developers',
     positions: { 'Vice President': 'April 2020 - April 2021', 'President': 'April 2021 - present' },

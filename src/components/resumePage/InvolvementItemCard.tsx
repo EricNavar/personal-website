@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography, List, IconButton, Link, Grid, Tooltip, ListItem } from '@material-ui/core';
-import { Project } from '../../commonTypes';
+import { InvolvementItem } from '../../commonTypes';
 
 const useStyles = makeStyles(theme => ({
   involvementItem: {
@@ -61,11 +61,11 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-type InvolvementItemProps = {
-  involvementItem: Project
+type InvolvementItemCardProps = {
+  involvementItem: InvolvementItem
 }
 
-function InvolvementItem(props: InvolvementItemProps):JSX.Element {
+function InvolvementItemCard(props: InvolvementItemCardProps):JSX.Element {
   const { title, description, link, linkDescription, positions, icon } = props.involvementItem;
   const classes = useStyles();
 
@@ -73,7 +73,7 @@ function InvolvementItem(props: InvolvementItemProps):JSX.Element {
     if (Array.isArray(description)) {
       return (
         <>
-          {description.map((line) =>
+          {description.map((line:string) =>
             <ListItem key={line} className={classes.listItem}>
               <Typography variant='body1' color='textPrimary'>
                 {line}
@@ -143,4 +143,4 @@ function InvolvementItem(props: InvolvementItemProps):JSX.Element {
   );
 }
 
-export { InvolvementItem };
+export { InvolvementItemCard };

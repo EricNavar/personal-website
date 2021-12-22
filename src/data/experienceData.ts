@@ -6,9 +6,9 @@ const experienceData = [
     'title': 'Asurion',
     'positions': { 'Software Engineer Intern': 'May - August 2021' },
     'description': [
-      'Develop React website and React Native app of an experience to show insurance plan and claim details to customers of varying Asurion partners',
-      'Learn to collaborate with remotely with developers and product designers in the team and across other teams  to analyze requirements and understand business value to find a solution',
-      'Review user sessions and write component tests to find visual and logic bugs and increase testing capacity'
+      'Develop React website and React Native app for customers of Asurion and Asurion partners',
+      'Learn to collaborate with with developers and product designers to analyze requirements and understand business value to find a solution',
+      'Review user sessions and write component tests to find bugs and increase testing capacity'
     ],
     'icon': AsurionLogo
   },

@@ -78,7 +78,7 @@ function Education():JSX.Element {
               <b>GPA:</b>
             </Typography>
             <Typography component='span' variant='body1' color='textPrimary'>
-              &nbsp;3.94
+              &nbsp;3.9
             </Typography>
           </span>
         </div>

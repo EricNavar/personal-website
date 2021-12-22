@@ -15,3 +15,11 @@ export type Project = {
     ariaLabel: string,
     links: Array<LinkProps>
 }
+
+export type InvolvementItem = {
+  title: string,
+  positions: Record<string,string>,
+  description: string,
+  linkDescription: string,
+  icon: string
+}

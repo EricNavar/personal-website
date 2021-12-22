@@ -2,15 +2,15 @@ import SSDIcon from './../assets/involvement/SSD.webp';
 import SECIcon from './../assets/involvement/sec.webp';
 import GatorUXIcon from './../assets/involvement/GatorUXLogo.webp';
 import HackFSUIcon from './../assets/involvement/HackFSU.webp';
-import { Project } from '../commonTypes';
+export { InvolvementItem } from '../commonTypes';
 
-const involvementData:Array<Project> = [
+const involvementData:Array<InvolvementItem> = [
   {
     title: 'Society of Software Developers',
-    positions: { 'Vice President': 'April 2020 - April 2021', 'President': 'April 2021 - present' },
-    description: ['Support the team of officers in planning semester curricula and preparing weekly meetings.',
-      'Host presentations and conduct interactive workshops on topics such as Git, TDD, and deployment to promote correct, maintainable software design',
-      'Foster community of software developers through social events and online discussion'
+    positions: { 'President': 'April 2021 - present' },
+    description: ['Support team of officers in preparing weekly GBMs to promote software development',
+      'Host presentations, conduct interactive workshops, and coordinate industry speaker events',
+      'Foster community of software developers through regular social events and online discussion'
     ],
     icon: SSDIcon,
   },

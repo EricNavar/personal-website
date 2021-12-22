@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 //local files
 import { SkillList } from '../components/resumePage/SkillList';
 import { Education } from '../components/resumePage/Education';
-import { InvolvementList } from '../components/resumePage/InvolvementList';
+import { InvolvementSecion } from '../components/resumePage/InvolvementSection';
 import { Interests } from '../components/resumePage/Interests';
 import { experienceData } from '../data/experienceData';
 import { involvementData } from '../data/involvementData';
@@ -64,8 +64,8 @@ function ResumePage():JSX.Element {
             <Education />
           </Grid>
         </Grid>
-        <InvolvementList title="Internship Experience" data={experienceData} />
-        <InvolvementList title="Involvement" data={involvementData} />
+        <InvolvementSecion title="Internship Experience" data={experienceData} />
+        <InvolvementSecion title="Involvement" data={involvementData} />
         <Interests />
       </div>
     </div>

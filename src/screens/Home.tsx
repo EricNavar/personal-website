@@ -61,6 +61,9 @@ function Home():JSX.Element {
         <Link variant="body1" target="_blank" href="https://knighthack.com" className={classes.jokeProjectLink}>
           How to win a hackathon
         </Link>
+        <Link variant="body1" target="_blank" href="https://ericnavar.github.io/BellaWebsite/" className={classes.jokeProjectLink}>
+          Bella Fan Club (my first website)
+        </Link>
       </section>
       <section id='connect' className={classes.homeSection}>
         <Typography

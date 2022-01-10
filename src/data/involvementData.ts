@@ -1,5 +1,4 @@
 import SSDIcon from './../assets/involvement/SSD.webp';
-import SECIcon from './../assets/involvement/sec.webp';
 import GatorUXIcon from './../assets/involvement/GatorUXLogo.webp';
 import HackFSUIcon from './../assets/involvement/HackFSU.webp';
 export { InvolvementItem } from '../commonTypes';
@@ -13,15 +12,6 @@ const involvementData:Array<InvolvementItem> = [
       'Foster community of software developers through regular social events and online discussion'
     ],
     icon: SSDIcon,
-  },
-  {
-    title: 'Software Engineering Club',
-    positions: { 'Tech Lead': 'January - May 2021' },
-    description: ['Develop front-end of a React-Native mobile app that will be used discover and manage UF clubs',
-      'Collaborate closely with developers and designers through stand-ups and pair programming'
-    ],
-    linkDescription: 'Link to repository',
-    icon: SECIcon,
   },
   {
     title: 'Hack FSU',

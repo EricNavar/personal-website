@@ -25,7 +25,7 @@ function Home():JSX.Element {
       <PersonalStatement />
       <section id="project-list" className={classes.section}>
         <Typography color='textPrimary' component="h2" variant="h4" className={classes.topicName}>
-          Software Projects I&apos;ve Worked On
+          Websites I&apos;ve Worked On
         </Typography>
         <Hidden mdUp>
           <Grid container spacing={6}>

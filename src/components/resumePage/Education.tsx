@@ -42,15 +42,13 @@ const useStyles = makeStyles({
 
 function CourseworkItems():JSX.Element {
   const coursework = [
-    'Data Structures and Algorithms',
-    'Information and Database Systems',
-    'Programming Language Concepts',
-    'Professional Communication for Engineers',
-    'Intro to Software Engineering',
+    'Intro Software Engineering',
     'Project Methodologies',
-    'Principles of Interaction and Usability',
+    'Information & Database Systems',
+    'Data Structures & Algorithms',
+    'Interaction & Usability',
     'Human-Computer Interaction',
-    'Computer Network Fundamentals',
+    'UX Design'
   ];
   const classes = useStyles();
   const commonClasses = commonStyles();
@@ -78,7 +76,7 @@ function Education():JSX.Element {
               <b>GPA:</b>
             </Typography>
             <Typography component='span' variant='body1' color='textPrimary'>
-              &nbsp;3.9
+              &nbsp;3.89
             </Typography>
           </span>
         </div>

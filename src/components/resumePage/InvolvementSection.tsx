@@ -15,7 +15,7 @@ function InvolvementSecion(props: InvolvementListProps): JSX.Element {
   return (
     <Section title={title}>
       <Grid container spacing={5}>
-        {data.map((item: Project) => <InvolvementItemCard key={item._id} involvementItem={item} />)}
+        {data.map((item: InvolvementItem, index) => <InvolvementItemCard key={index} involvementItem={item} />)}
       </Grid>
     </Section>
   );

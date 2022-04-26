@@ -2,10 +2,11 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography, List, IconButton, Link, Grid, Tooltip, ListItem } from '@material-ui/core';
 import { InvolvementItem } from '../../commonTypes';
+import WebIcon from '../../assets/icons/web_fluent';
 
 const useStyles = makeStyles(theme => ({
   involvementItem: {
-    boxShadow:  'rgba(0,0,0, 0.1) 0px 8px 24px',
+    boxShadow: 'rgba(0,0,0, 0.1) 0px 8px 24px',
     overflow: 'hidden',
     borderRadius: 4,
     background: theme.palette.type === 'light' ? theme.palette.grey['800'] : `linear-gradient(${theme.palette.info.light} 0%, ${theme.palette.info.dark} 100%)`,
@@ -13,6 +14,8 @@ const useStyles = makeStyles(theme => ({
     backgroundPosition: 'center',
     backgroundAttachment: 'fixed',
     height: '100%',
+    display: 'flex',
+    flexWrap: 'wrap',
     '&:hover': {
       '& svg': {
         color: '#00a8cc'
@@ -58,60 +61,80 @@ const useStyles = makeStyles(theme => ({
   },
   positionLine: {
     display: 'flex'
+  },
+  thumbnailContainer: {
+    flexBasis: 800,
+    flexGrow: 1,
+    width: 800,
+    maxWidth: '100%'
+  },
+  thumbnail: {
+    width: 'inherit',
+    maxWidth: 'inherit'
+  },
+  webIcon: {
+    width: 24
   }
 }));
 
-type InvolvementItemCardProps = {
-  involvementItem: InvolvementItem
+type PositionsProps = {
+  positions: Record<string, string>
+}
+function Positions(props: PositionsProps) {
+  const classes = useStyles();
+  return (
+    <>
+      {Object.keys(props.positions).map((position: string, index: number) =>
+        <div className={classes.positionLine} key={index}>
+          <Typography component='span' variant='overline' color='textPrimary' className={classes.position}>
+            {position}&emsp;
+          </Typography>
+          <Typography component='span' variant='overline' gutterBottom color='textPrimary' className={classes.timePeriod}>
+            {props.positions[position]}
+          </Typography>
+        </div>
+      )}
+    </>
+  );
 }
 
-function InvolvementItemCard(props: InvolvementItemCardProps):JSX.Element {
-  const { title, description, link, linkDescription, positions, icon } = props.involvementItem;
+type DescriptionProps = {
+  description: Array<string>
+}
+function Description(props: DescriptionProps) {
   const classes = useStyles();
-
-  function Description() {
-    if (Array.isArray(description)) {
-      return (
-        <>
-          {description.map((line:string) =>
-            <ListItem key={line} className={classes.listItem}>
-              <Typography variant='body1' color='textPrimary'>
-                {line}
-              </Typography>
-            </ListItem>
-          )}
-        </>
-      );
-    }
-    else {
-      return <></>;
-    }
-  }
-
-  function Positions() {
+  if (Array.isArray(props.description)) {
     return (
       <>
-        {Object.keys(positions).map((position: string, index: number) =>
-          <div className={classes.positionLine} key={index}>
-            <Typography component='span' variant='overline' color='textPrimary' className={classes.position}>
-              {position}&emsp;
+        {props.description.map((line: string) =>
+          <ListItem key={line} className={classes.listItem}>
+            <Typography variant='body1' color='textPrimary'>
+              {line}
             </Typography>
-            <Typography component='span' variant='overline' gutterBottom color='textPrimary' className={classes.timePeriod}>
-              {positions[position]}
-            </Typography>
-          </div>
+          </ListItem>
         )}
       </>
     );
   }
+  else {
+    return <></>;
+  }
+}
+
+type InvolvementItemCardProps = {
+  involvementItem: InvolvementItem
+}
+function InvolvementItemCard(props: InvolvementItemCardProps): JSX.Element {
+  const { title, description, link, linkDescription, positions, icon, thumbnail } = props.involvementItem;
+  const classes = useStyles();
 
   return (
-    <Grid item sm={12} lg={6}>
+    <Grid item xs={12}>
       <div className={classes.involvementItem}>
         <div className={classes.involvementItemInner}>
           <div className={classes.topRow}>
             <div>
-              <img className={classes.img} alt={title + ' icon'} src={icon}></img>
+              <img className={classes.img} alt={title + ' icon'} src={icon} />
             </div>
             <div>
               <Link
@@ -126,18 +149,25 @@ function InvolvementItemCard(props: InvolvementItemCardProps):JSX.Element {
               </Link>
             </div>
             {link &&
-              <Tooltip title={linkDescription} aria-label={linkDescription}>
+              <Tooltip title={linkDescription ? linkDescription : ''} aria-label={linkDescription}>
                 <IconButton target='_blank' href={link}>
-                  <Link />
+                  <WebIcon className={classes.webIcon} />
                 </IconButton>
               </Tooltip>
             }
           </div>
-          <Positions />
+          <Positions positions={positions} />
           <List className={classes.descriptionList}>
-            <Description />
+            <Description description={description} />
           </List>
         </div>
+        {thumbnail &&
+          <div className={classes.thumbnailContainer}>
+            <React.Suspense fallback={<div />}>
+              <img src={thumbnail} className={classes.thumbnail} />
+            </React.Suspense>
+          </div>
+        }
       </div>
     </Grid>
   );

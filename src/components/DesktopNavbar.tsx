@@ -148,7 +148,7 @@ function DesktopNavbar(props: DesktopNavbarProps):JSX.Element {
             <div style={{ marginRight: 16, marginLeft: 16 }}>
               <NavBarItem to='/resume' text='Resume' />
             </div>
-            {/*< NavBarItem to='/contact' text='Contact' />*/}
+            < NavBarItem to='/minecraft' text='Minecraft' />
             <IconButton
               onClick={props.toggleDarkMode}
               className={classes.iconButton}

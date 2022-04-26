@@ -6,11 +6,9 @@ import { Section } from './Section';
 import { commonStyles } from '../../styling/commonStyles';
 
 const GitIcon = lazy(() => import('../../assets/skills/git-white'));
-const AwsIcon = lazy(() => import('../../assets/skills/aws-white'));
 const HtmlIcon = lazy(() => import('../../assets/skills/html5-css3-white'));
 const JavaIcon = lazy(() => import('../../assets/skills/java-white'));
 const ReactIcon = lazy(() => import('../../assets/skills/react-white'));
-const MySqlIcon = lazy(() => import('../../assets/skills/mysql-white'));
 const PythonIcon = lazy(() => import('../../assets/skills/python-white'));
 const JavascriptIcon = lazy(() => import('../../assets/skills/javascript-white'));
 const CppIcon = lazy(() => import('../../assets/skills/cpp-white'));
@@ -80,8 +78,6 @@ function SkillList():JSX.Element {
         <SkillItem skill="Java"><Suspense fallback={<div />}><JavaIcon /></Suspense></SkillItem>
         <SkillItem skill="Python"><Suspense fallback={<div />}><PythonIcon /></Suspense></SkillItem>
         <SkillItem skill="C++"><Suspense fallback={<div />}><CppIcon /></Suspense></SkillItem>
-        <SkillItem skill="AWS"><Suspense fallback={<div />}><AwsIcon /></Suspense></SkillItem>
-        <SkillItem skill="MySQL"><Suspense fallback={<div />}><MySqlIcon /></Suspense></SkillItem>
       </Grid>
     </Section>
   );

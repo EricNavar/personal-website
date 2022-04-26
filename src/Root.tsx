@@ -15,6 +15,7 @@ import { Home } from './screens/Home';
 import { DesktopNavbar } from './components/DesktopNavbar';
 import { MobileNavbar } from './components/MobileNavbar';
 import FullStory from 'react-fullstory';
+import { MinecraftPage } from './screens/MinecraftPage';
 const ResumePage = lazy(() => import('./screens/ResumePage').then((module) => ({
   default: module.ResumePage,
 })));
@@ -142,6 +143,9 @@ function Root():JSX.Element {
                   <Suspense fallback={<div />}>
                     <WorstWebsite />
                   </Suspense>
+                </Route>
+                <Route path='/minecraft'>
+                  <MinecraftPage />
                 </Route>
                 <Route path='*'>
                   <Redirect to='/' />

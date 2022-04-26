@@ -1,6 +1,7 @@
 import DCRFLogo from './../assets/projects/dcrf.webp';
 import InspirationPic from './../assets/projects/inspiration.webp';
 import SimplifunctionLogo from './../assets/projects/simplifunction.webp';
+import _32StacksLogo from './../assets/projects/32stacks.png';
 import WebIcon from '../assets/icons/web_fluent';
 import { Project } from '../commonTypes';
 
@@ -38,6 +39,25 @@ const projectData:Array<Project> = [
         hyperlink: 'https://www.simplifunction.com',
         icon: WebIcon
       },
+    ]
+  },
+  {
+    _id: 2,
+    tools: 'React, Socket.io',
+    headerText: '32Stacks',
+    subText: [['(Still in progress)'],
+      ['A version of Uno that is cooler and requires more strategy. Did not place at Swamphacks 2022 😎']
+    ],
+    image: _32StacksLogo,
+    altLabel: '32Stacks Logo',
+    ariaLabel: '32Stacks website',
+    links: [
+      {
+        label:'Website',
+        ariaLabel: '32Stacks Website',
+        hyperlink: 'https://32stacks.com/',
+        icon: WebIcon
+      }
     ]
   },
   {

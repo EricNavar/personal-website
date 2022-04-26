@@ -1,25 +1,17 @@
 import React from 'react';
-import { Button } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { Button, ButtonProps } from '@mui/material';
+import { styled } from '@mui/material/styles';
 
-const useStyles = makeStyles((theme) => ({
-  iconButton: {
-    '& svg': {
-      width: 32,
-      height: 32,
-      fill: theme.palette.text.primary
-    },
-    '& path': {
-      fill: theme.palette.text.primary
-    },
-    marginRight: 10
+const MyIconButton = styled(Button)<ButtonProps>(({ theme }) => ({
+  '& svg': {
+    width: 32,
+    height: 32,
+    fill: theme.palette.text.primary
   },
-  popover: {
-    pointerEvents: 'none',
+  '& path': {
+    fill: theme.palette.text.primary
   },
-  paper: {
-    padding: theme.spacing(1),
-  },
+  marginRight: 10
 }));
 
 type CardButtonLinkProps = {
@@ -30,19 +22,16 @@ type CardButtonLinkProps = {
 }
 
 function CardButtonLink(props: CardButtonLinkProps): JSX.Element {
-  const classes = useStyles();
-
   return (
-    <Button
+    <MyIconButton
       target="noopener"
       href={props.hyperlink}
       aria-label={props.ariaLabel}
-      className={classes.iconButton}
       startIcon={<props.icon />}
       variant='outlined'
     >
       {props.label}
-    </Button>
+    </MyIconButton>
   );
 }
 

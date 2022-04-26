@@ -1,46 +1,50 @@
 import React from 'react';
-import { Typography, Chip } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { Typography, TypographyProps, Chip } from '@mui/material';
 import { Section } from './Section';
-import { commonStyles } from '../../styling/commonStyles';
+import { backgroundGradient } from '../../styling/commonStyles';
+import { styled } from '@mui/material/styles';
 
-const useStyles = makeStyles({
-  education: {
-    '& *': {
-      transition: '.5s ease-in-out'
-    },
-    marginTop: 30,
+const EducationSection = styled(Section)({
+  '& *': {
+    transition: '.5s ease-in-out'
   },
-  courseworkItemsWrapper: {
-    marginTop: 16,
-    display: 'flex',
-    justifyContent: 'left',
-    flexWrap: 'wrap',
-    '& > *': {
-      margin: 4
-    },
-    position: 'relative'
-  },
-  courseworkItem: {
-    color: 'white',
-    border: 0,
-    boxShadow: 'rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px'
-  },
-  relevantCoursework: {
-    marginTop: 24
-  },
-  university: {
-    flexGrow: 1
-  },
-  gpa: {
-    marginRight: '4rem'
-  },
-  firstLine: {
-    display: 'flex'
-  }
+  marginTop: 30,
 });
 
-function CourseworkItems():JSX.Element {
+const CourseworkItemsWrapper = styled('div')({
+  marginTop: 16,
+  display: 'flex',
+  justifyContent: 'left',
+  flexWrap: 'wrap',
+  '& > *': {
+    margin: 4
+  },
+  position: 'relative'
+});
+
+const CourseworkItem = styled(Chip)({
+  color: 'white',
+  border: 0,
+  boxShadow: 'rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px'
+});
+
+const RelevantCousework = styled(Typography)<TypographyProps>(({ theme }) => ({
+  marginTop: 24
+}));
+
+const University = styled(Typography)({
+  flexGrow: 1
+});
+
+const GPA = styled('span')({
+  marginRight: '4rem'
+});
+
+const FirstLine = styled('div')({
+  display: 'flex'
+});
+
+function CourseworkItems(): JSX.Element {
   const coursework = [
     'Intro Software Engineering',
     'Project Methodologies',
@@ -50,56 +54,49 @@ function CourseworkItems():JSX.Element {
     'Human-Computer Interaction',
     'UX Design'
   ];
-  const classes = useStyles();
-  const commonClasses = commonStyles();
   return (
     <React.Fragment>
       {coursework.map((course: string) =>
-        <Chip key={course} label={course} className={`${classes.courseworkItem} ${commonClasses.backgroundGradient}`} />
+        <CourseworkItem key={course} label={course} sx={backgroundGradient} />
       )}
     </React.Fragment>
   );
 }
 
-function Education():JSX.Element {
-  const classes = useStyles();
-
+function Education(): JSX.Element {
   return (
-    <Section title='Education' className={classes.education}>
-      <>
-        <div className={classes.firstLine}>
-          <Typography component='span' variant='h5' color='textPrimary' className={classes.university}>
-            University of Florida
+    <EducationSection title='Education'>
+      <FirstLine>
+        <University variant='h5' color='textPrimary'>
+          University of Florida
+        </University>
+        <GPA>
+          <Typography component='span' variant='body1' color='primary'>
+            <b>GPA:</b>
           </Typography>
-          <span className={classes.gpa}>
-            <Typography component='span' variant='body1' color='primary'>
-              <b>GPA:</b>
-            </Typography>
-            <Typography component='span' variant='body1' color='textPrimary'>
-              &nbsp;3.89
-            </Typography>
-          </span>
-        </div>
-        <Typography component='span' variant='body1' color='textPrimary'>
-          B.S. Computer Science
-        </Typography>
-        <Typography component='span' variant='body1' color='textSecondary'>
-          &nbsp;| Digital Arts Minor
-        </Typography>
-        <br />
-        <Typography
-          component='p'
-          variant='h6'
-          color='textPrimary'
-          className={classes.relevantCoursework}
-        >
-          Relevant Coursework:
-        </Typography>
-        <div className={classes.courseworkItemsWrapper}>
-          <CourseworkItems />
-        </div>
-      </>
-    </Section>
+          <Typography component='span' variant='body1' color='textPrimary'>
+            &nbsp;3.89
+          </Typography>
+        </GPA>
+      </FirstLine>
+      <Typography component='span' variant='body1' color='textPrimary'>
+        B.S. Computer Science
+      </Typography>
+      <Typography component='span' variant='body1' color='textSecondary'>
+        &nbsp;| Digital Arts Minor
+      </Typography>
+      <br />
+      <RelevantCousework
+        component='p'
+        variant='h6'
+        color='textPrimary'
+      >
+        Relevant Coursework:
+      </RelevantCousework>
+      <CourseworkItemsWrapper>
+        <CourseworkItems />
+      </CourseworkItemsWrapper>
+    </EducationSection >
   );
 }
 

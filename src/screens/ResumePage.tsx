@@ -1,6 +1,6 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { Grid } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 //local files
 import { SkillList } from '../components/resumePage/SkillList';
 import { Education } from '../components/resumePage/Education';
@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   }
 }));
 
-function ResumePage():JSX.Element {
+function ResumePage(): JSX.Element {
   React.useEffect(() => {
     document.title = 'Resume | Eric Navar';
     window.scrollTo({

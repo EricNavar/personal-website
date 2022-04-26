@@ -1,6 +1,6 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { Typography } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles({
   section: {
@@ -17,7 +17,7 @@ const useStyles = makeStyles({
     marginBottom: 24
   },
   title: {
-    fontWeight: 'bold',
+    fontWeight: 'bold !important',
     fontSize: '2rem'
   },
   maxContent: {

@@ -1,15 +1,16 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { Typography, List, IconButton, Link, Grid, Tooltip, ListItem } from '@material-ui/core';
+import { makeStyles } from '@mui/styles';
+import { Typography, List, IconButton, Link, Grid, Tooltip, ListItem } from '@mui/material';
 import { InvolvementItem } from '../../commonTypes';
 import WebIcon from '../../assets/icons/web_fluent';
+import { Theme } from '@mui/material/styles';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme: Theme) => ({
   involvementItem: {
     boxShadow: 'rgba(0,0,0, 0.1) 0px 8px 24px',
     overflow: 'hidden',
     borderRadius: 4,
-    background: theme.palette.type === 'light' ? theme.palette.grey['800'] : `linear-gradient(${theme.palette.info.light} 0%, ${theme.palette.info.dark} 100%)`,
+    background: theme.palette.mode === 'light' ? theme.palette.grey['800'] : `linear-gradient(${theme.palette.info.light} 0%, ${theme.palette.info.dark} 100%)`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundAttachment: 'fixed',

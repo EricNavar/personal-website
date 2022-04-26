@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Snackbar, IconButton } from '@material-ui/core';
+import { Button, Snackbar, IconButton } from '@mui/material';
 
 function SimpleSnackBar(): JSX.Element {
   const [open, setOpen] = React.useState(true);

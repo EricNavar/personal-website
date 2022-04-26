@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Box, Paper, Fade, NoSsr } from '@material-ui/core';
+import { Typography, Box, Paper, Fade, NoSsr } from '@mui/material';
 import { createStyles, makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 //local files
 import HandshakePhoto from './../assets/other/handshake.jpg';
@@ -90,7 +90,7 @@ const useStyles = makeStyles(() =>
   },
   ));
 
-function WorstWebsite():JSX.Element {
+function WorstWebsite(): JSX.Element {
   const classes = useStyles();
 
   function JavaScriptIsPoison() {

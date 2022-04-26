@@ -1,6 +1,6 @@
 import React from 'react';
-import { List, Slide, AppBar, Toolbar, ListItem, IconButton, ListItemIcon, ListItemText, SwipeableDrawer, useScrollTrigger } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { List, Slide, AppBar, Toolbar, ListItem, IconButton, ListItemIcon, ListItemText, SwipeableDrawer, useScrollTrigger } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 import { useHistory, useRouteMatch } from 'react-router-dom';
 
 //icons
@@ -62,7 +62,7 @@ type SideBarItemProps = {
   text: string,
   link: string,
   icon: JSX.Element,
-  setOpen: (open:boolean)=>void
+  setOpen: (open: boolean) => void
 }
 
 function SideBarItem(props: SideBarItemProps) {
@@ -89,7 +89,7 @@ function SideBarItem(props: SideBarItemProps) {
 
 type MobileNavbarProps = {
   darkMode: boolean,
-  toggleDarkMode: (darkMode:boolean)=>void
+  toggleDarkMode: (darkMode: boolean) => void
 }
 
 function MobileNavbar(props: MobileNavbarProps): JSX.Element {

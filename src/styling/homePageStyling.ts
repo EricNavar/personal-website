@@ -1,18 +1,10 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/styles';
+import { Theme } from '@mui/material/styles';
+import { Paper, Button, ButtonProps, Grid, Typography, TypographyProps } from '@mui/material';
+import { styled } from '@mui/material/styles';
 
-export const pageStyles = makeStyles(theme => ({
-  blogs: {
-    marginTop: 40,
-    marginBottom: 40,
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    [theme.breakpoints.down('xs')]: {
-      maxWidth: '85vw',
-    },
-    [theme.breakpoints.up('sm')]: {
-      maxWidth: '72.5vw',
-    }
-  },
+
+export const pageStyles = makeStyles((theme: Theme) => ({
   popup: {
     width: '80%',
     height: '80%'
@@ -28,14 +20,21 @@ export const pageStyles = makeStyles(theme => ({
   }
 }));
 
-export const cardButtonStyles = makeStyles((theme) => ({
-  itemWrapper: {
-    position: 'relative',
-    borderRadius: 8,
-    height: '100%',
-    maxWidth: '100%',
-    display: 'flex'
-  },
+export const ItemWrapper = styled(Paper)({
+  position: 'relative',
+  borderRadius: 8,
+  height: '100%',
+  maxWidth: '100%',
+  display: 'flex'
+});
+
+export const HeaderText = styled(Typography)<TypographyProps>(({ theme }) => ({
+  textAlign: 'left',
+  fontWeight: 'bold !important',
+  color: theme.palette.primary.main
+}));
+
+export const cardButtonStyles = makeStyles({
   item: {
     padding: '24px 36px',
     width: '100%'
@@ -48,10 +47,6 @@ export const cardButtonStyles = makeStyles((theme) => ({
     '&:active': {
       color: '#000000'
     }
-  },
-  title: {
-    textAlign: 'left',
-    fontWeight: 'bold',
   },
   underlined: {
     backgroundColor: '#6ac1c4'
@@ -82,88 +77,53 @@ export const cardButtonStyles = makeStyles((theme) => ({
   cardHeaderText: {
     flexGrow: 1
   },
-  iconButton: {
-    width: 32,
-    height: 32,
-    '& svg': {
-      width: 32,
-      height: 32,
-      fill: theme.palette.text.primary
-    },
-    '& path': {
-      fill: theme.palette.text.primary
-    }
+  invisibleHeader: {
+    height: 0,
+    overflow: 'hidden',
+    margin: 0
+  }
+});
+
+export const HomeMain = styled('section')(({ theme }) => ({
+  padding: 24,
+  justifyContent: 'center',
+  display: 'grid',
+  background: theme.palette.background.default,
+  minHeight: 'calc(100vh - 112px)',
+  [theme.breakpoints.down('xl')]: {
+    width: '85%',
+    paddingLeft: '7.5%',
+    paddingRight: '7.5%',
   },
-  popover: {
-    pointerEvents: 'none',
+  [theme.breakpoints.down('lg')]: {
+    width: '75%',
+    paddingLeft: '12.5%',
+    paddingRight: '12.5%',
   },
-  paper: {
-    padding: theme.spacing(1),
+  [theme.breakpoints.down('xs')]: {
+    width: '88%',
+    paddingLeft: '6%',
+    paddingRight: '6%',
   },
 }));
 
-export const homePageStyles = makeStyles((theme) => ({
-  homePageTitle: {
-    position: 'relative',
-    textDecoration: 'none',
-    marginBottom: 14,
-    fontSize: 32,
-    width: 'max-width',
-    margin: 'auto',
-    '&::after': {
-      width: '100%',
-      position: 'absolute',
-      content: '""',
-      right: 0,
-      left: 0,
-      bottom: '-8px',
-      borderRadius: 1,
-      height: '3px',
-      background: '#09203f'
-    }
-  },
+export const CardButtonContainer = styled(Grid)(({ theme }) => ({
+  [theme.breakpoints.down('xs')]: {
+    width: '100%'
+  }
+}));
+
+export const homePageStyles = makeStyles((theme: Theme) => ({
   section: {
     marginTop: 20,
     marginBottom: 8
   },
-  home: {
-    padding: 24,
-    justifyContent: 'center',
-    display: 'grid',
-    background: theme.palette.background.default,
-    minHeight: 'calc(100vh - 112px)',
-    [theme.breakpoints.up('xl')]: {
-      width: '85%',
-      paddingLeft: '7.5%',
-      paddingRight: '7.5%',
-    },
-    [theme.breakpoints.down('lg')]: {
-      width: '75%',
-      paddingLeft: '12.5%',
-      paddingRight: '12.5%',
-    },
-    [theme.breakpoints.down('xs')]: {
-      width: '88%',
-      paddingLeft: '6%',
-      paddingRight: '6%',
-    },
-  },
   divider: {
     width: '80%'
   },
-  sectionTitle: {
-    paddingTop: 8,
-    marginBottom: 8,
-    fontSize: '18px !important',
-  },
   topicName: {
-    marginTop: 20,
-    marginBottom: 20
-  },
-  cardButtonContainer: {
-    [theme.breakpoints.down('xs')]: {
-      width: '100%'
-    }
+    marginTop: '20px !important',
+    marginBottom: '20px !important'
   },
   disclaimer: {
     backgroundColor: '#fff7cf',
@@ -174,8 +134,9 @@ export const homePageStyles = makeStyles((theme) => ({
     marginBottom: 40
   },
   jokeProjectLink: {
-    marginRight: 20,
+    marginRight: '20px !important',
     flexWrap: 'nowrap',
-    display: 'inline-flex'
+    display: 'inline-flex',
+    textDecoration: 'none !important'
   }
 }));

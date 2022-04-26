@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Typography, Hidden, Link } from '@material-ui/core';
+import { Grid, Typography, Hidden, Link } from '@mui/material';
 //local files
 import GitHubIcon from './../assets/icons/github.svg';
 import LinkedInIcon from './../assets/icons/linkedin.svg';
@@ -7,10 +7,10 @@ import { PersonalStatement } from '../components/resumePage/PersonalStatement';
 import { CodingProjectMobile } from '../components/home/CodingProjectMobile';
 import { CodingProjectDesktop } from '../components/home/CodingProjectDesktop';
 import { projectData } from '../data/projectData';
-import { homePageStyles } from '../styling/homePageStyling';
+import { homePageStyles, HomeMain, CardButtonContainer } from '../styling/homePageStyling';
 import { SocialLink } from '../components/home/SocialLink';
 
-function Home():JSX.Element {
+function Home(): JSX.Element {
   React.useEffect(() => {
     document.title = 'Eric Navar';
     window.scrollTo({
@@ -19,9 +19,8 @@ function Home():JSX.Element {
     });
   }, []);
   const classes = homePageStyles();
-
   return (
-    <div className={classes.home}>
+    <HomeMain>
       <PersonalStatement />
       <section id="project-list" className={classes.section}>
         <Typography color='textPrimary' component="h2" variant="h4" className={classes.topicName}>
@@ -30,18 +29,18 @@ function Home():JSX.Element {
         <Hidden mdUp>
           <Grid container spacing={6}>
             {projectData.map(project => (
-              <Grid key={project._id} item xs={12} className={classes.cardButtonContainer}>
+              <CardButtonContainer item key={project._id} xs={12}>
                 <CodingProjectMobile project={project} />
-              </Grid>
+              </CardButtonContainer>
             ))}
           </Grid>
         </Hidden>
         <Hidden smDown>
           <Grid container spacing={6}>
             {projectData.map(project => (
-              <Grid item key={project._id} xs={12} xl={6} className={classes.cardButtonContainer}>
+              <CardButtonContainer item key={project._id} xs={12} xl={6}>
                 <CodingProjectDesktop project={project} />
-              </Grid>
+              </CardButtonContainer>
             ))}
           </Grid>
         </Hidden>
@@ -84,7 +83,7 @@ function Home():JSX.Element {
           <SocialLink label="Github" link="https://www.github.com/ericnavar" icon={GitHubIcon} circle={true} />
         </Grid>
       </section>
-    </div>
+    </HomeMain>
   );
 }
 

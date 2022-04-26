@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import { Link, Typography } from '@material-ui/core';
+import { Link, Typography } from '@mui/material';
 import SvgIcon, { SvgIconProps } from '@material-ui/core/SvgIcon';
 
 function LightBulbIcon(props: SvgIconProps) {

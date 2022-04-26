@@ -1,6 +1,6 @@
 import React from 'react';
 import Carousel from 'react-material-ui-carousel';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/styles';
 import Slide1 from './../../assets/ux/common_ground/explore_page.webp';
 import Slide2 from './../../assets/ux/common_ground/wheel.webp';
 import Slide3 from './../../assets/ux/common_ground/restaurant_view.webp';
@@ -102,7 +102,7 @@ function Photo(props: PhotoProps) {
   );
 }
 
-function Mockup():JSX.Element {
+function Mockup(): JSX.Element {
   const classes = useStyles();
   return (
     <div className={classes.mockup}>

@@ -1,7 +1,8 @@
 import React from 'react';
-import { Typography, Paper, Button } from '@material-ui/core';
+import { Typography, Button } from '@mui/material';
+import { useTheme } from '@material-ui/core/styles';
 //local files
-import { cardButtonStyles } from '../../styling/UXPortfolioStyling';
+import { cardButtonStyles, ItemWrapper } from '../../styling/homePageStyling';
 
 type UXProjectProps = {
   headerText: string,
@@ -13,12 +14,12 @@ type UXProjectProps = {
   prototypeLink: string
 }
 
-function UXProject(props: UXProjectProps):JSX.Element {
+function UXProject(props: UXProjectProps): JSX.Element {
   const { headerText, subText, image, wireframeLink, userflowLink, finalReportLink, prototypeLink } = props;
-  const classes = cardButtonStyles();
+  const classes = cardButtonStyles(useTheme());
 
   return (
-    <Paper className={classes.itemWrapper} elevation={4}>
+    <ItemWrapper elevation={4}>
       <div className={classes.item}>
         <div className={classes.cardHeader}>
           <div className={classes.cardHeaderText}>
@@ -59,7 +60,7 @@ function UXProject(props: UXProjectProps):JSX.Element {
           </Button>
         }
       </div>
-    </Paper>
+    </ItemWrapper>
   );
 }
 

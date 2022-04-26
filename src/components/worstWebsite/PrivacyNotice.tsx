@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Dialog } from '@material-ui/core';
+import { Button, Dialog } from '@mui/material';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() =>
@@ -19,7 +19,7 @@ const useStyles = makeStyles(() =>
   }
   ));
 
-function PrivacyNotice():JSX.Element {
+function PrivacyNotice(): JSX.Element {
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
     setOpen(true);

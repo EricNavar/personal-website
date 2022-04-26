@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, ButtonBase, Grid, IconButton } from '@material-ui/core';
+import { makeStyles, ButtonBase, Grid, IconButton } from '@mui/material';
 
 const useStyles = makeStyles(theme => ({
   footer: {
@@ -76,7 +76,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function Footer():JSX.Element {
+function Footer(): JSX.Element {
   const classes = useStyles();
 
   const LogoButton = () => {

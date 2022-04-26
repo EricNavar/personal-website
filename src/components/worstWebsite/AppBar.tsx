@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, Toolbar, IconButton, Typography, InputBase } from '@material-ui/core';
+import { AppBar, Toolbar, IconButton, Typography, InputBase } from '@mui/material';
 import { createStyles, fade, Theme, makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-function MyAppBar(): JSX.ELement {
+function MyAppBar(): JSX.Element {
   const classes = useStyles();
 
   return (

@@ -1,9 +1,9 @@
 import React, { Suspense, lazy } from 'react';
-import { Typography, Paper, Grid } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { Typography, Paper, Grid } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 //local files
 import { Section } from './Section';
-import { commonStyles } from '../../styling/commonStyles';
+import { backgroundGradient } from '../../styling/commonStyles';
 
 const GitIcon = lazy(() => import('../../assets/skills/git-white'));
 const HtmlIcon = lazy(() => import('../../assets/skills/html5-css3-white'));
@@ -45,10 +45,9 @@ type SkillItemProps = {
 function SkillItem(props: SkillItemProps) {
   const { children, skill } = props;
   const classes = useStyles();
-  const commonClasses = commonStyles();
   return (
     <Grid item xs={4} className={classes.gridItem}>
-      <Paper className={`${classes.paper} ${commonClasses.backgroundGradient}`} elevation={3} >
+      <Paper className={classes.paper} sx={backgroundGradient} elevation={3} >
         {children}
         <Typography
           variant='body1'
@@ -61,7 +60,7 @@ function SkillItem(props: SkillItemProps) {
   );
 }
 
-function SkillList():JSX.Element {
+function SkillList(): JSX.Element {
   return (
     <Section title="Skills">
       <Grid

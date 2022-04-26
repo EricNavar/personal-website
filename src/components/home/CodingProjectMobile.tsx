@@ -1,9 +1,10 @@
 import React, { lazy, Suspense } from 'react';
-import { Typography, Paper } from '@material-ui/core';
+import { Typography } from '@mui/material';
 //local files
 import { CardButtonLink } from './CardButtonLink';
-import { cardButtonStyles } from '../../styling/homePageStyling';
+import { cardButtonStyles, ItemWrapper } from '../../styling/homePageStyling';
 import { Project, LinkProps } from '../../commonTypes';
+import { useTheme } from '@material-ui/core/styles';
 const CodingProjectThumbnail = lazy(() => import('./CodingProjectThumbnail').then((module) => ({
   default: module.CodingProjectThumbnail,
 })));
@@ -12,12 +13,12 @@ type CodingProjectMobileProps = {
   project: Project
 };
 
-function CodingProjectMobile(props: CodingProjectMobileProps):JSX.Element {
+function CodingProjectMobile(props: CodingProjectMobileProps): JSX.Element {
   const { headerText, tools, subText, image, altLabel, ariaLabel, links } = props.project;
-  const classes = cardButtonStyles();
+  const classes = cardButtonStyles(useTheme());
 
   return (
-    <Paper className={classes.itemWrapper} elevation={4}>
+    <ItemWrapper elevation={4}>
       <div className={classes.item}>
         <Suspense fallback={<div className={classes.loadingImage} />}>
           <CodingProjectThumbnail image={image} altLabel={altLabel} />
@@ -48,7 +49,7 @@ function CodingProjectMobile(props: CodingProjectMobileProps):JSX.Element {
         </Typography>
         {links.map((link: LinkProps, value: number) => <CardButtonLink key={`link-${value}`} {...link} />)}
       </div>
-    </Paper>
+    </ItemWrapper>
   );
 }
 

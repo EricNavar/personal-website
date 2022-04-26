@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from 'react';
-import { Typography, Paper } from '@material-ui/core';
+import { Typography } from '@mui/material';
 //local files
-import { cardButtonStyles } from '../../styling/homePageStyling';
+import { cardButtonStyles, ItemWrapper, HeaderText } from '../../styling/homePageStyling';
 import { CardButtonLink } from './CardButtonLink';
 import { Project, LinkProps } from '../../commonTypes';
 const CodingProjectThumbnail = lazy(() => import('./CodingProjectThumbnail').then((module) => ({
@@ -17,7 +17,7 @@ function CodingProjectDesktop(props: CodingProjectDesktopProps): JSX.Element {
   const classes = cardButtonStyles();
 
   return (
-    <Paper className={classes.itemWrapper} elevation={4}>
+    <ItemWrapper elevation={4}>
       <div className={classes.photoWrapper}>
         <Suspense fallback={<div className={classes.loadingImage} />}>
           <CodingProjectThumbnail image={image} altLabel={altLabel} />
@@ -29,15 +29,14 @@ function CodingProjectDesktop(props: CodingProjectDesktopProps): JSX.Element {
             <Typography variant="overline" display="block" color='textSecondary'>
               {tools}
             </Typography>
-            <Typography
+            <HeaderText
               className={classes.title}
               component="span"
               variant="h5"
               aria-label={ariaLabel}
-              color='primary'
             >
               {headerText}
-            </Typography>
+            </HeaderText>
           </div>
         </div>
         <Typography color='textPrimary' variant='body1' className={classes.subTextContainer}>
@@ -54,7 +53,7 @@ function CodingProjectDesktop(props: CodingProjectDesktopProps): JSX.Element {
         </Typography>
         {links.map((link: LinkProps, value: number) => <CardButtonLink key={`link-${value}`} {...link} />)}
       </div>
-    </Paper>
+    </ItemWrapper>
   );
 }
 

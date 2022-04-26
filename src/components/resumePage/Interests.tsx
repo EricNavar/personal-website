@@ -1,9 +1,10 @@
 import React from 'react';
-import { Typography, List } from '@material-ui/core';
+import { Typography, List } from '@mui/material';
 import { Section } from './Section';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/styles';
+import { Theme } from '@mui/material/styles';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme: Theme) => ({
   descriptionList: {
     paddingLeft: 12,
     listStyle: 'initial'
@@ -16,7 +17,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function Interests():JSX.Element {
+function Interests(): JSX.Element {
   const classes = useStyles();
   return (
     <Section title='Interests'>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
+import { Grid } from '@mui/material';
 //local files
 import { Section } from './Section';
 import { InvolvementItemCard } from './InvolvementItemCard';

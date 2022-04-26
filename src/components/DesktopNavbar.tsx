@@ -1,13 +1,31 @@
 import React from 'react';
-import { AppBar, Button, Toolbar, useMediaQuery, makeStyles, useScrollTrigger, IconButton } from '@material-ui/core';
+import { AppBar, Button, Toolbar, useMediaQuery, useScrollTrigger, IconButton } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 import SunIcon from '@material-ui/icons/Brightness5';
 import MoonIcon from '@material-ui/icons/Brightness2';
 import { useTheme } from '@material-ui/core/styles';
 import { Link, useRouteMatch } from 'react-router-dom';
+import { styled, Theme } from '@mui/material/styles';
 
 //citation: https://material-ui.com/components/app-bar/#hide-app-bar
 
-const useStyles = makeStyles(theme => ({
+const scrolled = (theme: Theme) => ({
+  background: '#09203f',
+  '& a': {
+    color: 'white'
+  },
+  '& use': {
+    fill: 'white'
+  }
+});
+
+//when the navbar is at the top of the screen and is navy blue
+const top = (theme: Theme) => ({
+  background: theme.palette.background.default,
+  color: theme.palette.text.primary
+});
+
+const useStyles = makeStyles({
   navbar: {
     height: 64,
   },
@@ -15,22 +33,6 @@ const useStyles = makeStyles(theme => ({
     paddingLeft: 12,
     paddingRight: 12,
     justifyContent: 'center'
-  },
-  scrolled: {
-    background: '#09203f',
-    '& span': {
-      color: 'white'
-    },
-    '& use': {
-      fill: 'white'
-    }
-  },
-  //when the navbar is at the top of the screen and is navy blue
-  top: {
-    background: theme.palette.background.default,
-    '& span': {
-      color: theme.palette.text.primary
-    }
   },
   logoContainer: {
     flexGrow: 0
@@ -62,12 +64,13 @@ const useStyles = makeStyles(theme => ({
     maxWidth: 'calc(100% - 290px)'
   },
   activeTab: {
-    backgroundColor: '#d5e4ff',
-    '& span': {
-      color: 'black'
-    }
+    backgroundColor: '#d5e4ff !important',
+    color: 'black !important'
   },
-  iconButton: {
+});
+
+const MyIconButton = styled(IconButton)(
+  {
     position: 'absolute',
     top: 8,
     right: 0,
@@ -79,15 +82,15 @@ const useStyles = makeStyles(theme => ({
     '&:active': {
       boxShadow: 'none'
     },
-  },
-}));
-
+  }
+);
 
 type ElevatorScrollProps = {
   children: JSX.Element,
 }
-function ElevationScroll(props: ElevatorScrollProps):JSX.Element {
+function ElevationScroll(props: ElevatorScrollProps): JSX.Element {
   const classes = useStyles();
+  console.log(useTheme().palette.background.default);
 
   const { children } = props;
   // Note that you normally won't need to set the window ref as useScrollTrigger
@@ -100,7 +103,8 @@ function ElevationScroll(props: ElevatorScrollProps):JSX.Element {
   });
 
   return React.cloneElement(children, {
-    className: `${classes.navbar} ${trigger ? classes.scrolled : classes.top}`,
+    className: classes.navbar,
+    sx: trigger ? scrolled : top,
     elevation: trigger ? 2 : 0
   });
 }
@@ -110,7 +114,7 @@ type NavBarItemProps = {
   to: string
 }
 
-function NavBarItem(props: NavBarItemProps):JSX.Element {
+function NavBarItem(props: NavBarItemProps): JSX.Element {
   const classes = useStyles();
   const { text, to } = props;
   const isSm = useMediaQuery(useTheme().breakpoints.down('sm'));
@@ -120,11 +124,13 @@ function NavBarItem(props: NavBarItemProps):JSX.Element {
   });
 
   return (
-    <Button component={Link}
+    <Button
+      component={Link}
       to={to}
       className={match ? classes.activeTab : ''}
       size={isSm ? 'small' : 'medium'}
-      color='primary'>
+      color='primary'
+    >
       {text}
     </Button>
   );
@@ -132,9 +138,9 @@ function NavBarItem(props: NavBarItemProps):JSX.Element {
 
 type DesktopNavbarProps = {
   darkMode: boolean,
-  toggleDarkMode: (darkMode:boolean)=>void
+  toggleDarkMode: (darkMode: boolean) => void
 }
-function DesktopNavbar(props: DesktopNavbarProps):JSX.Element {
+function DesktopNavbar(props: DesktopNavbarProps): JSX.Element {
   const classes = useStyles();
 
   //returns either the login/register button or the logout button
@@ -149,12 +155,9 @@ function DesktopNavbar(props: DesktopNavbarProps):JSX.Element {
               <NavBarItem to='/resume' text='Resume' />
             </div>
             < NavBarItem to='/minecraft' text='Minecraft' />
-            <IconButton
-              onClick={props.toggleDarkMode}
-              className={classes.iconButton}
-            >
+            <MyIconButton onClick={props.toggleDarkMode}>
               {props.darkMode ? <SunIcon /> : <MoonIcon />}
-            </IconButton>
+            </MyIconButton>
           </Toolbar>
         </AppBar>
       </ElevationScroll>

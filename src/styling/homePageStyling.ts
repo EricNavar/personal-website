@@ -1,5 +1,5 @@
 import { makeStyles } from '@mui/styles';
-import { Paper, Grid, Typography, TypographyProps } from '@mui/material';
+import { Paper, Grid, Typography, TypographyProps, Hidden } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 export const ItemWrapper = styled(Paper)({
@@ -66,12 +66,13 @@ export const cardButtonStyles = makeStyles({
   }
 });
 
-export const HomeMain = styled('section')(({ theme }) => ({
+export const HomeMain = styled('main')(({ theme }) => ({
   padding: 24,
   justifyContent: 'center',
   display: 'grid',
-  background: theme.palette.background.default,
   minHeight: 'calc(100vh - 112px)',
+  position: 'relative',
+  overflow: 'hidden',
   [theme.breakpoints.down('xl')]: {
     width: '85%',
     paddingLeft: '7.5%',
@@ -88,6 +89,10 @@ export const HomeMain = styled('section')(({ theme }) => ({
     paddingRight: '6%',
   },
 }));
+
+export const HomeInner = styled('div')(({ theme }) => (
+  theme.background
+));
 
 export const CardButtonContainer = styled(Grid)(({ theme }) => ({
   [theme.breakpoints.down('xs')]: {
@@ -122,3 +127,5 @@ export const homePageStyles = makeStyles({
     textDecoration: 'none !important'
   }
 });
+
+

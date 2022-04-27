@@ -7,7 +7,7 @@ import { PersonalStatement } from '../components/resumePage/PersonalStatement';
 import { CodingProjectMobile } from '../components/home/CodingProjectMobile';
 import { CodingProjectDesktop } from '../components/home/CodingProjectDesktop';
 import { projectData } from '../data/projectData';
-import { homePageStyles, HomeMain, CardButtonContainer } from '../styling/homePageStyling';
+import { homePageStyles, HomeMain, HomeInner, CardButtonContainer } from '../styling/homePageStyling';
 import { SocialLink } from '../components/home/SocialLink';
 
 function Home(): JSX.Element {
@@ -83,6 +83,7 @@ function Home(): JSX.Element {
           <SocialLink label="Github" link="https://www.github.com/ericnavar" icon={GitHubIcon} circle={true} />
         </Grid>
       </section>
+      <HomeInner></HomeInner>
     </HomeMain>
   );
 }

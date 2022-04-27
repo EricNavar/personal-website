@@ -8,7 +8,8 @@ declare module '@mui/material/styles' {
       backgroundPosition: string;
       backgroundAttachment: string;
       backdropFilter: string;
-    }
+    },
+    background?: any
   }
   // allow configuration using `createTheme`
   interface ThemeOptions {
@@ -18,7 +19,8 @@ declare module '@mui/material/styles' {
       backgroundPosition?: string;
       backgroundAttachment?: string;
       backdropFilter?: string;
-    }
+    },
+    background?: any
   }
 }
 
@@ -125,5 +127,19 @@ export const frostTheme = createTheme({
     backgroundPosition: 'center',
     backgroundAttachment: 'fixed',
     backdropFilter: 'blur(20px)'
+  },
+  background: {
+    width: '300%',
+    height: '300%',
+    backgroundSize: '100% 100%',
+    position: 'absolute',
+    animation: 'GradientBackground 5s ease infinite',
+    background: 'linear-gradient(0.33turn, #f6a192, #ffd9df, #f6c492, #f6a192)',
+    zIndex: -1,
+    '@keyframes GradientBackground': {
+      '0%': { transform: 'translate(0, -50%);' },
+      '50%': { transform: 'translate(-60%, 0);' },
+      '100%': { transform: 'translate(0, -50%);' }
+    }
   }
 });

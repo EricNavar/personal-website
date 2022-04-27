@@ -22,11 +22,12 @@ const CourseworkItemsWrapper = styled('div')({
   position: 'relative'
 });
 
-const CourseworkItem = styled(Chip)({
+const CourseworkItem = styled(Chip)(({ theme }) => ({
   color: 'white',
   border: 0,
-  boxShadow: 'rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px'
-});
+  boxShadow: 'rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px',
+  ...theme.gradientPaper
+}));
 
 const RelevantCousework = styled(Typography)<TypographyProps>({
   marginTop: 24
@@ -58,7 +59,7 @@ function CourseworkItems(): JSX.Element {
   return (
     <React.Fragment>
       {coursework.map((course: string) =>
-        <CourseworkItem key={course} label={course} sx={theme.paper} />
+        <CourseworkItem key={course} label={course} />
       )}
     </React.Fragment>
   );

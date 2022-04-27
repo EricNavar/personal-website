@@ -14,11 +14,12 @@ const PersonalStatementHeader = styled(Typography)({
 
 const TextContainer = styled(Paper)<PaperProps>(({ theme }) => ({
   maxWidth: 450,
-  color: theme.palette.primary.contrast,
+  color: theme.palette.primary.contrastText,
   marginTop: 16,
   padding: 16,
   transition: 'background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
-  boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px'
+  boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
+  ...theme.gradientPaper
 }));
 
 const PersonalStatementWrapper = styled(Grid)({
@@ -36,7 +37,6 @@ const ProfilePicWrapper = styled('div')({
 });
 
 function PersonalStatement(): JSX.Element {
-  const theme = useTheme();
   return (
     <PersonalStatementWrapper
       container
@@ -50,7 +50,7 @@ function PersonalStatement(): JSX.Element {
           <ProfilePicture />
         </Suspense>
       </ProfilePicWrapper>
-      <TextContainer sx={theme.paper} elevation={3}>
+      <TextContainer elevation={3}>
         <PersonalStatementHeader variant='body1'>
           <b>Hi, I&apos;m Eric Navar</b>
         </PersonalStatementHeader>

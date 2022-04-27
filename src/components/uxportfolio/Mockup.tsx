@@ -20,40 +20,24 @@ const CarouselContainer = styled('div')({
   marginTop: '5.25%',
 });
 
+const StyledCarousel = styled(Carousel)({
+  position: 'static',
+  //right button wrapper
+  '& div:nth-of-type(2)': {
+    right: -90
+  },
+  //left button wrapper
+  '& div:nth-of-type(3)': {
+    left: -90
+  }
+});
+
+const StyledImg = styled('img')({
+  width: '100%',
+  height: '100%'
+});
+
 const useStyles = makeStyles({
-  description: {
-    margin: 0,
-    color: 'white'
-  },
-  descriptionContainer: {
-    background: 'linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.60) 15%, rgba(0,0,0,0.60) 85%, rgba(0,0,0,0) 100%)',
-    textAlign: 'center',
-    paddingTop: 8,
-    paddingBottom: 8,
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%'
-  },
-  item: {
-    maxWidth: '100vw',
-    width: '100%'
-  },
-  photo: {
-    width: '100%',
-    height: '100%'
-  },
-  carousel: {
-    position: 'static',
-    //right button wrapper
-    '& div:nth-of-type(2)': {
-      right: -90
-    },
-    //left button wrapper
-    '& div:nth-of-type(3)': {
-      left: -90
-    }
-  },
   mockup: {
     width: 500,
     position: 'relative',
@@ -78,17 +62,16 @@ function PrototypeCarousel(): JSX.Element {
   const classes = useStyles();
   return (
     <CarouselContainer>
-      <Carousel
+      <StyledCarousel
         autoPlay={true}
         animation='slide'
         timeout={300}
         interval={5000}
         navButtonsAlwaysVisible={true}
         cycleNavigation={true}
-        className={classes.carousel}
       >
         {items.map((item, i) => <Photo key={i} src={item.photo} />)}
-      </Carousel>
+      </StyledCarousel>
     </CarouselContainer>
   );
 }
@@ -100,7 +83,7 @@ type PhotoProps = {
 function Photo(props: PhotoProps) {
   const classes = useStyles();
   return (
-    <img alt='' src={props.src} className={classes.photo} />
+    <StyledImg alt='' src={props.src} />
   );
 }
 

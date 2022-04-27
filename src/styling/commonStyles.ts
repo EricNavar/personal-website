@@ -2,24 +2,14 @@ import { createTheme } from '@mui/material/styles';
 
 declare module '@mui/material/styles' {
   interface Theme {
-    paper: {
-      backgroundImage: string;
-      backgroundSize: string;
-      backgroundPosition: string;
-      backgroundAttachment: string;
-      backdropFilter: string;
-    },
+    paper: any,
+    gradientPaper: any,
     background?: any
   }
   // allow configuration using `createTheme`
   interface ThemeOptions {
-    paper?: {
-      backgroundImage?: string;
-      backgroundSize?: string;
-      backgroundPosition?: string;
-      backgroundAttachment?: string;
-      backdropFilter?: string;
-    },
+    paper?: any,
+    gradientPaper: any,
     background?: any
   }
 }
@@ -41,11 +31,13 @@ export const lightTheme = createTheme({
     fontFamily: 'Poppins, \'Lato\', sans-serif'
   },
   paper: {
+  },
+  gradientPaper: {
     backgroundImage: 'linear-gradient(rgba(66,179,245,1) 0%, rgba(95,44,130,1) 100%)',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundAttachment: 'fixed',
-    backdropFilter: 'none'
+    color: 'white'
   }
 });
 
@@ -54,6 +46,7 @@ export const darkTheme = createTheme({
     mode: 'dark',
     primary: {
       main: '#4fcff0',
+      contrastText: 'white'
     },
     secondary: {
       main: '#09203f',
@@ -70,12 +63,19 @@ export const darkTheme = createTheme({
   typography: {
     fontFamily: 'Poppins, \'Lato\', sans-serif'
   },
+  background: {
+    backgroundColor: '#202020'
+  },
   paper: {
+
+  },
+  gradientPaper: {
     backgroundImage: 'linear-gradient(#537895 0%, #09203f 100%)',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundAttachment: 'fixed',
-    backdropFilter: 'none'
+    backdropFilter: 'none',
+    color: 'white',
   }
 });
 
@@ -97,11 +97,11 @@ export const minecraftTheme = createTheme({
     borderRadius: 0
   },
   paper: {
-    backgroundImage: 'brown',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundAttachment: 'fixed',
-    backdropFilter: 'none'
+    backgroundColor: 'brown',
+    color: 'white'
+  },
+  gradientPaper: {
+
   }
 });
 
@@ -122,24 +122,29 @@ export const frostTheme = createTheme({
     fontFamily: 'Poppins, \'Lato\', sans-serif'
   },
   paper: {
-    backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5))',
+
+  },
+  gradientPaper: {
+    backgroundColor: 'rgba(255, 255, 255, 0.6)',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundAttachment: 'fixed',
-    backdropFilter: 'blur(20px)'
+    backdropFilter: 'blur(20px)',
+    borderStyle: 'solid',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,.3)',
+    color: 'black'
   },
   background: {
     width: '300%',
     height: '300%',
     backgroundSize: '100% 100%',
-    position: 'absolute',
-    animation: 'GradientBackground 5s ease infinite',
+    animation: 'GradientBackground 7s ease infinite',
     background: 'linear-gradient(0.33turn, #f6a192, #ffd9df, #f6c492, #f6a192)',
-    zIndex: -1,
     '@keyframes GradientBackground': {
       '0%': { transform: 'translate(0, -50%);' },
       '50%': { transform: 'translate(-60%, 0);' },
       '100%': { transform: 'translate(0, -50%);' }
-    }
+    },
   }
 });

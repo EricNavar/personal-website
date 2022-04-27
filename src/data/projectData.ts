@@ -5,7 +5,7 @@ import _32StacksLogo from './../assets/projects/32stacks.png';
 import WebIcon from '../assets/icons/web_fluent';
 import { Project } from '../commonTypes';
 
-const projectData:Array<Project> = [
+const projectData: Array<Project> = [
   {
     _id: 3,
     tools: 'React app',
@@ -16,7 +16,7 @@ const projectData:Array<Project> = [
     ariaLabel: 'Inspiration Generator',
     links: [
       {
-        label:'Website',
+        label: 'Website',
         ariaLabel: 'Inspiration Generator',
         hyperlink: '/inspire',
         icon: WebIcon
@@ -34,7 +34,7 @@ const projectData:Array<Project> = [
     ariaLabel: 'Simplifunction website',
     links: [
       {
-        label:'Website',
+        label: 'Website',
         ariaLabel: 'Simplifunction Logo',
         hyperlink: 'https://www.simplifunction.com',
         icon: WebIcon
@@ -45,15 +45,13 @@ const projectData:Array<Project> = [
     _id: 2,
     tools: 'React, Socket.io',
     headerText: '32Stacks',
-    subText: [['(Still in progress)'],
-      ['A version of Uno that is cooler and requires more strategy. Did not place at Swamphacks 2022 😎']
-    ],
+    subText: [['A version of Uno that is cooler and requires more strategy. Did not place at Swamphacks 2022 😎']],
     image: _32StacksLogo,
     altLabel: '32Stacks Logo',
     ariaLabel: '32Stacks website',
     links: [
       {
-        label:'Website',
+        label: 'Website',
         ariaLabel: '32Stacks Website',
         hyperlink: 'https://32stacks.com/',
         icon: WebIcon
@@ -64,7 +62,8 @@ const projectData:Array<Project> = [
     _id: 1,
     tools: 'MERN Stack web app',
     headerText: 'DC Rock Fitness',
-    subText: [['(NO LONGER FUNCTIONAL)'],
+    subText: [
+      ['(NO LONGER FUNCTIONAL)'],
       ['A website for a fitness center where an admin can create ',
         'blog posts', ' and nutrition posts. Clients can view their assigned ',
         ' personalized workout', ' plans for the week.']
@@ -74,7 +73,7 @@ const projectData:Array<Project> = [
     ariaLabel: 'DC Rock Fitness website',
     links: [
       {
-        label:'Website',
+        label: 'Website',
         ariaLabel: 'DC Rock Fitness Website',
         hyperlink: 'https://dcrf.ericnavar.com/',
         icon: WebIcon

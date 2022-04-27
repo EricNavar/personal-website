@@ -2,13 +2,14 @@ import { makeStyles } from '@mui/styles';
 import { Paper, Grid, Typography, TypographyProps, Hidden } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-export const ItemWrapper = styled(Paper)({
+export const ItemWrapper = styled(Paper)(({ theme }) => ({
   position: 'relative',
   borderRadius: 8,
   height: '100%',
   maxWidth: '100%',
-  display: 'flex'
-});
+  display: 'flex',
+  ...theme.paper
+}));
 
 export const HeaderText = styled(Typography)<TypographyProps>(({ theme }) => ({
   textAlign: 'left',
@@ -90,9 +91,13 @@ export const HomeMain = styled('main')(({ theme }) => ({
   },
 }));
 
-export const HomeInner = styled('div')(({ theme }) => (
-  theme.background
-));
+export const HomeInner = styled('div')(({ theme }) => ({
+  position: 'absolute',
+  zIndex: -1,
+  width: '100%',
+  height: '100%',
+  ...theme.background
+}));
 
 export const CardButtonContainer = styled(Grid)(({ theme }) => ({
   [theme.breakpoints.down('xs')]: {

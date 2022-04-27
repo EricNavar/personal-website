@@ -17,23 +17,21 @@ const StyledPaper = styled(Paper)<PaperProps>(({ theme }) => ({
   textAlign: 'center',
   border: '5px solid white',
   borderRadius: 8,
-  color: theme.palette.primary.contrast,
   transition: '.5s ease-in-out',
   height: '100%',
   '& svg': {
     marginLeft: 'auto',
-    marginRight: 'auto'
+    marginRight: 'auto',
+    fill: theme.gradientPaper.color,
   },
   alignContent: 'center',
   display: 'grid',
+  ...theme.gradientPaper
 }));
 
-const StyledGridItem = styled(Grid)(({ theme }) => ({
+const StyledGridItem = styled(Grid)({
   marginBottom: 12,
-  '& svg': {
-    color: theme.palette.primary.contrast,
-  }
-}));
+});
 
 type SkillItemProps = {
   children: JSX.Element,

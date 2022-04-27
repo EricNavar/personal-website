@@ -28,13 +28,14 @@ const VisibleOnLoad = styled('div')({
   alignItems: 'center'
 });
 
+const Rhovas = styled('div')({
+  position: 'absolute',
+  zIndex: 1,
+  bottom: 1,
+  right: 1
+});
+
 const useStyles = makeStyles(() => ({
-  rhovas: {
-    position: 'absolute',
-    zIndex: 1,
-    bottom: 1,
-    right: 1
-  },
   rhovasText: {
     position: 'relative',
     backgroundImage: 'inherit',
@@ -70,11 +71,11 @@ function InspirePage(): JSX.Element {
             {quote}
           </QuoteText>
         </div>
-        <div className={classes.rhovas}>
+        <Rhovas>
           <Typography variant='overline' className={classes.rhovasText}>
             Powered by Rhovas
           </Typography>
-        </div>
+        </Rhovas>
       </VisibleOnLoad>
       <Button
         variant='contained'

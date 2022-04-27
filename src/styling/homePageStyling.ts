@@ -1,24 +1,6 @@
 import { makeStyles } from '@mui/styles';
-import { Theme } from '@mui/material/styles';
-import { Paper, Button, ButtonProps, Grid, Typography, TypographyProps } from '@mui/material';
+import { Paper, Grid, Typography, TypographyProps } from '@mui/material';
 import { styled } from '@mui/material/styles';
-
-
-export const pageStyles = makeStyles((theme: Theme) => ({
-  popup: {
-    width: '80%',
-    height: '80%'
-  },
-  center: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  spacing: {
-    marginTop: 16,
-    marginBottom: 28
-  }
-}));
 
 export const ItemWrapper = styled(Paper)({
   position: 'relative',
@@ -113,7 +95,7 @@ export const CardButtonContainer = styled(Grid)(({ theme }) => ({
   }
 }));
 
-export const homePageStyles = makeStyles((theme: Theme) => ({
+export const homePageStyles = makeStyles({
   section: {
     marginTop: 20,
     marginBottom: 8
@@ -139,4 +121,4 @@ export const homePageStyles = makeStyles((theme: Theme) => ({
     display: 'inline-flex',
     textDecoration: 'none !important'
   }
-}));
+});

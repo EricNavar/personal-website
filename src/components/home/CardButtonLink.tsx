@@ -28,7 +28,8 @@ function CardButtonLink(props: CardButtonLinkProps): JSX.Element {
       href={props.hyperlink}
       aria-label={props.ariaLabel}
       startIcon={<props.icon />}
-      variant='outlined'
+      color='secondary'
+      variant='contained'
     >
       {props.label}
     </MyIconButton>

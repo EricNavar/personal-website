@@ -1,28 +1,35 @@
 import React from 'react';
-import { AppBar, Button, Toolbar, useMediaQuery, useScrollTrigger, IconButton } from '@mui/material';
+import { AppBar, Button, Toolbar, useMediaQuery, useScrollTrigger, ToggleButton, ToggleButtonGroup } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import SunIcon from '@material-ui/icons/Brightness5';
-import MoonIcon from '@material-ui/icons/Brightness2';
-import { useTheme } from '@material-ui/core/styles';
+import SunIcon from '@mui/icons-material//Brightness5';
+import MoonIcon from '@mui/icons-material/Brightness2';
+import AcUnitIcon from '@mui/icons-material/AcUnit';
+import useTheme from '@mui/material/styles/useTheme';
 import { Link, useRouteMatch } from 'react-router-dom';
-import { styled, Theme } from '@mui/material/styles';
+import MinecraftIcon from '../assets/icons/minecraft-icon';
+import { styled } from '@mui/material/styles';
 
 //citation: https://material-ui.com/components/app-bar/#hide-app-bar
 
-const scrolled = (theme: Theme) => ({
+const scrolled = ({
   background: '#09203f',
   '& a': {
     color: 'white'
   },
   '& use': {
     fill: 'white'
+  },
+  '& path': {
+    fill: 'white'
   }
 });
 
 //when the navbar is at the top of the screen and is navy blue
-const top = (theme: Theme) => ({
+const top = (theme) => ({
   background: theme.palette.background.default,
-  color: theme.palette.text.primary
+  '& a': {
+    color: theme.palette.text.primary
+  },
 });
 
 const useStyles = makeStyles({
@@ -34,63 +41,25 @@ const useStyles = makeStyles({
     paddingRight: 12,
     justifyContent: 'center'
   },
-  logoContainer: {
-    flexGrow: 0
-  },
-  logo: {
-    width: 75
-  },
-  accountSection: {
-    display: 'flex',
-    justifyContent: 'right',
-    alignItems: 'center'
-  },
-  buttonWrapper: {
-    position: 'relative',
-    '& svg': {
-      color: '#4fcff0'
-    }
-  },
-  buttonProgress: {
-    color: '#4fcff0',
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    marginTop: -12,
-    marginLeft: -12,
-  },
-  buttonContainer: {
-    textAlign: 'center',
-    maxWidth: 'calc(100% - 290px)'
-  },
   activeTab: {
     backgroundColor: '#d5e4ff !important',
     color: 'black !important'
   },
+  navbarItemButton: {
+    marginLeft: 8,
+    marginRight: 8
+  },
 });
-
-const MyIconButton = styled(IconButton)(
-  {
-    position: 'absolute',
-    top: 8,
-    right: 0,
-    color: 'white',
-    '&:hover': {
-      opacity: .85,
-      boxShadow: 'none',
-    },
-    '&:active': {
-      boxShadow: 'none'
-    },
-  }
-);
+const StyledToggleButtonGroup = styled(ToggleButtonGroup)({
+  position: 'absolute',
+  right: 8
+});
 
 type ElevatorScrollProps = {
   children: JSX.Element,
 }
 function ElevationScroll(props: ElevatorScrollProps): JSX.Element {
   const classes = useStyles();
-  console.log(useTheme().palette.background.default);
 
   const { children } = props;
   // Note that you normally won't need to set the window ref as useScrollTrigger
@@ -127,7 +96,7 @@ function NavBarItem(props: NavBarItemProps): JSX.Element {
     <Button
       component={Link}
       to={to}
-      className={match ? classes.activeTab : ''}
+      className={`${classes.navbarItemButton} ${match ? classes.activeTab : ''}`}
       size={isSm ? 'small' : 'medium'}
       color='primary'
     >
@@ -137,27 +106,46 @@ function NavBarItem(props: NavBarItemProps): JSX.Element {
 }
 
 type DesktopNavbarProps = {
-  darkMode: boolean,
-  toggleDarkMode: (darkMode: boolean) => void
+  theme: string,
+  setTheme: (newTheme: string) => void
 }
 function DesktopNavbar(props: DesktopNavbarProps): JSX.Element {
   const classes = useStyles();
 
-  //returns either the login/register button or the logout button
+  const handleChange = (event: React.MouseEvent<HTMLElement, MouseEvent>, newTheme: string) => {
+    if (newTheme)
+      props.setTheme(newTheme);
+  };
 
   return (
     <React.Fragment>
       <ElevationScroll {...props} >
         <AppBar id='AppBar' className={classes.navbar} >
           <Toolbar className={classes.toolbar}>
-            <NavBarItem to='/' text='Coding Projects' />
-            <div style={{ marginRight: 16, marginLeft: 16 }}>
+            <div style={{ position: 'absolute' }}>
+              <NavBarItem to='/' text='Coding Projects' />
               <NavBarItem to='/resume' text='Resume' />
+              <NavBarItem to='/minecraft' text='Minecraft' />
             </div>
-            < NavBarItem to='/minecraft' text='Minecraft' />
-            <MyIconButton onClick={props.toggleDarkMode}>
-              {props.darkMode ? <SunIcon /> : <MoonIcon />}
-            </MyIconButton>
+            <StyledToggleButtonGroup
+              value={props.theme}
+              exclusive
+              onChange={handleChange}
+              aria-label="website theme"
+            >
+              <ToggleButton value="Light" aria-label="left aligned">
+                <SunIcon />
+              </ToggleButton>
+              <ToggleButton value="Dark" aria-label="centered">
+                <MoonIcon />
+              </ToggleButton>
+              <ToggleButton value="Minecraft" aria-label="centered">
+                <MinecraftIcon />
+              </ToggleButton>
+              <ToggleButton value="Frost" aria-label="centered">
+                <AcUnitIcon />
+              </ToggleButton>
+            </StyledToggleButtonGroup>
           </Toolbar>
         </AppBar>
       </ElevationScroll>

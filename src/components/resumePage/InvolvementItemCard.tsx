@@ -3,9 +3,8 @@ import { makeStyles } from '@mui/styles';
 import { Typography, List, IconButton, Link, Grid, Tooltip, ListItem } from '@mui/material';
 import { InvolvementItem } from '../../commonTypes';
 import WebIcon from '../../assets/icons/web_fluent';
-import { Theme } from '@mui/material/styles';
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles((theme) => ({
   involvementItem: {
     boxShadow: 'rgba(0,0,0, 0.1) 0px 8px 24px',
     overflow: 'hidden',

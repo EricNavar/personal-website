@@ -1,7 +1,7 @@
 import React from 'react';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { createStyles, makeStyles } from '@mui/styles';
 import { Link, Typography } from '@mui/material';
-import SvgIcon, { SvgIconProps } from '@material-ui/core/SvgIcon';
+import SvgIcon, { SvgIconProps } from '@mui/material/SvgIcon';
 
 function LightBulbIcon(props: SvgIconProps) {
   return (
@@ -11,7 +11,7 @@ function LightBulbIcon(props: SvgIconProps) {
   );
 }
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles((theme) =>
   createStyles({
     root: {
       margin: theme.spacing(6, 0, 3),
@@ -35,4 +35,4 @@ function ProTip() {
   );
 }
 
-export { ProTip }
+export { ProTip };

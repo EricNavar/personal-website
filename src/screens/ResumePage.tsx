@@ -8,9 +8,8 @@ import { InvolvementSecion } from '../components/resumePage/InvolvementSection';
 import { Interests } from '../components/resumePage/Interests';
 import { experienceData } from '../data/experienceData';
 import { involvementData } from '../data/involvementData';
-import { Theme } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles((theme) => ({
   background: {
     background: theme.palette.background.default,
     marginTop: 8
@@ -30,17 +29,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
     paddingBottom: 80
   },
-  plead: {
-    width: 'max-content',
-    padding: 40,
-    boxShadow: 'rgba(66,179,245, 0.4) 5px 5px, rgba(66,179,245, 0.3) 10px 10px, rgba(66,179,245, 0.2) 15px 15px, rgba(66,179,245, 0.1) 20px 20px, rgba(66,179,245, 0.05) 25px 25px',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    borderWidth: 4,
-    borderRadius: 8,
-    borderColor: 'rgba(66,179,245, 0.6)',
-    borderStyle: 'solid'
-  }
 }));
 
 function ResumePage(): JSX.Element {
@@ -56,7 +44,7 @@ function ResumePage(): JSX.Element {
   return (
     <div className={classes.background}>
       <div className={classes.sectionContainer}>
-        <Grid container spacing={10} justify='center'>
+        <Grid container spacing={10} justifyContent='center'>
           <Grid id='skill-list-container' item sm={12} lg={6} className={classes.gridItem}>
             <SkillList />
           </Grid>

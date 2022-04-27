@@ -1,8 +1,8 @@
 import React from 'react';
 import { Typography, TypographyProps, Chip } from '@mui/material';
 import { Section } from './Section';
-import { backgroundGradient } from '../../styling/commonStyles';
 import { styled } from '@mui/material/styles';
+import useTheme from '@mui/material/styles/useTheme';
 
 const EducationSection = styled(Section)({
   '& *': {
@@ -28,9 +28,9 @@ const CourseworkItem = styled(Chip)({
   boxShadow: 'rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px'
 });
 
-const RelevantCousework = styled(Typography)<TypographyProps>(({ theme }) => ({
+const RelevantCousework = styled(Typography)<TypographyProps>({
   marginTop: 24
-}));
+});
 
 const University = styled(Typography)({
   flexGrow: 1
@@ -54,10 +54,11 @@ function CourseworkItems(): JSX.Element {
     'Human-Computer Interaction',
     'UX Design'
   ];
+  const theme = useTheme();
   return (
     <React.Fragment>
       {coursework.map((course: string) =>
-        <CourseworkItem key={course} label={course} sx={backgroundGradient} />
+        <CourseworkItem key={course} label={course} sx={theme.paper} />
       )}
     </React.Fragment>
   );

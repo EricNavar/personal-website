@@ -1,23 +1,19 @@
 import React from 'react';
 import { Button, Dialog } from '@mui/material';
-import { createStyles, makeStyles } from '@material-ui/core/styles';
+import { styled } from '@mui/material/styles';
 
-const useStyles = makeStyles(() =>
-  createStyles({
-    button: {
-      minWidth: 200,
-      backgroundColor: 'red',
-      boxShadow: '12px 12px  black',
-      '&:hover': {
-        boxShadow: 'none',
-        backgroundColor: 'red',
-        transform: 'translate(12px, 12px)'
-      },
-      width: 200,
-      transition: 'transform 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms '
-    },
-  }
-  ));
+const StyledButton = styled(Button)({
+  minWidth: 200,
+  backgroundColor: 'red',
+  boxShadow: '12px 12px  black',
+  '&:hover': {
+    boxShadow: 'none',
+    backgroundColor: 'red',
+    transform: 'translate(12px, 12px)'
+  },
+  width: 200,
+  transition: 'transform 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms '
+});
 
 function PrivacyNotice(): JSX.Element {
   const [open, setOpen] = React.useState(false);
@@ -29,7 +25,6 @@ function PrivacyNotice(): JSX.Element {
     setOpen(false);
   };
 
-  const classes = useStyles();
   return (
     <React.Fragment>
       <Dialog open={open}>
@@ -38,9 +33,9 @@ function PrivacyNotice(): JSX.Element {
           Close
         </Button>
       </Dialog>
-      <Button className={classes.button} onClick={handleClickOpen}>
+      <StyledButton onClick={handleClickOpen}>
         Click here to give Eric Navar access to all your logins, cookies, and search history &lt;div/&gt;
-      </Button>
+      </StyledButton>
     </React.Fragment>
   );
 }

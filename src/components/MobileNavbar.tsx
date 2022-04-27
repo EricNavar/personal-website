@@ -1,16 +1,17 @@
 import React from 'react';
-import { List, Slide, AppBar, Toolbar, ListItem, IconButton, ListItemIcon, ListItemText, SwipeableDrawer, useScrollTrigger } from '@mui/material';
+import { List, Slide, AppBar, Toolbar, ListItem, IconButton, ListItemIcon, ListItemText, SwipeableDrawer, useScrollTrigger, ToggleButton, ToggleButtonGroup } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { useHistory, useRouteMatch } from 'react-router-dom';
-
+import { styled } from '@mui/material/styles';
 //icons
-import MenuIcon from '@material-ui/icons/Menu';
-import HomeIcon from '@material-ui/icons/Home';
-import InfoIcon from '@material-ui/icons/Info';
-import CloseIcon from '@material-ui/icons/Close';
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import SunIcon from '@material-ui/icons/Brightness5';
-import MoonIcon from '@material-ui/icons/Brightness2';
+import MenuIcon from '@mui/icons-material/Menu';
+import HomeIcon from '@mui/icons-material/Home';
+import InfoIcon from '@mui/icons-material/Info';
+import CloseIcon from '@mui/icons-material/Close';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import SunIcon from '@mui/icons-material/Brightness5';
+import MoonIcon from '@mui/icons-material/Brightness2';
+import MinecraftIcon from '../assets/icons/minecraft-icon';
 
 //citation: https://material-ui.com/components/app-bar/#back-to-top
 
@@ -34,10 +35,16 @@ const useStyles = makeStyles({
   },
   toolbar: {
     marginBottom: 24
-  },
-  textRight: {
-    textAlign: 'right'
   }
+});
+const StyledToggleButtonGroup = styled(ToggleButtonGroup)({
+  position: 'absolute',
+  right: 8
+});
+
+
+const TextRight = styled('div')({
+  textAlign: 'right'
 });
 
 type HideOnScrollProps = {
@@ -88,8 +95,8 @@ function SideBarItem(props: SideBarItemProps) {
 }
 
 type MobileNavbarProps = {
-  darkMode: boolean,
-  toggleDarkMode: (darkMode: boolean) => void
+  theme: string,
+  setTheme: (newTheme: string) => void
 }
 
 function MobileNavbar(props: MobileNavbarProps): JSX.Element {
@@ -98,6 +105,11 @@ function MobileNavbar(props: MobileNavbarProps): JSX.Element {
 
   const toggleDrawer = () => {
     setOpen(!open);
+  };
+
+  const handleChange = (event: React.MouseEvent<HTMLElement, MouseEvent>, newTheme: string) => {
+    if (newTheme)
+      props.setTheme(newTheme);
   };
 
   return (
@@ -113,13 +125,22 @@ function MobileNavbar(props: MobileNavbarProps): JSX.Element {
               >
                 <MenuIcon />
               </IconButton>
-              <IconButton
-                color="inherit"
-                onClick={props.toggleDarkMode}
-                aria-label="toggle dark mode"
+              <StyledToggleButtonGroup
+                value={props.theme}
+                exclusive
+                onChange={handleChange}
+                aria-label="website theme"
               >
-                {props.darkMode ? <SunIcon /> : <MoonIcon />}
-              </IconButton>
+                <ToggleButton value="Light" aria-label="left aligned">
+                  <SunIcon />
+                </ToggleButton>
+                <ToggleButton value="Dark" aria-label="centered">
+                  <MoonIcon />
+                </ToggleButton>
+                <ToggleButton value="Minecraft" aria-label="centered">
+                  <MinecraftIcon />
+                </ToggleButton>
+              </StyledToggleButtonGroup>
             </Toolbar>
           </AppBar>
         </HideOnScroll>
@@ -139,11 +160,11 @@ function MobileNavbar(props: MobileNavbarProps): JSX.Element {
           }
         }}
       >
-        <div className={classes.textRight}>
+        <TextRight>
           <IconButton onClick={toggleDrawer} style={{ color: '#32407b' }}>
             <CloseIcon />
           </IconButton>
-        </div>
+        </TextRight>
         <List className={classes.list}>
           <div>
             <SideBarItem text='Coding Projects' link="/home" icon={<InfoIcon />} setOpen={setOpen} />

@@ -11,12 +11,11 @@ import { Hidden } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 //local files
 import { Home } from './screens/Home';
-//import { ContactPage } from './screens/ContactPage';
 import { DesktopNavbar } from './components/DesktopNavbar';
 import { MobileNavbar } from './components/MobileNavbar';
 import FullStory from 'react-fullstory';
 import { MinecraftPage } from './screens/MinecraftPage';
-import { lightTheme, darkTheme } from './styling/commonStyles';
+import { lightTheme, darkTheme, minecraftTheme, frostTheme } from './styling/commonStyles';
 const ResumePage = lazy(() => import('./screens/ResumePage').then((module) => ({
   default: module.ResumePage,
 })));
@@ -51,22 +50,26 @@ function ScrollToTop(props: ScrollToTopProps) {
   return <React.Fragment>{props.children}</React.Fragment>;
 }
 
+const themes: Record<string, Theme> = {
+  Light: lightTheme,
+  Dark: darkTheme,
+  Minecraft: minecraftTheme,
+  Frost: frostTheme
+};
+
 function Root(): JSX.Element {
-  const [darkMode, setDarkMode] = React.useState(false);
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
+  const [theme, setTheme] = React.useState('Light');
   return (
     <>
       <FullStory org={process.env.REACT_APP_ORG_ID!} />
       <Router>
         <ScrollToTop>
-          <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+          <ThemeProvider theme={themes[theme]}>
             <Hidden xsDown>
-              <DesktopNavbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+              <DesktopNavbar theme={theme} setTheme={setTheme} />
             </Hidden>
             <Hidden smUp>
-              <MobileNavbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+              <MobileNavbar theme={theme} setTheme={setTheme} />
             </Hidden>
             <Switch>
               <Route exact path='/'>

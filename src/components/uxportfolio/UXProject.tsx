@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography, Button } from '@mui/material';
-import { useTheme } from '@material-ui/core/styles';
+import useTheme from '@mui/material/styles/useTheme';
 //local files
 import { cardButtonStyles, ItemWrapper } from '../../styling/homePageStyling';
 

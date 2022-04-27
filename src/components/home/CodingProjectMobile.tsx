@@ -4,7 +4,7 @@ import { Typography } from '@mui/material';
 import { CardButtonLink } from './CardButtonLink';
 import { cardButtonStyles, ItemWrapper } from '../../styling/homePageStyling';
 import { Project, LinkProps } from '../../commonTypes';
-import { useTheme } from '@material-ui/core/styles';
+import useTheme from '@mui/material/styles/useTheme';
 const CodingProjectThumbnail = lazy(() => import('./CodingProjectThumbnail').then((module) => ({
   default: module.CodingProjectThumbnail,
 })));

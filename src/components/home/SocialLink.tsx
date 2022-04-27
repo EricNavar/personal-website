@@ -1,11 +1,9 @@
 import React from 'react';
 import { IconButton } from '@mui/material';
-import { makeStyles } from '@mui/styles';
+import { styled } from '@mui/material/styles';
 
-const useStyles = makeStyles({
-  socialLink: {
-    margin: 4
-  }
+const StyledIconButton = styled(IconButton)({
+  margin: 4
 });
 
 type SocialLinkProps = {
@@ -17,17 +15,15 @@ type SocialLinkProps = {
 
 function SocialLink(props: SocialLinkProps): JSX.Element {
   const { icon, circle, link, label } = props;
-  const classes = useStyles();
 
   return (
-    <IconButton
-      className={classes.socialLink}
+    <StyledIconButton
       style={{ borderRadius: circle ? '50%' : 0 }}
       href={link}
       target="_blank"
     >
       <img height="48px" width="48px" alt={label} src={icon} />
-    </IconButton>
+    </StyledIconButton>
   );
 }
 

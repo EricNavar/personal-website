@@ -1,7 +1,32 @@
 import React from 'react';
-import { makeStyles, ButtonBase, Grid, IconButton } from '@mui/material';
+import { ButtonBase, Grid, GridProps, IconButton } from '@mui/material';
+import { makeStyles } from '@mui/styles';
+import { styled } from '@mui/material/styles';
 
-const useStyles = makeStyles(theme => ({
+const ContactMain = styled(Grid)<GridProps>(({ theme }) => ({
+  [theme.breakpoints.up('md')]: {
+    justifyContent: 'right',
+  },
+  [theme.breakpoints.down('sm')]: {
+    justifyContent: 'center',
+    marginTop: 18
+  },
+  display: 'flex',
+  '& div:not(:first-child)': {
+    marginTop: 8
+  }
+}));
+
+const Buffer = styled(Grid)<GridProps>(({ theme }) => ({
+  [theme.breakpoints.up('md')]: {
+    display: 'none',
+  },
+  [theme.breakpoints.down('xs')]: {
+    display: 'none',
+  }
+}));
+
+const useStyles = makeStyles({
   footer: {
     backgroundColor: '#19202D',
     paddingTop: 16,
@@ -24,40 +49,6 @@ const useStyles = makeStyles(theme => ({
       opacity: .8
     }
   },
-  social: {
-    '& svg': {
-      padding: '2%',
-      color: 'white',
-      '&:hover': {
-        opacity: .8
-      },
-      '&:active': {
-        opacity: .8
-      }
-    },
-    textAlign: 'right'
-  },
-  buffer: {
-    [theme.breakpoints.up('md')]: {
-      display: 'none',
-    },
-    [theme.breakpoints.down('xs')]: {
-      display: 'none',
-    },
-  },
-  contact: {
-    [theme.breakpoints.up('md')]: {
-      justifyContent: 'right',
-    },
-    [theme.breakpoints.down('sm')]: {
-      justifyContent: 'center',
-      marginTop: 18
-    },
-    display: 'flex',
-    '& div:not(:first-child)': {
-      marginTop: 8
-    }
-  },
   contactItem: {
     display: 'flex',
     alignItems: 'center',
@@ -74,7 +65,7 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center',
     display: 'flex'
   }
-}));
+});
 
 function Footer(): JSX.Element {
   const classes = useStyles();
@@ -96,7 +87,7 @@ function Footer(): JSX.Element {
 
   const Contact = () => {
     return (
-      <Grid item xs={12} sm={6} md={4} className={classes.contact}>
+      <ContactMain item xs={12} sm={6} md={4}>
         <div style={{ width: 'min-content' }}>
 
           <div className={classes.contactItem}>
@@ -107,7 +98,7 @@ function Footer(): JSX.Element {
             </a>
           </div>
         </div>
-      </Grid>
+      </ContactMain>
     );
   };
 
@@ -115,16 +106,16 @@ function Footer(): JSX.Element {
     <Grid
       container
       direction="row"
-      justify="center"
+      justifyContent="center"
       alignItems="center"
       spacing={0}
       className={classes.footer}
       component='footer'
     >
       <LogoButton />
-      <Grid item sm={6} className={classes.buffer}></Grid>
+      <Buffer item sm={6}></Buffer>
       <Contact />
-    </Grid>
+    </Grid >
   );
 }
 

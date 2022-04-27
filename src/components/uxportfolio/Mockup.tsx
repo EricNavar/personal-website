@@ -1,24 +1,26 @@
 import React from 'react';
 import Carousel from 'react-material-ui-carousel';
-import { makeStyles } from '@mui/styles';
+import { makeStyles } from '@mui/material/styles';
 import Slide1 from './../../assets/ux/common_ground/explore_page.webp';
 import Slide2 from './../../assets/ux/common_ground/wheel.webp';
 import Slide3 from './../../assets/ux/common_ground/restaurant_view.webp';
 import IPhone11ProMaxMockup from './../../assets/ux/IPhone11ProMaxMockup.png';
+import { styled } from '@mui/material/styles';
+
+const CarouselContainer = styled('div')({
+  textAlign: 'center',
+  borderRadius: 6,
+  position: 'absolute',
+  top: 0,
+  width: '88.276%',
+  marginLeft: '5.862%',
+  marginRight: '5.862%',
+  height: '94.438%',
+  marginBottom: '5.25%',
+  marginTop: '5.25%',
+});
 
 const useStyles = makeStyles({
-  carouselContainer: {
-    textAlign: 'center',
-    borderRadius: 6,
-    position: 'absolute',
-    top: 0,
-    width: '88.276%',
-    marginLeft: '5.862%',
-    marginRight: '5.862%',
-    height: '94.438%',
-    marginBottom: '5.25%',
-    marginTop: '5.25%',
-  },
   description: {
     margin: 0,
     color: 'white'
@@ -75,7 +77,7 @@ function PrototypeCarousel(): JSX.Element {
   ];
   const classes = useStyles();
   return (
-    <div id='carousel' className={classes.carouselContainer}>
+    <CarouselContainer>
       <Carousel
         autoPlay={true}
         animation='slide'
@@ -87,7 +89,7 @@ function PrototypeCarousel(): JSX.Element {
       >
         {items.map((item, i) => <Photo key={i} src={item.photo} />)}
       </Carousel>
-    </div>
+    </CarouselContainer>
   );
 }
 

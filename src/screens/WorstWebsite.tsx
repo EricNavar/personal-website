@@ -1,6 +1,7 @@
 import React from 'react';
 import { Typography, Box, Paper, Fade, NoSsr } from '@mui/material';
-import { createStyles, makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { createStyles, makeStyles, ThemeProvider } from '@mui/styles';
+import { createTheme } from '@mui/material/styles';
 //local files
 import HandshakePhoto from './../assets/other/handshake.jpg';
 import EricEmoji from './../assets/other/EricEmoji.png';
@@ -11,7 +12,7 @@ import { SimpleSnackBar } from './../components/worstWebsite/SnackBar';
 import { GangnamStyle } from './../components/worstWebsite/GangnamStyle';
 import '../styling/worstWebsite.css';
 
-const myTheme = createMuiTheme({
+const myTheme = createTheme({
   palette: {
     type: 'dark'
   },

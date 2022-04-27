@@ -2,13 +2,13 @@ import React from 'react';
 import { Typography, List } from '@mui/material';
 import { Section } from './Section';
 import { makeStyles } from '@mui/styles';
-import { Theme } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 
-const useStyles = makeStyles((theme: Theme) => ({
-  descriptionList: {
-    paddingLeft: 12,
-    listStyle: 'initial'
-  },
+const DescriptionList = styled(List)({
+  paddingLeft: 12,
+  listStyle: 'initial'
+});
+const useStyles = makeStyles((theme) => ({
   listItem: {
     display: 'flow-root list-item',
     '&::marker': {
@@ -21,7 +21,7 @@ function Interests(): JSX.Element {
   const classes = useStyles();
   return (
     <Section title='Interests'>
-      <List className={classes.descriptionList}>
+      <DescriptionList>
         <Typography variant='body1' color='textPrimary' gutterBottom className={classes.listItem}>
           Frontend Dev
         </Typography>
@@ -31,7 +31,7 @@ function Interests(): JSX.Element {
         <Typography variant='body1' color='textPrimary' gutterBottom className={classes.listItem}>
           The fact that we apparently haven&apos;t run out of IP addresses
         </Typography>
-      </List>
+      </DescriptionList>
     </Section>
   );
 }

@@ -1,5 +1,6 @@
+import React from 'react';
 import { makeStyles } from '@mui/styles';
-import { Paper, Grid, Typography, TypographyProps, Hidden } from '@mui/material';
+import { Paper, Grid, Typography, TypographyProps } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 export const ItemWrapper = styled(Paper)(({ theme }) => ({
@@ -74,11 +75,9 @@ export const HomeMain = styled('main')(({ theme }) => ({
   minHeight: 'calc(100vh - 112px)',
   position: 'relative',
   overflow: 'hidden',
-  [theme.breakpoints.down('xl')]: {
-    width: '85%',
-    paddingLeft: '7.5%',
-    paddingRight: '7.5%',
-  },
+  width: '85%',
+  paddingLeft: '7.5%',
+  paddingRight: '7.5%',
   [theme.breakpoints.down('lg')]: {
     width: '75%',
     paddingLeft: '12.5%',
@@ -104,6 +103,36 @@ export const CardButtonContainer = styled(Grid)(({ theme }) => ({
     width: '100%'
   }
 }));
+
+const StyledButton = styled('button')({
+  height: 'var(--btn-size)',
+  width: 'calc(var(--btn-size) * 10)',
+  cursor: 'pointer',
+  overflow: 'hidden',
+  whiteSpace: 'nowrap',
+  userSelect: 'none',
+  background: '#999 url("https://i.ibb.co/rb2TWXL/bgbtn.png") center / cover',
+  imageRendering: 'pixelated',
+  border: '2px solid #000',
+});
+
+const StyledButtonText = styled('span')({
+  width: '100%', height: '100%',
+  paddingBottom: '.3em',
+  color: '#DDD',
+  textShadow: '2px 2px #000A',
+  boxShadow: 'inset -2px -4px #0006, inset 2px 2px #FFF7'
+});
+
+export function MCButton(props: { children: JSX.Element }) {
+  return (
+    <StyledButton>
+      <StyledButtonText>
+        {props.children}
+      </StyledButtonText>
+    </StyledButton>
+  );
+}
 
 export const homePageStyles = makeStyles({
   section: {

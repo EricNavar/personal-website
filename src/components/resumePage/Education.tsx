@@ -2,6 +2,7 @@ import React from 'react';
 import { Typography, TypographyProps, Chip } from '@mui/material';
 import { Section } from './Section';
 import { styled } from '@mui/material/styles';
+import useTheme from '@mui/material/styles/useTheme';
 
 const EducationSection = styled(Section)({
   '& *': {
@@ -54,6 +55,7 @@ function CourseworkItems(): JSX.Element {
     'Human-Computer Interaction',
     'UX Design'
   ];
+  const theme = useTheme();
   return (
     <React.Fragment>
       {coursework.map((course: string) =>

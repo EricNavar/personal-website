@@ -1,9 +1,0 @@
-node_modules
-.github
-.prettierrc.json
-.vscode
-amplify.yml
-public
-*.json
-*.md
-src/assets

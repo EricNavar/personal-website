@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, Typography, Hidden } from '@mui/material';
 //local files
 import { UXProject } from '../components/uxportfolio/UXProject';
-import { Mockup } from '../components/uxportfolio/Mockup';
+// import { Mockup } from '../components/uxportfolio/Mockup';
 import { UXProjectData } from '../data/UXProjectData';
 import { homePageStyles, HomeMain, CardButtonContainer } from '../styling/homePageStyling';
 
@@ -43,7 +43,7 @@ function CommonGround(): JSX.Element {
           </Hidden>
         </Grid>
         <Grid item style={{ display: 'flex', justifyContent: 'center' }}>
-          <Mockup />
+          {/* <Mockup /> */}
         </Grid>
       </Grid >
     </HomeMain >

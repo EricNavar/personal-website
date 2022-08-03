@@ -58,7 +58,7 @@ const themes: Record<string, Theme> = {
 };
 
 function Root(): JSX.Element {
-  const [theme, setTheme] = React.useState('Light');
+  const [theme, setTheme] = React.useState('Frost');
   return (
     <>
       <FullStory org={process.env.REACT_APP_ORG_ID!} />

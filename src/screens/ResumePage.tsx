@@ -1,7 +1,6 @@
 import React from 'react';
 import { Grid } from '@mui/material';
-import { makeStyles } from '@mui/styles';
-//local files
+import { styled } from '@mui/material/styles';
 import { SkillList } from '../components/resumePage/SkillList';
 import { Education } from '../components/resumePage/Education';
 import { InvolvementSecion } from '../components/resumePage/InvolvementSection';
@@ -10,12 +9,10 @@ import { experienceData } from '../data/experienceData';
 import { involvementData } from '../data/involvementData';
 import { HomeMain, HomeInner } from '../styling/homePageStyling';
 
-const useStyles = makeStyles((theme) => ({
-  gridItem: {
-    justifyContent: 'center',
-    display: 'flex'
-  },
-}));
+const GridItem = styled(Grid)`
+  justify-content: center;
+  display: flex;
+`;
 
 function ResumePage(): JSX.Element {
   React.useEffect(() => {
@@ -26,16 +23,15 @@ function ResumePage(): JSX.Element {
     });
   }, []);
 
-  const classes = useStyles();
   return (
     <HomeMain>
       <Grid container spacing={10} justifyContent='center'>
-        <Grid id='skill-list-container' item sm={12} lg={6} className={classes.gridItem}>
+        <GridItem id='skill-list-container' item sm={12} lg={6}>
           <SkillList />
-        </Grid>
-        <Grid id='education-container' item sm={12} lg={6} className={classes.gridItem}>
+        </GridItem>
+        <GridItem id='education-container' item sm={12} lg={6}>
           <Education />
-        </Grid>
+        </GridItem>
       </Grid>
       <InvolvementSecion title="Internship Experience" data={experienceData} />
       <InvolvementSecion title="Involvement" data={involvementData} />

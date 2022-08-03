@@ -133,17 +133,17 @@ function DesktopNavbar(props: DesktopNavbarProps): JSX.Element {
               onChange={handleChange}
               aria-label="website theme"
             >
-              <ToggleButton value="Light" aria-label="left aligned">
+              <ToggleButton value="Frost" aria-label="frost theme">
+                <AcUnitIcon />
+              </ToggleButton>
+              <ToggleButton value="Light" aria-label="light theme">
                 <SunIcon />
               </ToggleButton>
-              <ToggleButton value="Dark" aria-label="centered">
+              <ToggleButton value="Dark" aria-label="dark theme">
                 <MoonIcon />
               </ToggleButton>
-              <ToggleButton value="Minecraft" aria-label="centered">
+              <ToggleButton value="Minecraft" aria-label="minecraft theme">
                 <MinecraftIcon />
-              </ToggleButton>
-              <ToggleButton value="Frost" aria-label="centered">
-                <AcUnitIcon />
               </ToggleButton>
             </StyledToggleButtonGroup>
           </Toolbar>

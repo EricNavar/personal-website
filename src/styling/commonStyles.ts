@@ -1,16 +1,17 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { createTheme } from '@mui/material/styles';
 
 declare module '@mui/material/styles' {
   interface Theme {
-    paper: any,
-    gradientPaper: any,
-    background?: any
+    paper: Record<string, any>,
+    gradientPaper: Record<string, any>,
+    background?: Record<string, any>
   }
   // allow configuration using `createTheme`
   interface ThemeOptions {
-    paper?: any,
-    gradientPaper: any,
-    background?: any
+    paper?: Record<string, any>,
+    gradientPaper: Record<string, any>,
+    background?: Record<string, any>
   }
 }
 
@@ -81,9 +82,9 @@ export const darkTheme = createTheme({
 
 export const minecraftTheme = createTheme({
   palette: {
-    mode: 'dark',
+    mode: 'light',
     primary: {
-      main: '#fafafa'
+      main: '#111'
     },
     background: {
       paper: '#706E71',
@@ -97,8 +98,7 @@ export const minecraftTheme = createTheme({
     borderRadius: 0
   },
   paper: {
-    backgroundColor: 'brown',
-    color: 'white'
+    backgroundColor: '#9D9D9D',
   },
   gradientPaper: {
 

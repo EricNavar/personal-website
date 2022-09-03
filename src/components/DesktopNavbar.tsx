@@ -8,6 +8,7 @@ import useTheme from '@mui/material/styles/useTheme';
 import { Link, useRouteMatch } from 'react-router-dom';
 import MinecraftIcon from '../assets/icons/minecraft-icon';
 import { styled } from '@mui/material/styles';
+import { Theme } from '@mui/material/styles';
 
 //citation: https://material-ui.com/components/app-bar/#hide-app-bar
 
@@ -25,7 +26,7 @@ const scrolled = ({
 });
 
 //when the navbar is at the top of the screen and is navy blue
-const top = (theme) => ({
+const top = (theme: Theme) => ({
   background: theme.palette.background.default,
   '& a': {
     color: theme.palette.text.primary
@@ -126,6 +127,7 @@ function DesktopNavbar(props: DesktopNavbarProps): JSX.Element {
               <NavBarItem to='/' text='Coding Projects' />
               <NavBarItem to='/resume' text='Resume' />
               <NavBarItem to='/minecraft' text='Minecraft' />
+              <NavBarItem to='/blog' text='Blog' />
             </div>
             <StyledToggleButtonGroup
               value={props.theme}

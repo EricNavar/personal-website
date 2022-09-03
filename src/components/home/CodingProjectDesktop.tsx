@@ -30,8 +30,6 @@ function CodingProjectDesktop(props: CodingProjectDesktopProps): JSX.Element {
               {tools}
             </Typography>
             <HeaderText
-              className={classes.title}
-              component="span"
               variant="h5"
               aria-label={ariaLabel}
             >

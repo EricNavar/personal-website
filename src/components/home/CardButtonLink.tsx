@@ -15,7 +15,7 @@ const MyIconButton = styled(Button)<ButtonProps>(({ theme }) => ({
 }));
 
 type CardButtonLinkProps = {
-  icon: JSX.Element,
+  icon: () => JSX.Element,
   label: string,
   hyperlink: string,
   ariaLabel: string
@@ -24,7 +24,6 @@ type CardButtonLinkProps = {
 function CardButtonLink(props: CardButtonLinkProps): JSX.Element {
   return (
     <MyIconButton
-      target="noopener"
       href={props.hyperlink}
       aria-label={props.ariaLabel}
       startIcon={<props.icon />}

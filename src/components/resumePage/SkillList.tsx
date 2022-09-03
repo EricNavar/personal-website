@@ -22,7 +22,7 @@ const StyledPaper = styled(Paper)<PaperProps>(({ theme }) => ({
   '& svg': {
     marginLeft: 'auto',
     marginRight: 'auto',
-    fill: theme.gradientPaper.color,
+    fill: theme.gradientPaper ? theme.gradientPaper.color : '',
   },
   alignContent: 'center',
   display: 'grid',
@@ -61,30 +61,30 @@ function SkillList(): JSX.Element {
     <Section title="Skills">
       <Grid
         container
-        direction="row"
-        justify="center"
-        alignItems="stretch"
+        direction='row'
+        justifyContent='center'
+        alignItems='stretch'
         spacing={1}
       >
-        <SkillItem skill="Git">
+        <SkillItem skill='Git'>
           <Suspense fallback={<div />}><GitIcon /></Suspense>
         </SkillItem>
-        <SkillItem skill="HTML/CSS">
+        <SkillItem skill='HTML/CSS'>
           <Suspense fallback={<div />}><HtmlIcon /></Suspense>
         </SkillItem>
-        <SkillItem skill="JavaScript/ TypeScript">
+        <SkillItem skill='JavaScript/ TypeScript'>
           <Suspense fallback={<div />}><JavascriptIcon /></Suspense>
         </SkillItem>
-        <SkillItem skill="React / React Native">
+        <SkillItem skill='React / React Native'>
           <Suspense fallback={<div />}><ReactIcon /></Suspense>
         </SkillItem>
-        <SkillItem skill="Java">
+        <SkillItem skill='Java'>
           <Suspense fallback={<div />}><JavaIcon /></Suspense>
         </SkillItem>
-        <SkillItem skill="Python">
+        <SkillItem skill='Python'>
           <Suspense fallback={<div />}><PythonIcon /></Suspense>
         </SkillItem>
-        <SkillItem skill="C++">
+        <SkillItem skill='C++'>
           <Suspense fallback={<div />}><CppIcon /></Suspense>
         </SkillItem>
       </Grid>

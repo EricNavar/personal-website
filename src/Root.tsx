@@ -16,6 +16,7 @@ import { MobileNavbar } from './components/MobileNavbar';
 import FullStory from 'react-fullstory';
 import { MinecraftPage } from './screens/MinecraftPage';
 import { lightTheme, darkTheme, minecraftTheme, frostTheme } from './styling/commonStyles';
+import { Theme } from '@mui/material/styles';
 const ResumePage = lazy(() => import('./screens/ResumePage').then((module) => ({
   default: module.ResumePage,
 })));
@@ -25,8 +26,8 @@ const InspirePage = lazy(() => import('./screens/InspirePage').then((module) => 
 const WorstWebsite = lazy(() => import('./screens/WorstWebsite').then((module) => ({
   default: module.WorstWebsite,
 })));
-const CommonGround = lazy(() => import('./screens/CommonGround').then((module) => ({
-  default: module.CommonGround,
+const BlogPage = lazy(() => import('./screens/BlogPage').then((module) => ({
+  default: module.BlogPage,
 })));
 
 //https://reacttraining.com/react-router/web/guides/quick-start
@@ -80,18 +81,23 @@ function Root(): JSX.Element {
                   <ResumePage />
                 </Suspense>
               </Route>
-              <Route path='/common-ground'>
+              <Route path='/blog'>
                 <Suspense fallback={<div />}>
-                  <CommonGround />
+                  <BlogPage />
                 </Suspense>
               </Route>
               {/*
-                  <Route path='/contact'>
-                    <Suspense fallback={<div />}>
-                      <ContactPage />
-                    </Suspense>
-                  </Route>
-                */}
+                <Route path='/common-ground'>
+                  <Suspense fallback={<div />}>
+                    <CommonGround />
+                  </Suspense>
+                </Route>
+                <Route path='/contact'>
+                  <Suspense fallback={<div />}>
+                    <ContactPage />
+                  </Suspense>
+                </Route>
+              */}
               <Route path='/inspire'>
                 <Suspense fallback={<div />}>
                   <InspirePage />

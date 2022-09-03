@@ -16,11 +16,15 @@ type SocialLinkProps = {
 function SocialLink(props: SocialLinkProps): JSX.Element {
   const { icon, circle, link, label } = props;
 
+
+  const onClick = () => {
+    window.open(link,'_blank');
+  };
+
   return (
     <StyledIconButton
       style={{ borderRadius: circle ? '50%' : 0 }}
-      href={link}
-      target="_blank"
+      onClick={onClick}
     >
       <img height="48px" width="48px" alt={label} src={icon} />
     </StyledIconButton>

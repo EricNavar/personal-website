@@ -18,7 +18,7 @@ const Divider = styled('div')({
 });
 
 const Title = styled(Typography)({
-  fontWeight: 'bold !important',
+  fontWeight: 'bold',
   fontSize: '2rem'
 });
 
@@ -27,7 +27,7 @@ const MaxContent = styled('div')({
 });
 
 type SectionProps = {
-  children: JSX.Element[],
+  children: JSX.Element | JSX.Element[],
   title: string,
   className?: string
 }
@@ -35,7 +35,7 @@ function Section({ children, title, className }: SectionProps): JSX.Element {
   return (
     <SectionMain className={className}>
       <MaxContent>
-        <Title component='h2' variant='h4' color='textPrimary'>
+        <Title variant='h4' color='textPrimary'>
           {title}
         </Title>
         <Divider></Divider>

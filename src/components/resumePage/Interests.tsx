@@ -3,12 +3,13 @@ import { Typography, List } from '@mui/material';
 import { Section } from './Section';
 import { makeStyles } from '@mui/styles';
 import { styled } from '@mui/material/styles';
+import { Theme } from '@mui/material/styles';
 
 const DescriptionList = styled(List)({
   paddingLeft: 12,
   listStyle: 'initial'
 });
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme:Theme) => ({
   listItem: {
     display: 'flow-root list-item',
     '&::marker': {

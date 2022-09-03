@@ -2,7 +2,6 @@ import React, { Suspense, lazy } from 'react';
 import { Typography, Grid, Paper, PaperProps } from '@mui/material';
 //local files
 import { styled } from '@mui/material/styles';
-import useTheme from '@mui/material/styles/useTheme';
 const ProfilePicture = lazy(() => import('./ProfilePicture').then((module) => ({
   default: module.ProfilePicture,
 })));

@@ -3,7 +3,7 @@ import { Grid } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { SkillList } from '../components/resumePage/SkillList';
 import { Education } from '../components/resumePage/Education';
-import { InvolvementSecion } from '../components/resumePage/InvolvementSection';
+import { InvolvementSection } from '../components/resumePage/InvolvementSection';
 import { Interests } from '../components/resumePage/Interests';
 import { experienceData } from '../data/experienceData';
 import { involvementData } from '../data/involvementData';
@@ -33,8 +33,8 @@ function ResumePage(): JSX.Element {
           <Education />
         </GridItem>
       </Grid>
-      <InvolvementSecion title="Internship Experience" data={experienceData} />
-      <InvolvementSecion title="Involvement" data={involvementData} />
+      <InvolvementSection title="Internship Experience" data={experienceData} />
+      <InvolvementSection title="Involvement" data={involvementData} />
       <Interests />
       <HomeInner></HomeInner>
     </HomeMain>

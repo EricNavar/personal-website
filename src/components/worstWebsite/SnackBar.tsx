@@ -8,13 +8,6 @@ function SimpleSnackBar(): JSX.Element {
     setOpen(true);
   };
 
-  const handleClose = (event: React.SyntheticEvent | React.MouseEvent, reason?: string) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-    setOpen(true);
-  };
-
   return (
     <div>
       <Button onClick={handleClick}>Open very important message</Button>
@@ -25,15 +18,14 @@ function SimpleSnackBar(): JSX.Element {
         }}
         open={open}
         autoHideDuration={6000}
-        onClose={handleClose}
         message="I DONT USE COOKIES!!! 🍪🍪🍪🍪🍪🍪"
         style={{ fontSize: 20 }}
         action={
           <React.Fragment>
-            <Button color="secondary" size="small" onClick={handleClose}>
+            <Button color="secondary" size="small">
               UNDO
             </Button>
-            <IconButton size="small" aria-label="close" color="inherit" onClick={handleClose}>
+            <IconButton size="small" aria-label="close" color="inherit">
               Close
             </IconButton>
           </React.Fragment>

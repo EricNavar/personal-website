@@ -10,7 +10,7 @@ type InvolvementListProps = {
   data: Array<InvolvementItem>
 }
 
-function InvolvementSecion(props: InvolvementListProps): JSX.Element {
+function InvolvementSection(props: InvolvementListProps): JSX.Element {
   const { title, data } = props;
   return (
     <Section title={title}>
@@ -21,4 +21,4 @@ function InvolvementSecion(props: InvolvementListProps): JSX.Element {
   );
 }
 
-export { InvolvementSecion };
+export { InvolvementSection };

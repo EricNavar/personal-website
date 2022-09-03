@@ -1,7 +1,8 @@
 import DcrfLogo from './../assets/projects/dcrf.webp';
 import AsurionLogo from './../assets/involvement/asurion.webp';
+import { InvolvementItem } from '../commonTypes';
 
-const experienceData = [
+const experienceData: InvolvementItem[] = [
   {
     'title': 'Asurion',
     'positions': { 'Software Engineer Intern': 'May - August 2021' },

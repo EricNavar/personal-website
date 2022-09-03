@@ -5,7 +5,7 @@ import { makeStyles } from '@mui/material/styles';
 import loremPicsum from 'lorem-picsum';
 /* @ts-expect-error tslint:disable-next-line */
 import Quote from 'inspirational-quotes';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 
 const QuoteText = styled(Typography)({
@@ -35,17 +35,16 @@ const Rhovas = styled('div')({
   right: 1
 });
 
-const useStyles = makeStyles(() => ({
-  rhovasText: {
-    position: 'relative',
-    backgroundImage: 'inherit',
-    '-webkit-background-clip': 'text',
-    '-webkit-filter': 'invert() sepia()'
-  },
-  margin: {
-    margin: 12
-  }
-}));
+const RhovasText = styled(Typography)`
+  position: 'relative',
+  backgroundImage: 'inherit',
+  '-webkit-background-clip': 'text',
+  '-webkit-filter': 'invert() sepia()'
+`;
+
+const StyledButton = styled(Button)`
+  margin: 12;
+`;
 
 function InspirePage(): JSX.Element {
   React.useEffect(() => {
@@ -55,7 +54,6 @@ function InspirePage(): JSX.Element {
       left: 0,
     });
   }, []);
-  const classes = useStyles();
   const inspirationalImage = loremPicsum({
     width: window.innerWidth,
     height: window.innerHeight,
@@ -63,6 +61,10 @@ function InspirePage(): JSX.Element {
   });
   const quote = Quote.getRandomQuote();
   const quoteFontSize = Math.min(Math.sqrt(quote.length / 4), 6.5);
+  const history = useHistory();
+  const routeToHome = () => {
+    history.push('/');
+  };
   return (
     <main>
       <VisibleOnLoad style={{ backgroundImage: 'url(' + inspirationalImage + ')' }}>
@@ -72,24 +74,21 @@ function InspirePage(): JSX.Element {
           </QuoteText>
         </div>
         <Rhovas>
-          <Typography variant='overline' className={classes.rhovasText}>
+          <RhovasText variant='overline'>
             Powered by Rhovas
-          </Typography>
+          </RhovasText>
         </Rhovas>
       </VisibleOnLoad>
-      <Button
+      <StyledButton
         variant='contained'
-        component={Link}
-        to='/'
-        className={classes.margin}
+        onClick={routeToHome}
       >
         Return to home
-      </Button>
+      </StyledButton>
       <Button
         variant='contained'
         component={Link}
         to='/inspire'
-        className={classes.margin}
       >
         reload
       </Button>

@@ -27,7 +27,6 @@ function CodingProjectMobile(props: CodingProjectMobileProps): JSX.Element {
           {tools}
         </Typography>
         <Typography
-          className={classes.title}
           component="span"
           variant="h5"
           aria-label={ariaLabel}

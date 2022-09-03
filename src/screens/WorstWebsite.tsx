@@ -4,7 +4,6 @@ import { ThemeProvider } from '@mui/styles';
 import { createTheme } from '@mui/material/styles';
 //local files
 import HandshakePhoto from './../assets/other/handshake.jpg';
-import EricEmoji from './../assets/other/EricEmoji.png';
 import { PrivacyNotice } from '../components/worstWebsite/PrivacyNotice';
 import { Footer } from './../components/worstWebsite/Footer';
 import { MyAppBar } from './../components/worstWebsite/AppBar';
@@ -15,7 +14,7 @@ import { styled } from '@mui/material/styles';
 
 const myTheme = createTheme({
   palette: {
-    type: 'dark'
+    mode: 'dark'
   },
   typography: {
     fontFamily: [
@@ -50,18 +49,20 @@ const myTheme = createTheme({
   }
 });
 
-const Root = styled('div')({
+const Root = styled('div')`
   borderImage: 'url(' + EricEmoji + ') 30 fill / 30px / 30px space',
   padding: 50
-});
-const NyanCat = styled(div)({
+`;
+
+const NyanCat = styled('div')`
   backgroundImage: 'url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/cat.gif")',
   position: 'fixed',
   bottom: 0,
   left: 0,
   width: 200,
   height: 400
-});
+`;
+
 const StyledBox = styled(Box)({
   background: '#f00',
   fontSize: 30,
@@ -69,11 +70,13 @@ const StyledBox = styled(Box)({
   width: 75,
   display: 'flex'
 });
+
 const GangnamStyleWrapper = styled('div')({
   position: 'fixed',
   top: '50%',
   right: 0
 });
+
 const Plead = styled(Typography)({
   width: 'max-content',
   padding: 40,
@@ -125,13 +128,13 @@ function WorstWebsite(): JSX.Element {
             </GangnamStyleWrapper>
             <Footer />
             <div className="wrapper">
-              <Plead color='textPrimary' variant="h3" component='span' align='center'>
+              <Plead color='textPrimary' variant="h3" align='center'>
                 I&apos;M WATCHING YOU WITH FULLSTORY <span role='img' aria-label="pleading face">😈🥵😳</span>
               </Plead>
-              <Plead color='textPrimary' variant="h3" component='span' align='center'>
+              <Plead color='textPrimary' variant="h3" align='center'>
                 I&apos;M WATCHING YOU WITH FULLSTORY <span role='img' aria-label="pleading face">😈🥵😳</span>
               </Plead>
-              <Plead color='textPrimary' variant="h3" component='span' align='center'>
+              <Plead color='textPrimary' variant="h3" align='center'>
                 I&apos;M WATCHING YOU WITH FULLSTORY <span role='img' aria-label="pleading face">😈🥵😳</span>
               </Plead>
             </div>

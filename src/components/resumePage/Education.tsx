@@ -87,7 +87,6 @@ function Education(): JSX.Element {
       </Typography>
       <br />
       <RelevantCousework
-        component='p'
         variant='h6'
         color='textPrimary'
       >

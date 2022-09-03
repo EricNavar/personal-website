@@ -95,10 +95,10 @@ function Positions(props: PositionsProps) {
     <>
       {Object.keys(props.positions).map((position: string, index: number) =>
         <PositionLine key={index}>
-          <Position component='span' variant='overline' color='textPrimary'>
+          <Position variant='overline' color='textPrimary'>
             {position}&emsp;
           </Position>
-          <TimePeriod component='span' variant='overline' gutterBottom color='textPrimary'>
+          <TimePeriod variant='overline' gutterBottom color='textPrimary'>
             {props.positions[position]}
           </TimePeriod>
         </PositionLine>
@@ -146,7 +146,6 @@ function InvolvementItemCard(props: InvolvementItemCardProps): JSX.Element {
             <div>
               <Title
                 color='primary'
-                component='p'
                 variant='h5'
               >
                 <b>{title}</b>

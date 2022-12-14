@@ -1,6 +1,5 @@
 import React from 'react';
 import { Typography, Button } from '@mui/material';
-import { makeStyles } from '@mui/material/styles';
 /* @ts-expect-error tslint:disable-next-line */
 import loremPicsum from 'lorem-picsum';
 /* @ts-expect-error tslint:disable-next-line */

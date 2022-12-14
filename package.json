@@ -26,7 +26,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "fix": "eslint --fix \"src/*.{js,ts}\""
+    "fix": "eslint --fix ."
   },
   "eslintConfig": {
     "extends": "react-app"

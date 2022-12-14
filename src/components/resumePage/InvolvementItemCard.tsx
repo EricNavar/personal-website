@@ -47,12 +47,14 @@ const StyledImg = styled('img')({
 });
 
 const TimePeriod = styled(Typography)({
-  fontSize: '.85rem'
+  fontSize: '.85rem',
+  lineHeight: '1rem',
 });
 
 const Position = styled(Typography)({
   flexGrow: 1,
-  fontSize: '.85rem'
+  fontSize: '.85rem',
+  lineHeight: '1rem',
 });
 
 const DescriptionList = styled(List)({
@@ -68,7 +70,7 @@ const StyledListItem = styled(ListItem)(({ theme }) => ({
 }));
 
 const PositionLine = styled('div')({
-  display: 'flex'
+  display: 'flex',
 });
 
 const ThumbnailContainer = styled('div')({
@@ -84,7 +86,7 @@ const Thumbnail = styled('img')({
 });
 
 const StyledWebIcon = styled(WebIcon)({
-  width: 24
+  width: 24,
 });
 
 type PositionsProps = {

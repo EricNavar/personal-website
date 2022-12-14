@@ -29,6 +29,7 @@ function CardButtonLink(props: CardButtonLinkProps): JSX.Element {
       startIcon={<props.icon />}
       color='secondary'
       variant='contained'
+      disableElevation
     >
       {props.label}
     </MyIconButton>

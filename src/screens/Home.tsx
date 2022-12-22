@@ -26,7 +26,7 @@ function Home(): JSX.Element {
         <Typography color='textPrimary' component="h2" variant="h4" className={classes.topicName}>
           Websites I&apos;ve Worked On
         </Typography>
-        <Hidden mdUp>
+        <Hidden smUp>
           <Grid container spacing={6}>
             {projectData.map(project => (
               <CardButtonContainer item key={project._id} xs={12}>
@@ -35,7 +35,7 @@ function Home(): JSX.Element {
             ))}
           </Grid>
         </Hidden>
-        <Hidden smDown>
+        <Hidden only={'xs'}>
           <Grid container spacing={3}>
             {projectData.map(project => (
               <CardButtonContainer item key={project._id} xs={12} xl={6}>

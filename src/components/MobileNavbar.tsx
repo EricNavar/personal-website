@@ -5,13 +5,13 @@ import { useHistory, useRouteMatch } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 //icons
 import MenuIcon from '@mui/icons-material/Menu';
-import HomeIcon from '@mui/icons-material/Home';
+import YouTubeIcon from '@mui/icons-material/Home';
 import InfoIcon from '@mui/icons-material/Info';
 import CloseIcon from '@mui/icons-material/Close';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import SunIcon from '@mui/icons-material/Brightness5';
 import MoonIcon from '@mui/icons-material/Brightness2';
-import MinecraftIcon from '../assets/icons/minecraft-icon';
+import AcUnitIcon from '@mui/icons-material/AcUnit';
 
 //citation: https://material-ui.com/components/app-bar/#back-to-top
 
@@ -137,8 +137,8 @@ function MobileNavbar(props: MobileNavbarProps): JSX.Element {
                 <ToggleButton value="Dark" aria-label="centered">
                   <MoonIcon />
                 </ToggleButton>
-                <ToggleButton value="Minecraft" aria-label="centered">
-                  <MinecraftIcon />
+                <ToggleButton value="Frost" aria-label="frost theme">
+                  <AcUnitIcon />
                 </ToggleButton>
               </StyledToggleButtonGroup>
             </Toolbar>
@@ -169,7 +169,7 @@ function MobileNavbar(props: MobileNavbarProps): JSX.Element {
           <div>
             <SideBarItem text='Coding Projects' link="/home" icon={<InfoIcon />} setOpen={setOpen} />
             <SideBarItem text='Resume' link='/resume' icon={<DashboardIcon />} setOpen={setOpen} />
-            <SideBarItem text='Connect' link='/home/#connect' icon={<HomeIcon />} setOpen={setOpen} />
+            <SideBarItem text='Blog' link='/blog' icon={<YouTubeIcon />} setOpen={setOpen} />
           </div>
         </List>
       </SwipeableDrawer>

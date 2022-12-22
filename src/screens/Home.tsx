@@ -54,15 +54,12 @@ function Home(): JSX.Element {
         >
           Connect
         </Typography>
-        <Grid
-          container
-          direction="row"
-          alignItems="stretch"
-          spacing={2}
-        >
+        <div>
+          <Typography>Email: ericn2413@gmail.com</Typography>
+          <br />
           <SocialLink label="LinkedIn" link="https://www.linkedin.com/in/ericnavar/" icon={LinkedInIcon} circle={false} />
           <SocialLink label="Github" link="https://www.github.com/ericnavar" icon={GitHubIcon} circle={true} />
-        </Grid>
+        </div>
       </section>
       <ScreenBackground></ScreenBackground>
     </ScreenMain>

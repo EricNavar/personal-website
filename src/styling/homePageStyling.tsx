@@ -68,7 +68,7 @@ export const cardButtonStyles = makeStyles({
   }
 });
 
-export const HomeMain = styled('main')(({ theme }) => ({
+export const ScreenMain = styled('main')(({ theme }) => ({
   padding: 24,
   justifyContent: 'center',
   display: 'grid',
@@ -90,7 +90,7 @@ export const HomeMain = styled('main')(({ theme }) => ({
   },
 }));
 
-export const HomeInner = styled('div')(({ theme }) => ({
+export const ScreenBackground = styled('div')(({ theme }) => ({
   position: 'absolute',
   zIndex: -1,
   width: '100%',

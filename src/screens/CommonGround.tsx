@@ -4,7 +4,7 @@ import { Grid, Typography, Hidden } from '@mui/material';
 import { UXProject } from '../components/uxportfolio/UXProject';
 // import { Mockup } from '../components/uxportfolio/Mockup';
 import { UXProjectData } from '../data/UXProjectData';
-import { homePageStyles, HomeMain, CardButtonContainer } from '../styling/homePageStyling';
+import { homePageStyles, ScreenMain, CardButtonContainer } from '../styling/homePageStyling';
 
 function CommonGround(): JSX.Element {
   React.useEffect(() => {
@@ -17,7 +17,7 @@ function CommonGround(): JSX.Element {
   const classes = homePageStyles();
 
   return (
-    <HomeMain>
+    <ScreenMain>
       <Grid container spacing={10} style={{ marginTop: 40, marginBottom: 40 }}>
         <Grid item style={{ maxWidth: 800 }}>
           <Typography color='textPrimary' component="h2" variant="h4" className={classes.topicName}>
@@ -46,7 +46,7 @@ function CommonGround(): JSX.Element {
           {/* <Mockup /> */}
         </Grid>
       </Grid >
-    </HomeMain >
+    </ScreenMain >
   );
 }
 

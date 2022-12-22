@@ -66,7 +66,7 @@ function Root(): JSX.Element {
       <Router>
         <ScrollToTop>
           <ThemeProvider theme={themes[theme]}>
-            <Hidden xsDown>
+            <Hidden only={'xs'}>
               <DesktopNavbar theme={theme} setTheme={setTheme} />
             </Hidden>
             <Hidden smUp>

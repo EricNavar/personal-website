@@ -20,12 +20,12 @@ export const videos = [
         description: 'My intro to databases and SQL'
     },
     {
-        id: 'lCrOguhFBSo',
-        description: 'A video I made for my really bizzare blockchain class on how blockchain can aid the web.'
-    },
-    {
         id: '241U3Hxv7wo',
         description: 'My 2-hour video on why I don\'t think blockchain is beneficial in web apps and games. Web 3.0 as it\'s envisioned by minds in the crypto space such as Vitalik Buterin is not accessible and fails to solve many issues with regards to privacy or security.'
+    },
+    {
+        id: 'lCrOguhFBSo',
+        description: 'A video I made for my really bizzare blockchain class on how blockchain can aid the web.'
     },
     {
         id: '7GK-OpEr8kk',

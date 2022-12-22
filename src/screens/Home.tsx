@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Typography, Hidden, Link } from '@mui/material';
+import { Grid, Typography, Hidden } from '@mui/material';
 //local files
 import GitHubIcon from './../assets/icons/github.svg';
 import LinkedInIcon from './../assets/icons/linkedin.svg';
@@ -7,7 +7,7 @@ import { PersonalStatement } from '../components/resumePage/PersonalStatement';
 import { CodingProjectMobile } from '../components/home/CodingProjectMobile';
 import { CodingProjectDesktop } from '../components/home/CodingProjectDesktop';
 import { projectData } from '../data/projectData';
-import { homePageStyles, HomeMain, HomeInner, CardButtonContainer } from '../styling/homePageStyling';
+import { homePageStyles, ScreenMain, ScreenBackground, CardButtonContainer } from '../styling/homePageStyling';
 import { SocialLink } from '../components/home/SocialLink';
 
 function Home(): JSX.Element {
@@ -20,7 +20,7 @@ function Home(): JSX.Element {
   }, []);
   const classes = homePageStyles();
   return (
-    <HomeMain>
+    <ScreenMain>
       <PersonalStatement />
       <section id="project-list" className={classes.section}>
         <Typography color='textPrimary' component="h2" variant="h4" className={classes.topicName}>
@@ -64,8 +64,8 @@ function Home(): JSX.Element {
           <SocialLink label="Github" link="https://www.github.com/ericnavar" icon={GitHubIcon} circle={true} />
         </Grid>
       </section>
-      <HomeInner></HomeInner>
-    </HomeMain>
+      <ScreenBackground></ScreenBackground>
+    </ScreenMain>
   );
 }
 

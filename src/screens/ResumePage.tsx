@@ -7,7 +7,7 @@ import { InvolvementSection } from '../components/resumePage/InvolvementSection'
 import { Interests } from '../components/resumePage/Interests';
 import { experienceData } from '../data/experienceData';
 import { involvementData } from '../data/involvementData';
-import { HomeMain, HomeInner } from '../styling/homePageStyling';
+import { ScreenMain, ScreenBackground } from '../styling/homePageStyling';
 
 const GridItem = styled(Grid)`
   justify-content: center;
@@ -24,7 +24,7 @@ function ResumePage(): JSX.Element {
   }, []);
 
   return (
-    <HomeMain>
+    <ScreenMain>
       <Grid container spacing={10} justifyContent='center'>
         <GridItem id='skill-list-container' item sm={12} lg={6}>
           <SkillList />
@@ -36,8 +36,8 @@ function ResumePage(): JSX.Element {
       <InvolvementSection title="Internship Experience" data={experienceData} />
       <InvolvementSection title="Involvement" data={involvementData} />
       <Interests />
-      <HomeInner></HomeInner>
-    </HomeMain>
+      <ScreenBackground />
+    </ScreenMain>
   );
 }
 

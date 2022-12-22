@@ -39,7 +39,13 @@ const useStyles = makeStyles({
 });
 const StyledToggleButtonGroup = styled(ToggleButtonGroup)({
   position: 'absolute',
-  right: 8
+  right: 8,
+  '& use': {
+    fill: 'white'
+  },
+  '& path': {
+    fill: 'white'
+  }
 });
 
 
@@ -131,14 +137,14 @@ function MobileNavbar(props: MobileNavbarProps): JSX.Element {
                 onChange={handleChange}
                 aria-label="website theme"
               >
+                <ToggleButton value="Frost" aria-label="frost theme">
+                  <AcUnitIcon />
+                </ToggleButton>
                 <ToggleButton value="Light" aria-label="left aligned">
                   <SunIcon />
                 </ToggleButton>
                 <ToggleButton value="Dark" aria-label="centered">
                   <MoonIcon />
-                </ToggleButton>
-                <ToggleButton value="Frost" aria-label="frost theme">
-                  <AcUnitIcon />
                 </ToggleButton>
               </StyledToggleButtonGroup>
             </Toolbar>

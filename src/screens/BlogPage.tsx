@@ -5,11 +5,11 @@ import { styled } from '@mui/material/styles';
 import { videos } from '../data/blog';
 // import { ArticleProps } from '../components/Article';
 import { Link, Typography } from '@mui/material';
+import { ScreenMain, ScreenBackground } from '../styling/homePageStyling';
 
 const Container = styled('div')(({theme}) => ({
   padding: 30,
   color: theme.palette.primary.contrastText,
-  ...theme.background,
 }));
 
 const VideoContainer = styled('div')`
@@ -41,8 +41,8 @@ const Description = styled(Typography)`
 `;
 
 const YouTubeVideo = styled('iframe')`
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   max-width: 100%;
+  border-radius: 2px;
 `;
 
 // type ContentfulArticle = {
@@ -83,7 +83,7 @@ function BlogPage(): JSX.Element {
   // }, []);
 
   return (
-    <Container>
+    <ScreenMain>
       {/* <ArticleSection articles={articles} /> */}
       <Typography component='h1' variant="h4">My Videos</Typography>
       {videos.map((video, index) => (
@@ -113,7 +113,8 @@ function BlogPage(): JSX.Element {
         <YouTubeChannelLogo src='https://yt3.googleusercontent.com/ytc/AMLnZu-clO-MD7YassFljB0F90MCaz6bEqP8cvtmWZgB=s176-c-k-c0x00ffffff-no-rj'/>
         <Typography style={{marginLeft: 12}} component={Link} href='https://www.youtube.com/@ufssd/videos'>UF Society of Software Developers</Typography>
       </YouTubeChannelContainer>
-    </Container>
+      <ScreenBackground />
+    </ScreenMain>
   );
 }
 

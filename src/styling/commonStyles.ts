@@ -140,7 +140,7 @@ export const frostTheme = createTheme({
     height: '300%',
     backgroundSize: '100% 100%',
     animation: 'GradientBackground 7s ease infinite',
-    background: 'linear-gradient(0.33turn, #f6a192, #ffd9df, #f6c492, #f6a192)',
+    background: 'linear-gradient(0.33turn, #f6a192, #ffbcde, #f6c492, #ffabab)',
     '@keyframes GradientBackground': {
       '0%': { transform: 'translate(0, -50%);' },
       '50%': { transform: 'translate(-60%, 0);' },

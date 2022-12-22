@@ -36,7 +36,7 @@ function Home(): JSX.Element {
           </Grid>
         </Hidden>
         <Hidden smDown>
-          <Grid container spacing={6}>
+          <Grid container spacing={3}>
             {projectData.map(project => (
               <CardButtonContainer item key={project._id} xs={12} xl={6}>
                 <CodingProjectDesktop project={project} />
@@ -44,25 +44,6 @@ function Home(): JSX.Element {
             ))}
           </Grid>
         </Hidden>
-      </section>
-      <section className={classes.homeSection}>
-        <Typography
-          color='textPrimary'
-          component='h2'
-          variant='h4'
-          className={classes.topicName}
-        >
-          Joke projects
-        </Typography>
-        <Link variant="body1" target="_blank" href="/worst-website" className={classes.jokeProjectLink}>
-          Worst website
-        </Link>
-        <Link variant="body1" target="_blank" href="https://knighthack.com" className={classes.jokeProjectLink}>
-          How to win a hackathon
-        </Link>
-        <Link variant="body1" target="_blank" href="https://ericnavar.github.io/BellaWebsite/" className={classes.jokeProjectLink}>
-          Bella Fan Club (my first website)
-        </Link>
       </section>
       <section id='connect' className={classes.homeSection}>
         <Typography

@@ -1,5 +1,5 @@
 import React from 'react';
-import Eric from './../../assets/other/Eric Navar.webp';
+import Eric from './../../assets/other/Eric Navar.jpg';
 
 function ProfilePicture():JSX.Element {
   return (

@@ -5,7 +5,7 @@ import { InvolvementItem } from '../commonTypes';
 const experienceData: InvolvementItem[] = [
   {
     'title': 'Asurion',
-    'positions': { 'Software Engineer Intern': 'May 2022 - Present' },
+    'positions': { 'Software Engineer Intern': 'May - December 2022' },
     'description': [
       'Develop React website and React Native app for customers of Asurion and Asurion partners',
       'Learn to collaborate with with developers and product designers to analyze requirements and understand business value to find a solution',

@@ -82,11 +82,7 @@ const ThumbnailContainer = styled('div')({
 
 const Thumbnail = styled('img')({
   width: 'inherit',
-  maxWidth: 'inherit'
-});
-
-const StyledWebIcon = styled(WebIcon)({
-  width: 24,
+  maxWidth: 400
 });
 
 type PositionsProps = {
@@ -156,7 +152,7 @@ function InvolvementItemCard(props: InvolvementItemCardProps): JSX.Element {
             {link &&
               <Tooltip title={linkDescription ? linkDescription : ''} aria-label={linkDescription}>
                 <IconButton target='_blank' href={link}>
-                  <StyledWebIcon />
+                  <WebIcon />
                 </IconButton>
               </Tooltip>
             }

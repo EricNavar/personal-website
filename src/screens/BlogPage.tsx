@@ -1,46 +1,70 @@
 import React from 'react';
-import { ArticleSection } from '../components/ArticleSection';
+// import { ArticleSection } from '../components/ArticleSection';
 import { styled } from '@mui/material/styles';
-import { client } from '../data/client';
-import { ArticleProps } from '../components/Article';
+// import { client } from '../data/client';
+import { videos } from '../data/blog';
+// import { ArticleProps } from '../components/Article';
+import { Link, Typography } from '@mui/material';
 
-const Container = styled('div')`
-  background-color: #FDD5D2;
-  padding-bottom: 30px;
+const Container = styled('div')(({theme}) => ({
+  padding: 30,
+  color: theme.palette.primary.contrastText,
+  ...theme.background,
+}));
+
+const VideoContainer = styled('div')`
+  margin-bottom: 18px;
+  margin-top: 8px;
 `;
 
-type ContentfulArticle = {
-  fields: ContentfulArticleFields;
-}
+const YouTubeChannelContainer = styled('div')(({ theme }) => ({
+  maxWidth: 450,
+  color: theme.palette.primary.contrastText,
+  marginTop: 16,
+  padding: 16,
+  display: 'flex',
+  alignItems: 'center',
+  borderRadius: 8,
+  transition: 'background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
+  boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
+  ...theme.gradientPaper
+}));
 
-type ContentfulArticleFields = {
-  description: string;
-  name: string;
-  featuredImage: FeaturedImage;
-};
+const YouTubeChannelLogo = styled('img')`
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+`;
 
-type FeaturedImage = {
-  fields: FeaturedImageFields;
-};
+const Description = styled(Typography)`
+  margin-bottom: 8px;
+`;
 
-type FeaturedImageFields = {
-  url: string;
-};
+const YouTubeVideo = styled('iframe')`
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  max-width: 100%;
+`;
 
-const videos = [
-  'https://www.youtube.com/embed/W3l8pTJ21fo',
-  'https://www.youtube.com/embed/MMM3XNEUHeE',
-  'https://www.youtube.com/embed/d1jhrYy2vFU',
-  'https://www.youtube.com/embed/Dzx_IdOPGzc',
-  'https://www.youtube.com/embed/rODUJI9M_LU',
-  'https://www.youtube.com/embed/AYbmeSnx4jA',
-  'https://www.youtube.com/embed/XXNCdJX5fnU',
-  'https://www.youtube.com/embed/7GK-OpEr8kk',
-  'https://www.youtube.com/embed/eTYXSHU3q6A',
-];
+// type ContentfulArticle = {
+//   fields: ContentfulArticleFields;
+// }
+
+// type ContentfulArticleFields = {
+//   description: string;
+//   name: string;
+//   featuredImage: FeaturedImage;
+// };
+
+// type FeaturedImage = {
+//   fields: FeaturedImageFields;
+// };
+
+// type FeaturedImageFields = {
+//   url: string;
+// };
 
 function BlogPage(): JSX.Element {
-  const [articles, setArticles] = React.useState<ArticleProps[]>([]);
+  // const [articles, setArticles] = React.useState<ArticleProps[]>([]);
 
   // React.useEffect(() => {
   //   client.getEntries()
@@ -60,22 +84,35 @@ function BlogPage(): JSX.Element {
 
   return (
     <Container>
-      Articles
-      <ArticleSection articles={articles} />
-
-      <p>Videos</p>
+      {/* <ArticleSection articles={articles} /> */}
+      <Typography component='h1' variant="h4">My Videos</Typography>
       {videos.map((video, index) => (
-        <iframe
-          width="882"
-          height="496"
-          src={video}
-          title="Common Ground Final Presentation"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          data-modestbranding
-          key={index}
-        />
+        <VideoContainer key={index}>
+          <Description>
+            {video.description}
+          </Description>
+          <YouTubeVideo
+            width="882"
+            height="496"
+            src={`https://www.youtube.com/embed/${video.id}`}
+            title="Common Ground Final Presentation"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            data-modestbranding
+            key={index}
+            frameBorder="0"
+          />
+        </VideoContainer>
       ))}
+      <Typography component='h2' variant="h5">YouTube Channels</Typography>
+      <YouTubeChannelContainer>
+        <YouTubeChannelLogo src='https://yt3.ggpht.com/2oai_WLC-1ZaOqxRRjhnN3vOULJ3SygIzo_ssU0wkIP1c26DUyEpprB-0t6VYJicQquV4QYWpw=s176-c-k-c0x00ffffff-no-rj'/>
+        <Typography style={{marginLeft: 12}} component={Link} href='https://www.youtube.com/@ufssd/videos'>My Personal Channel</Typography>
+      </YouTubeChannelContainer>
+      <YouTubeChannelContainer>
+        <YouTubeChannelLogo src='https://yt3.googleusercontent.com/ytc/AMLnZu-clO-MD7YassFljB0F90MCaz6bEqP8cvtmWZgB=s176-c-k-c0x00ffffff-no-rj'/>
+        <Typography style={{marginLeft: 12}} component={Link} href='https://www.youtube.com/@ufssd/videos'>UF Society of Software Developers</Typography>
+      </YouTubeChannelContainer>
     </Container>
   );
 }

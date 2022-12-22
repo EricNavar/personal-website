@@ -36,13 +36,9 @@ const University = styled(Typography)({
   flexGrow: 1
 });
 
-const GPA = styled('span')({
-  marginRight: '4rem'
-});
-
-const FirstLine = styled('div')({
-  display: 'flex'
-});
+const Line = styled('div')`
+  display: flex;
+`;
 
 function CourseworkItems(): JSX.Element {
   const coursework = [
@@ -64,28 +60,33 @@ function CourseworkItems(): JSX.Element {
 }
 
 function Education(): JSX.Element {
+  const gpa = 3.9;
   return (
     <EducationSection title='Education'>
-      <FirstLine>
+      <Line>
         <University variant='h5' color='textPrimary'>
           University of Florida
         </University>
-        <GPA>
+        <Typography component='span' variant='body1' color='textPrimary'>
+          Fall Class of 2022
+        </Typography>
+      </Line>
+      <Line>
+        <Typography component='span' variant='body1' color='textPrimary'>
+          B.S. Computer Science
+        </Typography>
+        <Typography component='span' variant='body1' color='textSecondary' style={{flexGrow:1}}>
+          &nbsp;| Digital Arts Minor
+        </Typography>
+        <span>
           <Typography component='span' variant='body1' color='primary'>
             <b>GPA:</b>
           </Typography>
           <Typography component='span' variant='body1' color='textPrimary'>
-            &nbsp;3.89
+            &nbsp;{gpa}
           </Typography>
-        </GPA>
-      </FirstLine>
-      <Typography component='span' variant='body1' color='textPrimary'>
-        B.S. Computer Science
-      </Typography>
-      <Typography component='span' variant='body1' color='textSecondary'>
-        &nbsp;| Digital Arts Minor
-      </Typography>
-      <br />
+        </span>
+      </Line>
       <RelevantCousework
         variant='h6'
         color='textPrimary'

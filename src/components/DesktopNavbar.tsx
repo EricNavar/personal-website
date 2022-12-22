@@ -6,7 +6,6 @@ import MoonIcon from '@mui/icons-material/Brightness2';
 import AcUnitIcon from '@mui/icons-material/AcUnit';
 import useTheme from '@mui/material/styles/useTheme';
 import { Link, useRouteMatch } from 'react-router-dom';
-import MinecraftIcon from '../assets/icons/minecraft-icon';
 import { styled } from '@mui/material/styles';
 import { Theme } from '@mui/material/styles';
 
@@ -126,7 +125,6 @@ function DesktopNavbar(props: DesktopNavbarProps): JSX.Element {
             <div style={{ position: 'absolute' }}>
               <NavBarItem to='/' text='Coding Projects' />
               <NavBarItem to='/resume' text='Resume' />
-              <NavBarItem to='/minecraft' text='Minecraft' />
               <NavBarItem to='/blog' text='Blog' />
             </div>
             <StyledToggleButtonGroup
@@ -143,9 +141,6 @@ function DesktopNavbar(props: DesktopNavbarProps): JSX.Element {
               </ToggleButton>
               <ToggleButton value="Dark" aria-label="dark theme">
                 <MoonIcon />
-              </ToggleButton>
-              <ToggleButton value="Minecraft" aria-label="minecraft theme">
-                <MinecraftIcon />
               </ToggleButton>
             </StyledToggleButtonGroup>
           </Toolbar>

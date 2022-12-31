@@ -54,7 +54,7 @@ function PersonalStatement(): JSX.Element {
           <b>Hi, I&apos;m Eric Navar</b>
         </PersonalStatementHeader>
         <Typography variant='body1' style={{ fontSize: 16 }}>
-          I&apos;m a computer science major and digital arts minor at UF interested in learning new things. I have lots of cool experience in frontend and I&apos;m also trying to learn UX design. Feel free to reach out!
+          I&apos;m a recent computer science graduate from the University of Florida. I&apos;m always interested in learning new things and am looking for a full-time position. I would love to connect with you!
         </Typography>
       </TextContainer>
     </PersonalStatementWrapper>

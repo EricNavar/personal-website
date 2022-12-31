@@ -3,11 +3,33 @@ import InspirationPic from './../assets/projects/inspiration.webp';
 import SimplifunctionLogo from './../assets/projects/simplifunction.webp';
 import _32StacksLogo from './../assets/projects/32stacks.png';
 import WebIcon from '../assets/icons/web_fluent';
+import GitHub from '../assets/icons/github_fluent';
 import { Project } from '../commonTypes';
+import CommonGroundLogo from '../assets/projects/CommonGround.png';  
 
 const projectData: Array<Project> = [
   {
-    _id: 7,
+    _id: 1,
+    tools: 'React Native, Expo, MongoDB, Express',
+    headerText: 'Common Ground',
+    subText: [
+      ['Mobile app that helps groups of people to identify nearby restaurants that appeal to the preferences of all the individuals involved.'],
+      ['Still working on deploying to app stores.']
+    ],
+    image: CommonGroundLogo,
+    altLabel: '32Stacks Logo',
+    ariaLabel: '32Stacks website',
+    links: [
+      {
+        label: 'GitHub repository',
+        ariaLabel: 'Common Ground GitHub repository',
+        hyperlink: 'https://github.com/common-ground-uf/common-ground',
+        icon: GitHub
+      }
+    ]
+  },
+  {
+    _id: 2,
     tools: '',
     headerText: 'SimpliFunction',
     subText: [['Website that allows users to create formulas for Microsoft Excel and Google Sheets without needing to know Visual Basic For Applications syntax or any programming.']
@@ -25,7 +47,7 @@ const projectData: Array<Project> = [
     ]
   },
   {
-    _id: 2,
+    _id: 3,
     tools: 'React, Socket.io',
     headerText: '32Stacks',
     subText: [['A version of Uno that is cooler and requires more strategy. Did not place at Swamphacks 2022 😎']],
@@ -59,7 +81,7 @@ const projectData: Array<Project> = [
     ]
   },
   {
-    _id: 1,
+    _id: 4,
     tools: 'MERN Stack web app',
     headerText: 'DC Rock Fitness',
     subText: [

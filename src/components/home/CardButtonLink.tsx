@@ -18,7 +18,7 @@ const MyIconButton = styled(Button)<ButtonProps>(({ theme }) => ({
 }));
 
 type CardButtonLinkProps = {
-  icon: () => JSX.Element,
+  icon: string,
   label: string,
   hyperlink: string,
   ariaLabel: string
@@ -29,7 +29,7 @@ function CardButtonLink(props: CardButtonLinkProps): JSX.Element {
     <MyIconButton
       href={props.hyperlink}
       aria-label={props.ariaLabel}
-      startIcon={<props.icon />}
+      startIcon={<img src={props.icon}/>}
       variant='contained'
       disableElevation
     >

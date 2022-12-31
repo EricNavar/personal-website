@@ -1,6 +1,7 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
 import {marked} from 'marked';
+import { ArticleProps } from '../commonTypes';
 
 const StyledArticle = styled('div')`
     border-radius: 8px;
@@ -22,12 +23,6 @@ const ArticleTitle = styled('h1')`
     font-size: 2rem;
     margin-top: 0;
 `;
-
-export type ArticleProps = {
-    description: string;
-    name: string;
-    featuredImage: string;
-};
 
 export function Article(props: ArticleProps) {
   if (!props.description) {

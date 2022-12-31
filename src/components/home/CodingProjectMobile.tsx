@@ -3,7 +3,7 @@ import { Typography } from '@mui/material';
 //local files
 import { CardButtonLink } from './CardButtonLink';
 import { cardButtonStyles, ItemWrapper } from '../../styling/homePageStyling';
-import { Project, LinkProps } from '../../commonTypes';
+import { Project, ProjectLink } from '../../commonTypes';
 import useTheme from '@mui/material/styles/useTheme';
 const CodingProjectThumbnail = lazy(() => import('./CodingProjectThumbnail').then((module) => ({
   default: module.CodingProjectThumbnail,
@@ -14,7 +14,7 @@ type CodingProjectMobileProps = {
 };
 
 function CodingProjectMobile(props: CodingProjectMobileProps): JSX.Element {
-  const { headerText, tools, subText, image, altLabel, ariaLabel, links } = props.project;
+  const { headerText, tools, subText, image, altLabel, links } = props.project;
   const classes = cardButtonStyles(useTheme());
 
   return (
@@ -26,27 +26,9 @@ function CodingProjectMobile(props: CodingProjectMobileProps): JSX.Element {
         <Typography variant="overline" display="block" color='textSecondary'>
           {tools}
         </Typography>
-        <Typography
-          component="span"
-          variant="h5"
-          aria-label={ariaLabel}
-        //          color='primary'
-        >
-          {headerText}
-        </Typography>
-        <Typography color='textPrimary' variant='body1' className={classes.subTextContainer}>
-          {subText.map((paragraph: Array<string>, value1: number) => (
-            <React.Fragment key={value1}>
-              {value1 !== 0 && <br key={`${headerText}-linebreak-${value1}`} className={classes.lineBreak} />}
-              {paragraph.map((textPiece, value2) =>
-                <span key={`${headerText}-subText-${value1}-${value2}`} className={value2 % 2 === 1 ? classes.underlined : ''}>
-                  {textPiece}
-                </span>
-              )}
-            </React.Fragment>
-          ))}
-        </Typography>
-        {links.map((link: LinkProps, value: number) => <CardButtonLink key={`link-${value}`} {...link} />)}
+        <Typography component="span" variant="h5">{headerText}</Typography>
+        <Typography color='textPrimary' variant='body1' className={classes.subTextContainer} dangerouslySetInnerHTML={{ __html: subText }} />
+        {links.map((link: ProjectLink, value: number) => <CardButtonLink key={`link-${value}`} {...link} />)}
       </div>
     </ItemWrapper>
   );

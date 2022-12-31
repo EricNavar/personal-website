@@ -2,15 +2,10 @@ import React from 'react';
 // import { ArticleSection } from '../components/ArticleSection';
 import { styled } from '@mui/material/styles';
 // import { client } from '../data/client';
-import { videos } from '../data/blog';
 // import { ArticleProps } from '../components/Article';
 import { Link, Typography } from '@mui/material';
 import { ScreenMain, ScreenBackground } from '../styling/homePageStyling';
-
-const Container = styled('div')(({theme}) => ({
-  padding: 30,
-  color: theme.palette.primary.contrastText,
-}));
+import { client } from '../util/client';
 
 const VideoContainer = styled('div')`
   margin-bottom: 18px;
@@ -45,23 +40,10 @@ const YouTubeVideo = styled('iframe')`
   border-radius: 2px;
 `;
 
-// type ContentfulArticle = {
-//   fields: ContentfulArticleFields;
-// }
-
-// type ContentfulArticleFields = {
-//   description: string;
-//   name: string;
-//   featuredImage: FeaturedImage;
-// };
-
-// type FeaturedImage = {
-//   fields: FeaturedImageFields;
-// };
-
-// type FeaturedImageFields = {
-//   url: string;
-// };
+type Video = {
+  youtubeID: string;
+  description: string;
+}
 
 function BlogPage(): JSX.Element {
   // const [articles, setArticles] = React.useState<ArticleProps[]>([]);
@@ -82,6 +64,26 @@ function BlogPage(): JSX.Element {
   //     .catch(console.error);
   // }, []);
 
+  const [videos, setVideos] = React.useState<Video[]>([]);
+  React.useEffect(() => {
+    client.getEntries({
+      content_type: 'video',
+    })
+      .then((response) => {
+        const items = response.items;
+        const videosFromContentful = items.map((item: any) => {
+          return {
+            youtubeID: item.fields.youtubeId,
+            description: item.fields.description
+          };
+        }) as Video[];
+        setVideos(videosFromContentful);
+      })
+      .catch(console.error);
+  }, []);
+
+  console.log(videos);
+
   return (
     <ScreenMain>
       {/* <ArticleSection articles={articles} /> */}
@@ -94,12 +96,12 @@ function BlogPage(): JSX.Element {
           <YouTubeVideo
             width="882"
             height="496"
-            src={`https://www.youtube.com/embed/${video.id}`}
+            src={`https://www.youtube.com/embed/${video.youtubeID}`}
             title="Common Ground Final Presentation"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             data-modestbranding
-            key={index}
+            key={`video-${index}`}
             frameBorder="0"
           />
         </VideoContainer>

@@ -1,12 +1,6 @@
 ﻿# Eric Navar's Resume Website
-Made using React and Material UI
+This is my portfolio site. It's made using React, Material UI, and Contentful.
+
 [https://www.ericnavar.com/](https://www.ericnavar.com/)
 
-## Color Palette
-
-- #4fcff0 light blue
-- #537895 dark gray blue
-- #09203f dark navy blue
-
-## Resources
-- https://old.reddit.com/r/css/comments/r0eazk/can_the_style_on_the_number_404_be_translated_to/
+ericn2413@gmail.com

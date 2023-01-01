@@ -25,7 +25,7 @@ export const lightTheme = createTheme({
       main: '#4fcff0',
     },
     grey: {
-      '800': 'rgba(215,218,225,1)',
+      '800': 'rgba(215,218,225,.8)',
     }
   },
   typography: {
@@ -115,7 +115,7 @@ export const frostTheme = createTheme({
       main: '#4fcff0',
     },
     grey: {
-      '800': 'rgba(215,218,225,1)',
+      '800': 'rgba(215,218,225,.8)',
     },
   },
   typography: {

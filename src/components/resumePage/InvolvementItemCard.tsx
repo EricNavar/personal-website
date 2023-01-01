@@ -1,5 +1,12 @@
 import React from 'react';
-import { Typography, List, IconButton, Grid, Tooltip, ListItem } from '@mui/material';
+import {
+  Typography,
+  List,
+  IconButton,
+  Grid,
+  Tooltip,
+  ListItem,
+} from '@mui/material';
 import { ExperienceItem } from '../../commonTypes';
 import WebIcon from '../../assets/icons/web_fluent';
 import { styled } from '@mui/material/styles';
@@ -8,7 +15,10 @@ const InvolvementItemMain = styled('div')(({ theme }) => ({
   boxShadow: 'rgba(0,0,0, 0.1) 0px 8px 24px',
   overflow: 'hidden',
   borderRadius: 4,
-  background: theme.palette.mode === 'light' ? theme.palette.grey['800'] : `linear-gradient(${theme.palette.info.light} 0%, ${theme.palette.info.dark} 100%)`,
+  background:
+    theme.palette.mode === 'light'
+      ? theme.palette.grey['800']
+      : `linear-gradient(${theme.palette.info.light} 0%, ${theme.palette.info.dark} 100%)`,
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   backgroundAttachment: 'fixed',
@@ -17,12 +27,12 @@ const InvolvementItemMain = styled('div')(({ theme }) => ({
   flexWrap: 'wrap',
   '&:hover': {
     '& svg': {
-      color: '#00a8cc'
-    }
+      color: '#00a8cc',
+    },
   },
   '& *': {
-    transition: '.5s ease-in-out'
-  }
+    transition: '.5s ease-in-out',
+  },
 }));
 
 const InvolvementItemInner = styled('div')({
@@ -31,19 +41,19 @@ const InvolvementItemInner = styled('div')({
 
 const Title = styled(Typography)({
   textAlign: 'left',
-  fontSize: 26
+  fontSize: 26,
 });
 
 const TopRow = styled('div')({
   display: 'flex',
   alignItems: 'center',
-  marginBottom: 16
+  marginBottom: 16,
 });
 
 const StyledImg = styled('img')({
   borderRadius: 8,
   width: 50,
-  marginRight: 16
+  marginRight: 16,
 });
 
 const TimePeriod = styled(Typography)({
@@ -59,34 +69,42 @@ const Position = styled(Typography)({
 
 const DescriptionContainer = styled(List)({
   paddingLeft: 12,
-  listStyle: 'initial'
+  listStyle: 'initial',
 });
 
 const StyledListItem = styled(ListItem)(({ theme }) => ({
   display: 'flow-root list-item',
   '&::marker': {
-    color: theme.palette.primary.main
-  }
+    color: theme.palette.primary.main,
+  },
 }));
 
 const PositionLine = styled('div')({
   display: 'flex',
 });
 
-const StyledWebIcon = styled(WebIcon)(({theme}) => ({
+const StyledWebIcon = styled(WebIcon)(({ theme }) => ({
   '& use': {
-    fill: theme.palette.primary.contrastText
+    fill: theme.palette.primary.contrastText,
   },
   '& path': {
-    fill: theme.palette.primary.contrastText
-  }
+    fill: theme.palette.primary.contrastText,
+  },
 }));
 
 type InvolvementItemCardProps = {
-  involvementItem: ExperienceItem
-}
+  involvementItem: ExperienceItem;
+};
 function InvolvementItemCard(props: InvolvementItemCardProps): JSX.Element {
-  const { organization, description, link, linkDescription, position, organizationIcon, time } = props.involvementItem;
+  const {
+    organization,
+    description,
+    link,
+    linkDescription,
+    position,
+    organizationIcon,
+    time,
+  } = props.involvementItem;
 
   return (
     <Grid item xs={12}>
@@ -97,28 +115,35 @@ function InvolvementItemCard(props: InvolvementItemCardProps): JSX.Element {
               <StyledImg alt={organization + ' icon'} src={organizationIcon} />
             </div>
             <div>
-              <Title color='primary' variant='h5'>
+              <Title color="primary" variant="h5">
                 <b>{organization}</b>
               </Title>
             </div>
-            {link &&
-              <Tooltip title={linkDescription ? linkDescription : ''} aria-label={linkDescription}>
-                <IconButton target='_blank' href={link}>
+            {link && (
+              <Tooltip
+                title={linkDescription ? linkDescription : ''}
+                aria-label={linkDescription}
+              >
+                <IconButton target="_blank" href={link}>
                   <StyledWebIcon />
                 </IconButton>
               </Tooltip>
-            }
+            )}
           </TopRow>
           <PositionLine>
-            <Position variant='overline' color='textPrimary'>
+            <Position variant="overline" color="textPrimary">
               {position}&emsp;
             </Position>
-            <TimePeriod variant='overline' gutterBottom color='textPrimary'>
+            <TimePeriod variant="overline" gutterBottom color="textPrimary">
               {time}
             </TimePeriod>
           </PositionLine>
           <DescriptionContainer>
-            <Typography variant='body1' color='textPrimary' dangerouslySetInnerHTML={{ __html: description }} />
+            <Typography
+              variant="body1"
+              color="textPrimary"
+              dangerouslySetInnerHTML={{ __html: description }}
+            />
           </DescriptionContainer>
         </InvolvementItemInner>
       </InvolvementItemMain>

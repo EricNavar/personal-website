@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 
 const Wrapper = styled('div')({
   width: '100%',
-  textAlign: 'center'
+  textAlign: 'center',
 });
 const AspectRatioBox = styled('div')({
   overflow: 'hidden',
@@ -11,7 +11,7 @@ const AspectRatioBox = styled('div')({
   position: 'relative',
   width: '100%',
   paddingTop: '100%',
-  display: 'grid'
+  display: 'grid',
 });
 const AspectRatioBoxInside = styled('img')({
   position: 'absolute',
@@ -19,23 +19,22 @@ const AspectRatioBoxInside = styled('img')({
   left: 0,
   width: '100%',
   height: '100%',
-  borderRadius: 8
+  borderRadius: 8,
 });
 
 type CodingProjectThumbnailProps = {
-  image: string,
-  altLabel: string
-}
+  image: string;
+  altLabel: string;
+};
 
-function CodingProjectThumbnail(props: CodingProjectThumbnailProps): JSX.Element {
+function CodingProjectThumbnail(
+  props: CodingProjectThumbnailProps
+): JSX.Element {
   const { image, altLabel } = props;
   return (
     <Wrapper>
       <AspectRatioBox>
-        <AspectRatioBoxInside
-          src={image}
-          alt={altLabel}
-        />
+        <AspectRatioBoxInside src={image} alt={altLabel} />
       </AspectRatioBox>
     </Wrapper>
   );

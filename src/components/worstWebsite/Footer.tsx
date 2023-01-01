@@ -9,12 +9,12 @@ const ContactMain = styled(Grid)<GridProps>(({ theme }) => ({
   },
   [theme.breakpoints.down('sm')]: {
     justifyContent: 'center',
-    marginTop: 18
+    marginTop: 18,
   },
   display: 'flex',
   '& div:not(:first-child)': {
-    marginTop: 8
-  }
+    marginTop: 8,
+  },
 }));
 
 const Buffer = styled(Grid)<GridProps>(({ theme }) => ({
@@ -23,7 +23,7 @@ const Buffer = styled(Grid)<GridProps>(({ theme }) => ({
   },
   [theme.breakpoints.down('xs')]: {
     display: 'none',
-  }
+  },
 }));
 
 const useStyles = makeStyles({
@@ -40,31 +40,31 @@ const useStyles = makeStyles({
     color: 'white',
     //svg logo
     '& use': {
-      fill: 'white'
+      fill: 'white',
     },
     '&:hover': {
-      opacity: .8
+      opacity: 0.8,
     },
     '&:active': {
-      opacity: .8
-    }
+      opacity: 0.8,
+    },
   },
   contactItem: {
     display: 'flex',
     alignItems: 'center',
     '& a': {
-      color: 'white'
-    }
+      color: 'white',
+    },
   },
   contactLink: {
     height: 'min-content',
     marginLeft: 8,
-    textDecoration: 'none'
+    textDecoration: 'none',
   },
   address: {
     justifyContent: 'center',
-    display: 'flex'
-  }
+    display: 'flex',
+  },
 });
 
 function Footer(): JSX.Element {
@@ -76,7 +76,7 @@ function Footer(): JSX.Element {
         <ButtonBase
           className={classes.logoButton}
           TouchRippleProps={{
-            style: { color: 'white' }
+            style: { color: 'white' },
           }}
         >
           help
@@ -89,11 +89,9 @@ function Footer(): JSX.Element {
     return (
       <ContactMain item xs={12} sm={6} md={4}>
         <div style={{ width: 'min-content' }}>
-
           <div className={classes.contactItem}>
-            <IconButton href='https://www.google.com' size='small'>
-            </IconButton>
-            <a href='https://www.google.com' className={classes.contactLink}>
+            <IconButton href="https://www.google.com" size="small"></IconButton>
+            <a href="https://www.google.com" className={classes.contactLink}>
               google.com
             </a>
           </div>
@@ -110,12 +108,12 @@ function Footer(): JSX.Element {
       alignItems="center"
       spacing={0}
       className={classes.footer}
-      component='footer'
+      component="footer"
     >
       <LogoButton />
       <Buffer item sm={6}></Buffer>
       <Contact />
-    </Grid >
+    </Grid>
   );
 }
 

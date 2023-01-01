@@ -5,14 +5,14 @@ export type ContentfulProjectLink = {
     hyperlink: string;
     icon: ContentfulImage;
   };
-}
+};
 
 export type ProjectLink = {
   label: string;
   ariaLabel: string;
   hyperlink: string;
   icon: string;
-}
+};
 
 type ContentfulImage = {
   fields: {
@@ -20,7 +20,7 @@ type ContentfulImage = {
       url: string;
     };
   };
-}
+};
 
 export type ContentfulProject = {
   fields: {
@@ -31,8 +31,8 @@ export type ContentfulProject = {
     image: ContentfulImage;
     altLabel: string;
     links: Array<ContentfulProjectLink>;
-  }
-}
+  };
+};
 
 export type Project = {
   _id: string;
@@ -42,7 +42,7 @@ export type Project = {
   image: string;
   altLabel: string;
   links: Array<ProjectLink>;
-}
+};
 
 export type ContentfulExperienceItem = {
   fields: {
@@ -53,7 +53,7 @@ export type ContentfulExperienceItem = {
     description: string;
     link?: string | undefined;
     linkAriaLabel?: string | undefined;
-  }
+  };
 };
 
 export type ExperienceItem = {
@@ -64,7 +64,7 @@ export type ExperienceItem = {
   description: string;
   linkDescription?: string | undefined;
   link?: string | undefined;
-}
+};
 
 export type ArticleProps = {
   description: string;
@@ -88,23 +88,23 @@ export type FeaturedImageFields = {
 
 export type ContentfulArticle = {
   fields: ContentfulArticleFields;
-}
+};
 
 export type ContentfulSkill = {
   fields: {
     title: string;
     icon: ContentfulImage;
   };
-}
+};
 
 export type Skill = {
   title: string;
   icon: string;
-}
+};
 
 export type ContentfulResumePage = {
   id: string;
   skills: ContentfulSkill[];
   internshipExperience: ContentfulExperienceItem[];
   studentOrgInvolvement: ContentfulExperienceItem[];
-}
+};

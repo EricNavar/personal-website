@@ -4,7 +4,11 @@ import { Grid, Typography, Hidden } from '@mui/material';
 import { UXProject } from '../components/uxportfolio/UXProject';
 // import { Mockup } from '../components/uxportfolio/Mockup';
 import { UXProjectData } from '../data/UXProjectData';
-import { homePageStyles, ScreenMain, CardButtonContainer } from '../styling/homePageStyling';
+import {
+  homePageStyles,
+  ScreenMain,
+  CardButtonContainer,
+} from '../styling/homePageStyling';
 
 function CommonGround(): JSX.Element {
   React.useEffect(() => {
@@ -20,12 +24,17 @@ function CommonGround(): JSX.Element {
     <ScreenMain>
       <Grid container spacing={10} style={{ marginTop: 40, marginBottom: 40 }}>
         <Grid item style={{ maxWidth: 800 }}>
-          <Typography color='textPrimary' component="h2" variant="h4" className={classes.topicName}>
+          <Typography
+            color="textPrimary"
+            component="h2"
+            variant="h4"
+            className={classes.topicName}
+          >
             <b>UX Projects I&apos;ve Worked On</b>
           </Typography>
           <Hidden smUp>
             <Grid container spacing={4}>
-              {UXProjectData.map(project => (
+              {UXProjectData.map((project) => (
                 <CardButtonContainer key={project._id} item xs={12}>
                   <UXProject {...project} />
                 </CardButtonContainer>
@@ -33,8 +42,8 @@ function CommonGround(): JSX.Element {
             </Grid>
           </Hidden>
           <Hidden only="xs">
-            <Grid id='ux-projects' container spacing={4}>
-              {UXProjectData.map(project => (
+            <Grid id="ux-projects" container spacing={4}>
+              {UXProjectData.map((project) => (
                 <CardButtonContainer item key={project._id} xs={12}>
                   <UXProject {...project} />
                 </CardButtonContainer>
@@ -45,8 +54,8 @@ function CommonGround(): JSX.Element {
         <Grid item style={{ display: 'flex', justifyContent: 'center' }}>
           {/* <Mockup /> */}
         </Grid>
-      </Grid >
-    </ScreenMain >
+      </Grid>
+    </ScreenMain>
   );
 }
 

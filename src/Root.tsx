@@ -5,7 +5,7 @@ import {
   Switch,
   Route,
   useHistory,
-  Redirect
+  Redirect,
 } from 'react-router-dom';
 import { Hidden } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
@@ -15,25 +15,38 @@ import { DesktopNavbar } from './components/DesktopNavbar';
 import { MobileNavbar } from './components/MobileNavbar';
 import FullStory from 'react-fullstory';
 import { MinecraftPage } from './screens/MinecraftPage';
-import { lightTheme, darkTheme, minecraftTheme, frostTheme } from './styling/commonStyles';
+import {
+  lightTheme,
+  darkTheme,
+  minecraftTheme,
+  frostTheme,
+} from './styling/commonStyles';
 import { Theme } from '@mui/material/styles';
-const ResumePage = lazy(() => import('./screens/ResumePage').then((module) => ({
-  default: module.ResumePage,
-})));
-const InspirePage = lazy(() => import('./screens/InspirePage').then((module) => ({
-  default: module.InspirePage,
-})));
-const WorstWebsite = lazy(() => import('./screens/WorstWebsite').then((module) => ({
-  default: module.WorstWebsite,
-})));
-const BlogPage = lazy(() => import('./screens/BlogPage').then((module) => ({
-  default: module.BlogPage,
-})));
+const ResumePage = lazy(() =>
+  import('./screens/ResumePage').then((module) => ({
+    default: module.ResumePage,
+  }))
+);
+const InspirePage = lazy(() =>
+  import('./screens/InspirePage').then((module) => ({
+    default: module.InspirePage,
+  }))
+);
+const WorstWebsite = lazy(() =>
+  import('./screens/WorstWebsite').then((module) => ({
+    default: module.WorstWebsite,
+  }))
+);
+const BlogPage = lazy(() =>
+  import('./screens/BlogPage').then((module) => ({
+    default: module.BlogPage,
+  }))
+);
 
 //https://reacttraining.com/react-router/web/guides/quick-start
 
 type ScrollToTopProps = {
-  children: JSX.Element,
+  children: JSX.Element;
 };
 
 function ScrollToTop(props: ScrollToTopProps) {
@@ -55,7 +68,7 @@ const themes: Record<string, Theme> = {
   Light: lightTheme,
   Dark: darkTheme,
   Minecraft: minecraftTheme,
-  Frost: frostTheme
+  Frost: frostTheme,
 };
 
 function Root(): JSX.Element {
@@ -73,15 +86,15 @@ function Root(): JSX.Element {
               <MobileNavbar theme={theme} setTheme={setTheme} />
             </Hidden>
             <Switch>
-              <Route exact path='/'>
+              <Route exact path="/">
                 <Home />
               </Route>
-              <Route path='/resume'>
+              <Route path="/resume">
                 <Suspense fallback={<div />}>
                   <ResumePage />
                 </Suspense>
               </Route>
-              <Route path='/blog'>
+              <Route path="/blog">
                 <Suspense fallback={<div />}>
                   <BlogPage />
                 </Suspense>
@@ -98,21 +111,21 @@ function Root(): JSX.Element {
                   </Suspense>
                 </Route>
               */}
-              <Route path='/inspire'>
+              <Route path="/inspire">
                 <Suspense fallback={<div />}>
                   <InspirePage />
                 </Suspense>
               </Route>
-              <Route path='/worst-website'>
+              <Route path="/worst-website">
                 <Suspense fallback={<div />}>
                   <WorstWebsite />
                 </Suspense>
               </Route>
-              <Route path='/minecraft'>
+              <Route path="/minecraft">
                 <MinecraftPage />
               </Route>
-              <Route path='*'>
-                <Redirect to='/' />
+              <Route path="*">
+                <Redirect to="/" />
               </Route>
             </Switch>
           </ThemeProvider>

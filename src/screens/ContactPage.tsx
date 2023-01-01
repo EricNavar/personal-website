@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function ContactPage() {
-  return <div/>;
+  return <div />;
 }
 
 // import React, { useState } from 'react';

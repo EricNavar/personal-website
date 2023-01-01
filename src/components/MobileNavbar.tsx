@@ -1,5 +1,18 @@
 import React from 'react';
-import { List, Slide, AppBar, Toolbar, ListItem, IconButton, ListItemIcon, ListItemText, SwipeableDrawer, useScrollTrigger, ToggleButton, ToggleButtonGroup } from '@mui/material';
+import {
+  List,
+  Slide,
+  AppBar,
+  Toolbar,
+  ListItem,
+  IconButton,
+  ListItemIcon,
+  ListItemText,
+  SwipeableDrawer,
+  useScrollTrigger,
+  ToggleButton,
+  ToggleButtonGroup,
+} from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { useHistory, useRouteMatch } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
@@ -18,8 +31,8 @@ import AcUnitIcon from '@mui/icons-material/AcUnit';
 const useStyles = makeStyles({
   list: {
     '& button': {
-      paddingRight: 32
-    }
+      paddingRight: 32,
+    },
   },
   MobileAppBar: {
     background: '#09203f',
@@ -27,34 +40,33 @@ const useStyles = makeStyles({
     margin: 8,
     borderRadius: 4,
     '& use': {
-      fill: 'white'
-    }
+      fill: 'white',
+    },
   },
   activeLink: {
     background: 'rgba(81, 85, 133, 0.6)',
   },
   toolbar: {
-    marginBottom: 24
-  }
+    marginBottom: 24,
+  },
 });
 const StyledToggleButtonGroup = styled(ToggleButtonGroup)({
   position: 'absolute',
   right: 8,
   '& use': {
-    fill: 'white'
+    fill: 'white',
   },
   '& path': {
-    fill: 'white'
-  }
+    fill: 'white',
+  },
 });
 
-
 const TextRight = styled('div')({
-  textAlign: 'right'
+  textAlign: 'right',
 });
 
 type HideOnScrollProps = {
-  children: JSX.Element
+  children: JSX.Element;
 };
 
 function HideOnScroll(props: HideOnScrollProps) {
@@ -72,18 +84,18 @@ function HideOnScroll(props: HideOnScrollProps) {
 }
 
 type SideBarItemProps = {
-  text: string,
-  link: string,
-  icon: JSX.Element,
-  setOpen: (open: boolean) => void
-}
+  text: string;
+  link: string;
+  icon: JSX.Element;
+  setOpen: (open: boolean) => void;
+};
 
 function SideBarItem(props: SideBarItemProps) {
   const { text, link, icon } = props;
   const classes = useStyles();
   const match = useRouteMatch({
     path: link,
-    exact: true
+    exact: true,
   });
   const history = useHistory();
   const redirect = (path: string) => {
@@ -91,19 +103,21 @@ function SideBarItem(props: SideBarItemProps) {
     props.setOpen(false);
   };
   return (
-    <ListItem className={match ? classes.activeLink : ''} button onClick={() => redirect(link)}>
-      <ListItemIcon>
-        {icon}
-      </ListItemIcon>
+    <ListItem
+      className={match ? classes.activeLink : ''}
+      button
+      onClick={() => redirect(link)}
+    >
+      <ListItemIcon>{icon}</ListItemIcon>
       <ListItemText primary={text} />
     </ListItem>
   );
 }
 
 type MobileNavbarProps = {
-  theme: string,
-  setTheme: (newTheme: string) => void
-}
+  theme: string;
+  setTheme: (newTheme: string) => void;
+};
 
 function MobileNavbar(props: MobileNavbarProps): JSX.Element {
   const classes = useStyles();
@@ -113,9 +127,11 @@ function MobileNavbar(props: MobileNavbarProps): JSX.Element {
     setOpen(!open);
   };
 
-  const handleChange = (event: React.MouseEvent<HTMLElement, MouseEvent>, newTheme: string) => {
-    if (newTheme)
-      props.setTheme(newTheme);
+  const handleChange = (
+    event: React.MouseEvent<HTMLElement, MouseEvent>,
+    newTheme: string
+  ) => {
+    if (newTheme) props.setTheme(newTheme);
   };
 
   return (
@@ -162,8 +178,8 @@ function MobileNavbar(props: MobileNavbarProps): JSX.Element {
             borderTopRightRadius: 8,
             borderBottomRightRadius: 8,
             height: 'calc(100% - 24px)',
-            marginTop: 12
-          }
+            marginTop: 12,
+          },
         }}
       >
         <TextRight>
@@ -173,9 +189,24 @@ function MobileNavbar(props: MobileNavbarProps): JSX.Element {
         </TextRight>
         <List className={classes.list}>
           <div>
-            <SideBarItem text='Coding Projects' link="/home" icon={<InfoIcon />} setOpen={setOpen} />
-            <SideBarItem text='Resume' link='/resume' icon={<DashboardIcon />} setOpen={setOpen} />
-            <SideBarItem text='Blog' link='/blog' icon={<YouTubeIcon />} setOpen={setOpen} />
+            <SideBarItem
+              text="Coding Projects"
+              link="/home"
+              icon={<InfoIcon />}
+              setOpen={setOpen}
+            />
+            <SideBarItem
+              text="Resume"
+              link="/resume"
+              icon={<DashboardIcon />}
+              setOpen={setOpen}
+            />
+            <SideBarItem
+              text="Blog"
+              link="/blog"
+              icon={<YouTubeIcon />}
+              setOpen={setOpen}
+            />
           </div>
         </List>
       </SwipeableDrawer>

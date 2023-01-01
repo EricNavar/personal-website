@@ -6,10 +6,10 @@ const MyIconButton = styled(Button)<ButtonProps>(({ theme }) => ({
   '& svg': {
     width: 32,
     height: 32,
-    fill: theme.palette.text.primary
+    fill: theme.palette.text.primary,
   },
   '& path': {
-    fill: theme.palette.text.primary
+    fill: theme.palette.text.primary,
   },
   marginRight: 10,
   marginTop: 10,
@@ -18,19 +18,19 @@ const MyIconButton = styled(Button)<ButtonProps>(({ theme }) => ({
 }));
 
 type CardButtonLinkProps = {
-  icon: string,
-  label: string,
-  hyperlink: string,
-  ariaLabel: string
-}
+  icon: string;
+  label: string;
+  hyperlink: string;
+  ariaLabel: string;
+};
 
 function CardButtonLink(props: CardButtonLinkProps): JSX.Element {
   return (
     <MyIconButton
       href={props.hyperlink}
       aria-label={props.ariaLabel}
-      startIcon={<img src={props.icon}/>}
-      variant='contained'
+      startIcon={<img src={props.icon} />}
+      variant="contained"
       disableElevation
     >
       {props.label}

@@ -17,21 +17,21 @@ const QuoteText = styled(Typography)({
   fontWeight: 800,
   textShadow: '4px 4px 0px rgba(255, 255, 255, 1)',
   display: 'inline-block',
-  lineHeight: '1.2em'
+  lineHeight: '1.2em',
 });
 
 const VisibleOnLoad = styled('div')({
   height: window.innerHeight,
   textAlign: 'center',
   display: 'grid',
-  alignItems: 'center'
+  alignItems: 'center',
 });
 
 const Rhovas = styled('div')({
   position: 'absolute',
   zIndex: 1,
   bottom: 1,
-  right: 1
+  right: 1,
 });
 
 const RhovasText = styled(Typography)`
@@ -56,7 +56,7 @@ function InspirePage(): JSX.Element {
   const inspirationalImage = loremPicsum({
     width: window.innerWidth,
     height: window.innerHeight,
-    random: true
+    random: true,
   });
   const quote = Quote.getRandomQuote();
   const quoteFontSize = Math.min(Math.sqrt(quote.length / 4), 6.5);
@@ -66,29 +66,25 @@ function InspirePage(): JSX.Element {
   };
   return (
     <main>
-      <VisibleOnLoad style={{ backgroundImage: 'url(' + inspirationalImage + ')' }}>
+      <VisibleOnLoad
+        style={{ backgroundImage: 'url(' + inspirationalImage + ')' }}
+      >
         <div>
-          <QuoteText variant='overline' style={{ fontSize: `${quoteFontSize}vh` }}>
+          <QuoteText
+            variant="overline"
+            style={{ fontSize: `${quoteFontSize}vh` }}
+          >
             {quote}
           </QuoteText>
         </div>
         <Rhovas>
-          <RhovasText variant='overline'>
-            Powered by Rhovas
-          </RhovasText>
+          <RhovasText variant="overline">Powered by Rhovas</RhovasText>
         </Rhovas>
       </VisibleOnLoad>
-      <StyledButton
-        variant='contained'
-        onClick={routeToHome}
-      >
+      <StyledButton variant="contained" onClick={routeToHome}>
         Return to home
       </StyledButton>
-      <Button
-        variant='contained'
-        component={Link}
-        to='/inspire'
-      >
+      <Button variant="contained" component={Link} to="/inspire">
         reload
       </Button>
     </main>

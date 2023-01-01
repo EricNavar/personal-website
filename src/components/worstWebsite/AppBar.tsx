@@ -1,5 +1,11 @@
 import React from 'react';
-import { AppBar, Toolbar, IconButton, Typography, InputBase } from '@mui/material';
+import {
+  AppBar,
+  Toolbar,
+  IconButton,
+  Typography,
+  InputBase,
+} from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 const AppBarRoot = styled('div')({
@@ -15,7 +21,7 @@ const Title = styled(Typography)(({ theme }) => ({
   display: 'none',
   [theme.breakpoints.up('sm')]: {
     display: 'block',
-  }
+  },
 }));
 
 const Search = styled('div')(({ theme }) => ({
@@ -43,24 +49,20 @@ const SearchIcon = styled('div')(({ theme }) => ({
 function MyAppBar(): JSX.Element {
   return (
     <AppBarRoot>
-      <AppBar position='static'>
+      <AppBar position="static">
         <Toolbar>
-          <MenuButton
-            edge='start'
-            color='inherit'
-            aria-label='open drawer'
-          >
-            <span role='img' aria-labelledby='hamburger-icon'>🍔</span>
+          <MenuButton edge="start" color="inherit" aria-label="open drawer">
+            <span role="img" aria-labelledby="hamburger-icon">
+              🍔
+            </span>
           </MenuButton>
-          <Title variant='h6' noWrap>
+          <Title variant="h6" noWrap>
             This header was stolen from open-source
           </Title>
           <Search>
-            <SearchIcon>
-              Search
-            </SearchIcon>
+            <SearchIcon>Search</SearchIcon>
             <InputBase
-              placeholder='Search…'
+              placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>

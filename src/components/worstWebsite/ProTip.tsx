@@ -25,8 +25,10 @@ function ProTip() {
     <Root color="textSecondary">
       <StyledLightbulbicon />
       Pro tip: See more{' '}
-      <Link href="https://material-ui.com/getting-started/templates/">templates</Link> on the
-      Material-UI documentation.
+      <Link href="https://material-ui.com/getting-started/templates/">
+        templates
+      </Link>{' '}
+      on the Material-UI documentation.
     </Root>
   );
 }

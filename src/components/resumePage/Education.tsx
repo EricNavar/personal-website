@@ -5,7 +5,7 @@ import { styled } from '@mui/material/styles';
 
 const EducationSection = styled(Section)({
   '& *': {
-    transition: '.5s ease-in-out'
+    transition: '.5s ease-in-out',
   },
   marginTop: 30,
 });
@@ -16,24 +16,25 @@ const CourseworkItemsWrapper = styled('div')({
   justifyContent: 'left',
   flexWrap: 'wrap',
   '& > *': {
-    margin: 4
+    margin: 4,
   },
-  position: 'relative'
+  position: 'relative',
 });
 
 const CourseworkItem = styled(Chip)(({ theme }) => ({
   color: 'white',
   border: 0,
-  boxShadow: 'rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px',
-  ...theme.gradientPaper
+  boxShadow:
+    'rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px',
+  ...theme.gradientPaper,
 }));
 
 const RelevantCousework = styled(Typography)<TypographyProps>({
-  marginTop: 24
+  marginTop: 24,
 });
 
 const University = styled(Typography)({
-  flexGrow: 1
+  flexGrow: 1,
 });
 
 const Line = styled('div')`
@@ -48,13 +49,13 @@ function CourseworkItems(): JSX.Element {
     'Data Structures & Algorithms',
     'Interaction & Usability',
     'Human-Computer Interaction',
-    'UX Design'
+    'UX Design',
   ];
   return (
     <React.Fragment>
-      {coursework.map((course: string) =>
+      {coursework.map((course: string) => (
         <CourseworkItem key={course} label={course} />
-      )}
+      ))}
     </React.Fragment>
   );
 }
@@ -62,41 +63,43 @@ function CourseworkItems(): JSX.Element {
 function Education(): JSX.Element {
   const gpa = 3.9;
   return (
-    <EducationSection title='Education'>
+    <EducationSection title="Education">
       <Line>
-        <University variant='h5' color='textPrimary'>
+        <University variant="h5" color="textPrimary">
           University of Florida
         </University>
-        <Typography component='span' variant='body1' color='textPrimary'>
+        <Typography component="span" variant="body1" color="textPrimary">
           Fall Class of 2022
         </Typography>
       </Line>
       <Line>
-        <Typography component='span' variant='body1' color='textPrimary'>
+        <Typography component="span" variant="body1" color="textPrimary">
           B.S. Computer Science
         </Typography>
-        <Typography component='span' variant='body1' color='textSecondary' style={{flexGrow:1}}>
+        <Typography
+          component="span"
+          variant="body1"
+          color="textSecondary"
+          style={{ flexGrow: 1 }}
+        >
           &nbsp;| Digital Arts Minor
         </Typography>
         <span>
-          <Typography component='span' variant='body1' color='primary'>
+          <Typography component="span" variant="body1" color="primary">
             <b>GPA:</b>
           </Typography>
-          <Typography component='span' variant='body1' color='textPrimary'>
+          <Typography component="span" variant="body1" color="textPrimary">
             &nbsp;{gpa}
           </Typography>
         </span>
       </Line>
-      <RelevantCousework
-        variant='h6'
-        color='textPrimary'
-      >
+      <RelevantCousework variant="h6" color="textPrimary">
         Relevant Coursework:
       </RelevantCousework>
       <CourseworkItemsWrapper>
         <CourseworkItems />
       </CourseworkItemsWrapper>
-    </EducationSection >
+    </EducationSection>
   );
 }
 

@@ -1,5 +1,13 @@
 import React from 'react';
-import { AppBar, Button, Toolbar, useMediaQuery, useScrollTrigger, ToggleButton, ToggleButtonGroup } from '@mui/material';
+import {
+  AppBar,
+  Button,
+  Toolbar,
+  useMediaQuery,
+  useScrollTrigger,
+  ToggleButton,
+  ToggleButtonGroup,
+} from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import SunIcon from '@mui/icons-material//Brightness5';
 import MoonIcon from '@mui/icons-material/Brightness2';
@@ -11,24 +19,24 @@ import { Theme } from '@mui/material/styles';
 
 //citation: https://material-ui.com/components/app-bar/#hide-app-bar
 
-const scrolled = ({
+const scrolled = {
   background: '#09203f',
   '& a': {
-    color: 'white'
+    color: 'white',
   },
   '& use': {
-    fill: 'white'
+    fill: 'white',
   },
   '& path': {
-    fill: 'white'
-  }
-});
+    fill: 'white',
+  },
+};
 
 //when the navbar is at the top of the screen and is navy blue
 const top = (theme: Theme) => ({
   background: theme.palette.background.default,
   '& a': {
-    color: theme.palette.text.primary
+    color: theme.palette.text.primary,
   },
 });
 
@@ -39,25 +47,25 @@ const useStyles = makeStyles({
   toolbar: {
     paddingLeft: 12,
     paddingRight: 12,
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   activeTab: {
     backgroundColor: '#d5e4ff !important',
-    color: 'black !important'
+    color: 'black !important',
   },
   navbarItemButton: {
     marginLeft: 8,
-    marginRight: 8
+    marginRight: 8,
   },
 });
 const StyledToggleButtonGroup = styled(ToggleButtonGroup)({
   position: 'absolute',
-  right: 8
+  right: 8,
 });
 
 type ElevatorScrollProps = {
-  children: JSX.Element,
-}
+  children: JSX.Element;
+};
 function ElevationScroll(props: ElevatorScrollProps): JSX.Element {
   const classes = useStyles();
 
@@ -68,20 +76,20 @@ function ElevationScroll(props: ElevatorScrollProps): JSX.Element {
   const trigger = useScrollTrigger({
     disableHysteresis: true,
     threshold: 0,
-    target: window ? window : undefined
+    target: window ? window : undefined,
   });
 
   return React.cloneElement(children, {
     className: classes.navbar,
     sx: trigger ? scrolled : top,
-    elevation: trigger ? 2 : 0
+    elevation: trigger ? 2 : 0,
   });
 }
 
 type NavBarItemProps = {
-  text: string,
-  to: string
-}
+  text: string;
+  to: string;
+};
 
 function NavBarItem(props: NavBarItemProps): JSX.Element {
   const classes = useStyles();
@@ -89,16 +97,18 @@ function NavBarItem(props: NavBarItemProps): JSX.Element {
   const isSm = useMediaQuery(useTheme().breakpoints.down('sm'));
   const match = useRouteMatch({
     path: to,
-    exact: true
+    exact: true,
   });
 
   return (
     <Button
       component={Link}
       to={to}
-      className={`${classes.navbarItemButton} ${match ? classes.activeTab : ''}`}
+      className={`${classes.navbarItemButton} ${
+        match ? classes.activeTab : ''
+      }`}
       size={isSm ? 'small' : 'medium'}
-      color='primary'
+      color="primary"
     >
       {text}
     </Button>
@@ -106,26 +116,28 @@ function NavBarItem(props: NavBarItemProps): JSX.Element {
 }
 
 type DesktopNavbarProps = {
-  theme: string,
-  setTheme: (newTheme: string) => void
-}
+  theme: string;
+  setTheme: (newTheme: string) => void;
+};
 function DesktopNavbar(props: DesktopNavbarProps): JSX.Element {
   const classes = useStyles();
 
-  const handleChange = (event: React.MouseEvent<HTMLElement, MouseEvent>, newTheme: string) => {
-    if (newTheme)
-      props.setTheme(newTheme);
+  const handleChange = (
+    event: React.MouseEvent<HTMLElement, MouseEvent>,
+    newTheme: string
+  ) => {
+    if (newTheme) props.setTheme(newTheme);
   };
 
   return (
     <React.Fragment>
-      <ElevationScroll {...props} >
-        <AppBar id='AppBar' className={classes.navbar} >
+      <ElevationScroll {...props}>
+        <AppBar id="AppBar" className={classes.navbar}>
           <Toolbar className={classes.toolbar}>
             <div style={{ position: 'absolute' }}>
-              <NavBarItem to='/' text='Coding Projects' />
-              <NavBarItem to='/resume' text='Resume' />
-              <NavBarItem to='/blog' text='Blog' />
+              <NavBarItem to="/" text="Coding Projects" />
+              <NavBarItem to="/resume" text="Resume" />
+              <NavBarItem to="/blog" text="Blog" />
             </div>
             <StyledToggleButtonGroup
               value={props.theme}
@@ -146,8 +158,8 @@ function DesktopNavbar(props: DesktopNavbarProps): JSX.Element {
           </Toolbar>
         </AppBar>
       </ElevationScroll>
-      < Toolbar />
-    </React.Fragment >
+      <Toolbar />
+    </React.Fragment>
   );
 }
 

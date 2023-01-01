@@ -1,15 +1,21 @@
 import React, { lazy, Suspense } from 'react';
 import { Typography } from '@mui/material';
 //local files
-import { cardButtonStyles, ItemWrapper, HeaderText } from '../../styling/homePageStyling';
+import {
+  cardButtonStyles,
+  ItemWrapper,
+  HeaderText,
+} from '../../styling/homePageStyling';
 import { CardButtonLink } from './CardButtonLink';
 import { Project, ProjectLink } from '../../commonTypes';
-const CodingProjectThumbnail = lazy(() => import('./CodingProjectThumbnail').then((module) => ({
-  default: module.CodingProjectThumbnail,
-})));
+const CodingProjectThumbnail = lazy(() =>
+  import('./CodingProjectThumbnail').then((module) => ({
+    default: module.CodingProjectThumbnail,
+  }))
+);
 
 type CodingProjectDesktopProps = {
-  project: Project
+  project: Project;
 };
 
 function CodingProjectDesktop(props: CodingProjectDesktopProps): JSX.Element {
@@ -26,14 +32,25 @@ function CodingProjectDesktop(props: CodingProjectDesktopProps): JSX.Element {
       <div className={classes.item}>
         <div className={classes.cardHeader}>
           <div className={classes.cardHeaderText}>
-            <Typography variant="overline" display="block" color='textSecondary'>
+            <Typography
+              variant="overline"
+              display="block"
+              color="textSecondary"
+            >
               {tools}
             </Typography>
             <HeaderText variant="h5">{headerText}</HeaderText>
           </div>
         </div>
-        <Typography color='textPrimary' variant='body1' className={classes.subTextContainer} dangerouslySetInnerHTML={{ __html: subText }} />
-        {links.map((link: ProjectLink, value: number) => <CardButtonLink key={`link-${value}`} {...link} />)}
+        <Typography
+          color="textPrimary"
+          variant="body1"
+          className={classes.subTextContainer}
+          dangerouslySetInnerHTML={{ __html: subText }}
+        />
+        {links.map((link: ProjectLink, value: number) => (
+          <CardButtonLink key={`link-${value}`} {...link} />
+        ))}
       </div>
     </ItemWrapper>
   );

@@ -10,7 +10,10 @@ function sendEmail(name: string, text: string, email: string) {
   const msg = {
     to: 'ericn2413@gmail.com',
     from: 'ericn2413@gmail.com',
-    subject: name + ' has sent you a message from ericnavar.com. Sender email: ' + email,
+    subject:
+      name +
+      ' has sent you a message from ericnavar.com. Sender email: ' +
+      email,
     text: text,
   };
 

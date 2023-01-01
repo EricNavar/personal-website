@@ -2,13 +2,15 @@ import React, { Suspense, lazy } from 'react';
 import { Typography, Grid, Paper, PaperProps } from '@mui/material';
 //local files
 import { styled } from '@mui/material/styles';
-const ProfilePicture = lazy(() => import('./ProfilePicture').then((module) => ({
-  default: module.ProfilePicture,
-})));
+const ProfilePicture = lazy(() =>
+  import('./ProfilePicture').then((module) => ({
+    default: module.ProfilePicture,
+  }))
+);
 
 const PersonalStatementHeader = styled(Typography)({
   fontSize: 32,
-  marginBottom: 8
+  marginBottom: 8,
 });
 
 const TextContainer = styled(Paper)<PaperProps>(({ theme }) => ({
@@ -17,14 +19,15 @@ const TextContainer = styled(Paper)<PaperProps>(({ theme }) => ({
   marginTop: 16,
   padding: 16,
   transition: 'background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
-  boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
-  ...theme.gradientPaper
+  boxShadow:
+    'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
+  ...theme.gradientPaper,
 }));
 
 const PersonalStatementWrapper = styled(Grid)({
   paddingTop: 20,
   paddingBottom: 30,
-  marginBottom: 20
+  marginBottom: 20,
 });
 
 const ProfilePicWrapper = styled('div')({
@@ -32,16 +35,17 @@ const ProfilePicWrapper = styled('div')({
   maxHeight: 200,
   borderRadius: '50%',
   marginRight: 48,
-  boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px'
+  boxShadow:
+    'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
 });
 
 function PersonalStatement(): JSX.Element {
   return (
     <PersonalStatementWrapper
       container
-      direction='row'
-      justifyContent='center'
-      alignItems='center'
+      direction="row"
+      justifyContent="center"
+      alignItems="center"
       spacing={4}
     >
       <ProfilePicWrapper>
@@ -50,11 +54,13 @@ function PersonalStatement(): JSX.Element {
         </Suspense>
       </ProfilePicWrapper>
       <TextContainer elevation={3}>
-        <PersonalStatementHeader variant='body1'>
+        <PersonalStatementHeader variant="body1">
           <b>Hi, I&apos;m Eric Navar</b>
         </PersonalStatementHeader>
-        <Typography variant='body1' style={{ fontSize: 16 }}>
-          I&apos;m a recent computer science graduate from the University of Florida. I&apos;m always interested in learning new things and am looking for a full-time position. I would love to connect with you!
+        <Typography variant="body1" style={{ fontSize: 16 }}>
+          I&apos;m a recent computer science graduate from the University of
+          Florida. I&apos;m always interested in learning new things and am
+          looking for a full-time position. I would love to connect with you!
         </Typography>
       </TextContainer>
     </PersonalStatementWrapper>

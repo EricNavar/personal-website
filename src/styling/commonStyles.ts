@@ -3,15 +3,15 @@ import { createTheme } from '@mui/material/styles';
 
 declare module '@mui/material/styles' {
   export interface Theme {
-    paper: Record<string, any>,
-    gradientPaper?: Record<string, any>,
-    background?: Record<string, any>
+    paper: Record<string, any>;
+    gradientPaper?: Record<string, any>;
+    background?: Record<string, any>;
   }
   // allow configuration using `createTheme`
   interface ThemeOptions {
-    paper?: Record<string, any>,
-    gradientPaper?: Record<string, any>,
-    background?: Record<string, any>
+    paper?: Record<string, any>;
+    gradientPaper?: Record<string, any>;
+    background?: Record<string, any>;
   }
 }
 
@@ -26,20 +26,20 @@ export const lightTheme = createTheme({
     },
     grey: {
       '800': 'rgba(215,218,225,.8)',
-    }
+    },
   },
   typography: {
-    fontFamily: 'Poppins, \'Lato\', sans-serif'
+    fontFamily: "Poppins, 'Lato', sans-serif",
   },
-  paper: {
-  },
+  paper: {},
   gradientPaper: {
-    backgroundImage: 'linear-gradient(rgba(66,179,245,1) 0%, rgba(95,44,130,1) 100%)',
+    backgroundImage:
+      'linear-gradient(rgba(66,179,245,1) 0%, rgba(95,44,130,1) 100%)',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundAttachment: 'fixed',
-    color: 'white'
-  }
+    color: 'white',
+  },
 });
 
 export const darkTheme = createTheme({
@@ -47,7 +47,7 @@ export const darkTheme = createTheme({
     mode: 'dark',
     primary: {
       main: '#4fcff0',
-      contrastText: 'white'
+      contrastText: 'white',
     },
     secondary: {
       main: '#09203f',
@@ -62,14 +62,12 @@ export const darkTheme = createTheme({
     },
   },
   typography: {
-    fontFamily: 'Poppins, \'Lato\', sans-serif'
+    fontFamily: "Poppins, 'Lato', sans-serif",
   },
   background: {
-    backgroundColor: '#202020'
+    backgroundColor: '#202020',
   },
-  paper: {
-
-  },
+  paper: {},
   gradientPaper: {
     backgroundImage: 'linear-gradient(#537895 0%, #09203f 100%)',
     backgroundSize: 'cover',
@@ -77,32 +75,30 @@ export const darkTheme = createTheme({
     backgroundAttachment: 'fixed',
     backdropFilter: 'none',
     color: 'white',
-  }
+  },
 });
 
 export const minecraftTheme = createTheme({
   palette: {
     mode: 'light',
     primary: {
-      main: '#111'
+      main: '#111',
     },
     background: {
       paper: '#706E71',
-      default: '#1D140D'
-    }
+      default: '#1D140D',
+    },
   },
   typography: {
-    fontFamily: 'VT323'
+    fontFamily: 'VT323',
   },
   shape: {
-    borderRadius: 0
+    borderRadius: 0,
   },
   paper: {
     backgroundColor: '#9D9D9D',
   },
-  gradientPaper: {
-
-  }
+  gradientPaper: {},
 });
 
 export const frostTheme = createTheme({
@@ -119,11 +115,9 @@ export const frostTheme = createTheme({
     },
   },
   typography: {
-    fontFamily: 'Poppins, \'Lato\', sans-serif'
+    fontFamily: "Poppins, 'Lato', sans-serif",
   },
-  paper: {
-
-  },
+  paper: {},
   gradientPaper: {
     backgroundColor: 'rgba(255, 255, 255, 0.6)',
     backgroundSize: 'cover',
@@ -133,7 +127,7 @@ export const frostTheme = createTheme({
     borderStyle: 'solid',
     borderWidth: 1,
     borderColor: 'rgba(255,255,255,.3)',
-    color: 'black'
+    color: 'black',
   },
   background: {
     width: '300%',
@@ -144,7 +138,7 @@ export const frostTheme = createTheme({
     '@keyframes GradientBackground': {
       '0%': { transform: 'translate(0, -50%);' },
       '50%': { transform: 'translate(-60%, 0);' },
-      '100%': { transform: 'translate(0, -50%);' }
+      '100%': { transform: 'translate(0, -50%);' },
     },
-  }
+  },
 });

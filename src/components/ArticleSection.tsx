@@ -1,5 +1,5 @@
 import React from 'react';
-import {Article} from './Article';
+import { Article } from './Article';
 import { styled } from '@mui/material/styles';
 import { ArticleProps } from '../commonTypes';
 
@@ -18,14 +18,14 @@ const ArticleContainer = styled('div')`
 
 type ArticleSectionProps = {
   articles: ArticleProps[];
-}
+};
 
 export function ArticleSection(props: ArticleSectionProps) {
   return (
     <ArticleContainer>
-      {props.articles.map((article,index) =>
+      {props.articles.map((article, index) => (
         <Article {...article} key={index} />
-      )}
+      ))}
     </ArticleContainer>
   );
 }

@@ -21,8 +21,9 @@ const YouTubeChannelContainer = styled('div')(({ theme }) => ({
   alignItems: 'center',
   borderRadius: 8,
   transition: 'background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
-  boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
-  ...theme.gradientPaper
+  boxShadow:
+    'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
+  ...theme.gradientPaper,
 }));
 
 const YouTubeChannelLogo = styled('img')`
@@ -43,7 +44,7 @@ const YouTubeVideo = styled('iframe')`
 type Video = {
   youtubeID: string;
   description: string;
-}
+};
 
 function BlogPage(): JSX.Element {
   // const [articles, setArticles] = React.useState<ArticleProps[]>([]);
@@ -66,15 +67,16 @@ function BlogPage(): JSX.Element {
 
   const [videos, setVideos] = React.useState<Video[]>([]);
   React.useEffect(() => {
-    client.getEntries({
-      content_type: 'video',
-    })
+    client
+      .getEntries({
+        content_type: 'video',
+      })
       .then((response) => {
         const items = response.items;
         const videosFromContentful = items.map((item: any) => {
           return {
             youtubeID: item.fields.youtubeId,
-            description: item.fields.description
+            description: item.fields.description,
           };
         }) as Video[];
         setVideos(videosFromContentful);
@@ -85,12 +87,12 @@ function BlogPage(): JSX.Element {
   return (
     <ScreenMain>
       {/* <ArticleSection articles={articles} /> */}
-      <Typography component='h1' variant="h4" color='textPrimary'>My Videos</Typography>
+      <Typography component="h1" variant="h4" color="textPrimary">
+        My Videos
+      </Typography>
       {videos.map((video, index) => (
         <VideoContainer key={index}>
-          <Description color='textPrimary'>
-            {video.description}
-          </Description>
+          <Description color="textPrimary">{video.description}</Description>
           <YouTubeVideo
             width="882"
             height="496"
@@ -104,18 +106,32 @@ function BlogPage(): JSX.Element {
           />
         </VideoContainer>
       ))}
-      <Typography component='h2' variant="h5">YouTube Channels</Typography>
+      <Typography component="h2" variant="h5">
+        YouTube Channels
+      </Typography>
       <YouTubeChannelContainer>
-        <YouTubeChannelLogo src='https://yt3.ggpht.com/2oai_WLC-1ZaOqxRRjhnN3vOULJ3SygIzo_ssU0wkIP1c26DUyEpprB-0t6VYJicQquV4QYWpw=s176-c-k-c0x00ffffff-no-rj'/>
-        <Typography style={{marginLeft: 12}} component={Link} href='https://www.youtube.com/@ufssd/videos'>My Personal Channel</Typography>
+        <YouTubeChannelLogo src="https://yt3.ggpht.com/2oai_WLC-1ZaOqxRRjhnN3vOULJ3SygIzo_ssU0wkIP1c26DUyEpprB-0t6VYJicQquV4QYWpw=s176-c-k-c0x00ffffff-no-rj" />
+        <Typography
+          style={{ marginLeft: 12 }}
+          component={Link}
+          href="https://www.youtube.com/@ufssd/videos"
+        >
+          My Personal Channel
+        </Typography>
       </YouTubeChannelContainer>
       <YouTubeChannelContainer>
-        <YouTubeChannelLogo src='https://yt3.googleusercontent.com/ytc/AMLnZu-clO-MD7YassFljB0F90MCaz6bEqP8cvtmWZgB=s176-c-k-c0x00ffffff-no-rj'/>
-        <Typography style={{marginLeft: 12}} component={Link} href='https://www.youtube.com/@ufssd/videos'>UF Society of Software Developers</Typography>
+        <YouTubeChannelLogo src="https://yt3.googleusercontent.com/ytc/AMLnZu-clO-MD7YassFljB0F90MCaz6bEqP8cvtmWZgB=s176-c-k-c0x00ffffff-no-rj" />
+        <Typography
+          style={{ marginLeft: 12 }}
+          component={Link}
+          href="https://www.youtube.com/@ufssd/videos"
+        >
+          UF Society of Software Developers
+        </Typography>
       </YouTubeChannelContainer>
       <ScreenBackground />
     </ScreenMain>
   );
 }
 
-export {BlogPage};
+export { BlogPage };

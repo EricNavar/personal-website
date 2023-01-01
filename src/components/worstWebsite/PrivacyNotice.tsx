@@ -9,10 +9,11 @@ const StyledButton = styled(Button)({
   '&:hover': {
     boxShadow: 'none',
     backgroundColor: 'red',
-    transform: 'translate(12px, 12px)'
+    transform: 'translate(12px, 12px)',
   },
   width: 200,
-  transition: 'transform 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms '
+  transition:
+    'transform 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms ',
 });
 
 function PrivacyNotice(): JSX.Element {
@@ -29,12 +30,11 @@ function PrivacyNotice(): JSX.Element {
     <React.Fragment>
       <Dialog open={open}>
         Hello World
-        <Button onClick={handleClose}>
-          Close
-        </Button>
+        <Button onClick={handleClose}>Close</Button>
       </Dialog>
       <StyledButton onClick={handleClickOpen}>
-        Click here to give Eric Navar access to all your logins, cookies, and search history &lt;div/&gt;
+        Click here to give Eric Navar access to all your logins, cookies, and
+        search history &lt;div/&gt;
       </StyledButton>
     </React.Fragment>
   );

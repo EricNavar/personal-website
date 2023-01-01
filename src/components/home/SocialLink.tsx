@@ -3,22 +3,21 @@ import { IconButton } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 const StyledIconButton = styled(IconButton)({
-  margin: 4
+  margin: 4,
 });
 
 type SocialLinkProps = {
-  icon: string,
-  circle: boolean,
-  link: string,
-  label: string
-}
+  icon: string;
+  circle: boolean;
+  link: string;
+  label: string;
+};
 
 function SocialLink(props: SocialLinkProps): JSX.Element {
   const { icon, circle, link, label } = props;
 
-
   const onClick = () => {
-    window.open(link,'_blank');
+    window.open(link, '_blank');
   };
 
   return (

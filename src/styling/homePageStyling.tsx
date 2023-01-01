@@ -9,63 +9,63 @@ export const ItemWrapper = styled(Paper)(({ theme }) => ({
   height: '100%',
   maxWidth: '100%',
   display: 'flex',
-  ...theme.paper
+  ...theme.paper,
 }));
 
 export const HeaderText = styled(Typography)<TypographyProps>(({ theme }) => ({
   textAlign: 'left',
   fontWeight: 'bold !important',
-  color: theme.palette.primary.main
+  color: theme.palette.primary.main,
 }));
 
 export const cardButtonStyles = makeStyles({
   item: {
     padding: '24px 36px',
-    width: '100%'
+    width: '100%',
   },
   topic: {
     textDecoration: 'none',
     '&:hover': {
-      color: '#000000'
+      color: '#000000',
     },
     '&:active': {
-      color: '#000000'
-    }
+      color: '#000000',
+    },
   },
   underlined: {
-    backgroundColor: '#6ac1c4'
+    backgroundColor: '#6ac1c4',
   },
   loadingImage: {
     width: '100%',
     paddingBottom: '100%',
     backgroundColor: '#aaa',
-    borderRadius: 8
+    borderRadius: 8,
   },
   photoWrapper: {
     maxWidth: 300,
-    minWidth: 250
+    minWidth: 250,
   },
   subTextContainer: {
     marginTop: 12,
     marginBottom: 12,
-    fontSize: '1.1rem'
+    fontSize: '1.1rem',
   },
   lineBreak: {
-    marginBottom: 12
+    marginBottom: 12,
   },
   cardHeader: {
     display: 'flex',
     flexDirection: 'row',
-    width: '100%'
+    width: '100%',
   },
   cardHeaderText: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   invisibleHeader: {
     height: 0,
     overflow: 'hidden',
-    margin: 0
-  }
+    margin: 0,
+  },
 });
 
 export const ScreenMain = styled('main')(({ theme }) => ({
@@ -95,13 +95,13 @@ export const ScreenBackground = styled('div')(({ theme }) => ({
   zIndex: -1,
   width: '100%',
   height: '100%',
-  ...theme.background
+  ...theme.background,
 }));
 
 export const CardButtonContainer = styled(Grid)(({ theme }) => ({
   [theme.breakpoints.down('xs')]: {
-    width: '100%'
-  }
+    width: '100%',
+  },
 }));
 
 const StyledButton = styled('button')({
@@ -117,19 +117,18 @@ const StyledButton = styled('button')({
 });
 
 const StyledButtonText = styled('span')({
-  width: '100%', height: '100%',
+  width: '100%',
+  height: '100%',
   paddingBottom: '.3em',
   color: '#DDD',
   textShadow: '2px 2px #000A',
-  boxShadow: 'inset -2px -4px #0006, inset 2px 2px #FFF7'
+  boxShadow: 'inset -2px -4px #0006, inset 2px 2px #FFF7',
 });
 
 export function MCButton(props: { children: JSX.Element }) {
   return (
     <StyledButton>
-      <StyledButtonText>
-        {props.children}
-      </StyledButtonText>
+      <StyledButtonText>{props.children}</StyledButtonText>
     </StyledButton>
   );
 }
@@ -137,14 +136,14 @@ export function MCButton(props: { children: JSX.Element }) {
 export const homePageStyles = makeStyles({
   section: {
     marginTop: 20,
-    marginBottom: 8
+    marginBottom: 8,
   },
   divider: {
-    width: '80%'
+    width: '80%',
   },
   topicName: {
     marginTop: '20px !important',
-    marginBottom: '20px !important'
+    marginBottom: '20px !important',
   },
   disclaimer: {
     backgroundColor: '#fff7cf',
@@ -152,14 +151,12 @@ export const homePageStyles = makeStyles({
     marginBottom: 32,
   },
   homeSection: {
-    marginBottom: 40
+    marginBottom: 40,
   },
   jokeProjectLink: {
     marginRight: '20px !important',
     flexWrap: 'nowrap',
     display: 'inline-flex',
-    textDecoration: 'none !important'
-  }
+    textDecoration: 'none !important',
+  },
 });
-
-

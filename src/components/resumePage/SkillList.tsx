@@ -19,7 +19,7 @@ const StyledPaper = styled(Paper)<PaperProps>(({ theme }) => ({
     fill: theme.gradientPaper ? theme.gradientPaper.color : '',
   },
   alignContent: 'center',
-  ...theme.gradientPaper
+  ...theme.gradientPaper,
 }));
 
 const StyledGridItem = styled(Grid)({
@@ -27,9 +27,9 @@ const StyledGridItem = styled(Grid)({
 });
 
 type SkillItemProps = {
-  children: JSX.Element,
-  skill: string
-}
+  children: JSX.Element;
+  skill: string;
+};
 
 function SkillItem(props: SkillItemProps) {
   const { children, skill } = props;
@@ -38,37 +38,34 @@ function SkillItem(props: SkillItemProps) {
     <StyledGridItem item xs={4}>
       <StyledPaper elevation={3} sx={theme.paper}>
         {children}
-        <Typography
-          variant='body1'
-          align='center'
-        >
+        <Typography variant="body1" align="center">
           {skill}
         </Typography>
       </StyledPaper>
-    </StyledGridItem >
+    </StyledGridItem>
   );
 }
 
 type SkillListProps = {
   skills: Skill[];
-}
+};
 
 function SkillList(props: SkillListProps): JSX.Element {
-  const {skills} = props;
+  const { skills } = props;
   return (
     <Section title="Skills">
       <Grid
         container
-        direction='row'
-        justifyContent='center'
-        alignItems='stretch'
+        direction="row"
+        justifyContent="center"
+        alignItems="stretch"
         spacing={1}
       >
-        {skills.map(skill => 
+        {skills.map((skill) => (
           <SkillItem skill={skill.title} key={`skill-${skill.title}`}>
-            <img src={skill.icon}/>
+            <img src={skill.icon} />
           </SkillItem>
-        )}
+        ))}
       </Grid>
     </Section>
   );

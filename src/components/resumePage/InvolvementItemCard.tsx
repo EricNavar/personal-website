@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography, List, IconButton, Grid, Tooltip, ListItem } from '@mui/material';
-import { InvolvementItem } from '../../commonTypes';
+import { ExperienceItem } from '../../commonTypes';
 import WebIcon from '../../assets/icons/web_fluent';
 import { styled } from '@mui/material/styles';
 
@@ -57,7 +57,7 @@ const Position = styled(Typography)({
   lineHeight: '1rem',
 });
 
-const DescriptionList = styled(List)({
+const DescriptionContainer = styled(List)({
   paddingLeft: 12,
   listStyle: 'initial'
 });
@@ -73,18 +73,6 @@ const PositionLine = styled('div')({
   display: 'flex',
 });
 
-const ThumbnailContainer = styled('div')({
-  flexBasis: 800,
-  flexGrow: 1,
-  width: 800,
-  maxWidth: '100%'
-});
-
-const Thumbnail = styled('img')({
-  width: 'inherit',
-  maxWidth: 400
-});
-
 const StyledWebIcon = styled(WebIcon)(({theme}) => ({
   '& use': {
     fill: theme.palette.primary.contrastText
@@ -94,53 +82,11 @@ const StyledWebIcon = styled(WebIcon)(({theme}) => ({
   }
 }));
 
-type PositionsProps = {
-  positions: Record<string, string>
-}
-function Positions(props: PositionsProps) {
-  return (
-    <>
-      {Object.keys(props.positions).map((position: string, index: number) =>
-        <PositionLine key={index}>
-          <Position variant='overline' color='textPrimary'>
-            {position}&emsp;
-          </Position>
-          <TimePeriod variant='overline' gutterBottom color='textPrimary'>
-            {props.positions[position]}
-          </TimePeriod>
-        </PositionLine>
-      )}
-    </>
-  );
-}
-
-type DescriptionProps = {
-  description: Array<string>
-}
-function Description(props: DescriptionProps) {
-  if (Array.isArray(props.description)) {
-    return (
-      <>
-        {props.description.map((line: string) =>
-          <StyledListItem key={line} >
-            <Typography variant='body1' color='textPrimary'>
-              {line}
-            </Typography>
-          </StyledListItem>
-        )}
-      </>
-    );
-  }
-  else {
-    return <></>;
-  }
-}
-
 type InvolvementItemCardProps = {
-  involvementItem: InvolvementItem
+  involvementItem: ExperienceItem
 }
 function InvolvementItemCard(props: InvolvementItemCardProps): JSX.Element {
-  const { title, description, link, linkDescription, positions, icon, thumbnail } = props.involvementItem;
+  const { organization, description, link, linkDescription, position, organizationIcon, time } = props.involvementItem;
 
   return (
     <Grid item xs={12}>
@@ -148,14 +94,11 @@ function InvolvementItemCard(props: InvolvementItemCardProps): JSX.Element {
         <InvolvementItemInner>
           <TopRow>
             <div>
-              <StyledImg alt={title + ' icon'} src={icon} />
+              <StyledImg alt={organization + ' icon'} src={organizationIcon} />
             </div>
             <div>
-              <Title
-                color='primary'
-                variant='h5'
-              >
-                <b>{title}</b>
+              <Title color='primary' variant='h5'>
+                <b>{organization}</b>
               </Title>
             </div>
             {link &&
@@ -166,18 +109,18 @@ function InvolvementItemCard(props: InvolvementItemCardProps): JSX.Element {
               </Tooltip>
             }
           </TopRow>
-          <Positions positions={positions} />
-          <DescriptionList>
-            <Description description={description} />
-          </DescriptionList>
+          <PositionLine>
+            <Position variant='overline' color='textPrimary'>
+              {position}&emsp;
+            </Position>
+            <TimePeriod variant='overline' gutterBottom color='textPrimary'>
+              {time}
+            </TimePeriod>
+          </PositionLine>
+          <DescriptionContainer>
+            <Typography variant='body1' color='textPrimary' dangerouslySetInnerHTML={{ __html: description }} />
+          </DescriptionContainer>
         </InvolvementItemInner>
-        {thumbnail &&
-          <ThumbnailContainer>
-            <React.Suspense fallback={<div />}>
-              <Thumbnail src={thumbnail} />
-            </React.Suspense>
-          </ThumbnailContainer>
-        }
       </InvolvementItemMain>
     </Grid>
   );

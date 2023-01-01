@@ -82,15 +82,13 @@ function BlogPage(): JSX.Element {
       .catch(console.error);
   }, []);
 
-  console.log(videos);
-
   return (
     <ScreenMain>
       {/* <ArticleSection articles={articles} /> */}
-      <Typography component='h1' variant="h4">My Videos</Typography>
+      <Typography component='h1' variant="h4" color='textPrimary'>My Videos</Typography>
       {videos.map((video, index) => (
         <VideoContainer key={index}>
-          <Description>
+          <Description color='textPrimary'>
             {video.description}
           </Description>
           <YouTubeVideo

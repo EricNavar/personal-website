@@ -3,11 +3,11 @@ import { Grid } from '@mui/material';
 //local files
 import { Section } from './Section';
 import { InvolvementItemCard } from './InvolvementItemCard';
-import { InvolvementItem } from '../../commonTypes';
+import { ExperienceItem } from '../../commonTypes';
 
 type InvolvementListProps = {
   title: string,
-  data: Array<InvolvementItem>
+  data: Array<ExperienceItem>
 }
 
 function InvolvementSection(props: InvolvementListProps): JSX.Element {
@@ -15,7 +15,9 @@ function InvolvementSection(props: InvolvementListProps): JSX.Element {
   return (
     <Section title={title}>
       <Grid container spacing={5}>
-        {data.map((item: InvolvementItem, index) => <InvolvementItemCard key={index} involvementItem={item} />)}
+        {data.map((item: ExperienceItem, index) => 
+          <InvolvementItemCard key={index} involvementItem={item} />
+        )}
       </Grid>
     </Section>
   );

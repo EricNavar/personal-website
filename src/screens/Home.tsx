@@ -89,7 +89,7 @@ function Home(): JSX.Element {
           Connect
         </Typography>
         <div>
-          <Typography>Email: ericn2413@gmail.com</Typography>
+          <Typography color='textPrimary'>Email: ericn2413@gmail.com</Typography>
           <br />
           <SocialLink label="LinkedIn" link="https://www.linkedin.com/in/ericnavar/" icon={LinkedInIcon} circle={false} />
           <SocialLink label="Github" link="https://www.github.com/ericnavar" icon={GitHubIcon} circle={true} />

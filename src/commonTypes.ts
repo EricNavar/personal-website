@@ -1,17 +1,17 @@
 export type ContentfulProjectLink = {
   fields: {
-    label: string,
-    ariaLabel: string,
-    hyperlink: string,
-    icon: ContentfulImage,
+    label: string;
+    ariaLabel: string;
+    hyperlink: string;
+    icon: ContentfulImage;
   };
 }
 
 export type ProjectLink = {
-  label: string,
-  ariaLabel: string,
-  hyperlink: string,
-  icon: string,
+  label: string;
+  ariaLabel: string;
+  hyperlink: string;
+  icon: string;
 }
 
 type ContentfulImage = {
@@ -24,34 +24,46 @@ type ContentfulImage = {
 
 export type ContentfulProject = {
   fields: {
-    id: string,
-    tools: string,
-    headerText: string,
-    subText: string,
-    image: ContentfulImage,
-    altLabel: string,
-    links: Array<ContentfulProjectLink>
+    id: string;
+    tools: string;
+    headerText: string;
+    subText: string;
+    image: ContentfulImage;
+    altLabel: string;
+    links: Array<ContentfulProjectLink>;
   }
 }
 
 export type Project = {
-  _id: string,
-  tools: string,
-  headerText: string,
-  subText: string,
-  image: string,
-  altLabel: string,
-  links: Array<ProjectLink>
+  _id: string;
+  tools: string;
+  headerText: string;
+  subText: string;
+  image: string;
+  altLabel: string;
+  links: Array<ProjectLink>;
 }
 
-export type InvolvementItem = {
-  title: string,
-  positions: Record<string, string>,
-  description: Array<string>,
-  linkDescription?: string | undefined,
-  link?: string | undefined
-  icon: string,
-  thumbnail?: string | undefined
+export type ContentfulExperienceItem = {
+  fields: {
+    organization: string;
+    organizationIcon: ContentfulImage;
+    position: string;
+    time: string;
+    description: string;
+    link?: string | undefined;
+    linkAriaLabel?: string | undefined;
+  }
+};
+
+export type ExperienceItem = {
+  organization: string;
+  organizationIcon: string;
+  position: string;
+  time: string;
+  description: string;
+  linkDescription?: string | undefined;
+  link?: string | undefined;
 }
 
 export type ArticleProps = {
@@ -76,4 +88,23 @@ export type FeaturedImageFields = {
 
 export type ContentfulArticle = {
   fields: ContentfulArticleFields;
+}
+
+export type ContentfulSkill = {
+  fields: {
+    title: string;
+    icon: ContentfulImage;
+  };
+}
+
+export type Skill = {
+  title: string;
+  icon: string;
+}
+
+export type ContentfulResumePage = {
+  id: string;
+  skills: ContentfulSkill[];
+  internshipExperience: ContentfulExperienceItem[];
+  studentOrgInvolvement: ContentfulExperienceItem[];
 }

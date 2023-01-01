@@ -113,23 +113,25 @@ function BlogPage(): JSX.Element {
         YouTube Channels
       </Typography>
       <YouTubeChannelContainer>
-        <YouTubeChannelLogo src="https://yt3.ggpht.com/2oai_WLC-1ZaOqxRRjhnN3vOULJ3SygIzo_ssU0wkIP1c26DUyEpprB-0t6VYJicQquV4QYWpw=s176-c-k-c0x00ffffff-no-rj" />
-        <Typography
-          style={{ marginLeft: 12 }}
-          component={Link}
-          href="https://www.youtube.com/@ufssd/videos"
-        >
-          My Personal Channel
-        </Typography>
-      </YouTubeChannelContainer>
-      <YouTubeChannelContainer>
         <YouTubeChannelLogo src="https://yt3.googleusercontent.com/ytc/AMLnZu-clO-MD7YassFljB0F90MCaz6bEqP8cvtmWZgB=s176-c-k-c0x00ffffff-no-rj" />
         <Typography
           style={{ marginLeft: 12 }}
           component={Link}
+          target='_blank'
           href="https://www.youtube.com/@ufssd/videos"
         >
           UF Society of Software Developers
+        </Typography>
+      </YouTubeChannelContainer>
+      <YouTubeChannelContainer>
+        <YouTubeChannelLogo src='https://yt3.googleusercontent.com/Y5PmT9HCWpFxHu3vDXCE5BV3qAhg2ZodAknJXw7d3pYYflnV0P-oX4ZkNutnDWpUOw3RUmYfYw=s176-c-k-c0x00ffffff-no-rj' />
+        <Typography
+          style={{ marginLeft: 12 }}
+          component={Link}
+          target='_blank'
+          href="https://www.youtube.com/@ericnavar/videos"
+        >
+          My YouTube Channel
         </Typography>
       </YouTubeChannelContainer>
       <ScreenBackground />

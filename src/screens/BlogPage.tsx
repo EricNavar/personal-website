@@ -41,8 +41,12 @@ const YouTubeVideo = styled('iframe')`
   border-radius: 2px;
 `;
 
+type ContentfulVideo = {
+  fields: Video;
+}
+
 type Video = {
-  youtubeID: string;
+  youtubeId: string;
   description: string;
 };
 
@@ -72,10 +76,10 @@ function BlogPage(): JSX.Element {
         content_type: 'video',
       })
       .then((response) => {
-        const items = response.items;
-        const videosFromContentful = items.map((item: any) => {
+        const items = response.items as ContentfulVideo[];
+        const videosFromContentful = items.map((item: ContentfulVideo) => {
           return {
-            youtubeID: item.fields.youtubeId,
+            youtubeId: item.fields.youtubeId,
             description: item.fields.description,
           };
         }) as Video[];
@@ -96,8 +100,7 @@ function BlogPage(): JSX.Element {
           <YouTubeVideo
             width="882"
             height="496"
-            src={`https://www.youtube.com/embed/${video.youtubeID}`}
-            title="Common Ground Final Presentation"
+            src={`https://www.youtube.com/embed/${video.youtubeId}`}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             data-modestbranding

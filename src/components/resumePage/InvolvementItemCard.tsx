@@ -5,7 +5,6 @@ import {
   IconButton,
   Grid,
   Tooltip,
-  ListItem,
 } from '@mui/material';
 import { ExperienceItem } from '../../commonTypes';
 import WebIcon from '../../assets/icons/web_fluent';
@@ -71,13 +70,6 @@ const DescriptionContainer = styled(List)({
   paddingLeft: 12,
   listStyle: 'initial',
 });
-
-const StyledListItem = styled(ListItem)(({ theme }) => ({
-  display: 'flow-root list-item',
-  '&::marker': {
-    color: theme.palette.primary.main,
-  },
-}));
 
 const PositionLine = styled('div')({
   display: 'flex',

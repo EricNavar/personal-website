@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { createTheme } from '@mui/material/styles';
 

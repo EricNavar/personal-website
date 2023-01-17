@@ -41,24 +41,21 @@ const Line = styled('div')`
   display: flex;
 `;
 
-function CourseworkItems(): JSX.Element {
-  const coursework = [
-    'Intro Software Engineering',
-    'Project Methodologies',
-    'Information & Database Systems',
-    'Data Structures & Algorithms',
-    'Interaction & Usability',
-  ];
+function CourseworkItems(props: EducationProps): JSX.Element {
   return (
     <React.Fragment>
-      {coursework.map((course: string) => (
+      {props.relevantCoursework.map((course: string) => (
         <CourseworkItem key={course} label={course} />
       ))}
     </React.Fragment>
   );
 }
 
-function Education(): JSX.Element {
+type EducationProps = {
+  relevantCoursework: string[]
+};
+
+function Education(props: EducationProps): JSX.Element {
   const gpa = 3.9;
   return (
     <EducationSection title="Education">
@@ -95,7 +92,7 @@ function Education(): JSX.Element {
         Relevant Coursework:
       </RelevantCousework>
       <CourseworkItemsWrapper>
-        <CourseworkItems />
+        <CourseworkItems relevantCoursework={props.relevantCoursework}/>
       </CourseworkItemsWrapper>
     </EducationSection>
   );

@@ -33,6 +33,7 @@ function ResumePage(): JSX.Element {
   const [experienceData, setExperienceData] = React.useState<ExperienceItem[]>(
     []
   );
+  const [relevantCoursework, setRelevantCoursework] = React.useState<string[]>([]);
   const [studentOrgInvolvement, setStudentOrgInvolvement] = React.useState<
     ExperienceItem[]
   >([]);
@@ -42,7 +43,6 @@ function ResumePage(): JSX.Element {
         content_type: 'resumePage',
       })
       .then((response) => {
-        console.log(response);
         const items = response.items;
         const resumePage = items[0].fields as ContentfulResumePage;
 
@@ -85,6 +85,8 @@ function ResumePage(): JSX.Element {
           }
         ) as ExperienceItem[];
         setStudentOrgInvolvement(studentOrgInvolvementData);
+
+        setRelevantCoursework(resumePage.relevantCoursework);
       })
       .catch(console.error);
   }, []);
@@ -96,7 +98,7 @@ function ResumePage(): JSX.Element {
           <SkillList skills={skills} />
         </GridItem>
         <GridItem id="education-container" item sm={12} lg={6}>
-          <Education />
+          <Education relevantCoursework={relevantCoursework}/>
         </GridItem>
       </Grid>
       <InvolvementSection title="Internship Experience" data={experienceData} />

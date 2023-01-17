@@ -13,7 +13,7 @@ import {
   CardButtonContainer,
 } from '../styling/homePageStyling';
 import { SocialLink } from '../components/home/SocialLink';
-import { ContentfulProject, Project } from '../commonTypes';
+import { ContentfulPersonalStatement, ContentfulProject, Project } from '../commonTypes';
 import { client } from '../util/client';
 import { marked } from 'marked';
 
@@ -27,6 +27,7 @@ function Home(): JSX.Element {
   }, []);
 
   const [projects, setProjects] = React.useState<Project[]>([]);
+  const [personalStatement, setPersonalStatement] = React.useState<string>('');
   React.useEffect(() => {
     client
       .getEntries({
@@ -34,7 +35,6 @@ function Home(): JSX.Element {
       })
       .then((response) => {
         const items = response.items as ContentfulProject[];
-        console.log(items);
         const articlesFromContentful = items.map((item: ContentfulProject) => {
           return {
             _id: item.fields.id,
@@ -56,13 +56,24 @@ function Home(): JSX.Element {
         setProjects(articlesFromContentful);
       })
       .catch(console.error);
+
+      client
+      .getEntries({
+        content_type: 'personalStatement',
+      })
+      .then((response) => {
+        const items = response.items as ContentfulPersonalStatement[];
+        const personalStatementContentful = items.length > 0 ? items[0].fields.text : ''; 
+        setPersonalStatement(personalStatementContentful);
+      })
+      .catch(console.error);
   }, []);
 
   const classes = homePageStyles();
 
   return (
     <ScreenMain>
-      <PersonalStatement statement='ball'/>
+      <PersonalStatement statement={personalStatement}/>
       <section id="project-list" className={classes.section}>
         <Typography
           color="textPrimary"

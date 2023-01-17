@@ -27,6 +27,12 @@ export type ContentfulHomePage = {
   personalStatement: string;
 };
 
+export type ContentfulPersonalStatement = {
+  fields: {
+    text: string;
+  };
+};
+
 export type ContentfulProject = {
   fields: {
     id: string;
@@ -111,6 +117,7 @@ export type Skill = {
 export type ContentfulResumePage = {
   id: string;
   skills: ContentfulSkill[];
+  relevantCoursework: any;
   internshipExperience: ContentfulExperienceItem[];
   studentOrgInvolvement: ContentfulExperienceItem[];
 };

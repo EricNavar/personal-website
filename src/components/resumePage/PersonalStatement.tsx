@@ -35,6 +35,7 @@ const ProfilePicWrapper = styled('div')({
   maxHeight: 200,
   borderRadius: '50%',
   marginRight: 48,
+  marginLeft: 48,
   boxShadow:
     'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
 });
@@ -50,7 +51,6 @@ function PersonalStatement(props: PersonalStatementProps): JSX.Element {
       direction="row"
       justifyContent="center"
       alignItems="center"
-      spacing={4}
     >
       <ProfilePicWrapper>
         <Suspense fallback={<div />}>

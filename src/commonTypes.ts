@@ -121,3 +121,9 @@ export type ContentfulResumePage = {
   internshipExperience: ContentfulExperienceItem[];
   studentOrgInvolvement: ContentfulExperienceItem[];
 };
+
+export type ContentfulResumeLink = {
+  fields: {
+    pdf: ContentfulImage;
+  };
+};

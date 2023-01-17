@@ -14,6 +14,7 @@ import {
   Skill,
 } from '../commonTypes';
 import { marked } from 'marked';
+import { ResumeLink } from '../components/resumePage/ResumeLink';
 
 const GridItem = styled(Grid)`
   justify-content: center;
@@ -106,6 +107,7 @@ function ResumePage(): JSX.Element {
         title="Student Org Involvement"
         data={studentOrgInvolvement}
       />
+      <ResumeLink />
       <ScreenBackground />
     </ScreenMain>
   );

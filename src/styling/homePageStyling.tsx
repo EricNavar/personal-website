@@ -18,55 +18,38 @@ export const HeaderText = styled(Typography)<TypographyProps>(({ theme }) => ({
   color: theme.palette.primary.main,
 }));
 
-export const cardButtonStyles = makeStyles({
-  item: {
-    padding: '24px 36px',
-    width: '100%',
-  },
-  topic: {
-    textDecoration: 'none',
-    '&:hover': {
-      color: '#000000',
-    },
-    '&:active': {
-      color: '#000000',
-    },
-  },
-  underlined: {
-    backgroundColor: '#6ac1c4',
-  },
-  loadingImage: {
-    width: '100%',
-    paddingBottom: '100%',
-    backgroundColor: '#aaa',
-    borderRadius: 8,
-  },
-  photoWrapper: {
-    maxWidth: 300,
-    minWidth: 250,
-  },
-  subTextContainer: {
-    marginTop: 12,
-    marginBottom: 12,
-    fontSize: '1.1rem',
-  },
-  lineBreak: {
-    marginBottom: 12,
-  },
-  cardHeader: {
-    display: 'flex',
-    flexDirection: 'row',
-    width: '100%',
-  },
-  cardHeaderText: {
-    flexGrow: 1,
-  },
-  invisibleHeader: {
-    height: 0,
-    overflow: 'hidden',
-    margin: 0,
-  },
-});
+export const Item = styled('div')`
+  padding: 24px 36px;
+  width: 100%;
+`;
+
+export const LoadingImage = styled('div')`
+  width: 100%;
+  padding-bottom: 100%;
+  background-color: #aaa;
+  border-radius: 8px;
+`;
+
+export const PhotoWrapper = styled('div')`
+  max-width: 300px;
+  min-width: 250px;
+`;
+
+export const SubTextContainer = styled(Typography)`
+  margin-top: 12px;
+  margin-bottom: 12px;
+  font-fize: 1.1rem;
+`;
+
+export const CardHeader = styled('div')`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+`;
+
+export const CardHeaderText = styled('div')`
+  flex-grow: 1;
+`;
 
 export const ScreenMain = styled('main')(({ theme }) => ({
   padding: 24,
@@ -83,7 +66,7 @@ export const ScreenMain = styled('main')(({ theme }) => ({
     paddingLeft: '12.5%',
     paddingRight: '12.5%',
   },
-  [theme.breakpoints.down('xs')]: {
+  [theme.breakpoints.only('xs')]: {
     width: '88%',
     paddingLeft: '6%',
     paddingRight: '6%',
@@ -99,7 +82,7 @@ export const ScreenBackground = styled('div')(({ theme }) => ({
 }));
 
 export const CardButtonContainer = styled(Grid)(({ theme }) => ({
-  [theme.breakpoints.down('xs')]: {
+  [theme.breakpoints.only('xs')]: {
     width: '100%',
   },
 }));

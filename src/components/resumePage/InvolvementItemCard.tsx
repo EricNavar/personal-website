@@ -99,7 +99,7 @@ function InvolvementItemCard(props: InvolvementItemCardProps): JSX.Element {
   } = props.involvementItem;
 
   return (
-    <Grid item xs={12}>
+    <Grid item xs={12} xl={6}>
       <InvolvementItemMain>
         <InvolvementItemInner>
           <TopRow>

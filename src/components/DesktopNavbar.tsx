@@ -58,6 +58,7 @@ const useStyles = makeStyles({
     marginRight: 8,
   },
 });
+
 const StyledToggleButtonGroup = styled(ToggleButtonGroup)({
   position: 'absolute',
   right: 8,

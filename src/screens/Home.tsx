@@ -7,7 +7,6 @@ import { PersonalStatement } from '../components/resumePage/PersonalStatement';
 import { CodingProjectMobile } from '../components/home/CodingProjectMobile';
 import { CodingProjectDesktop } from '../components/home/CodingProjectDesktop';
 import {
-  homePageStyles,
   ScreenMain,
   ScreenBackground,
   CardButtonContainer,
@@ -71,8 +70,6 @@ function Home(): JSX.Element {
       })
       .catch(console.error);
   }, []);
-
-  const classes = homePageStyles();
 
   return (
     <ScreenMain>

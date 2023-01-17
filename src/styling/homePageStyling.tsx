@@ -1,5 +1,4 @@
 import React from 'react';
-import { makeStyles } from '@mui/styles';
 import { Paper, Grid, Typography, TypographyProps } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
@@ -116,30 +115,16 @@ export function MCButton(props: { children: JSX.Element }) {
   );
 }
 
-export const homePageStyles = makeStyles({
-  section: {
-    marginTop: 20,
-    marginBottom: 8,
-  },
-  divider: {
-    width: '80%',
-  },
-  topicName: {
-    marginTop: '20px !important',
-    marginBottom: '20px !important',
-  },
-  disclaimer: {
-    backgroundColor: '#fff7cf',
-    width: 'max-content',
-    marginBottom: 32,
-  },
-  homeSection: {
-    marginBottom: 40,
-  },
-  jokeProjectLink: {
-    marginRight: '20px !important',
-    flexWrap: 'nowrap',
-    display: 'inline-flex',
-    textDecoration: 'none !important',
-  },
-});
+export const Section = styled('section')`
+  margin-top: 20;
+  margin-bottom: 8;
+`;
+
+export const TopicName = styled(Typography)`
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+`;
+
+export const HomeSection = styled('section')`
+  margin-bottom: 40px;
+`;

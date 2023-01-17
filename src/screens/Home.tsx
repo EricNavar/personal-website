@@ -11,6 +11,9 @@ import {
   ScreenMain,
   ScreenBackground,
   CardButtonContainer,
+  Section,
+  TopicName,
+  HomeSection,
 } from '../styling/homePageStyling';
 import { SocialLink } from '../components/home/SocialLink';
 import { ContentfulPersonalStatement, ContentfulProject, Project } from '../commonTypes';
@@ -74,15 +77,14 @@ function Home(): JSX.Element {
   return (
     <ScreenMain>
       <PersonalStatement statement={personalStatement}/>
-      <section id="project-list" className={classes.section}>
-        <Typography
+      <Section id="project-list">
+        <TopicName
           color="textPrimary"
-          component="h2"
+          as="h2"
           variant="h4"
-          className={classes.topicName}
         >
           Apps I&apos;ve Worked On
-        </Typography>
+        </TopicName>
         <Hidden smUp>
           <Grid container spacing={6}>
             {projects.map((project) => (
@@ -101,16 +103,15 @@ function Home(): JSX.Element {
             ))}
           </Grid>
         </Hidden>
-      </section>
-      <section id="connect" className={classes.homeSection}>
-        <Typography
+      </Section>
+      <HomeSection id="connect">
+        <TopicName
           color="textPrimary"
-          component="h2"
+          as="h2"
           variant="h4"
-          className={classes.topicName}
         >
           Connect
-        </Typography>
+        </TopicName>
         <div>
           <Typography color="textPrimary">
             Email: ericn2413@gmail.com
@@ -129,7 +130,7 @@ function Home(): JSX.Element {
             circle={true}
           />
         </div>
-      </section>
+      </HomeSection>
       <ScreenBackground></ScreenBackground>
     </ScreenMain>
   );

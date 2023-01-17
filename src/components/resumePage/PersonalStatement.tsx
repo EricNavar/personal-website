@@ -39,7 +39,11 @@ const ProfilePicWrapper = styled('div')({
     'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
 });
 
-function PersonalStatement(): JSX.Element {
+type PersonalStatementProps = {
+  statement: string;
+}
+
+function PersonalStatement(props: PersonalStatementProps): JSX.Element {
   return (
     <PersonalStatementWrapper
       container
@@ -58,9 +62,7 @@ function PersonalStatement(): JSX.Element {
           <b>Hi, I&apos;m Eric Navar</b>
         </PersonalStatementHeader>
         <Typography variant="body1" style={{ fontSize: 16 }}>
-          I&apos;m a recent computer science graduate from the University of
-          Florida. I&apos;m always interested in learning new things and am
-          looking for a full-time position. I would love to connect with you!
+          {props.statement}
         </Typography>
       </TextContainer>
     </PersonalStatementWrapper>

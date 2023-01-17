@@ -34,6 +34,7 @@ function Home(): JSX.Element {
       })
       .then((response) => {
         const items = response.items as ContentfulProject[];
+        console.log(items);
         const articlesFromContentful = items.map((item: ContentfulProject) => {
           return {
             _id: item.fields.id,
@@ -61,7 +62,7 @@ function Home(): JSX.Element {
 
   return (
     <ScreenMain>
-      <PersonalStatement />
+      <PersonalStatement statement='ball'/>
       <section id="project-list" className={classes.section}>
         <Typography
           color="textPrimary"

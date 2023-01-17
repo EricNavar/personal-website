@@ -1,6 +1,6 @@
 /* eslint-disable quotes */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { createTheme } from '@mui/material/styles';
+import { createTheme, Theme } from '@mui/material/styles';
 
 declare module '@mui/material/styles' {
   export interface Theme {
@@ -16,7 +16,7 @@ declare module '@mui/material/styles' {
   }
 }
 
-export const lightTheme = createTheme({
+const lightTheme = createTheme({
   palette: {
     mode: 'light',
     primary: {
@@ -43,7 +43,7 @@ export const lightTheme = createTheme({
   },
 });
 
-export const darkTheme = createTheme({
+const darkTheme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
@@ -79,7 +79,7 @@ export const darkTheme = createTheme({
   },
 });
 
-export const minecraftTheme = createTheme({
+const minecraftTheme = createTheme({
   palette: {
     mode: 'light',
     primary: {
@@ -102,7 +102,7 @@ export const minecraftTheme = createTheme({
   gradientPaper: {},
 });
 
-export const frostTheme = createTheme({
+const frostTheme = createTheme({
   palette: {
     mode: 'light',
     primary: {
@@ -143,3 +143,10 @@ export const frostTheme = createTheme({
     },
   },
 });
+
+export const themes: Record<string, Theme> = {
+  Light: lightTheme,
+  Dark: darkTheme,
+  Minecraft: minecraftTheme,
+  Frost: frostTheme,
+};

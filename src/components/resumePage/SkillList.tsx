@@ -35,7 +35,7 @@ function SkillItem(props: SkillItemProps) {
   const { children, skill } = props;
   const theme = useTheme();
   return (
-    <StyledGridItem item xs={4}>
+    <StyledGridItem item xs={4} xl={2}>
       <StyledPaper elevation={3} sx={theme.paper}>
         {children}
         <Typography variant="body1" align="center">
@@ -70,6 +70,5 @@ function SkillList(props: SkillListProps): JSX.Element {
     </Section>
   );
 }
-// <SkillItem skill="MongoDB"><Suspense fallback={<div/>}><MongoDbIcon/></Suspense></SkillItem>
 
 export { SkillList };

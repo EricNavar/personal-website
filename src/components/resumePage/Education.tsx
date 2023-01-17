@@ -48,8 +48,6 @@ function CourseworkItems(): JSX.Element {
     'Information & Database Systems',
     'Data Structures & Algorithms',
     'Interaction & Usability',
-    'Human-Computer Interaction',
-    'UX Design',
   ];
   return (
     <React.Fragment>

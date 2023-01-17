@@ -22,6 +22,11 @@ type ContentfulImage = {
   };
 };
 
+export type ContentfulHomePage = {
+  projects: ContentfulProject[];
+  personalStatement: string;
+};
+
 export type ContentfulProject = {
   fields: {
     id: string;
@@ -41,6 +46,7 @@ export type Project = {
   subText: string;
   image: string;
   altLabel: string;
+  // projectLink: ProjectLink;
   links: Array<ProjectLink>;
 };
 

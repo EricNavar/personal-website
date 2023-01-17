@@ -14,14 +14,7 @@ import { Home } from './screens/Home';
 import { DesktopNavbar } from './components/DesktopNavbar';
 import { MobileNavbar } from './components/MobileNavbar';
 import FullStory from 'react-fullstory';
-import { MinecraftPage } from './screens/MinecraftPage';
-import {
-  lightTheme,
-  darkTheme,
-  minecraftTheme,
-  frostTheme,
-} from './styling/commonStyles';
-import { Theme } from '@mui/material/styles';
+import { themes } from './styling/themes';
 const ResumePage = lazy(() =>
   import('./screens/ResumePage').then((module) => ({
     default: module.ResumePage,
@@ -30,11 +23,6 @@ const ResumePage = lazy(() =>
 const InspirePage = lazy(() =>
   import('./screens/InspirePage').then((module) => ({
     default: module.InspirePage,
-  }))
-);
-const WorstWebsite = lazy(() =>
-  import('./screens/WorstWebsite').then((module) => ({
-    default: module.WorstWebsite,
   }))
 );
 const BlogPage = lazy(() =>
@@ -63,13 +51,6 @@ function ScrollToTop(props: ScrollToTopProps) {
 
   return <React.Fragment>{props.children}</React.Fragment>;
 }
-
-const themes: Record<string, Theme> = {
-  Light: lightTheme,
-  Dark: darkTheme,
-  Minecraft: minecraftTheme,
-  Frost: frostTheme,
-};
 
 function Root(): JSX.Element {
   const [theme, setTheme] = React.useState('Frost');
@@ -115,14 +96,6 @@ function Root(): JSX.Element {
                 <Suspense fallback={<div />}>
                   <InspirePage />
                 </Suspense>
-              </Route>
-              <Route path="/worst-website">
-                <Suspense fallback={<div />}>
-                  <WorstWebsite />
-                </Suspense>
-              </Route>
-              <Route path="/minecraft">
-                <MinecraftPage />
               </Route>
               <Route path="*">
                 <Redirect to="/" />

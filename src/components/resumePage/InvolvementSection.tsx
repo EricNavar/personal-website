@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid } from '@mui/material';
 //local files
-import { Section } from './Section';
+import { Section } from '../Section';
 import { InvolvementItemCard } from './InvolvementItemCard';
 import { ExperienceItem } from '../../commonTypes';
 

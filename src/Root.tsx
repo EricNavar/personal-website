@@ -11,7 +11,7 @@ import { Hidden } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 //local files
 import { Home } from './screens/Home';
-import { DesktopNavbar } from './components/DesktopNavbar';
+import { DesktopHeader } from './components/DesktopHeader';
 import { MobileNavbar } from './components/MobileNavbar';
 import FullStory from 'react-fullstory';
 import { themes } from './styling/themes';
@@ -61,7 +61,7 @@ function Root(): JSX.Element {
         <ScrollToTop>
           <ThemeProvider theme={themes[theme]}>
             <Hidden only={'xs'}>
-              <DesktopNavbar theme={theme} setTheme={setTheme} />
+              <DesktopHeader theme={theme} setTheme={setTheme} />
             </Hidden>
             <Hidden smUp>
               <MobileNavbar theme={theme} setTheme={setTheme} />

@@ -10,14 +10,12 @@ import {
   ScreenMain,
   ScreenBackground,
   CardButtonContainer,
-  Section,
-  TopicName,
-  HomeSection,
 } from '../styling/homePageStyling';
 import { SocialLink } from '../components/home/SocialLink';
 import { ContentfulPersonalStatement, ContentfulProject, Project } from '../commonTypes';
 import { client } from '../util/client';
 import { marked } from 'marked';
+import { Section } from '../components/Section';
 
 function Home(): JSX.Element {
   React.useEffect(() => {
@@ -74,14 +72,7 @@ function Home(): JSX.Element {
   return (
     <ScreenMain>
       <PersonalStatement statement={personalStatement}/>
-      <Section id="project-list">
-        <TopicName
-          color="textPrimary"
-          as="h2"
-          variant="h4"
-        >
-          Apps I&apos;ve Worked On
-        </TopicName>
+      <Section title="Apps I've worked on">
         <Hidden smUp>
           <Grid container spacing={6}>
             {projects.map((project) => (
@@ -101,14 +92,7 @@ function Home(): JSX.Element {
           </Grid>
         </Hidden>
       </Section>
-      <HomeSection id="connect">
-        <TopicName
-          color="textPrimary"
-          as="h2"
-          variant="h4"
-        >
-          Connect
-        </TopicName>
+      <Section title='Connect'>
         <div>
           <Typography color="textPrimary">
             Email: ericn2413@gmail.com
@@ -127,7 +111,7 @@ function Home(): JSX.Element {
             circle={true}
           />
         </div>
-      </HomeSection>
+      </Section>
       <ScreenBackground></ScreenBackground>
     </ScreenMain>
   );

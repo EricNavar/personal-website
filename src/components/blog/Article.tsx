@@ -1,7 +1,7 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
 import { marked } from 'marked';
-import { ArticleProps } from '../commonTypes';
+import { ArticleProps } from '../../commonTypes';
 
 const StyledArticle = styled('div')`
   border-radius: 8px;

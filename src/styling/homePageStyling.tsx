@@ -114,17 +114,3 @@ export function MCButton(props: { children: JSX.Element }) {
     </StyledButton>
   );
 }
-
-export const Section = styled('section')`
-  margin-top: 20;
-  margin-bottom: 8;
-`;
-
-export const TopicName = styled(Typography)`
-  margin-top: 20px !important;
-  margin-bottom: 20px !important;
-`;
-
-export const HomeSection = styled('section')`
-  margin-bottom: 40px;
-`;

@@ -7,8 +7,8 @@ import {
   useScrollTrigger,
   ToggleButton,
   ToggleButtonGroup,
+  ButtonProps,
 } from '@mui/material';
-import { makeStyles } from '@mui/styles';
 import SunIcon from '@mui/icons-material//Brightness5';
 import MoonIcon from '@mui/icons-material/Brightness2';
 import AcUnitIcon from '@mui/icons-material/AcUnit';
@@ -40,24 +40,28 @@ const top = (theme: Theme) => ({
   },
 });
 
-const useStyles = makeStyles({
-  navbar: {
-    height: 64,
-  },
-  toolbar: {
-    paddingLeft: 12,
-    paddingRight: 12,
-    justifyContent: 'center',
-  },
-  activeTab: {
-    backgroundColor: '#d5e4ff !important',
-    color: 'black !important',
-  },
-  navbarItemButton: {
-    marginLeft: 8,
-    marginRight: 8,
-  },
-});
+const StyledAppBar = styled(AppBar)`
+  height: 64px;
+`;
+
+const StyledToolbar = styled(Toolbar)`
+  padding-left: 12px;
+  padding-right: 12px;
+  justify-content: center;
+`;
+
+type NavbarItemButtonProps = {
+  activeTab: boolean;
+  component: any;
+  to: string;
+};
+
+const NavbarItemButton = styled(Button)<NavbarItemButtonProps>`
+  margin-left: 8px;
+  margin-right: 8px;
+  color: ${props => props.activeTab ? 'black !important' : undefined};
+  background-color: ${props => props.activeTab ? '#d5e4ff !important' : undefined};
+`;
 
 const StyledToggleButtonGroup = styled(ToggleButtonGroup)({
   position: 'absolute',
@@ -68,7 +72,6 @@ type ElevatorScrollProps = {
   children: JSX.Element;
 };
 function ElevationScroll(props: ElevatorScrollProps): JSX.Element {
-  const classes = useStyles();
 
   const { children } = props;
   // Note that you normally won't need to set the window ref as useScrollTrigger
@@ -81,19 +84,18 @@ function ElevationScroll(props: ElevatorScrollProps): JSX.Element {
   });
 
   return React.cloneElement(children, {
-    className: classes.navbar,
+    // className: classes.navbar,
     sx: trigger ? scrolled : top,
     elevation: trigger ? 2 : 0,
   });
 }
 
-type NavBarItemProps = {
+type NavbarItemProps = {
   text: string;
   to: string;
 };
 
-function NavBarItem(props: NavBarItemProps): JSX.Element {
-  const classes = useStyles();
+function NavItem(props: NavbarItemProps): JSX.Element {
   const { text, to } = props;
   const isSm = useMediaQuery(useTheme().breakpoints.down('sm'));
   const match = useRouteMatch({
@@ -102,26 +104,23 @@ function NavBarItem(props: NavBarItemProps): JSX.Element {
   });
 
   return (
-    <Button
+    <NavbarItemButton
       component={Link}
       to={to}
-      className={`${classes.navbarItemButton} ${
-        match ? classes.activeTab : ''
-      }`}
+      activeTab={!!match}
       size={isSm ? 'small' : 'medium'}
       color="primary"
     >
       {text}
-    </Button>
+    </NavbarItemButton>
   );
 }
 
-type DesktopNavbarProps = {
+type DesktopHeaderProps = {
   theme: string;
   setTheme: (newTheme: string) => void;
 };
-function DesktopNavbar(props: DesktopNavbarProps): JSX.Element {
-  const classes = useStyles();
+function DesktopHeader(props: DesktopHeaderProps): JSX.Element {
 
   const handleChange = (
     event: React.MouseEvent<HTMLElement, MouseEvent>,
@@ -133,12 +132,12 @@ function DesktopNavbar(props: DesktopNavbarProps): JSX.Element {
   return (
     <React.Fragment>
       <ElevationScroll {...props}>
-        <AppBar id="AppBar" className={classes.navbar}>
-          <Toolbar className={classes.toolbar}>
+        <StyledAppBar id="AppBar">
+          <StyledToolbar>
             <div style={{ position: 'absolute' }}>
-              <NavBarItem to="/" text="Coding Projects" />
-              <NavBarItem to="/resume" text="Resume" />
-              <NavBarItem to="/blog" text="Blog" />
+              <NavItem to="/" text="Coding Projects" />
+              <NavItem to="/resume" text="Resume" />
+              <NavItem to="/blog" text="Blog" />
             </div>
             <StyledToggleButtonGroup
               value={props.theme}
@@ -156,12 +155,12 @@ function DesktopNavbar(props: DesktopNavbarProps): JSX.Element {
                 <MoonIcon />
               </ToggleButton>
             </StyledToggleButtonGroup>
-          </Toolbar>
-        </AppBar>
+          </StyledToolbar>
+        </StyledAppBar>
       </ElevationScroll>
       <Toolbar />
     </React.Fragment>
   );
 }
 
-export { DesktopNavbar };
+export { DesktopHeader };

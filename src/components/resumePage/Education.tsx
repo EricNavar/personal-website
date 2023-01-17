@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography, TypographyProps, Chip } from '@mui/material';
-import { Section } from './Section';
+import { Section } from '../Section';
 import { styled } from '@mui/material/styles';
 
 const EducationSection = styled(Section)({

@@ -46,10 +46,12 @@ const useStyles = makeStyles({
   activeLink: {
     background: 'rgba(81, 85, 133, 0.6)',
   },
-  toolbar: {
-    marginBottom: 24,
-  },
 });
+
+const StyledToolbar = styled(Toolbar)`
+  marginBottom: 24px;
+`;
+
 
 const StyledToggleButtonGroup = styled(ToggleButtonGroup)({
   position: 'absolute',
@@ -167,7 +169,7 @@ function MobileNavbar(props: MobileNavbarProps): JSX.Element {
             </Toolbar>
           </AppBar>
         </HideOnScroll>
-        <Toolbar className={classes.toolbar} />
+        <StyledToolbar />
       </React.Fragment>
       <SwipeableDrawer
         open={open}

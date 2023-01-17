@@ -1,7 +1,7 @@
 import React from 'react';
 import { Article } from './Article';
 import { styled } from '@mui/material/styles';
-import { ArticleProps } from '../commonTypes';
+import { ArticleProps } from '../../commonTypes';
 
 const ArticleContainer = styled('div')`
   margin-left: 20%;

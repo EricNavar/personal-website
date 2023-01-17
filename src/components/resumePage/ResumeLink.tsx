@@ -24,7 +24,6 @@ const ResumeLink = () => {
       content_type: 'resume',
     })
     .then((response) => {
-      console.log(response);
       const resumes = response.items as ContentfulResumeLink[];
       const latestResume = resumes.length > 0 ? resumes[0].fields.pdf.fields.file.url : ''; 
       setResume(latestResume);

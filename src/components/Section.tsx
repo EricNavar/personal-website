@@ -17,10 +17,10 @@ const Divider = styled('div')({
   marginBottom: 24,
 });
 
-const Title = styled(Typography)({
-  fontWeight: 'bold',
-  fontSize: '2rem',
-});
+const Title = styled(Typography)`
+  font-weight: bold;
+  font-size: 2rem;
+`;
 
 const MaxContent = styled('div')({
   width: 'max-content',

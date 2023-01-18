@@ -4,7 +4,7 @@ import {
   Slide,
   AppBar,
   Toolbar,
-  ListItem,
+  ListItemButton,
   IconButton,
   ListItemIcon,
   ListItemText,
@@ -13,7 +13,6 @@ import {
   ToggleButton,
   ToggleButtonGroup,
 } from '@mui/material';
-import { makeStyles } from '@mui/styles';
 import { useHistory, useRouteMatch } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 //icons
@@ -28,30 +27,33 @@ import AcUnitIcon from '@mui/icons-material/AcUnit';
 
 //citation: https://material-ui.com/components/app-bar/#back-to-top
 
-const useStyles = makeStyles({
-  list: {
-    '& button': {
-      paddingRight: 32,
-    },
+const StyledList = styled(List)({
+  '& button': {
+    paddingRight: 32,
   },
-  MobileAppBar: {
-    background: '#09203f',
-    width: 'calc(100% - 16px)',
-    margin: 8,
-    borderRadius: 4,
-    '& use': {
-      fill: 'white',
-    },
-  },
-  activeLink: {
-    background: 'rgba(81, 85, 133, 0.6)',
+});
+
+type StyledListItemButtonProps = {
+  activeTab: boolean;
+};
+
+const StyledListItemButton = styled(ListItemButton)<StyledListItemButtonProps>`
+  background: ${props => props.activeTab ? 'rgba(81, 85, 133, 0.6)' : undefined};
+`;
+
+const StyledAppBar = styled(AppBar)({
+  background: '#09203f',
+  width: 'calc(100% - 16px)',
+  margin: 8,
+  borderRadius: 4,
+  '& use': {
+    fill: 'white',
   },
 });
 
 const StyledToolbar = styled(Toolbar)`
   marginBottom: 24px;
 `;
-
 
 const StyledToggleButtonGroup = styled(ToggleButtonGroup)({
   position: 'absolute',
@@ -95,7 +97,6 @@ type SideBarItemProps = {
 
 function SideBarItem(props: SideBarItemProps) {
   const { text, link, icon } = props;
-  const classes = useStyles();
   const match = useRouteMatch({
     path: link,
     exact: true,
@@ -106,24 +107,22 @@ function SideBarItem(props: SideBarItemProps) {
     props.setOpen(false);
   };
   return (
-    <ListItem
-      className={match ? classes.activeLink : ''}
-      button
+    <StyledListItemButton
+      activeTab={!!match}
       onClick={() => redirect(link)}
     >
       <ListItemIcon>{icon}</ListItemIcon>
       <ListItemText primary={text} />
-    </ListItem>
+    </StyledListItemButton>
   );
 }
 
-type MobileNavbarProps = {
+type MobileHeaderProps = {
   theme: string;
   setTheme: (newTheme: string) => void;
 };
 
-function MobileNavbar(props: MobileNavbarProps): JSX.Element {
-  const classes = useStyles();
+function MobileHeader(props: MobileHeaderProps): JSX.Element {
   const [open, setOpen] = React.useState(false);
 
   const toggleDrawer = () => {
@@ -141,7 +140,7 @@ function MobileNavbar(props: MobileNavbarProps): JSX.Element {
     <React.Fragment>
       <React.Fragment>
         <HideOnScroll>
-          <AppBar className={classes.MobileAppBar}>
+          <StyledAppBar>
             <Toolbar style={{ justifyContent: 'space-between' }}>
               <IconButton
                 color="inherit"
@@ -167,7 +166,7 @@ function MobileNavbar(props: MobileNavbarProps): JSX.Element {
                 </ToggleButton>
               </StyledToggleButtonGroup>
             </Toolbar>
-          </AppBar>
+          </StyledAppBar>
         </HideOnScroll>
         <StyledToolbar />
       </React.Fragment>
@@ -190,7 +189,7 @@ function MobileNavbar(props: MobileNavbarProps): JSX.Element {
             <CloseIcon />
           </IconButton>
         </TextRight>
-        <List className={classes.list}>
+        <StyledList>
           <div>
             <SideBarItem
               text="Coding Projects"
@@ -211,10 +210,10 @@ function MobileNavbar(props: MobileNavbarProps): JSX.Element {
               setOpen={setOpen}
             />
           </div>
-        </List>
+        </StyledList>
       </SwipeableDrawer>
     </React.Fragment>
   );
 }
 
-export { MobileNavbar };
+export { MobileHeader };

@@ -7,7 +7,6 @@ import {
   useScrollTrigger,
   ToggleButton,
   ToggleButtonGroup,
-  ButtonProps,
 } from '@mui/material';
 import SunIcon from '@mui/icons-material//Brightness5';
 import MoonIcon from '@mui/icons-material/Brightness2';

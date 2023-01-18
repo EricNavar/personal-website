@@ -12,7 +12,7 @@ import { ThemeProvider } from '@mui/material/styles';
 //local files
 import { Home } from './screens/Home';
 import { DesktopHeader } from './components/DesktopHeader';
-import { MobileNavbar } from './components/MobileNavbar';
+import { MobileHeader } from './components/MobileHeader';
 import FullStory from 'react-fullstory';
 import { themes } from './styling/themes';
 const ResumePage = lazy(() =>
@@ -64,7 +64,7 @@ function Root(): JSX.Element {
               <DesktopHeader theme={theme} setTheme={setTheme} />
             </Hidden>
             <Hidden smUp>
-              <MobileNavbar theme={theme} setTheme={setTheme} />
+              <MobileHeader theme={theme} setTheme={setTheme} />
             </Hidden>
             <Switch>
               <Route exact path="/">

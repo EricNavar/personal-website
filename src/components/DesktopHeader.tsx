@@ -19,7 +19,6 @@ import { Theme } from '@mui/material/styles';
 //citation: https://material-ui.com/components/app-bar/#hide-app-bar
 
 const scrolled = {
-  background: '#09203f',
   '& a': {
     color: 'white',
   },
@@ -55,12 +54,12 @@ type NavbarItemButtonProps = {
   to: string;
 };
 
-const NavbarItemButton = styled(Button)<NavbarItemButtonProps>`
-  margin-left: 8px;
-  margin-right: 8px;
-  color: ${props => props.activeTab ? 'black !important' : undefined};
-  background-color: ${props => props.activeTab ? '#d5e4ff !important' : undefined};
-`;
+const NavbarItemButton = styled(Button)<NavbarItemButtonProps>(({theme, activeTab}) => ({
+  marginLeft: 8,
+  marginRight: 8,
+  backgroundColor: activeTab ? theme.background!.headerButtonColor : undefined,
+  color: activeTab ?  `${theme.palette.text.primary} !important` : undefined,
+}));
 
 const StyledToggleButtonGroup = styled(ToggleButtonGroup)({
   position: 'absolute',
@@ -70,21 +69,21 @@ const StyledToggleButtonGroup = styled(ToggleButtonGroup)({
 type ElevatorScrollProps = {
   children: JSX.Element;
 };
-function ElevationScroll(props: ElevatorScrollProps): JSX.Element {
 
+function ElevationScroll(props: ElevatorScrollProps): JSX.Element {
   const { children } = props;
-  // Note that you normally won't need to set the window ref as useScrollTrigger
-  // will default to window.
-  // This is only being set here because the demo is in an iframe.
   const trigger = useScrollTrigger({
     disableHysteresis: true,
     threshold: 0,
     target: window ? window : undefined,
   });
 
+  const theme = useTheme();
+
+  console.log(theme.background!.headerColor);
+
   return React.cloneElement(children, {
-    // className: classes.navbar,
-    sx: trigger ? scrolled : top,
+    sx: trigger ? {...scrolled, background: theme.background!.headerColor} : top,
     elevation: trigger ? 2 : 0,
   });
 }

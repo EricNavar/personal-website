@@ -12,7 +12,7 @@ declare module '@mui/material/styles' {
   interface ThemeOptions {
     paper?: Record<string, any>;
     gradientPaper?: Record<string, any>;
-    background?: Record<string, any>;
+    background: Record<string, any>;
   }
 }
 
@@ -41,6 +41,10 @@ const lightTheme = createTheme({
     backgroundAttachment: 'fixed',
     color: 'white',
   },
+  background: {
+    headerColor: '#09203f',
+    headerButtonColor: '#d5e4ff',
+  },
 });
 
 const darkTheme = createTheme({
@@ -67,6 +71,8 @@ const darkTheme = createTheme({
   },
   background: {
     backgroundColor: '#202020',
+    headerColor: '#111',
+    headerButtonColor: '#383838',
   },
   paper: {},
   gradientPaper: {
@@ -79,28 +85,28 @@ const darkTheme = createTheme({
   },
 });
 
-const minecraftTheme = createTheme({
-  palette: {
-    mode: 'light',
-    primary: {
-      main: '#111',
-    },
-    background: {
-      paper: '#706E71',
-      default: '#1D140D',
-    },
-  },
-  typography: {
-    fontFamily: 'VT323',
-  },
-  shape: {
-    borderRadius: 0,
-  },
-  paper: {
-    backgroundColor: '#9D9D9D',
-  },
-  gradientPaper: {},
-});
+// const minecraftTheme = createTheme({
+//   palette: {
+//     mode: 'light',
+//     primary: {
+//       main: '#111',
+//     },
+//     background: {
+//       paper: '#706E71',
+//       default: '#1D140D',
+//     },
+//   },
+//   typography: {
+//     fontFamily: 'VT323',
+//   },
+//   shape: {
+//     borderRadius: 0,
+//   },
+//   paper: {
+//     backgroundColor: '#9D9D9D',
+//   },
+//   gradientPaper: {},
+// });
 
 const frostTheme = createTheme({
   palette: {
@@ -136,6 +142,8 @@ const frostTheme = createTheme({
     backgroundSize: '100% 100%',
     animation: 'GradientBackground 7s ease infinite',
     background: 'linear-gradient(0.33turn, #f6a192, #ffbcde, #f6c492, #ffabab)',
+    headerColor: '#401324',
+    headerButtonColor: '#ffe7e3',
     '@keyframes GradientBackground': {
       '0%': { transform: 'translate(0, -50%);' },
       '50%': { transform: 'translate(-60%, 0);' },
@@ -147,6 +155,6 @@ const frostTheme = createTheme({
 export const themes: Record<string, Theme> = {
   Light: lightTheme,
   Dark: darkTheme,
-  Minecraft: minecraftTheme,
   Frost: frostTheme,
+  // Minecraft: minecraftTheme,
 };

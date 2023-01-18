@@ -28,7 +28,7 @@ function CodingProjectDesktop(props: CodingProjectDesktopProps): JSX.Element {
 
   return (
     <ItemWrapper elevation={4}>
-      <PhotoWrapper id='fuck'>
+      <PhotoWrapper>
         <Suspense fallback={<LoadingImage />}>
           <CodingProjectThumbnail image={image} altLabel={altLabel} />
         </Suspense>

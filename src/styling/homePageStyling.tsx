@@ -78,6 +78,9 @@ export const ScreenBackground = styled('div')(({ theme }) => ({
   width: '100%',
   height: '100%',
   ...theme.background,
+  [theme.breakpoints.only('xs')]: {
+    animation: 'none',
+  },
 }));
 
 export const CardButtonContainer = styled(Grid)(({ theme }) => ({

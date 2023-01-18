@@ -37,32 +37,28 @@ type StyledListItemButtonProps = {
   activeTab: boolean;
 };
 
-const StyledListItemButton = styled(ListItemButton)<StyledListItemButtonProps>`
+const StyledListItemButton = styled(ListItemButton) <StyledListItemButtonProps>`
   background: ${props => props.activeTab ? 'rgba(81, 85, 133, 0.6)' : undefined};
 `;
 
-const StyledAppBar = styled(AppBar)({
-  background: '#09203f',
+const StyledAppBar = styled(AppBar)(({theme}) => ({
+  background: theme.palette.background.default,
   width: 'calc(100% - 16px)',
   margin: 8,
   borderRadius: 4,
-  '& use': {
-    fill: 'white',
-  },
-});
+  color: theme.palette.text.primary,
+}));
 
 const StyledToolbar = styled(Toolbar)`
   marginBottom: 24px;
 `;
 
 const StyledToggleButtonGroup = styled(ToggleButtonGroup)({
-  position: 'absolute',
-  right: 8,
   '& use': {
-    fill: 'white',
+    fill: 'black',
   },
   '& path': {
-    fill: 'white',
+    fill: 'black',
   },
 });
 
@@ -149,22 +145,7 @@ function MobileHeader(props: MobileHeaderProps): JSX.Element {
               >
                 <MenuIcon />
               </IconButton>
-              <StyledToggleButtonGroup
-                value={props.theme}
-                exclusive
-                onChange={handleChange}
-                aria-label="website theme"
-              >
-                <ToggleButton value="Frost" aria-label="frost theme">
-                  <AcUnitIcon />
-                </ToggleButton>
-                <ToggleButton value="Light" aria-label="left aligned">
-                  <SunIcon />
-                </ToggleButton>
-                <ToggleButton value="Dark" aria-label="centered">
-                  <MoonIcon />
-                </ToggleButton>
-              </StyledToggleButtonGroup>
+
             </Toolbar>
           </StyledAppBar>
         </HideOnScroll>
@@ -211,6 +192,22 @@ function MobileHeader(props: MobileHeaderProps): JSX.Element {
             />
           </div>
         </StyledList>
+        <StyledToggleButtonGroup
+          value={props.theme}
+          exclusive
+          onChange={handleChange}
+          aria-label="website theme"
+        >
+          <ToggleButton value="Frost" aria-label="frost theme">
+            <AcUnitIcon />
+          </ToggleButton>
+          <ToggleButton value="Light" aria-label="left aligned">
+            <SunIcon />
+          </ToggleButton>
+          <ToggleButton value="Dark" aria-label="centered">
+            <MoonIcon />
+          </ToggleButton>
+        </StyledToggleButtonGroup>
       </SwipeableDrawer>
     </React.Fragment>
   );

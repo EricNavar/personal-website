@@ -1,7 +1,9 @@
 import React from 'react';
-import { Typography, List, TypographyProps } from '@mui/material';
-import { Section } from '../Section';
+
+import { List, Typography, TypographyProps } from '@mui/material';
 import { styled } from '@mui/material/styles';
+
+import { Section } from '../Section';
 
 const DescriptionList = styled(List)({
   paddingLeft: 12,

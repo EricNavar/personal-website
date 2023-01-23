@@ -8,7 +8,7 @@ export default function ContactPage() {
 // import { makeStyles } from '@mui/material/styles';
 // import { Button, Typography, TextField, Grid, Snackbar, Alert } from '@mui/material';
 // import { Link } from 'react-router-dom';
-// //local files
+// 
 // import GitHubIcon from './../assets/icons/github.svg';
 // import LinkedInIcon from './../assets/icons/linkedin.svg';
 // import { SocialLink } from '../components/home/SocialLink';

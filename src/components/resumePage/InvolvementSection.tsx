@@ -1,9 +1,10 @@
 import React from 'react';
+
 import { Grid } from '@mui/material';
-//local files
-import { Section } from '../Section';
+
 import { InvolvementItemCard } from './InvolvementItemCard';
 import { ExperienceItem } from '../../commonTypes';
+import { Section } from '../Section';
 
 type InvolvementListProps = {
   title: string;

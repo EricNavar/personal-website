@@ -1,8 +1,10 @@
 import React from 'react';
-import { Typography, List, IconButton, Grid, Tooltip } from '@mui/material';
-import { ExperienceItem } from '../../commonTypes';
-import WebIcon from '../../assets/icons/web_fluent';
+
+import { Grid, IconButton, List, Tooltip, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
+
+import WebIcon from '../../assets/icons/web_fluent';
+import { ExperienceItem } from '../../commonTypes';
 
 const InvolvementItemMain = styled('div')(({ theme }) => ({
   boxShadow: 'rgba(0,0,0, 0.1) 0px 8px 24px',

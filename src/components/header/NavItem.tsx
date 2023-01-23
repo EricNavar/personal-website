@@ -1,8 +1,9 @@
 import React from 'react';
+
 import { Button, useMediaQuery } from '@mui/material';
+import { styled } from '@mui/material/styles';
 import useTheme from '@mui/material/styles/useTheme';
 import { Link, useRouteMatch } from 'react-router-dom';
-import { styled } from '@mui/material/styles';
 
 //citation: https://material-ui.com/components/app-bar/#hide-app-bar
 

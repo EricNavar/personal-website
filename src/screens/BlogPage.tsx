@@ -1,12 +1,14 @@
 import React from 'react';
+
 // import { ArticleSection } from '../components/ArticleSection';
+import { Link, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
+
 // import { client } from '../data/client';
 // import { ArticleProps } from '../components/Article';
-import { Link, Typography } from '@mui/material';
-import { ScreenMain, ScreenBackground } from '../styling/homePageStyling';
-import { client } from '../util/client';
 import YTPlayer from '../components/blog/YTPlayer';
+import { ScreenBackground, ScreenMain } from '../styling/commonStyles';
+import { client } from '../util/client';
 
 const VideoContainer = styled('div')`
   margin-bottom: 18px;

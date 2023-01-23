@@ -1,9 +1,11 @@
-import { Button, ButtonProps } from '@mui/material';
 import React from 'react';
-import { client } from '../../util/client';
+
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
+import { Button, ButtonProps } from '@mui/material';
 import { styled } from '@mui/material/styles';
+
 import { ContentfulResumeLink } from '../../commonTypes';
+import { client } from '../../util/client';
 
 const DownloadButton = styled(Button)<ButtonProps>(({ theme }) => ({
   marginTop: 10,

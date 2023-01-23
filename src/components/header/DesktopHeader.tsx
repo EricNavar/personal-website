@@ -1,17 +1,19 @@
 import React from 'react';
+
+import AcUnitIcon from '@mui/icons-material/AcUnit';
+import MoonIcon from '@mui/icons-material/Brightness2';
+import SunIcon from '@mui/icons-material/Brightness5';
 import {
   AppBar,
-  Toolbar,
-  useScrollTrigger,
   ToggleButton,
   ToggleButtonGroup,
+  Toolbar,
+  useScrollTrigger,
 } from '@mui/material';
-import SunIcon from '@mui/icons-material/Brightness5';
-import MoonIcon from '@mui/icons-material/Brightness2';
-import AcUnitIcon from '@mui/icons-material/AcUnit';
-import useTheme from '@mui/material/styles/useTheme';
 import { styled } from '@mui/material/styles';
 import { Theme } from '@mui/material/styles';
+import useTheme from '@mui/material/styles/useTheme';
+
 import { NavItem } from './NavItem';
 
 //citation: https://material-ui.com/components/app-bar/#hide-app-bar

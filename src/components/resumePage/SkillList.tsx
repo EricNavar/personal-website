@@ -1,10 +1,11 @@
 import React from 'react';
-import { Typography, Paper, PaperProps, Grid } from '@mui/material';
-//local files
-import { Section } from '../Section';
+
+import { Grid, Paper, PaperProps, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import useTheme from '@mui/material/styles/useTheme';
+
 import { Skill } from '../../commonTypes';
+import { Section } from '../Section';
 
 const StyledPaper = styled(Paper)<PaperProps>(({ theme }) => ({
   textTransform: 'none',

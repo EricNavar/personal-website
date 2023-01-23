@@ -1,11 +1,9 @@
 import React from 'react';
+
 import { Grid } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { SkillList } from '../components/resumePage/SkillList';
-import { Education } from '../components/resumePage/Education';
-import { InvolvementSection } from '../components/resumePage/InvolvementSection';
-import { ScreenMain, ScreenBackground } from '../styling/homePageStyling';
-import { client } from '../util/client';
+import { marked } from 'marked';
+
 import {
   ContentfulExperienceItem,
   ContentfulResumePage,
@@ -13,8 +11,12 @@ import {
   ExperienceItem,
   Skill,
 } from '../commonTypes';
-import { marked } from 'marked';
+import { Education } from '../components/resumePage/Education';
+import { InvolvementSection } from '../components/resumePage/InvolvementSection';
 import { ResumeLink } from '../components/resumePage/ResumeLink';
+import { SkillList } from '../components/resumePage/SkillList';
+import { ScreenBackground, ScreenMain } from '../styling/commonStyles';
+import { client } from '../util/client';
 
 const GridItem = styled(Grid)`
   justify-content: center;
@@ -46,6 +48,7 @@ function ResumePage(): JSX.Element {
         content_type: 'resumePage',
       })
       .then((response) => {
+        console.log(response);
         const items = response.items;
         const resumePage = items[0].fields as ContentfulResumePage;
 

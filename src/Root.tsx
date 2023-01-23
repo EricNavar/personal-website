@@ -1,19 +1,20 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import React, { Suspense, lazy } from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  useHistory,
-  Redirect,
-} from 'react-router-dom';
+import React, { lazy, Suspense } from 'react';
+
 import { Hidden } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
-//local files
-import { Home } from './screens/Home';
+import FullStory from 'react-fullstory';
+import {
+  Redirect,
+  Route,
+  BrowserRouter as Router,
+  Switch,
+  useHistory,
+} from 'react-router-dom';
+
 import { DesktopHeader } from './components/header/DesktopHeader';
 import { MobileHeader } from './components/header/MobileHeader';
-import FullStory from 'react-fullstory';
+import { Home } from './screens/Home';
 import { themes } from './styling/themes';
 const ResumePage = lazy(() =>
   import('./screens/ResumePage').then((module) => ({
@@ -94,7 +95,7 @@ function Root(): JSX.Element {
               </Route>
             </Switch>
             <Hidden smUp>
-              <MobileHeader theme={theme} setTheme={setTheme} />
+              <MobileHeader />
             </Hidden>
           </ThemeProvider>
         </ScrollToTop>

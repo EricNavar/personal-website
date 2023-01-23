@@ -1,25 +1,23 @@
 import React from 'react';
-import { Grid, Typography, Hidden } from '@mui/material';
-//local files
+
+import { Grid, Hidden, Typography } from '@mui/material';
+import { marked } from 'marked';
+
 import GitHubIcon from './../assets/icons/github.svg';
 import LinkedInIcon from './../assets/icons/linkedin.svg';
-import { PersonalStatement } from '../components/resumePage/PersonalStatement';
-import { CodingProjectMobile } from '../components/home/CodingProjectMobile';
-import { CodingProjectDesktop } from '../components/home/CodingProjectDesktop';
-import {
-  ScreenMain,
-  ScreenBackground,
-  CardButtonContainer,
-} from '../styling/homePageStyling';
-import { SocialLink } from '../components/home/SocialLink';
 import {
   ContentfulPersonalStatement,
   ContentfulProject,
   Project,
 } from '../commonTypes';
-import { client } from '../util/client';
-import { marked } from 'marked';
+import { CodingProjectDesktop } from '../components/home/CodingProjectDesktop';
+import { CodingProjectMobile } from '../components/home/CodingProjectMobile';
+import { SocialLink } from '../components/home/SocialLink';
+import { PersonalStatement } from '../components/resumePage/PersonalStatement';
 import { Section } from '../components/Section';
+import { ScreenBackground, ScreenMain } from '../styling/commonStyles';
+import { CardButtonContainer } from '../styling/homePageStyling';
+import { client } from '../util/client';
 
 function Home(): JSX.Element {
   React.useEffect(() => {

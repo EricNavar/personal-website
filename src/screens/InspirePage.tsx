@@ -1,11 +1,10 @@
 import React from 'react';
-import { Typography, Button } from '@mui/material';
-/* @ts-expect-error tslint:disable-next-line */
-import loremPicsum from 'lorem-picsum';
-/* @ts-expect-error tslint:disable-next-line */
-import Quote from 'inspirational-quotes';
-import { Link, useHistory } from 'react-router-dom';
+
+import { Button, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import Quote from 'inspirational-quotes';
+import loremPicsum from 'lorem-picsum';
+import { Link, useHistory } from 'react-router-dom';
 
 const QuoteText = styled(Typography)({
   position: 'relative',
@@ -53,12 +52,12 @@ function InspirePage(): JSX.Element {
       left: 0,
     });
   }, []);
-  const inspirationalImage = loremPicsum({
+  const inspirationalImage: string = loremPicsum({
     width: window.innerWidth,
     height: window.innerHeight,
     random: true,
   });
-  const quote = Quote.getRandomQuote();
+  const quote: string = Quote.getRandomQuote();
   const quoteFontSize = Math.min(Math.sqrt(quote.length / 4), 6.5);
   const history = useHistory();
   const routeToHome = () => {
@@ -67,7 +66,7 @@ function InspirePage(): JSX.Element {
   return (
     <main>
       <VisibleOnLoad
-        style={{ backgroundImage: 'url(' + inspirationalImage + ')' }}
+        style={{ backgroundImage: `url(${inspirationalImage})`}}
       >
         <div>
           <QuoteText

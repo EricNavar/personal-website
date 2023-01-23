@@ -1,6 +1,8 @@
 import React from 'react';
-import { Slide, AppBar, Toolbar, useScrollTrigger } from '@mui/material';
-import { styled, useTheme } from '@mui/material/styles';
+
+import { AppBar, Slide, Toolbar, useScrollTrigger } from '@mui/material';
+import { styled } from '@mui/material/styles';
+
 import { NavItem } from './NavItem';
 //icons
 
@@ -38,12 +40,7 @@ function HideOnScroll(props: HideOnScrollProps) {
   );
 }
 
-type MobileHeaderProps = {
-  theme: string;
-  setTheme: (newTheme: string) => void;
-};
-
-function MobileHeader(props: MobileHeaderProps): JSX.Element {
+function MobileHeader(): JSX.Element {
   return (
     <React.Fragment>
       <HideOnScroll>

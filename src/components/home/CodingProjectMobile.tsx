@@ -1,14 +1,15 @@
 import React, { lazy, Suspense } from 'react';
+
 import { Typography } from '@mui/material';
-//local files
+
 import { CardButtonLink } from './CardButtonLink';
+import { Project, ProjectLink } from '../../commonTypes';
 import {
   Item,
   ItemWrapper,
   LoadingImage,
   SubTextContainer,
 } from '../../styling/homePageStyling';
-import { Project, ProjectLink } from '../../commonTypes';
 const CodingProjectThumbnail = lazy(() =>
   import('./CodingProjectThumbnail').then((module) => ({
     default: module.CodingProjectThumbnail,

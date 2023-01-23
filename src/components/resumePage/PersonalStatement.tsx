@@ -42,7 +42,7 @@ const ProfilePicWrapper = styled('div')({
 
 type PersonalStatementProps = {
   statement: string;
-}
+};
 
 function PersonalStatement(props: PersonalStatementProps): JSX.Element {
   return (

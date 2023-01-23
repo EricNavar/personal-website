@@ -19,12 +19,15 @@ const Divider = styled('div')({
 
 const Title = styled(Typography)`
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 1.75rem;
+  ${(props) => props.theme.breakpoints.down('sm')} {
+    font-size: 1.5rem;
+  }
 `;
 
-const MaxContent = styled('div')({
-  width: 'max-content',
-});
+const MaxContent = styled('div')`
+  width: max-content;
+`;
 
 type SectionProps = {
   children: JSX.Element | JSX.Element[];

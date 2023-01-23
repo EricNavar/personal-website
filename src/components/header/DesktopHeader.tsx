@@ -71,7 +71,9 @@ function ElevationScroll(props: ElevatorScrollProps): JSX.Element {
   console.log(theme.background!.headerColor);
 
   return React.cloneElement(children, {
-    sx: trigger ? {...scrolled, background: theme.background!.headerColor} : top,
+    sx: trigger
+      ? { ...scrolled, background: theme.background!.headerColor }
+      : top,
     elevation: trigger ? 2 : 0,
   });
 }
@@ -81,7 +83,6 @@ type DesktopHeaderProps = {
   setTheme: (newTheme: string) => void;
 };
 function DesktopHeader(props: DesktopHeaderProps): JSX.Element {
-
   const handleChange = (
     event: React.MouseEvent<HTMLElement, MouseEvent>,
     newTheme: string

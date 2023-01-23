@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  Button,
-  useMediaQuery,
-} from '@mui/material';
+import { Button, useMediaQuery } from '@mui/material';
 import useTheme from '@mui/material/styles/useTheme';
 import { Link, useRouteMatch } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
@@ -15,13 +12,17 @@ type NavbarItemButtonProps = {
   to: string;
 };
 
-const NavbarItemButton = styled(Button)<NavbarItemButtonProps>(({theme, activeTab}) => ({
-  marginLeft: 8,
-  marginRight: 8,
-  textTransform: 'initial',
-  backgroundColor: activeTab ? theme.background!.headerButtonColor : undefined,
-  color: activeTab ?  `${theme.palette.text.primary} !important` : undefined,
-}));
+const NavbarItemButton = styled(Button)<NavbarItemButtonProps>(
+  ({ theme, activeTab }) => ({
+    marginLeft: 8,
+    marginRight: 8,
+    textTransform: 'initial',
+    backgroundColor: activeTab
+      ? theme.background!.headerButtonColor
+      : undefined,
+    color: activeTab ? `${theme.palette.text.primary} !important` : undefined,
+  })
+);
 
 type NavbarItemProps = {
   text: string;

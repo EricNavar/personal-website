@@ -33,12 +33,17 @@ const RelevantCousework = styled(Typography)<TypographyProps>({
   marginTop: 24,
 });
 
-const University = styled(Typography)({
-  flexGrow: 1,
-});
+const University = styled(Typography)`
+  flex-grow: 1;
+  font-size: 1.25rem;
+`;
 
 const Line = styled('div')`
   display: flex;
+  flex-wrap: wrap;
+  ${(props) => props.theme.breakpoints.down('xs')} {
+    display: block;
+  }
 `;
 
 function CourseworkItems(props: EducationProps): JSX.Element {
@@ -52,7 +57,7 @@ function CourseworkItems(props: EducationProps): JSX.Element {
 }
 
 type EducationProps = {
-  relevantCoursework: string[]
+  relevantCoursework: string[];
 };
 
 function Education(props: EducationProps): JSX.Element {
@@ -60,9 +65,7 @@ function Education(props: EducationProps): JSX.Element {
   return (
     <EducationSection title="Education">
       <Line>
-        <University variant="h5" color="textPrimary">
-          University of Florida
-        </University>
+        <University color="textPrimary">University of Florida</University>
         <Typography component="span" variant="body1" color="textPrimary">
           Fall Class of 2022
         </Typography>
@@ -79,20 +82,20 @@ function Education(props: EducationProps): JSX.Element {
         >
           &nbsp;| Digital Arts Minor
         </Typography>
-        <span>
+        <div>
           <Typography component="span" variant="body1" color="primary">
             <b>GPA:</b>
           </Typography>
           <Typography component="span" variant="body1" color="textPrimary">
             &nbsp;{gpa}
           </Typography>
-        </span>
+        </div>
       </Line>
       <RelevantCousework variant="h6" color="textPrimary">
         Relevant Coursework:
       </RelevantCousework>
       <CourseworkItemsWrapper>
-        <CourseworkItems relevantCoursework={props.relevantCoursework}/>
+        <CourseworkItems relevantCoursework={props.relevantCoursework} />
       </CourseworkItemsWrapper>
     </EducationSection>
   );

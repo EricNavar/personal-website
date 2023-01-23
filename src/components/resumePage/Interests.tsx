@@ -19,25 +19,13 @@ function Interests(): JSX.Element {
   return (
     <Section title="Interests">
       <DescriptionList>
-        <ListItem
-          variant="body1"
-          color="textPrimary"
-          gutterBottom
-        >
+        <ListItem variant="body1" color="textPrimary" gutterBottom>
           Frontend Dev
         </ListItem>
-        <ListItem
-          variant="body1"
-          color="textPrimary"
-          gutterBottom
-        >
+        <ListItem variant="body1" color="textPrimary" gutterBottom>
           UX Design
         </ListItem>
-        <ListItem
-          variant="body1"
-          color="textPrimary"
-          gutterBottom
-        >
+        <ListItem variant="body1" color="textPrimary" gutterBottom>
           The fact that we apparently haven&apos;t run out of IP addresses
         </ListItem>
       </DescriptionList>

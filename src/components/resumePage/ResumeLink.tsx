@@ -20,27 +20,34 @@ const ResumeLink = () => {
 
   React.useEffect(() => {
     client
-    .getEntries({
-      content_type: 'resume',
-    })
-    .then((response) => {
-      const resumes = response.items as ContentfulResumeLink[];
-      const latestResume = resumes.length > 0 ? resumes[0].fields.pdf.fields.file.url : ''; 
-      setResume(latestResume);
-    })
-    .catch(console.error);
-  },[]);
+      .getEntries({
+        content_type: 'resume',
+      })
+      .then((response) => {
+        const resumes = response.items as ContentfulResumeLink[];
+        const latestResume =
+          resumes.length > 0 ? resumes[0].fields.pdf.fields.file.url : '';
+        setResume(latestResume);
+      })
+      .catch(console.error);
+  }, []);
 
   const onClick = () => {
     window.open(resume);
   };
 
   return (
-    <a href={resume?.substring(2)} download target='_blank' rel='noreferrer' style={{width:'max-content', marginLeft: 'auto', marginRight: 'auto'}}>
+    <a
+      href={resume?.substring(2)}
+      download
+      target="_blank"
+      rel="noreferrer"
+      style={{ width: 'max-content', marginLeft: 'auto', marginRight: 'auto' }}
+    >
       <DownloadButton
-        variant='contained'
+        variant="contained"
         disableElevation
-        endIcon={<FileDownloadIcon/>}
+        endIcon={<FileDownloadIcon />}
         onClick={onClick}
       >
         Download my resume

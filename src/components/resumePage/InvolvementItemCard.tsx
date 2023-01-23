@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  Typography,
-  List,
-  IconButton,
-  Grid,
-  Tooltip,
-} from '@mui/material';
+import { Typography, List, IconButton, Grid, Tooltip } from '@mui/material';
 import { ExperienceItem } from '../../commonTypes';
 import WebIcon from '../../assets/icons/web_fluent';
 import { styled } from '@mui/material/styles';
@@ -64,6 +58,7 @@ const Position = styled(Typography)({
   flexGrow: 1,
   fontSize: '.85rem',
   lineHeight: '1rem',
+  marginBottom: 8,
 });
 
 const DescriptionContainer = styled(List)({
@@ -71,9 +66,10 @@ const DescriptionContainer = styled(List)({
   listStyle: 'initial',
 });
 
-const PositionLine = styled('div')({
-  display: 'flex',
-});
+const PositionLine = styled('div')`
+  display: flex;
+  flex-wrap: wrap;
+`;
 
 const StyledWebIcon = styled(WebIcon)(({ theme }) => ({
   '& use': {
@@ -134,7 +130,9 @@ function InvolvementItemCard(props: InvolvementItemCardProps): JSX.Element {
             <Typography
               variant="body1"
               color="textPrimary"
-              dangerouslySetInnerHTML={{ __html: description }}
+              dangerouslySetInnerHTML={{
+                __html: description.substring(4, description.length - 6),
+              }}
             />
           </DescriptionContainer>
         </InvolvementItemInner>

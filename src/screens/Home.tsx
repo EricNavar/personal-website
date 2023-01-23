@@ -12,7 +12,11 @@ import {
   CardButtonContainer,
 } from '../styling/homePageStyling';
 import { SocialLink } from '../components/home/SocialLink';
-import { ContentfulPersonalStatement, ContentfulProject, Project } from '../commonTypes';
+import {
+  ContentfulPersonalStatement,
+  ContentfulProject,
+  Project,
+} from '../commonTypes';
 import { client } from '../util/client';
 import { marked } from 'marked';
 import { Section } from '../components/Section';
@@ -57,13 +61,14 @@ function Home(): JSX.Element {
       })
       .catch(console.error);
 
-      client
+    client
       .getEntries({
         content_type: 'personalStatement',
       })
       .then((response) => {
         const items = response.items as ContentfulPersonalStatement[];
-        const personalStatementContentful = items.length > 0 ? items[0].fields.text : ''; 
+        const personalStatementContentful =
+          items.length > 0 ? items[0].fields.text : '';
         setPersonalStatement(personalStatementContentful);
       })
       .catch(console.error);
@@ -71,7 +76,7 @@ function Home(): JSX.Element {
 
   return (
     <ScreenMain>
-      <PersonalStatement statement={personalStatement}/>
+      <PersonalStatement statement={personalStatement} />
       <Section title="Apps I've worked on">
         <Hidden smUp>
           <Grid container spacing={6}>
@@ -92,7 +97,7 @@ function Home(): JSX.Element {
           </Grid>
         </Hidden>
       </Section>
-      <Section title='Connect'>
+      <Section title="Connect">
         <div>
           <Typography color="textPrimary">
             Email: ericn2413@gmail.com

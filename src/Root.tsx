@@ -63,9 +63,6 @@ function Root(): JSX.Element {
             <Hidden only={'xs'}>
               <DesktopHeader theme={theme} setTheme={setTheme} />
             </Hidden>
-            <Hidden smUp>
-              <MobileHeader theme={theme} setTheme={setTheme} />
-            </Hidden>
             <Switch>
               <Route exact path="/">
                 <Home />
@@ -96,6 +93,9 @@ function Root(): JSX.Element {
                 <Redirect to="/" />
               </Route>
             </Switch>
+            <Hidden smUp>
+              <MobileHeader theme={theme} setTheme={setTheme} />
+            </Hidden>
           </ThemeProvider>
         </ScrollToTop>
       </Router>

@@ -1,17 +1,12 @@
 import React from 'react';
-import {
-  Slide,
-  AppBar,
-  Toolbar,
-  useScrollTrigger,
-} from '@mui/material';
+import { Slide, AppBar, Toolbar, useScrollTrigger } from '@mui/material';
 import { styled, useTheme } from '@mui/material/styles';
 import { NavItem } from './NavItem';
 //icons
 
 //citation: https://material-ui.com/components/app-bar/#back-to-top
 
-const StyledAppBar = styled(AppBar)(({theme}) => ({
+const StyledAppBar = styled(AppBar)(({ theme }) => ({
   background: theme.palette.background.default,
   width: 'calc(100% - 16px)',
   margin: 8,
@@ -20,7 +15,7 @@ const StyledAppBar = styled(AppBar)(({theme}) => ({
 }));
 
 const SpaceToolbar = styled(Toolbar)`
-  marginBottom: 24px;
+  marginbottom: 24px;
   bottom: 0;
   position: relative;
 `;
@@ -52,7 +47,7 @@ function MobileHeader(props: MobileHeaderProps): JSX.Element {
   return (
     <React.Fragment>
       <HideOnScroll>
-        <StyledAppBar style={{top: 'initial', bottom: 0}}>
+        <StyledAppBar style={{ top: 'initial', bottom: 0 }}>
           <Toolbar style={{ justifyContent: 'space-between' }}>
             <NavItem to="/" text="Coding Projects" />
             <NavItem to="/resume" text="Resume" />

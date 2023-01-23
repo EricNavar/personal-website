@@ -9,7 +9,7 @@ import {
   CardHeader,
   SubTextContainer,
   PhotoWrapper,
-  LoadingImage
+  LoadingImage,
 } from '../../styling/homePageStyling';
 import { CardButtonLink } from './CardButtonLink';
 import { Project, ProjectLink } from '../../commonTypes';

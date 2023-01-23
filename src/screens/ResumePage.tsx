@@ -34,7 +34,9 @@ function ResumePage(): JSX.Element {
   const [experienceData, setExperienceData] = React.useState<ExperienceItem[]>(
     []
   );
-  const [relevantCoursework, setRelevantCoursework] = React.useState<string[]>([]);
+  const [relevantCoursework, setRelevantCoursework] = React.useState<string[]>(
+    []
+  );
   const [studentOrgInvolvement, setStudentOrgInvolvement] = React.useState<
     ExperienceItem[]
   >([]);
@@ -99,7 +101,7 @@ function ResumePage(): JSX.Element {
           <SkillList skills={skills} />
         </GridItem>
         <GridItem id="education-container" item sm={12} lg={6}>
-          <Education relevantCoursework={relevantCoursework}/>
+          <Education relevantCoursework={relevantCoursework} />
         </GridItem>
       </Grid>
       <InvolvementSection title="Internship Experience" data={experienceData} />

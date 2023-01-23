@@ -39,7 +39,7 @@ const Description = styled(Typography)`
 
 type ContentfulVideo = {
   fields: Video;
-}
+};
 
 type Video = {
   youtubeId: string;
@@ -93,12 +93,7 @@ function BlogPage(): JSX.Element {
       {videos.map((video, index) => (
         <VideoContainer key={index}>
           <YTPlayer
-            title='title'
             videoSrc={`https://www.youtube.com/embed/${video.youtubeId}`}
-            showThumbnail={false}
-            showPlayButton={true}
-            autoplay={false}
-            vertical={false}
           />
           <Description color="textPrimary">{video.description}</Description>
         </VideoContainer>
@@ -111,18 +106,18 @@ function BlogPage(): JSX.Element {
         <Typography
           style={{ marginLeft: 12 }}
           component={Link}
-          target='_blank'
+          target="_blank"
           href="https://www.youtube.com/@ufssd/videos"
         >
           UF Society of Software Developers
         </Typography>
       </YouTubeChannelContainer>
       <YouTubeChannelContainer>
-        <YouTubeChannelLogo src='https://yt3.googleusercontent.com/Y5PmT9HCWpFxHu3vDXCE5BV3qAhg2ZodAknJXw7d3pYYflnV0P-oX4ZkNutnDWpUOw3RUmYfYw=s176-c-k-c0x00ffffff-no-rj' />
+        <YouTubeChannelLogo src="https://yt3.googleusercontent.com/Y5PmT9HCWpFxHu3vDXCE5BV3qAhg2ZodAknJXw7d3pYYflnV0P-oX4ZkNutnDWpUOw3RUmYfYw=s176-c-k-c0x00ffffff-no-rj" />
         <Typography
           style={{ marginLeft: 12 }}
           component={Link}
-          target='_blank'
+          target="_blank"
           href="https://www.youtube.com/@ericnavar/videos"
         >
           My YouTube Channel

@@ -19,30 +19,24 @@ const AspectRatioBoxInside = styled('div')({
   top: 0,
   left: 0,
   width: '100%',
-  height: '100%'
+  height: '100%',
 });
 
 type YTPlayerProps = {
-  title: string;
   videoSrc: string;
-  showThumbnail: boolean;
-  showPlayButton: boolean;
-  autoplay: boolean;
-  vertical: boolean;
-}
+};
 
 export default function YTPlayer(props: YTPlayerProps) {
-  const {title, videoSrc, showThumbnail, showPlayButton, autoplay, vertical, ...rest} = props;
+  const { videoSrc } = props;
 
   return (
     <AspectRatioBox>
       <AspectRatioBoxInside>
-        <iframe 
+        <iframe
           width="100%"
-          height='100%'
+          height="100%"
           src={videoSrc}
           frameBorder="0"
-          title={title}
           allowFullScreen
         />
       </AspectRatioBoxInside>

@@ -1,0 +1,79 @@
+import React from 'react';
+import {
+  List,
+  Slide,
+  AppBar,
+  Toolbar,
+  useScrollTrigger,
+} from '@mui/material';
+import { styled, useTheme } from '@mui/material/styles';
+import { NavItem } from './NavItem';
+//icons
+
+//citation: https://material-ui.com/components/app-bar/#back-to-top
+
+const StyledList = styled(List)({
+  '& button': {
+    paddingRight: 32,
+  },
+});
+
+type StyledListItemButtonProps = {
+  activeTab: boolean;
+};
+
+const StyledAppBar = styled(AppBar)(({theme}) => ({
+  background: theme.palette.background.default,
+  width: 'calc(100% - 16px)',
+  margin: 8,
+  borderRadius: 4,
+  color: theme.palette.text.primary,
+}));
+
+const SpaceToolbar = styled(Toolbar)`
+  marginBottom: 24px;
+  bottom: 0;
+  position: relative;
+`;
+
+type HideOnScrollProps = {
+  children: JSX.Element;
+};
+
+function HideOnScroll(props: HideOnScrollProps) {
+  const { children } = props;
+  // Note that you normally won't need to set the window ref as useScrollTrigger
+  // will default to window.
+  // This is only being set here because the demo is in an iframe.
+  const trigger = useScrollTrigger({ target: window ? window : undefined });
+
+  return (
+    <Slide appear={false} direction="up" in={!trigger}>
+      {children}
+    </Slide>
+  );
+}
+
+type MobileHeaderProps = {
+  theme: string;
+  setTheme: (newTheme: string) => void;
+};
+
+function MobileHeader(props: MobileHeaderProps): JSX.Element {
+  return (
+    <React.Fragment>
+      <HideOnScroll>
+        <StyledAppBar style={{top: 'initial', bottom: 0}}>
+          <Toolbar style={{ justifyContent: 'space-between' }}>
+            <NavItem to="/" text="Coding Projects" />
+            <NavItem to="/resume" text="Resume" />
+            <NavItem to="/blog" text="Blog" />
+          </Toolbar>
+        </StyledAppBar>
+      </HideOnScroll>
+      <SpaceToolbar />
+    </React.Fragment>
+  );
+}
+
+export { MobileHeader };

@@ -108,7 +108,7 @@ const darkTheme = createTheme({
 //   gradientPaper: {},
 // });
 
-const frostTheme = createTheme({
+const pinkTheme = createTheme({
   palette: {
     mode: 'light',
     primary: {
@@ -155,6 +155,6 @@ const frostTheme = createTheme({
 export const themes: Record<string, Theme> = {
   Light: lightTheme,
   Dark: darkTheme,
-  Frost: frostTheme,
+  Pink: pinkTheme,
   // Minecraft: minecraftTheme,
 };

@@ -15,6 +15,7 @@ const MyIconButton = styled(Button)<ButtonProps>(({ theme }) => ({
   marginTop: 10,
   backgroundColor: theme.palette.grey[300],
   color: 'black',
+  textTransform: 'initial',
 }));
 
 type CardButtonLinkProps = {

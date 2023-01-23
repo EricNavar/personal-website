@@ -20,6 +20,9 @@ export const HeaderText = styled(Typography)<TypographyProps>(({ theme }) => ({
 export const Item = styled('div')`
   padding: 24px 36px;
   width: 100%;
+  ${props => props.theme.breakpoints.down('sm')} {
+    padding: 24px 24px;
+  }
 `;
 
 export const LoadingImage = styled('div')`

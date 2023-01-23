@@ -11,8 +11,8 @@ import { Hidden } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 //local files
 import { Home } from './screens/Home';
-import { DesktopHeader } from './components/DesktopHeader';
-import { MobileHeader } from './components/MobileHeader';
+import { DesktopHeader } from './components/header/DesktopHeader';
+import { MobileHeader } from './components/header/MobileHeader';
 import FullStory from 'react-fullstory';
 import { themes } from './styling/themes';
 const ResumePage = lazy(() =>
@@ -53,7 +53,7 @@ function ScrollToTop(props: ScrollToTopProps) {
 }
 
 function Root(): JSX.Element {
-  const [theme, setTheme] = React.useState('Frost');
+  const [theme, setTheme] = React.useState('Light');
   return (
     <>
       <FullStory org={process.env.REACT_APP_ORG_ID!} />
@@ -81,11 +81,6 @@ function Root(): JSX.Element {
                 </Suspense>
               </Route>
               {/*
-                <Route path='/common-ground'>
-                  <Suspense fallback={<div />}>
-                    <CommonGround />
-                  </Suspense>
-                </Route>
                 <Route path='/contact'>
                   <Suspense fallback={<div />}>
                     <ContactPage />

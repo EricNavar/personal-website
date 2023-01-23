@@ -1,9 +1,7 @@
 import React from 'react';
 import {
   AppBar,
-  Button,
   Toolbar,
-  useMediaQuery,
   useScrollTrigger,
   ToggleButton,
   ToggleButtonGroup,
@@ -12,9 +10,9 @@ import SunIcon from '@mui/icons-material//Brightness5';
 import MoonIcon from '@mui/icons-material/Brightness2';
 import AcUnitIcon from '@mui/icons-material/AcUnit';
 import useTheme from '@mui/material/styles/useTheme';
-import { Link, useRouteMatch } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import { Theme } from '@mui/material/styles';
+import { NavItem } from './NavItem';
 
 //citation: https://material-ui.com/components/app-bar/#hide-app-bar
 
@@ -48,22 +46,12 @@ const StyledToolbar = styled(Toolbar)`
   justify-content: center;
 `;
 
-type NavbarItemButtonProps = {
-  activeTab: boolean;
-  component: any;
-  to: string;
-};
-
-const NavbarItemButton = styled(Button)<NavbarItemButtonProps>(({theme, activeTab}) => ({
-  marginLeft: 8,
-  marginRight: 8,
-  backgroundColor: activeTab ? theme.background!.headerButtonColor : undefined,
-  color: activeTab ?  `${theme.palette.text.primary} !important` : undefined,
-}));
-
 const StyledToggleButtonGroup = styled(ToggleButtonGroup)({
   position: 'absolute',
   right: 8,
+  '& button': {
+    borderColor: 'rgba(122,122,122,.5)',
+  },
 });
 
 type ElevatorScrollProps = {
@@ -86,32 +74,6 @@ function ElevationScroll(props: ElevatorScrollProps): JSX.Element {
     sx: trigger ? {...scrolled, background: theme.background!.headerColor} : top,
     elevation: trigger ? 2 : 0,
   });
-}
-
-type NavbarItemProps = {
-  text: string;
-  to: string;
-};
-
-function NavItem(props: NavbarItemProps): JSX.Element {
-  const { text, to } = props;
-  const isSm = useMediaQuery(useTheme().breakpoints.down('sm'));
-  const match = useRouteMatch({
-    path: to,
-    exact: true,
-  });
-
-  return (
-    <NavbarItemButton
-      component={Link}
-      to={to}
-      activeTab={!!match}
-      size={isSm ? 'small' : 'medium'}
-      color="primary"
-    >
-      {text}
-    </NavbarItemButton>
-  );
 }
 
 type DesktopHeaderProps = {
@@ -143,14 +105,14 @@ function DesktopHeader(props: DesktopHeaderProps): JSX.Element {
               onChange={handleChange}
               aria-label="website theme"
             >
-              <ToggleButton value="Frost" aria-label="frost theme">
-                <AcUnitIcon />
-              </ToggleButton>
               <ToggleButton value="Light" aria-label="light theme">
                 <SunIcon />
               </ToggleButton>
               <ToggleButton value="Dark" aria-label="dark theme">
                 <MoonIcon />
+              </ToggleButton>
+              <ToggleButton value="Pink" aria-label="frost theme">
+                <AcUnitIcon />
               </ToggleButton>
             </StyledToggleButtonGroup>
           </StyledToolbar>

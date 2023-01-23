@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  List,
   Slide,
   AppBar,
   Toolbar,
@@ -11,16 +10,6 @@ import { NavItem } from './NavItem';
 //icons
 
 //citation: https://material-ui.com/components/app-bar/#back-to-top
-
-const StyledList = styled(List)({
-  '& button': {
-    paddingRight: 32,
-  },
-});
-
-type StyledListItemButtonProps = {
-  activeTab: boolean;
-};
 
 const StyledAppBar = styled(AppBar)(({theme}) => ({
   background: theme.palette.background.default,

@@ -6,7 +6,7 @@ import {
   ToggleButton,
   ToggleButtonGroup,
 } from '@mui/material';
-import SunIcon from '@mui/icons-material//Brightness5';
+import SunIcon from '@mui/icons-material/Brightness5';
 import MoonIcon from '@mui/icons-material/Brightness2';
 import AcUnitIcon from '@mui/icons-material/AcUnit';
 import useTheme from '@mui/material/styles/useTheme';

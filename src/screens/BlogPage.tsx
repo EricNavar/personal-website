@@ -6,6 +6,7 @@ import { styled } from '@mui/material/styles';
 import { Link, Typography } from '@mui/material';
 import { ScreenMain, ScreenBackground } from '../styling/homePageStyling';
 import { client } from '../util/client';
+import YTPlayer from '../components/blog/YTPlayer';
 
 const VideoContainer = styled('div')`
   margin-bottom: 18px;
@@ -34,11 +35,6 @@ const YouTubeChannelLogo = styled('img')`
 
 const Description = styled(Typography)`
   margin-bottom: 8px;
-`;
-
-const YouTubeVideo = styled('iframe')`
-  max-width: 100%;
-  border-radius: 2px;
 `;
 
 type ContentfulVideo = {
@@ -96,17 +92,15 @@ function BlogPage(): JSX.Element {
       </Typography>
       {videos.map((video, index) => (
         <VideoContainer key={index}>
-          <Description color="textPrimary">{video.description}</Description>
-          <YouTubeVideo
-            width="882"
-            height="496"
-            src={`https://www.youtube.com/embed/${video.youtubeId}`}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            data-modestbranding
-            key={`video-${index}`}
-            frameBorder="0"
+          <YTPlayer
+            title='title'
+            videoSrc={`https://www.youtube.com/embed/${video.youtubeId}`}
+            showThumbnail={false}
+            showPlayButton={true}
+            autoplay={false}
+            vertical={false}
           />
+          <Description color="textPrimary">{video.description}</Description>
         </VideoContainer>
       ))}
       <Typography component="h2" variant="h5">

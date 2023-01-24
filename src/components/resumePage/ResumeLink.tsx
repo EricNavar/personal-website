@@ -44,7 +44,7 @@ const ResumeLink = () => {
       download
       target="_blank"
       rel="noreferrer"
-      style={{ width: 'max-content', marginLeft: 'auto', marginRight: 'auto' }}
+      style={{ width: 'max-content',  marginBottom: 10 }}
     >
       <DownloadButton
         variant="contained"

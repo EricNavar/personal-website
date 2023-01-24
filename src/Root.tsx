@@ -21,11 +21,6 @@ const ResumePage = lazy(() =>
     default: module.ResumePage,
   }))
 );
-const InspirePage = lazy(() =>
-  import('./screens/InspirePage').then((module) => ({
-    default: module.InspirePage,
-  }))
-);
 const BlogPage = lazy(() =>
   import('./screens/BlogPage').then((module) => ({
     default: module.BlogPage,
@@ -85,11 +80,6 @@ function Root(): JSX.Element {
                   </Suspense>
                 </Route>
               */}
-              <Route path="/inspire">
-                <Suspense fallback={<div />}>
-                  <InspirePage />
-                </Suspense>
-              </Route>
               <Route path="*">
                 <Redirect to="/" />
               </Route>

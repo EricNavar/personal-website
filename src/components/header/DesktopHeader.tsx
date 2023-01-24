@@ -70,8 +70,6 @@ function ElevationScroll(props: ElevatorScrollProps): JSX.Element {
 
   const theme = useTheme();
 
-  console.log(theme.background!.headerColor);
-
   return React.cloneElement(children, {
     sx: trigger
       ? { ...scrolled, background: theme.background!.headerColor }

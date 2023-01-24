@@ -48,7 +48,6 @@ function ResumePage(): JSX.Element {
         content_type: 'resumePage',
       })
       .then((response) => {
-        console.log(response);
         const items = response.items;
         const resumePage = items[0].fields as ContentfulResumePage;
 

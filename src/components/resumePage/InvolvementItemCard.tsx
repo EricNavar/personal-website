@@ -51,9 +51,15 @@ const StyledImg = styled('img')({
   marginRight: 16,
 });
 
+const PositionLine = styled('div')`
+  display: flex;
+  flex-wrap: wrap;
+`;
+
 const TimePeriod = styled(Typography)({
   fontSize: '.85rem',
   lineHeight: '1rem',
+  textTransform: 'initial',
 });
 
 const Position = styled(Typography)({
@@ -61,17 +67,13 @@ const Position = styled(Typography)({
   fontSize: '.85rem',
   lineHeight: '1rem',
   marginBottom: 8,
+  textTransform: 'initial',
 });
 
 const DescriptionContainer = styled(List)({
   paddingLeft: 12,
   listStyle: 'initial',
 });
-
-const PositionLine = styled('div')`
-  display: flex;
-  flex-wrap: wrap;
-`;
 
 const StyledWebIcon = styled(WebIcon)(({ theme }) => ({
   '& use': {

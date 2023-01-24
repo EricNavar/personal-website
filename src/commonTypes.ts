@@ -127,3 +127,10 @@ export type ContentfulResumeLink = {
     pdf: ContentfulImage;
   };
 };
+
+export enum PageName {
+  Home = 'Home Page',
+  Resume = 'Resume Page',
+  Blog = 'Blog Page',
+  Contact = 'Contact Page'
+}

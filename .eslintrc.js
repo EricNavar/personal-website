@@ -21,7 +21,10 @@ module.exports = {
   rules: {
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
-    'sort-imports': ['error', {ignoreCase: true, ignoreDeclarationSort: true}],
+    'sort-imports': [
+      'error',
+      { ignoreCase: true, ignoreDeclarationSort: true },
+    ],
     // this is for sorting imports
     'import/order': [
       'error',

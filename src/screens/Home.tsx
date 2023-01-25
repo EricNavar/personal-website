@@ -3,8 +3,6 @@ import React from 'react';
 import { Grid, Hidden, Typography } from '@mui/material';
 import { marked } from 'marked';
 
-import GitHubIcon from './../assets/icons/github.svg';
-import LinkedInIcon from './../assets/icons/linkedin.svg';
 import {
   ContentfulPersonalStatement,
   ContentfulProject,
@@ -18,6 +16,8 @@ import { Section } from '../components/Section';
 import { ScreenBackground, ScreenMain } from '../styling/commonStyles';
 import { CardButtonContainer } from '../styling/homePageStyling';
 import { client } from '../util/client';
+import GitHubIcon from './../assets/icons/github.svg';
+import LinkedInIcon from './../assets/icons/linkedin.svg';
 
 function Home(): JSX.Element {
   React.useEffect(() => {

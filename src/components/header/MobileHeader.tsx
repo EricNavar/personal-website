@@ -48,6 +48,7 @@ function MobileHeader(): JSX.Element {
           <Toolbar style={{ justifyContent: 'space-between' }}>
             <NavItem to="/" text="Coding Projects" />
             <NavItem to="/resume" text="Resume" />
+            <NavItem to="/contact" text="Contact" />
             <NavItem to="/blog" text="Blog" />
           </Toolbar>
         </StyledAppBar>

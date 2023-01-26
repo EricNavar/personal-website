@@ -98,6 +98,7 @@ function DesktopHeader(props: DesktopHeaderProps): JSX.Element {
             <div style={{ position: 'absolute' }}>
               <NavItem to="/" text="Coding Projects" />
               <NavItem to="/resume" text="Resume" />
+              <NavItem to="/contact" text="Contact" />
               <NavItem to="/blog" text="Blog" />
             </div>
             <StyledToggleButtonGroup

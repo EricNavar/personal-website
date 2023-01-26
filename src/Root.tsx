@@ -12,7 +12,6 @@ import {
   useHistory,
 } from 'react-router-dom';
 
-import { ContactUs } from './screens/Test';
 import { DesktopHeader } from './components/header/DesktopHeader';
 import { MobileHeader } from './components/header/MobileHeader';
 import { Home } from './screens/Home';
@@ -80,11 +79,6 @@ function Root(): JSX.Element {
                 </Suspense>
               </Route>
               <Route path="/contact">
-                <Suspense fallback={<div />}>
-                  <ContactUs />
-                </Suspense>
-              </Route>
-              <Route path="/contact2">
                 <Suspense fallback={<div />}>
                   <ContactPage />
                 </Suspense>

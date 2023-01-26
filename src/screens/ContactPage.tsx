@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 
 import emailjs from '@emailjs/browser';
 import {
@@ -120,47 +120,45 @@ function ContactPage() {
   //if the user submits without entering either a email or phone number
   const [detailsError, setDetailsError] = useState(false);
 
-  /* tslint:disable-next-line */
+  
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleEmailChange = (event: any) => {
     setEmail(event.target.value);
   };
-  /* tslint:disable-next-line */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleNameChange = (event: any) => {
     setName(event.target.value);
   };
-  /* tslint:disable-next-line */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleDetailChange = (event: any) => {
     setDetails(event.target.value);
   };
-  // const isValidInput = async () => {
-  //   setNameError(name === '' || name.trim().split(' ').length < 2);
-  //   setDetailsError(details === '');
-  //   const valid =
-  //     (await !(name === '' || name.trim().split(' ').length < 2)) &&
-  //     !(details === '');
-  //   return valid;
-  // };
+  const isValidInput = async () => {
+    setNameError(name === '' || name.trim().split(' ').length < 2);
+    setDetailsError(details === '');
+    const valid =
+      (await !(name === '' || name.trim().split(' ').length < 2)) &&
+      !(details === '');
+    return valid;
+  };
   
-  // const handleSubmit = (ev: any) => {
-  //   ev.preventDefault();
-  //   isValidInput().then((value) => {
-  //     if (value === true) {
-  //       // sendEmail(name, details, email);
-  //       setOpen(true);
-  //       setName('');
-  //       setEmail('');
-  //       setDetails('');
-  //     } else {
-  //       console.log('invalid');
-  //     }
-  //   });
-  // };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleSubmit = (ev: any) => {
+    ev.preventDefault();
+    isValidInput().then((value) => {
+      if (value === true) {
+        sendEmail();
+        setOpen(true);
+        setName('');
+        setEmail('');
+        setDetails('');
+      } else {
+        console.log('invalid');
+      }
+    });
+  };
 
-  const form = useRef();
-
-  const sendEmail = (e:any) => {
-    e.preventDefault();
-
+  const sendEmail = () => {
     const templateParams = {
       message: details,
       user_name: name,
@@ -251,7 +249,7 @@ function ContactPage() {
               <SubmitButton
                 fullWidth
                 variant="outlined"
-                onClick={sendEmail}
+                onClick={handleSubmit}
                 disableRipple
               >
                 SEND

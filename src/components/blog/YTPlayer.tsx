@@ -2,9 +2,8 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-/* The size of a YTPlayer component is dependent on the width of the parent component.
-  Setting a width of the parent will work, but not setting the height.
-*/
+// The size of a YTPlayer component is dependent on the width of the parent component.
+// Setting a width of the parent will work, but not setting the height.
 
 const AspectRatioBox = styled('div')({
   overflow: 'hidden',
@@ -27,7 +26,7 @@ type YTPlayerProps = {
   videoSrc: string;
 };
 
-export default function YTPlayer(props: YTPlayerProps) {
+export default function YTPlayer(props: YTPlayerProps): JSX.Element {
   const { videoSrc } = props;
 
   return (

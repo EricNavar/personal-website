@@ -10,8 +10,12 @@ import YTPlayer from '../components/blog/YTPlayer';
 import { ScreenBackground, ScreenMain } from '../styling/commonStyles';
 import { client } from '../util/client';
 
-const VideoContainer = styled('div')`
-  margin-bottom: 18px;
+const VideosContainer = styled('div')`
+  max-width: 800px;
+`;
+
+const VideoWrapper = styled('div')`
+  margin-bottom: 20px;
   margin-top: 8px;
 `;
 
@@ -36,8 +40,14 @@ const YouTubeChannelLogo = styled('img')`
 `;
 
 const Description = styled(Typography)`
-  margin-bottom: 8px;
+  margin-bottom: 18px;
 `;
+
+type ContentfulBlogPage = {
+  fields: {
+    videos: Array<ContentfulVideo>;
+  };
+}
 
 type ContentfulVideo = {
   fields: Video;
@@ -71,11 +81,18 @@ function BlogPage(): JSX.Element {
   React.useEffect(() => {
     client
       .getEntries({
-        content_type: 'video',
+        //eslint-disable-next-line
+        content_type: 'blogPage',
       })
       .then((response) => {
-        const items = response.items as ContentfulVideo[];
-        const videosFromContentful = items.map((item: ContentfulVideo) => {
+        const items = response.items as ContentfulBlogPage[];
+        const blogPage = items.length ? items[0] : null;
+        const contentfulVideos = blogPage?.fields.videos;
+        if (!contentfulVideos) {
+          console.log('No videos found');
+          return;
+        }
+        const videosFromContentful = contentfulVideos.map((item: ContentfulVideo) => {
           return {
             youtubeId: item.fields.youtubeId,
             description: item.fields.description,
@@ -89,17 +106,6 @@ function BlogPage(): JSX.Element {
   return (
     <ScreenMain>
       {/* <ArticleSection articles={articles} /> */}
-      <Typography component="h1" variant="h4" color="textPrimary">
-        My Videos
-      </Typography>
-      {videos.map((video, index) => (
-        <VideoContainer key={index}>
-          <YTPlayer
-            videoSrc={`https://www.youtube.com/embed/${video.youtubeId}`}
-          />
-          <Description color="textPrimary">{video.description}</Description>
-        </VideoContainer>
-      ))}
       <Typography component="h2" variant="h5">
         YouTube Channels
       </Typography>
@@ -125,6 +131,19 @@ function BlogPage(): JSX.Element {
           My YouTube Channel
         </Typography>
       </YouTubeChannelContainer>
+      <Typography component="h2" variant="h5" style={{marginTop: 35}}>
+        My videos
+      </Typography>
+      <VideosContainer>
+        {videos.map((video, index) => (
+          <VideoWrapper key={index}>
+            <YTPlayer
+              videoSrc={`https://www.youtube.com/embed/${video.youtubeId}`}
+            />
+            <Description color="textPrimary">{video.description}</Description>
+          </VideoWrapper>
+        ))}
+      </VideosContainer>
       <ScreenBackground />
     </ScreenMain>
   );

@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
+import emailjs from '@emailjs/browser';
 import {
   Alert,
   Button,
@@ -13,7 +14,7 @@ import {
 import GitHubIcon from './../assets/icons/github.svg';
 import LinkedInIcon from './../assets/icons/linkedin.svg';
 import { SocialLink } from '../components/home/SocialLink';
-import { sendEmail } from '../util/sendgrid';
+
 
 const Main = styled(Grid)(({ theme }) => ({
   paddingLeft: '5%',
@@ -119,36 +120,59 @@ function ContactPage() {
   //if the user submits without entering either a email or phone number
   const [detailsError, setDetailsError] = useState(false);
 
+  /* tslint:disable-next-line */
   const handleEmailChange = (event: any) => {
     setEmail(event.target.value);
   };
+  /* tslint:disable-next-line */
   const handleNameChange = (event: any) => {
     setName(event.target.value);
   };
+  /* tslint:disable-next-line */
   const handleDetailChange = (event: any) => {
     setDetails(event.target.value);
   };
-  const isValidInput = async () => {
-    setNameError(name === '' || name.trim().split(' ').length < 2);
-    setDetailsError(details === '');
-    const valid =
-      (await !(name === '' || name.trim().split(' ').length < 2)) &&
-      !(details === '');
-    return valid;
-  };
-  const handleSubmit = (ev: any) => {
-    ev.preventDefault();
-    isValidInput().then((value) => {
-      if (value === true) {
-        sendEmail(name, details, email);
-        setOpen(true);
-        setName('');
-        setEmail('');
-        setDetails('');
-      } else {
-        console.log('invalid');
-      }
-    });
+  // const isValidInput = async () => {
+  //   setNameError(name === '' || name.trim().split(' ').length < 2);
+  //   setDetailsError(details === '');
+  //   const valid =
+  //     (await !(name === '' || name.trim().split(' ').length < 2)) &&
+  //     !(details === '');
+  //   return valid;
+  // };
+  
+  // const handleSubmit = (ev: any) => {
+  //   ev.preventDefault();
+  //   isValidInput().then((value) => {
+  //     if (value === true) {
+  //       // sendEmail(name, details, email);
+  //       setOpen(true);
+  //       setName('');
+  //       setEmail('');
+  //       setDetails('');
+  //     } else {
+  //       console.log('invalid');
+  //     }
+  //   });
+  // };
+
+  const form = useRef();
+
+  const sendEmail = (e:any) => {
+    e.preventDefault();
+
+    const templateParams = {
+      message: details,
+      user_name: name,
+      user_email: email,
+    };
+  
+    emailjs.send('contact_service', 'contact_form', templateParams, process.env.REACT_APP_MAILJS_PUBLIC_KEY)
+      .then((response) => {
+        console.log('SUCCESS!', response.status, response.text);
+      }, (err) => {
+        console.log('FAILED...', err);
+      });
   };
 
   const handleClose = () => {
@@ -227,7 +251,7 @@ function ContactPage() {
               <SubmitButton
                 fullWidth
                 variant="outlined"
-                onClick={handleSubmit}
+                onClick={sendEmail}
                 disableRipple
               >
                 SEND

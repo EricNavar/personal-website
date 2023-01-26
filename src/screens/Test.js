@@ -1,5 +1,18 @@
-import React, { useRef } from 'react';
+import React, { useState, useRef } from 'react';
 
+import {
+  Alert,
+  Button,
+  Grid,
+  Snackbar,
+  styled,
+  TextField,
+  Typography,
+} from '@mui/material';
+
+import GitHubIcon from './../assets/icons/github.svg';
+import LinkedInIcon from './../assets/icons/linkedin.svg';
+import { SocialLink } from '../components/home/SocialLink';
 import emailjs from '@emailjs/browser';
 
 export const ContactUs = () => {

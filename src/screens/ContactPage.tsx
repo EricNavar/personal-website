@@ -10,10 +10,10 @@ import {
   Typography,
 } from '@mui/material';
 
-import { SocialLink } from '../components/home/SocialLink';
-import { sendEmail } from '../util/sendgrid';
 import GitHubIcon from './../assets/icons/github.svg';
 import LinkedInIcon from './../assets/icons/linkedin.svg';
+import { SocialLink } from '../components/home/SocialLink';
+import { sendEmail } from '../util/sendgrid';
 
 const Main = styled(Grid)(({ theme }) => ({
   paddingLeft: '5%',

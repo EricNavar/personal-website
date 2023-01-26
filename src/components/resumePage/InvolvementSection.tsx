@@ -2,9 +2,9 @@ import React from 'react';
 
 import { Grid } from '@mui/material';
 
+import { InvolvementItemCard } from './InvolvementItemCard';
 import { ExperienceItem } from '../../commonTypes';
 import { Section } from '../Section';
-import { InvolvementItemCard } from './InvolvementItemCard';
 
 type InvolvementListProps = {
   title: string;

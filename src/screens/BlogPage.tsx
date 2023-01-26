@@ -6,6 +6,8 @@ import { styled } from '@mui/material/styles';
 
 // import { client } from '../data/client';
 // import { ArticleProps } from '../components/Article';
+import EricLogo from '../assets/images/eric.jpg';
+import SSDLogo from '../assets/images/ssd.jpg';
 import YTPlayer from '../components/blog/YTPlayer';
 import { ScreenBackground, ScreenMain } from '../styling/commonStyles';
 import { client } from '../util/client';
@@ -62,6 +64,28 @@ type Video = {
   description: string;
 };
 
+type YouTubeChannelLink = {
+  icon: string;
+  name: string;
+  link: string;
+};
+
+const YouTubeChannelLink = ({icon, name, link}: YouTubeChannelLink) => {
+  return (
+    <YouTubeChannelContainer>
+      <YouTubeChannelLogo src={icon} />
+      <Typography
+        style={{ marginLeft: 12 }}
+        component={Link}
+        target="_blank"
+        href={link}
+      >
+        {name}
+      </Typography>
+    </YouTubeChannelContainer>
+  );
+};
+
 function BlogPage(): JSX.Element {
   // const [articles, setArticles] = React.useState<ArticleProps[]>([]);
 
@@ -114,28 +138,16 @@ function BlogPage(): JSX.Element {
         YouTube Channels
       </Typography>
       <div style={{display:'flex', flexWrap: 'wrap'}}>
-        <YouTubeChannelContainer>
-          <YouTubeChannelLogo src="https://yt3.googleusercontent.com/ytc/AMLnZu-clO-MD7YassFljB0F90MCaz6bEqP8cvtmWZgB=s176-c-k-c0x00ffffff-no-rj" />
-          <Typography
-            style={{ marginLeft: 12 }}
-            component={Link}
-            target="_blank"
-            href="https://www.youtube.com/@ufssd/videos"
-          >
-            UF Society of Software Developers
-          </Typography>
-        </YouTubeChannelContainer>
-        <YouTubeChannelContainer>
-          <YouTubeChannelLogo src="https://yt3.googleusercontent.com/Y5PmT9HCWpFxHu3vDXCE5BV3qAhg2ZodAknJXw7d3pYYflnV0P-oX4ZkNutnDWpUOw3RUmYfYw=s176-c-k-c0x00ffffff-no-rj" />
-          <Typography
-            style={{ marginLeft: 12 }}
-            component={Link}
-            target="_blank"
-            href="https://www.youtube.com/@ericnavar/videos"
-          >
-            My YouTube Channel
-          </Typography>
-        </YouTubeChannelContainer>
+        <YouTubeChannelLink
+          name='UF Society of Software Developers'
+          icon={SSDLogo}
+          link='https://www.youtube.com/@ufssd/videos'
+        />
+        <YouTubeChannelLink
+          name='My YouTube Channel'
+          icon={EricLogo}
+          link='https://www.youtube.com/@ericnavar/videos'
+        />
       </div>
       <Typography component="h2" variant="h5" style={{marginTop: 35}}>
         My videos

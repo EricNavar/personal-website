@@ -20,7 +20,7 @@ const VideoWrapper = styled('div')`
 `;
 
 const YouTubeChannelContainer = styled('div')(({ theme }) => ({
-  maxWidth: 450,
+  maxWidth: 350,
   color: theme.palette.primary.contrastText,
   marginTop: 16,
   padding: 16,
@@ -31,6 +31,10 @@ const YouTubeChannelContainer = styled('div')(({ theme }) => ({
   boxShadow:
     'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
   ...theme.gradientPaper,
+  flexBasis: 1,
+  flexGrow: 1,
+  marginLeft: 12,
+  marginRight: 12,
 }));
 
 const YouTubeChannelLogo = styled('img')`
@@ -109,28 +113,30 @@ function BlogPage(): JSX.Element {
       <Typography component="h2" variant="h5">
         YouTube Channels
       </Typography>
-      <YouTubeChannelContainer>
-        <YouTubeChannelLogo src="https://yt3.googleusercontent.com/ytc/AMLnZu-clO-MD7YassFljB0F90MCaz6bEqP8cvtmWZgB=s176-c-k-c0x00ffffff-no-rj" />
-        <Typography
-          style={{ marginLeft: 12 }}
-          component={Link}
-          target="_blank"
-          href="https://www.youtube.com/@ufssd/videos"
-        >
-          UF Society of Software Developers
-        </Typography>
-      </YouTubeChannelContainer>
-      <YouTubeChannelContainer>
-        <YouTubeChannelLogo src="https://yt3.googleusercontent.com/Y5PmT9HCWpFxHu3vDXCE5BV3qAhg2ZodAknJXw7d3pYYflnV0P-oX4ZkNutnDWpUOw3RUmYfYw=s176-c-k-c0x00ffffff-no-rj" />
-        <Typography
-          style={{ marginLeft: 12 }}
-          component={Link}
-          target="_blank"
-          href="https://www.youtube.com/@ericnavar/videos"
-        >
-          My YouTube Channel
-        </Typography>
-      </YouTubeChannelContainer>
+      <div style={{display:'flex', flexWrap: 'wrap'}}>
+        <YouTubeChannelContainer>
+          <YouTubeChannelLogo src="https://yt3.googleusercontent.com/ytc/AMLnZu-clO-MD7YassFljB0F90MCaz6bEqP8cvtmWZgB=s176-c-k-c0x00ffffff-no-rj" />
+          <Typography
+            style={{ marginLeft: 12 }}
+            component={Link}
+            target="_blank"
+            href="https://www.youtube.com/@ufssd/videos"
+          >
+            UF Society of Software Developers
+          </Typography>
+        </YouTubeChannelContainer>
+        <YouTubeChannelContainer>
+          <YouTubeChannelLogo src="https://yt3.googleusercontent.com/Y5PmT9HCWpFxHu3vDXCE5BV3qAhg2ZodAknJXw7d3pYYflnV0P-oX4ZkNutnDWpUOw3RUmYfYw=s176-c-k-c0x00ffffff-no-rj" />
+          <Typography
+            style={{ marginLeft: 12 }}
+            component={Link}
+            target="_blank"
+            href="https://www.youtube.com/@ericnavar/videos"
+          >
+            My YouTube Channel
+          </Typography>
+        </YouTubeChannelContainer>
+      </div>
       <Typography component="h2" variant="h5" style={{marginTop: 35}}>
         My videos
       </Typography>

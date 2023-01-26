@@ -3,7 +3,6 @@ import React from 'react';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import { Button, ButtonProps } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import mixpanel from 'mixpanel-browser';
 
 import { ContentfulResumeLink, PageName } from '../../commonTypes';
 import { client } from '../../util/client';
@@ -39,12 +38,6 @@ const ResumeLink = () => {
   const onClick = () => {
     window.open(resume);
     logEvent('Download resume', PageName.Resume);
-
-
-    // mixpanel.init('711993d2aa6338780b65a444a8fe97d4', { debug: true });
-    // mixpanel.track('test', {
-    //   'source': 'test source',
-    // });
   };
 
   return (
@@ -53,7 +46,7 @@ const ResumeLink = () => {
       download
       target="_blank"
       rel="noreferrer"
-      style={{ width: 'max-content',  marginBottom: 10 }}
+      style={{ width: 'max-content', marginBottom: 10 }}
     >
       <DownloadButton
         variant="contained"

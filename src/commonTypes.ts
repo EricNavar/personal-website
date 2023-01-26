@@ -132,5 +132,5 @@ export enum PageName {
   Home = 'Home Page',
   Resume = 'Resume Page',
   Blog = 'Blog Page',
-  Contact = 'Contact Page'
+  Contact = 'Contact Page',
 }

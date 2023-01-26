@@ -11,20 +11,24 @@ module.exports = {
   overrides: [],
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 'latest',
+    ecmaVersion: 12,
     sourceType: 'module',
     ecmaFeatures: {
       jsx: true,
+      modules: true,
     },
   },
   plugins: ['react', '@typescript-eslint', 'eslint-plugin-import'],
   rules: {
-    quotes: ['error', 'single'],
-    semi: ['error', 'always'],
-    'sort-imports': ['error', {ignoreCase: true, ignoreDeclarationSort: true}],
+    quotes: ['warn', 'single'],
+    semi: ['warn', 'always'],
+    'sort-imports': [
+      'warn',
+      { ignoreCase: true, ignoreDeclarationSort: true },
+    ],
     // this is for sorting imports
     'import/order': [
-      'error',
+      'warn',
       {
         groups: [
           ['external', 'builtin'],

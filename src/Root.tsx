@@ -26,6 +26,11 @@ const BlogPage = lazy(() =>
     default: module.BlogPage,
   }))
 );
+const ContactPage = lazy(() =>
+  import('./screens/ContactPage').then((module) => ({
+    default: module.ContactPage,
+  }))
+);
 
 //https://reacttraining.com/react-router/web/guides/quick-start
 
@@ -73,13 +78,11 @@ function Root(): JSX.Element {
                   <BlogPage />
                 </Suspense>
               </Route>
-              {/*
-                <Route path='/contact'>
-                  <Suspense fallback={<div />}>
-                    <ContactPage />
-                  </Suspense>
-                </Route>
-              */}
+              <Route path="/contact">
+                <Suspense fallback={<div />}>
+                  <ContactPage />
+                </Suspense>
+              </Route>
               <Route path="*">
                 <Redirect to="/" />
               </Route>

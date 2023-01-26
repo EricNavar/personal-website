@@ -6,17 +6,23 @@ import { styled } from '@mui/material/styles';
 
 // import { client } from '../data/client';
 // import { ArticleProps } from '../components/Article';
+import EricLogo from '../assets/images/eric.jpg';
+import SSDLogo from '../assets/images/ssd.jpg';
 import YTPlayer from '../components/blog/YTPlayer';
 import { ScreenBackground, ScreenMain } from '../styling/commonStyles';
 import { client } from '../util/client';
 
-const VideoContainer = styled('div')`
-  margin-bottom: 18px;
+const VideosContainer = styled('div')`
+  max-width: 800px;
+`;
+
+const VideoWrapper = styled('div')`
+  margin-bottom: 20px;
   margin-top: 8px;
 `;
 
 const YouTubeChannelContainer = styled('div')(({ theme }) => ({
-  maxWidth: 450,
+  maxWidth: 350,
   color: theme.palette.primary.contrastText,
   marginTop: 16,
   padding: 16,
@@ -27,6 +33,10 @@ const YouTubeChannelContainer = styled('div')(({ theme }) => ({
   boxShadow:
     'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
   ...theme.gradientPaper,
+  flexBasis: 1,
+  flexGrow: 1,
+  marginLeft: 12,
+  marginRight: 12,
 }));
 
 const YouTubeChannelLogo = styled('img')`
@@ -36,8 +46,14 @@ const YouTubeChannelLogo = styled('img')`
 `;
 
 const Description = styled(Typography)`
-  margin-bottom: 8px;
+  margin-bottom: 18px;
 `;
+
+type ContentfulBlogPage = {
+  fields: {
+    videos: Array<ContentfulVideo>;
+  };
+}
 
 type ContentfulVideo = {
   fields: Video;
@@ -46,6 +62,28 @@ type ContentfulVideo = {
 type Video = {
   youtubeId: string;
   description: string;
+};
+
+type YouTubeChannelLink = {
+  icon: string;
+  name: string;
+  link: string;
+};
+
+const YouTubeChannelLink = ({icon, name, link}: YouTubeChannelLink) => {
+  return (
+    <YouTubeChannelContainer>
+      <YouTubeChannelLogo src={icon} />
+      <Typography
+        style={{ marginLeft: 12 }}
+        component={Link}
+        target="_blank"
+        href={link}
+      >
+        {name}
+      </Typography>
+    </YouTubeChannelContainer>
+  );
 };
 
 function BlogPage(): JSX.Element {
@@ -71,11 +109,18 @@ function BlogPage(): JSX.Element {
   React.useEffect(() => {
     client
       .getEntries({
-        content_type: 'video',
+        //eslint-disable-next-line
+        content_type: 'blogPage',
       })
       .then((response) => {
-        const items = response.items as ContentfulVideo[];
-        const videosFromContentful = items.map((item: ContentfulVideo) => {
+        const items = response.items as ContentfulBlogPage[];
+        const blogPage = items.length ? items[0] : null;
+        const contentfulVideos = blogPage?.fields.videos;
+        if (!contentfulVideos) {
+          console.log('No videos found');
+          return;
+        }
+        const videosFromContentful = contentfulVideos.map((item: ContentfulVideo) => {
           return {
             youtubeId: item.fields.youtubeId,
             description: item.fields.description,
@@ -89,42 +134,34 @@ function BlogPage(): JSX.Element {
   return (
     <ScreenMain>
       {/* <ArticleSection articles={articles} /> */}
-      <Typography component="h1" variant="h4" color="textPrimary">
-        My Videos
-      </Typography>
-      {videos.map((video, index) => (
-        <VideoContainer key={index}>
-          <YTPlayer
-            videoSrc={`https://www.youtube.com/embed/${video.youtubeId}`}
-          />
-          <Description color="textPrimary">{video.description}</Description>
-        </VideoContainer>
-      ))}
       <Typography component="h2" variant="h5">
         YouTube Channels
       </Typography>
-      <YouTubeChannelContainer>
-        <YouTubeChannelLogo src="https://yt3.googleusercontent.com/ytc/AMLnZu-clO-MD7YassFljB0F90MCaz6bEqP8cvtmWZgB=s176-c-k-c0x00ffffff-no-rj" />
-        <Typography
-          style={{ marginLeft: 12 }}
-          component={Link}
-          target="_blank"
-          href="https://www.youtube.com/@ufssd/videos"
-        >
-          UF Society of Software Developers
-        </Typography>
-      </YouTubeChannelContainer>
-      <YouTubeChannelContainer>
-        <YouTubeChannelLogo src="https://yt3.googleusercontent.com/Y5PmT9HCWpFxHu3vDXCE5BV3qAhg2ZodAknJXw7d3pYYflnV0P-oX4ZkNutnDWpUOw3RUmYfYw=s176-c-k-c0x00ffffff-no-rj" />
-        <Typography
-          style={{ marginLeft: 12 }}
-          component={Link}
-          target="_blank"
-          href="https://www.youtube.com/@ericnavar/videos"
-        >
-          My YouTube Channel
-        </Typography>
-      </YouTubeChannelContainer>
+      <div style={{display:'flex', flexWrap: 'wrap'}}>
+        <YouTubeChannelLink
+          name='UF Society of Software Developers'
+          icon={SSDLogo}
+          link='https://www.youtube.com/@ufssd/videos'
+        />
+        <YouTubeChannelLink
+          name='My YouTube Channel'
+          icon={EricLogo}
+          link='https://www.youtube.com/@ericnavar/videos'
+        />
+      </div>
+      <Typography component="h2" variant="h5" style={{marginTop: 35}}>
+        My videos
+      </Typography>
+      <VideosContainer>
+        {videos.map((video, index) => (
+          <VideoWrapper key={index}>
+            <YTPlayer
+              videoSrc={`https://www.youtube.com/embed/${video.youtubeId}`}
+            />
+            <Description color="textPrimary">{video.description}</Description>
+          </VideoWrapper>
+        ))}
+      </VideosContainer>
       <ScreenBackground />
     </ScreenMain>
   );

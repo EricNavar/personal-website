@@ -3,17 +3,11 @@ import React from 'react';
 import { Button, useMediaQuery } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import useTheme from '@mui/material/styles/useTheme';
-import { Link, useRouteMatch } from 'react-router-dom';
+import { Link, LinkProps, useRouteMatch } from 'react-router-dom';
 
 //citation: https://material-ui.com/components/app-bar/#hide-app-bar
 
-type NavbarItemButtonProps = {
-  activeTab: boolean;
-  component: any;
-  to: string;
-};
-
-const NavbarItemButton = styled(Button)<NavbarItemButtonProps>(
+const NavbarItemButton = styled(Button)<{activeTab: boolean} & LinkProps>(
   ({ theme, activeTab }) => ({
     marginLeft: 8,
     marginRight: 8,

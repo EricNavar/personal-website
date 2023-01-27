@@ -1,22 +1,28 @@
 import React from 'react';
 
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
-import { Button, ButtonProps } from '@mui/material';
+import { Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 import { ContentfulResumeLink, PageName } from '../../commonTypes';
 import { client } from '../../util/client';
 import { logEvent } from '../../util/mixpanel';
 
-const DownloadButton = styled(Button)<ButtonProps>(({ theme }) => ({
-  marginTop: 10,
-  backgroundColor: theme.palette.grey[300],
-  color: 'black',
+const DownloadButton = styled(Button)({
+  marginTop: 24,
+  marginBottom: 32,
+  border: 0,
+  height: 48,
+  padding: '0 30px',
   textTransform: 'initial',
-  marginLeft: 'auto',
-  marginRight: 'auto',
-  padding: 14,
-}));
+  '&:hover': {
+    opacity: 0.85,
+    boxShadow: '0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)',
+  },
+  '&:active': {
+    boxShadow: 'none',
+  },
+});
 
 const ResumeLink = () => {
   const [resume, setResume] = React.useState<string>();

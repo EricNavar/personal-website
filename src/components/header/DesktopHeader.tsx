@@ -1,8 +1,8 @@
 import React from 'react';
 
-import AcUnitIcon from '@mui/icons-material/AcUnit';
 import MoonIcon from '@mui/icons-material/Brightness2';
 import SunIcon from '@mui/icons-material/Brightness5';
+import FilterVintageIcon from '@mui/icons-material/FilterVintage';
 import {
   AppBar,
   ToggleButton,
@@ -114,7 +114,7 @@ function DesktopHeader(props: DesktopHeaderProps): JSX.Element {
                 <MoonIcon />
               </ToggleButton>
               <ToggleButton value="Pink" aria-label="frost theme">
-                <AcUnitIcon />
+                <FilterVintageIcon />
               </ToggleButton>
             </StyledToggleButtonGroup>
           </StyledToolbar>

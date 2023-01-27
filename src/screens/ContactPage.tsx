@@ -29,23 +29,22 @@ const Form = styled('form')({
   width: '100%',
 });
 
-const SubmitButton = styled(Button)(({ theme }) => ({
+const SubmitButton = styled(Button)({
   marginTop: 24,
   marginBottom: 32,
   border: 0,
-  boxShadow: '0 3px 5px 2px rgba(50, 64, 123, .3)',
   height: 48,
   padding: '0 30px',
   width: 200,
+  textTransform: 'initial',
   '&:hover': {
     opacity: 0.85,
-    border: 0,
+    boxShadow: '0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)',
   },
   '&:active': {
-    boxShadow:
-      'rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset',
+    boxShadow: 'none',
   },
-}));
+});
 
 // const Link = styled('div')({
 //   marginTop: 32,
@@ -68,7 +67,7 @@ const FormWrapper = styled(Grid)({
   marginTop: 32,
 });
 
-const Email = styled(Typography)({
+const Email = styled(Typography)(({theme}) => ({
   marginBottom: 12,
   position: 'relative',
   fontSize: 18,
@@ -83,7 +82,7 @@ const Email = styled(Typography)({
     bottom: '-2px',
     borderRadius: 1,
     height: '2px',
-    background: '#00c4cc',
+    background: theme.palette.secondary.main,
   },
   '&:hover::after': {
     width: '100%',
@@ -93,7 +92,7 @@ const Email = styled(Typography)({
     width: '100%',
     left: 0,
   },
-});
+}));
 
 const CenterText = styled(Grid)({
   textAlign: 'center',
@@ -172,10 +171,12 @@ function ContactPage() {
         process.env.REACT_APP_MAILJS_PUBLIC_KEY
       )
       .then(
-        (response) => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (response: any) => {
           console.log('Sent email! 🥰', response.status, response.text);
         },
-        (err) => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (err: any) => {
           console.log('FAILED...', err);
         }
       );
@@ -216,7 +217,6 @@ function ContactPage() {
                     autoFocus
                     autoComplete="name"
                     label="Name"
-                    required
                     onChange={handleNameChange}
                     variant="outlined"
                     margin="dense"
@@ -243,13 +243,12 @@ function ContactPage() {
               </Grid>
               <BigTextField
                 label="Reason for contact?"
-                helperText={detailsError ? 'Required field' : ''}
+                helperText={detailsError ? 'Please enter a message' : ''}
                 value={details}
                 margin="dense"
                 onChange={handleDetailChange}
                 error={detailsError}
-                rows="4"
-                required
+                rows="6"
                 fullWidth
                 multiline
                 variant="outlined"
@@ -258,12 +257,12 @@ function ContactPage() {
             <CenterText>
               <SubmitButton
                 fullWidth
-                variant="outlined"
+                variant="contained"
                 onClick={handleSubmit}
                 disableRipple
                 color="primary"
               >
-                SEND
+                Send
               </SubmitButton>
             </CenterText>
           </FormWrapper>

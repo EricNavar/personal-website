@@ -162,7 +162,7 @@ function BlogPage(): JSX.Element {
         {videos.map((video, index) => (
           <VideoWrapper key={index}>
             <YTPlayer
-              videoSrc={`https://www.youtube.com/embed/${video.youtubeId}`}
+              videoSrc={`https://www.youtube.com/embed/${video.youtubeId}?modestbranding=true`}
             />
             <Description color="textPrimary">{video.description}</Description>
           </VideoWrapper>

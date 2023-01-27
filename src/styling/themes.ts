@@ -6,7 +6,7 @@ declare module '@mui/material/styles' {
   export interface Theme {
     paper: Record<string, any>;
     gradientPaper: Record<string, any>;
-    background?: Record<string, any>;
+    background: Record<string, any>;
   }
   // allow configuration using `createTheme`
   interface ThemeOptions {
@@ -112,10 +112,10 @@ const pinkTheme = createTheme({
   palette: {
     mode: 'light',
     primary: {
-      main: '#09203f',
+      main: '#510630;',
     },
     secondary: {
-      main: '#4fcff0',
+      main: '#feb8d2',
     },
     grey: {
       '800': 'rgba(215,218,225,.8)',

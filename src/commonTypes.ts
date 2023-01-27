@@ -117,7 +117,7 @@ export type Skill = {
 export type ContentfulResumePage = {
   id: string;
   skills: ContentfulSkill[];
-  relevantCoursework: any;
+  relevantCoursework: Array<string>;
   internshipExperience: ContentfulExperienceItem[];
   studentOrgInvolvement: ContentfulExperienceItem[];
 };

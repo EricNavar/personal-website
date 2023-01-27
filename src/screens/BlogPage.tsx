@@ -53,7 +53,7 @@ type ContentfulBlogPage = {
   fields: {
     videos: Array<ContentfulVideo>;
   };
-}
+};
 
 type ContentfulVideo = {
   fields: Video;
@@ -70,7 +70,7 @@ type YouTubeChannelLink = {
   link: string;
 };
 
-const YouTubeChannelLink = ({icon, name, link}: YouTubeChannelLink) => {
+const YouTubeChannelLink = ({ icon, name, link }: YouTubeChannelLink) => {
   return (
     <YouTubeChannelContainer>
       <YouTubeChannelLogo src={icon} />
@@ -119,12 +119,14 @@ function BlogPage(): JSX.Element {
           console.log('No videos found');
           return;
         }
-        const videosFromContentful = contentfulVideos.map((item: ContentfulVideo) => {
-          return {
-            youtubeId: item.fields.youtubeId,
-            description: item.fields.description,
-          };
-        }) as Video[];
+        const videosFromContentful = contentfulVideos.map(
+          (item: ContentfulVideo) => {
+            return {
+              youtubeId: item.fields.youtubeId,
+              description: item.fields.description,
+            };
+          }
+        ) as Video[];
         setVideos(videosFromContentful);
       })
       .catch(console.error);
@@ -133,22 +135,27 @@ function BlogPage(): JSX.Element {
   return (
     <ScreenMain>
       {/* <ArticleSection articles={articles} /> */}
-      <Typography component="h2" variant="h5">
+      <Typography component="h2" variant="h5" color="textPrimary">
         YouTube Channels
       </Typography>
-      <div style={{display:'flex', flexWrap: 'wrap'}}>
+      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
         <YouTubeChannelLink
-          name='UF Society of Software Developers'
+          name="UF Society of Software Developers"
           icon={SSDLogo}
-          link='https://www.youtube.com/@ufssd/videos'
+          link="https://www.youtube.com/@ufssd/videos"
         />
         <YouTubeChannelLink
-          name='My YouTube Channel'
+          name="My YouTube Channel"
           icon={EricLogo}
-          link='https://www.youtube.com/@ericnavar/videos'
+          link="https://www.youtube.com/@ericnavar/videos"
         />
       </div>
-      <Typography component="h2" variant="h5" style={{marginTop: 35}}>
+      <Typography
+        component="h2"
+        variant="h5"
+        style={{ marginTop: 35 }}
+        color="textPrimary"
+      >
         My videos
       </Typography>
       <VideosContainer>

@@ -15,7 +15,6 @@ import GitHubIcon from './../assets/icons/github.svg';
 import LinkedInIcon from './../assets/icons/linkedin.svg';
 import { SocialLink } from '../components/home/SocialLink';
 
-
 const Main = styled(Grid)(({ theme }) => ({
   paddingLeft: '5%',
   paddingRight: '5%',
@@ -30,7 +29,7 @@ const Form = styled('form')({
   width: '100%',
 });
 
-const SubmitButton = styled(Button)(({theme}) => ({
+const SubmitButton = styled(Button)(({ theme }) => ({
   marginTop: 24,
   marginBottom: 32,
   border: 0,
@@ -111,19 +110,25 @@ function ContactPage() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [open, setOpen] = React.useState(false);
-  const [details, setDetails] = React.useState('');  //what the user puts in the field for "Reason for contact"
+  const [details, setDetails] = React.useState(''); //what the user puts in the field for "Reason for contact"
 
   const [nameError, setNameError] = useState(false);
   const [detailsError, setDetailsError] = useState(false);
   const [emailError, setEmailError] = useState(false);
-  
-  const handleEmailChange = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+
+  const handleEmailChange = (
+    event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+  ) => {
     setEmail(event.target.value);
   };
-  const handleNameChange = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+  const handleNameChange = (
+    event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+  ) => {
     setName(event.target.value);
   };
-  const handleDetailChange = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+  const handleDetailChange = (
+    event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+  ) => {
     setDetails(event.target.value);
   };
   const isValidInput = async () => {
@@ -132,10 +137,11 @@ function ContactPage() {
     setEmailError(email === '');
     const valid =
       (await !(name === '' || name.trim().split(' ').length < 2)) &&
-      !(details === '') && email !== '';
+      !(details === '') &&
+      email !== '';
     return valid;
   };
-  
+
   const handleSubmit = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault();
     isValidInput().then((value) => {
@@ -157,13 +163,22 @@ function ContactPage() {
       user_name: name,
       user_email: email,
     };
-  
-    emailjs.send('contact_service', 'contact_form', templateParams, process.env.REACT_APP_MAILJS_PUBLIC_KEY)
-      .then((response) => {
-        console.log('Sent email! 🥰', response.status, response.text);
-      }, (err) => {
-        console.log('FAILED...', err);
-      });
+
+    emailjs
+      .send(
+        'contact_service',
+        'contact_form',
+        templateParams,
+        process.env.REACT_APP_MAILJS_PUBLIC_KEY
+      )
+      .then(
+        (response) => {
+          console.log('Sent email! 🥰', response.status, response.text);
+        },
+        (err) => {
+          console.log('FAILED...', err);
+        }
+      );
   };
 
   const handleClose = () => {
@@ -246,7 +261,7 @@ function ContactPage() {
                 variant="outlined"
                 onClick={handleSubmit}
                 disableRipple
-                color='primary'
+                color="primary"
               >
                 SEND
               </SubmitButton>

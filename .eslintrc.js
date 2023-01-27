@@ -22,10 +22,7 @@ module.exports = {
   rules: {
     quotes: ['warn', 'single'],
     semi: ['warn', 'always'],
-    'sort-imports': [
-      'warn',
-      { ignoreCase: true, ignoreDeclarationSort: true },
-    ],
+    'sort-imports': ['warn', { ignoreCase: true, ignoreDeclarationSort: true }],
     // this is for sorting imports
     'import/order': [
       'warn',

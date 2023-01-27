@@ -5,13 +5,13 @@ import { createTheme, Theme } from '@mui/material/styles';
 declare module '@mui/material/styles' {
   export interface Theme {
     paper: Record<string, any>;
-    gradientPaper?: Record<string, any>;
+    gradientPaper: Record<string, any>;
     background?: Record<string, any>;
   }
   // allow configuration using `createTheme`
   interface ThemeOptions {
     paper?: Record<string, any>;
-    gradientPaper?: Record<string, any>;
+    gradientPaper: Record<string, any>;
     background: Record<string, any>;
   }
 }

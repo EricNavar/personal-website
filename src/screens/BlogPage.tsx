@@ -109,7 +109,6 @@ function BlogPage(): JSX.Element {
   React.useEffect(() => {
     client
       .getEntries({
-        //eslint-disable-next-line
         content_type: 'blogPage',
       })
       .then((response) => {

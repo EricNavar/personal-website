@@ -30,24 +30,23 @@ const Form = styled('form')({
   width: '100%',
 });
 
-const SubmitButton = styled(Button)({
+const SubmitButton = styled(Button)(({theme}) => ({
   marginTop: 24,
   marginBottom: 32,
-  background: 'linear-gradient(90deg, #537895 0%, #09203f 100%)',
   border: 0,
   boxShadow: '0 3px 5px 2px rgba(50, 64, 123, .3)',
-  color: 'white',
   height: 48,
   padding: '0 30px',
   width: 200,
   '&:hover': {
     opacity: 0.85,
+    border: 0,
   },
   '&:active': {
     boxShadow:
       'rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset',
   },
-});
+}));
 
 // const Link = styled('div')({
 //   marginTop: 32,
@@ -112,39 +111,33 @@ function ContactPage() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [open, setOpen] = React.useState(false);
-  //what the user puts in the field for "Tell me about yourself"
-  const [details, setDetails] = React.useState('');
+  const [details, setDetails] = React.useState('');  //what the user puts in the field for "Reason for contact"
 
-  //if the user submits without entering their name
   const [nameError, setNameError] = useState(false);
-  //if the user submits without entering either a email or phone number
   const [detailsError, setDetailsError] = useState(false);
-
+  const [emailError, setEmailError] = useState(false);
   
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleEmailChange = (event: any) => {
+  const handleEmailChange = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
     setEmail(event.target.value);
   };
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleNameChange = (event: any) => {
+  const handleNameChange = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
     setName(event.target.value);
   };
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleDetailChange = (event: any) => {
+  const handleDetailChange = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
     setDetails(event.target.value);
   };
   const isValidInput = async () => {
     setNameError(name === '' || name.trim().split(' ').length < 2);
     setDetailsError(details === '');
+    setEmailError(email === '');
     const valid =
       (await !(name === '' || name.trim().split(' ').length < 2)) &&
-      !(details === '');
+      !(details === '') && email !== '';
     return valid;
   };
   
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleSubmit = (ev: any) => {
-    ev.preventDefault();
+  const handleSubmit = (event: React.MouseEvent<HTMLElement>) => {
+    event.preventDefault();
     isValidInput().then((value) => {
       if (value === true) {
         sendEmail();
@@ -167,7 +160,7 @@ function ContactPage() {
   
     emailjs.send('contact_service', 'contact_form', templateParams, process.env.REACT_APP_MAILJS_PUBLIC_KEY)
       .then((response) => {
-        console.log('SUCCESS!', response.status, response.text);
+        console.log('Sent email! 🥰', response.status, response.text);
       }, (err) => {
         console.log('FAILED...', err);
       });
@@ -227,6 +220,8 @@ function ContactPage() {
                     autoComplete="on"
                     variant="outlined"
                     margin="dense"
+                    error={emailError}
+                    helperText={emailError ? 'Please enter email' : ''}
                   />
                 </Grid>
                 <Grid item xs={false} md={4}></Grid>
@@ -251,13 +246,14 @@ function ContactPage() {
                 variant="outlined"
                 onClick={handleSubmit}
                 disableRipple
+                color='primary'
               >
                 SEND
               </SubmitButton>
             </CenterText>
           </FormWrapper>
         </div>
-        <ContactInfo color="textPrimary" as="h4" variant="h5" align="center">
+        <ContactInfo color="textPrimary" variant="h5" align="center">
           <b>Contact Information</b>
         </ContactInfo>
         <CenterText>

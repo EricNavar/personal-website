@@ -46,7 +46,7 @@ function MobileHeader(): JSX.Element {
       <HideOnScroll>
         <StyledAppBar style={{ top: 'initial', bottom: 0 }}>
           <Toolbar style={{ justifyContent: 'space-between' }}>
-            <NavItem to="/" text="Coding Projects" />
+            <NavItem to="/" text="Projects" />
             <NavItem to="/resume" text="Resume" />
             <NavItem to="/contact" text="Contact" />
             <NavItem to="/blog" text="Blog" />

@@ -286,7 +286,7 @@ function ContactPage() {
         </CenterText>
         <div>
           <Email color="primary" variant="body1" align="center">
-            ericnavar@ufl.edu
+            ericn2413@gmail.com
           </Email>
         </div>
       </Main>

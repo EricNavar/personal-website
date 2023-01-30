@@ -72,7 +72,7 @@ function ElevationScroll(props: ElevatorScrollProps): JSX.Element {
 
   return React.cloneElement(children, {
     sx: trigger
-      ? { ...scrolled, background: theme.background!.headerColor }
+      ? { ...scrolled, background: theme.background.headerColor }
       : top,
     elevation: trigger ? 2 : 0,
   });

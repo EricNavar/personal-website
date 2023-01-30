@@ -1,2 +1,0 @@
-run this command to trigger the webhook to build the web app:
-curl -X POST -d {} "https://webhooks.amplify.us-east-1.amazonaws.com/prod/webhooks?id=decba17b-b06a-4aef-8bb6-e3d4d5167ffb&token=t4nRPHyU3ys6uiQZNHmsSHyc4J3FLF7S8MgBIecGII&operation=startbuild" -H "Content-Type:application/json"

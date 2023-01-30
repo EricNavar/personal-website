@@ -13,7 +13,7 @@ const NavbarItemButton = styled(Button)<{activeTab: boolean} & LinkProps>(
     marginRight: 8,
     textTransform: 'initial',
     backgroundColor: activeTab
-      ? theme.background!.headerButtonColor
+      ? theme.background.headerButtonColor
       : undefined,
     color: activeTab ? `${theme.palette.text.primary} !important` : undefined,
   })

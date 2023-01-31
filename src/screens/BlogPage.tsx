@@ -82,6 +82,10 @@ const YouTubeChannelLink = ({ icon, name, link }: YouTubeChannelLink) => {
     <YouTubeChannelContainer>
       <YouTubeChannelLogo src={icon} />
       <ChannelName
+<<<<<<< HEAD
+=======
+        as={Link}
+>>>>>>> 65ed1adce5b79774c9ee4e4ba4c4978cd6e6fce5
         target="_blank"
         href={link}
         variant='body1'

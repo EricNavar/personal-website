@@ -46,7 +46,7 @@ const YouTubeChannelLogo = styled('img')`
 `;
 
 const Description = styled(Typography)`
-  margin-bottom: 18px;
+  margin-bottom: 28px;
 `;
 
 type ContentfulBlogPage = {
@@ -162,7 +162,7 @@ function BlogPage(): JSX.Element {
         {videos.map((video, index) => (
           <VideoWrapper key={index}>
             <YTPlayer
-              videoSrc={`https://www.youtube.com/embed/${video.youtubeId}?modestbranding=true`}
+              videoSrc={`https://www.youtube-nocookie.com/embed/${video.youtubeId}?modestbranding=true`}
             />
             <Description color="textPrimary">{video.description}</Description>
           </VideoWrapper>

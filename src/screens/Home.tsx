@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Grid, Hidden, Typography } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import { marked } from 'marked';
 
 import GitHubIcon from './../assets/icons/github.svg';
@@ -10,8 +10,7 @@ import {
   ContentfulProject,
   Project,
 } from '../commonTypes';
-import { CodingProjectDesktop } from '../components/home/CodingProjectDesktop';
-import { CodingProjectMobile } from '../components/home/CodingProjectMobile';
+import { CodingProject } from '../components/home/CodingProject';
 import { SocialLink } from '../components/home/SocialLink';
 import { PersonalStatement } from '../components/resumePage/PersonalStatement';
 import { Section } from '../components/Section';
@@ -76,24 +75,13 @@ function Home(): JSX.Element {
     <ScreenMain>
       <PersonalStatement statement={personalStatement} />
       <Section title="Apps I've worked on">
-        <Hidden smUp>
-          <Grid container spacing={6}>
-            {projects.map((project) => (
-              <CardButtonContainer item key={project._id} xs={12}>
-                <CodingProjectMobile project={project} />
-              </CardButtonContainer>
-            ))}
-          </Grid>
-        </Hidden>
-        <Hidden only={'xs'}>
-          <Grid container spacing={3}>
-            {projects.map((project) => (
-              <CardButtonContainer item key={project._id} xs={12} xl={6}>
-                <CodingProjectDesktop project={project} />
-              </CardButtonContainer>
-            ))}
-          </Grid>
-        </Hidden>
+        <Grid container spacing={6}>
+          {projects.map((project) => (
+            <CardButtonContainer item key={project._id} xs={12}>
+              <CodingProject project={project} />
+            </CardButtonContainer>
+          ))}
+        </Grid>
       </Section>
       <Section title="Connect">
         <div>

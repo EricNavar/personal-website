@@ -9,6 +9,9 @@ export const ItemWrapper = styled(Paper)(({ theme }) => ({
   height: '100%',
   maxWidth: '100%',
   display: 'flex',
+  [theme.breakpoints.down('md')]: {
+    flexWrap: 'wrap',
+  },
   ...theme.paper,
 }));
 

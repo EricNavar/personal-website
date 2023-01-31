@@ -7,15 +7,15 @@ import { Link, LinkProps, useRouteMatch } from 'react-router-dom';
 
 //citation: https://material-ui.com/components/app-bar/#hide-app-bar
 
-const NavbarItemButton = styled(Button)<{activeTab: boolean} & LinkProps>(
-  ({ theme, activeTab }) => ({
+const NavbarItemButton = styled(Button)<{activetab: string} & LinkProps>(
+  ({ theme, activetab }) => ({
     marginLeft: 8,
     marginRight: 8,
     textTransform: 'initial',
-    backgroundColor: activeTab
+    backgroundColor: activetab === 'true'
       ? theme.background.headerButtonColor
       : undefined,
-    color: activeTab ? `${theme.palette.text.primary} !important` : undefined,
+    color: activetab === 'true' ? `${theme.palette.text.primary} !important` : undefined,
   })
 );
 
@@ -36,7 +36,8 @@ function NavItem(props: NavbarItemProps): JSX.Element {
     <NavbarItemButton
       component={Link}
       to={to}
-      activeTab={!!match}
+      //yes, this is weird code, but it's to get around a dumb HTML error that I can't get around
+      activetab={!!match + ''}
       size={isSm ? 'small' : 'medium'}
       color="primary"
     >

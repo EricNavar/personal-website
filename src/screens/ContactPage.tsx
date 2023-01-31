@@ -46,13 +46,6 @@ const SubmitButton = styled(Button)({
   },
 });
 
-// const Link = styled('div')({
-//   marginTop: 32,
-//   display: 'flex',
-//   alignItems: 'center',
-//   justifyContent: 'center'
-// });
-
 const ContactInfo = styled(Typography)({
   marginTop: 16,
 });
@@ -68,7 +61,8 @@ const FormWrapper = styled(Grid)({
 });
 
 const Email = styled(Typography)(({theme}) => ({
-  marginBottom: 12,
+  marginBottom: 8,
+  marginTop: 8,
   position: 'relative',
   fontSize: 18,
   textDecoration: 'none',
@@ -150,8 +144,6 @@ function ContactPage() {
         setName('');
         setEmail('');
         setDetails('');
-      } else {
-        console.log('invalid');
       }
     });
   };
@@ -270,6 +262,9 @@ function ContactPage() {
         <ContactInfo color="textPrimary" variant="h5" align="center">
           <b>Contact Information</b>
         </ContactInfo>
+        <Email color="primary" variant="body1" align="center">
+          ericn2413@gmail.com
+        </Email>
         <CenterText>
           <SocialLink
             label="Github"
@@ -284,11 +279,6 @@ function ContactPage() {
             circle={false}
           />
         </CenterText>
-        <div>
-          <Email color="primary" variant="body1" align="center">
-            ericn2413@gmail.com
-          </Email>
-        </div>
       </Main>
     </React.Fragment>
   );

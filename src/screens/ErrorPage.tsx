@@ -6,6 +6,8 @@ import {
 } from '@mui/material';
 
 import Missingno from '../assets/images/missingno.jpg';
+import { PageName } from '../commonTypes';
+import { logEvent } from '../util/mixpanel';
 
 const Container = styled('div')`
   height: calc(100vh - 72px);
@@ -23,6 +25,13 @@ const ErrorMessage = styled(Typography)`
 `;
 
 const ErrorPage = () => {
+  React.useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    const cid = searchParams.get('cid');
+    console.log(cid);
+    logEvent('Download resume', cid as PageName);
+  }, []);
+
   return (
     <Container>
       <ErrorMessage>

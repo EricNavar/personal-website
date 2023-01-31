@@ -24,7 +24,7 @@ type CodingProjectDesktopProps = {
   project: Project;
 };
 
-function CodingProjectDesktop(props: CodingProjectDesktopProps): JSX.Element {
+function CodingProject(props: CodingProjectDesktopProps): JSX.Element {
   const { headerText, tools, subText, image, altLabel, links } = props.project;
 
   return (
@@ -60,4 +60,4 @@ function CodingProjectDesktop(props: CodingProjectDesktopProps): JSX.Element {
   );
 }
 
-export { CodingProjectDesktop };
+export { CodingProject };

@@ -1,18 +1,16 @@
 import React from 'react';
 
-import { Grid, Typography } from '@mui/material';
+import { Grid } from '@mui/material';
 import { marked } from 'marked';
 import { Redirect } from 'react-router-dom';
 
-import GitHubIcon from './../assets/icons/github.svg';
-import LinkedInIcon from './../assets/icons/linkedin.svg';
 import {
   ContentfulPersonalStatement,
   ContentfulProject,
   Project,
 } from '../commonTypes';
+import { ContactInfo } from '../components/ContactInfo';
 import { CodingProject } from '../components/home/CodingProject';
-import { SocialLink } from '../components/home/SocialLink';
 import { PersonalStatement } from '../components/resumePage/PersonalStatement';
 import { Section } from '../components/Section';
 import { ScreenBackground, ScreenMain } from '../styling/commonStyles';
@@ -82,7 +80,7 @@ function Home(): JSX.Element {
     <ScreenMain>
       <PersonalStatement statement={personalStatement} />
       <Section title="Apps I've worked on">
-        <Grid container spacing={6}>
+        <Grid container spacing={6} justifyContent='center'>
           {projects.map((project) => (
             <CardButtonContainer item key={project._id} xs={12}>
               <CodingProject project={project} />
@@ -90,24 +88,7 @@ function Home(): JSX.Element {
           ))}
         </Grid>
       </Section>
-      <Section title="Connect">
-        <div>
-          <Typography color="textPrimary">
-            Email: ericn2413@gmail.com
-          </Typography>
-          <br />
-          <SocialLink
-            label="LinkedIn"
-            link="https://www.linkedin.com/in/ericnavar/"
-            icon={LinkedInIcon}
-          />
-          <SocialLink
-            label="Github"
-            link="https://www.github.com/ericnavar"
-            icon={GitHubIcon}
-          />
-        </div>
-      </Section>
+      <ContactInfo center={false} />
       <ScreenBackground></ScreenBackground>
     </ScreenMain>
   );

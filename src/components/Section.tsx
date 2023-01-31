@@ -3,47 +3,36 @@ import React from 'react';
 import { Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-const SectionMain = styled('section')({
+const SectionMain = styled('section')<{center?: boolean}>(({center}) => ({
   marginTop: 50,
   marginBottom: 30,
   width: '100%',
-});
-
-const Divider = styled('div')({
-  background: '#32407b',
-  marginTop: 2,
-  height: 4,
-  width: '100%',
-  borderRadius: 2,
-  marginBottom: 24,
-});
+  justifyContent: center ? 'center' : 'initial',
+  textAlign: center ? 'center' : 'initial',
+  // width: 'max-content',
+}));
 
 const Title = styled(Typography)`
   font-weight: bold;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
+  margin-bottom: 14px;
   ${(props) => props.theme.breakpoints.down('sm')} {
     font-size: 1.5rem;
   }
-`;
-
-const MaxContent = styled('div')`
-  width: max-content;
 `;
 
 type SectionProps = {
   children: JSX.Element | JSX.Element[];
   title: string;
   className?: string;
+  center?: boolean;
 };
-function Section({ children, title, className }: SectionProps): JSX.Element {
+function Section({ children, title, className, center }: SectionProps): JSX.Element {
   return (
-    <SectionMain className={className}>
-      <MaxContent>
-        <Title variant="h4" color="textPrimary">
+    <SectionMain className={className} center={center}>
+        <Title variant="h4" color="textPrimary" align={center ? 'center' : 'inherit'}>
           {title}
         </Title>
-        <Divider></Divider>
-      </MaxContent>
       {children}
     </SectionMain>
   );

@@ -4,10 +4,10 @@ import { Grid, Paper, Typography, TypographyProps } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 export const ItemWrapper = styled(Paper)(({ theme }) => ({
+  maxWidth: 1400,
   position: 'relative',
   borderRadius: 8,
   height: '100%',
-  maxWidth: '100%',
   display: 'flex',
   [theme.breakpoints.down('md')]: {
     flexWrap: 'wrap',

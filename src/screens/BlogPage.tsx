@@ -7,6 +7,7 @@ import { Redirect } from 'react-router-dom';
 import EricLogo from '../assets/images/eric.jpg';
 import SSDLogo from '../assets/images/ssd.jpg';
 import { YouTubeThumbnail } from '../components/blog/YouTubeThumbnail';
+import { Section } from '../components/Section';
 import { ScreenBackground, ScreenMain } from '../styling/commonStyles';
 import { client } from '../util/client';
 
@@ -47,20 +48,8 @@ const Description = styled(Typography)`
   margin-bottom: 28px;
 `;
 
-const YouTubeChannelLinkContainer = styled('div')`
-  display: flex;
-  flex-wrap: wrap;
-  ${(props) => props.theme.breakpoints.down('md')} {
-    display: grid;
-  },
-`;
-
 const ChannelName = styled(Link)`
   margin-left: 12px;
-`;
-
-const HeaderText = styled(Typography)`
-  margin-top: 35px;
 `;
 
 type ContentfulBlogPage = {
@@ -131,10 +120,7 @@ function BlogPage(): JSX.Element {
 
   return (
     <ScreenMain>
-      <Typography component="h2" variant="h5" color="textPrimary">
-        YouTube Channels
-      </Typography>
-      <YouTubeChannelLinkContainer>
+      <Section title='YouTube Channels'>
         <YouTubeChannelLink
           name="UF Society of Software Developers"
           icon={SSDLogo}
@@ -145,18 +131,17 @@ function BlogPage(): JSX.Element {
           icon={EricLogo}
           link="https://www.youtube.com/@ericnavar/videos"
         />
-      </YouTubeChannelLinkContainer>
-      <HeaderText variant="h5" color="textPrimary">
-        My videos
-      </HeaderText>
-      <VideosContainer>
-        {videos.map((video, index) => (
-          <VideoWrapper key={index}>
-            <YouTubeThumbnail videoId={video.youtubeId} />
-            <Description color="textPrimary">{video.description}</Description>
-          </VideoWrapper>
-        ))}
-      </VideosContainer>
+      </Section>
+      <Section title='My Videos'>
+        <VideosContainer>
+          {videos.map((video, index) => (
+            <VideoWrapper key={index}>
+              <YouTubeThumbnail videoId={video.youtubeId} />
+              <Description color="textPrimary">{video.description}</Description>
+            </VideoWrapper>
+          ))}
+        </VideosContainer>
+      </Section>
       <ScreenBackground />
     </ScreenMain>
   );

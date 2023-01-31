@@ -2,9 +2,6 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-// The size of a YTPlayer component is dependent on the width of the parent component.
-// Setting a width of the parent will work, but not setting the height.
-
 const AspectRatioBox = styled('div')({
   overflow: 'hidden',
   height: 0,
@@ -28,10 +25,15 @@ type YouTubeThumbnailProps = {
   videoId: string;
 };
 
-export function YouTubeThumbnail({videoId}: YouTubeThumbnailProps): JSX.Element {
+export function YouTubeThumbnail({
+  videoId,
+}: YouTubeThumbnailProps): JSX.Element {
   return (
     <AspectRatioBox>
-      <AspectRatioBoxInside target='_blank' href={`https://www.youtube.com/watch?v=${videoId}`}>
+      <AspectRatioBoxInside
+        target="_blank"
+        href={`https://www.youtube.com/watch?v=${videoId}`}
+      >
         <img
           width="480px"
           height="360px"

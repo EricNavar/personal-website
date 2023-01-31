@@ -19,19 +19,19 @@ const MyIconButton = styled(Button)<ButtonProps>(({ theme }) => ({
   textTransform: 'initial',
 }));
 
-type CardButtonLinkProps = {
+type CodingProjectLinkProps = {
   icon: string;
   label: string;
   hyperlink: string;
   ariaLabel: string;
 };
 
-function CardButtonLink(props: CardButtonLinkProps): JSX.Element {
+function CodingProjectLink(props: CodingProjectLinkProps): JSX.Element {
   return (
     <MyIconButton
       href={props.hyperlink}
       aria-label={props.ariaLabel}
-      startIcon={<img src={props.icon} />}
+      startIcon={<img src={props.icon} width="30px" height="30px" />}
       variant="contained"
       disableElevation
     >
@@ -40,4 +40,4 @@ function CardButtonLink(props: CardButtonLinkProps): JSX.Element {
   );
 }
 
-export { CardButtonLink };
+export { CodingProjectLink };

@@ -143,18 +143,13 @@ function BlogPage(): JSX.Element {
           link="https://www.youtube.com/@ericnavar/videos"
         />
       </YouTubeChannelLinkContainer>
-      <HeaderText
-        variant="h5"
-        color="textPrimary"
-      >
+      <HeaderText variant="h5" color="textPrimary">
         My videos
       </HeaderText>
       <VideosContainer>
         {videos.map((video, index) => (
           <VideoWrapper key={index}>
-            <YouTubeThumbnail
-              videoId={video.youtubeId}
-            />
+            <YouTubeThumbnail videoId={video.youtubeId} />
             <Description color="textPrimary">{video.description}</Description>
           </VideoWrapper>
         ))}

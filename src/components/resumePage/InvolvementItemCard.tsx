@@ -104,7 +104,12 @@ function InvolvementItemCard(props: InvolvementItemCardProps): JSX.Element {
         <InvolvementItemInner>
           <TopRow>
             <div>
-              <StyledImg alt={organization + ' icon'} src={organizationIcon} />
+              <StyledImg
+                height="50px"
+                width="50px"
+                alt={organization + ' icon'}
+                src={organizationIcon}
+              />
             </div>
             <div>
               <Title color="primary" variant="h5">

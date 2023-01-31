@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Typography } from '@mui/material';
 
-import { CardButtonLink } from './CardButtonLink';
+import { CodingProjectLink } from './CodingProjectLink';
 import { CodingProjectThumbnail } from './CodingProjectThumbnail';
 import { Project, ProjectLink } from '../../commonTypes';
 import {
@@ -46,7 +46,7 @@ function CodingProject(props: CodingProjectDesktopProps): JSX.Element {
           dangerouslySetInnerHTML={{ __html: subText }}
         />
         {links.map((link: ProjectLink, value: number) => (
-          <CardButtonLink key={`link-${value}`} {...link} />
+          <CodingProjectLink key={`link-${value}`} {...link} />
         ))}
       </Item>
     </ItemWrapper>

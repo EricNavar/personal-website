@@ -28,17 +28,17 @@ const StyledGridItem = styled(Grid)({
 });
 
 type SkillItemProps = {
-  children: JSX.Element;
+  icon: JSX.Element;
   skill: string;
 };
 
 function SkillItem(props: SkillItemProps) {
-  const { children, skill } = props;
+  const { icon, skill } = props;
   const theme = useTheme();
   return (
     <StyledGridItem item xs={6} sm={4} xl={3}>
       <StyledPaper elevation={3} sx={theme.paper}>
-        {children}
+        {icon}
         <Typography variant="body1" align="center">
           {skill}
         </Typography>
@@ -63,9 +63,11 @@ function SkillList(props: SkillListProps): JSX.Element {
         spacing={1}
       >
         {skills.map((skill) => (
-          <SkillItem skill={skill.title} key={`skill-${skill.title}`}>
-            <img src={skill.icon} />
-          </SkillItem>
+          <SkillItem
+            skill={skill.title}
+            key={`skill-${skill.title}`}
+            icon={<img height="48px" width="48px" src={skill.icon} />}
+          />
         ))}
       </Grid>
     </Section>

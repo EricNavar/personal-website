@@ -33,8 +33,6 @@ const ContactPage = lazy(() =>
   }))
 );
 
-//https://reacttraining.com/react-router/web/guides/quick-start
-
 type ScrollToTopProps = {
   children: JSX.Element;
 };

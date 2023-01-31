@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Grid, Typography } from '@mui/material';
 import { marked } from 'marked';
+import { Redirect } from 'react-router-dom';
 
 import GitHubIcon from './../assets/icons/github.svg';
 import LinkedInIcon from './../assets/icons/linkedin.svg';
@@ -18,6 +19,7 @@ import { ScreenBackground, ScreenMain } from '../styling/commonStyles';
 import { CardButtonContainer } from '../styling/homePageStyling';
 import { client } from '../util/client';
 
+
 function Home(): JSX.Element {
   React.useEffect(() => {
     document.title = 'Eric Navar';
@@ -27,7 +29,7 @@ function Home(): JSX.Element {
     });
   }, []);
 
-  const [projects, setProjects] = React.useState<Project[]>([]);
+  const [projects, setProjects] = React.useState<Project[] | null>([]);
   const [personalStatement, setPersonalStatement] = React.useState<string>('');
   React.useEffect(() => {
     client
@@ -56,7 +58,9 @@ function Home(): JSX.Element {
         }) as Project[];
         setProjects(articlesFromContentful);
       })
-      .catch(console.error);
+      .catch(() => {
+        setProjects(null);
+      });
 
     client
       .getEntries({
@@ -70,6 +74,10 @@ function Home(): JSX.Element {
       })
       .catch(console.error);
   }, []);
+
+  if (!projects) {
+    return <Redirect to='/error?cid=home' />;
+  }
 
   return (
     <ScreenMain>

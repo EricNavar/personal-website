@@ -11,6 +11,7 @@ import SSDLogo from '../assets/images/ssd.jpg';
 import YTPlayer from '../components/blog/YTPlayer';
 import { ScreenBackground, ScreenMain } from '../styling/commonStyles';
 import { client } from '../util/client';
+import { Redirect } from 'react-router-dom';
 
 const VideosContainer = styled('div')`
   max-width: 800px;
@@ -87,25 +88,7 @@ const YouTubeChannelLink = ({ icon, name, link }: YouTubeChannelLink) => {
 };
 
 function BlogPage(): JSX.Element {
-  // const [articles, setArticles] = React.useState<ArticleProps[]>([]);
-
-  // React.useEffect(() => {
-  //   client.getEntries()
-  //     .then((response) => {
-  //       const items = response.items as ContentfulArticle[];
-  //       const articlesFromContentful = items.map((item: ContentfulArticle) => {
-  //         return {
-  //           description: item.fields.description,
-  //           name: item.fields.name,
-  //           featuredImage: item.fields.featuredImage.fields.url,
-  //         };
-  //       }) as ArticleProps[];
-  //       setArticles(articlesFromContentful);
-  //     })
-  //     .catch(console.error);
-  // }, []);
-
-  const [videos, setVideos] = React.useState<Video[]>([]);
+  const [videos, setVideos] = React.useState<Video[] | null>([]);
   React.useEffect(() => {
     client
       .getEntries({
@@ -129,8 +112,14 @@ function BlogPage(): JSX.Element {
         ) as Video[];
         setVideos(videosFromContentful);
       })
-      .catch(console.error);
+      .catch(() => {
+        setVideos(null);
+      });
   }, []);
+
+  if (!videos) {
+    return <Redirect to='/error?cid=blog' />;
+  }
 
   return (
     <ScreenMain>

@@ -111,7 +111,6 @@ function ResumePage(): JSX.Element {
   }, []);
 
   if (!skills || !experienceData || !studentOrgInvolvement || !relevantCoursework) {
-    console.log('redirecting');
     return <Redirect to='/error?cid=resume' />;
   }
 

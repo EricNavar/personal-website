@@ -56,6 +56,10 @@ const StyledToggleButtonGroup = styled(ToggleButtonGroup)({
   },
 });
 
+const NavItemContainer = styled('div')`
+  position: absolute;
+`;
+
 type ElevatorScrollProps = {
   children: JSX.Element;
 };
@@ -95,12 +99,12 @@ function DesktopHeader(props: DesktopHeaderProps): JSX.Element {
       <ElevationScroll {...props}>
         <StyledAppBar id="AppBar">
           <StyledToolbar>
-            <div style={{ position: 'absolute' }}>
+            <NavItemContainer>
               <NavItem to="/" text="Coding Projects" />
               <NavItem to="/resume" text="Resume" />
               <NavItem to="/contact" text="Contact" />
               <NavItem to="/blog" text="Blog" />
-            </div>
+            </NavItemContainer>
             <StyledToggleButtonGroup
               value={props.theme}
               exclusive

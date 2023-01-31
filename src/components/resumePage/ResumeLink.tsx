@@ -24,6 +24,11 @@ const DownloadButton = styled(Button)({
   },
 });
 
+const StyledLink = styled('a')`
+  width: max-content;
+  margin-bottom: 10px;
+`;
+
 const ResumeLink = () => {
   const [resume, setResume] = React.useState<string>();
 
@@ -47,12 +52,11 @@ const ResumeLink = () => {
   };
 
   return (
-    <a
+    <StyledLink
       href={resume?.substring(2)}
       download
       target="_blank"
       rel="noreferrer"
-      style={{ width: 'max-content', marginBottom: 10 }}
     >
       <DownloadButton
         variant="contained"
@@ -62,7 +66,7 @@ const ResumeLink = () => {
       >
         Download my resume
       </DownloadButton>
-    </a>
+    </StyledLink>
   );
 };
 

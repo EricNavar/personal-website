@@ -27,6 +27,10 @@ const ArticleTitle = styled('h1')`
   margin-top: 0;
 `;
 
+const CenterText = styled('div')`
+  text-align: center;
+`;
+
 export function Article(props: ArticleProps) {
   if (!props.description) {
     console.log('post description is undefined');
@@ -37,9 +41,9 @@ export function Article(props: ArticleProps) {
   return (
     <StyledArticle>
       <ArticleTitle>{props.name}</ArticleTitle>
-      <div style={{ textAlign: 'center' }}>
+      <CenterText>
         <StyledImage src={props.featuredImage} />
-      </div>
+      </CenterText>
       <div dangerouslySetInnerHTML={{ __html: postDescription }}></div>
     </StyledArticle>
   );

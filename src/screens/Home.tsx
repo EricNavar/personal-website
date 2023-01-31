@@ -101,13 +101,11 @@ function Home(): JSX.Element {
             label="LinkedIn"
             link="https://www.linkedin.com/in/ericnavar/"
             icon={LinkedInIcon}
-            circle={false}
           />
           <SocialLink
             label="Github"
             link="https://www.github.com/ericnavar"
             icon={GitHubIcon}
-            circle={true}
           />
         </div>
       </Section>

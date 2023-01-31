@@ -14,12 +14,18 @@ const StyledAppBar = styled(AppBar)(({ theme }) => ({
   margin: 8,
   borderRadius: 4,
   color: theme.palette.text.primary,
+  top: 'initial',
+  bottom: 0,
 }));
 
 const SpaceToolbar = styled(Toolbar)`
   marginbottom: 24px;
   bottom: 0;
   position: relative;
+`;
+
+const StyledToolbar = styled(Toolbar)`
+  justify-content: space-between;
 `;
 
 type HideOnScrollProps = {
@@ -44,13 +50,13 @@ function MobileHeader(): JSX.Element {
   return (
     <React.Fragment>
       <HideOnScroll>
-        <StyledAppBar style={{ top: 'initial', bottom: 0 }}>
-          <Toolbar style={{ justifyContent: 'space-between' }}>
+        <StyledAppBar>
+          <StyledToolbar>
             <NavItem to="/" text="Projects" />
             <NavItem to="/resume" text="Resume" />
             <NavItem to="/contact" text="Contact" />
             <NavItem to="/blog" text="Blog" />
-          </Toolbar>
+          </StyledToolbar>
         </StyledAppBar>
       </HideOnScroll>
       <SpaceToolbar />

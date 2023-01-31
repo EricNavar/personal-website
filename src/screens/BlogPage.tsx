@@ -1,17 +1,14 @@
 import React from 'react';
 
-// import { ArticleSection } from '../components/ArticleSection';
 import { Link, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { Redirect } from 'react-router-dom';
 
-// import { client } from '../data/client';
-// import { ArticleProps } from '../components/Article';
 import EricLogo from '../assets/images/eric.jpg';
 import SSDLogo from '../assets/images/ssd.jpg';
 import YTPlayer from '../components/blog/YTPlayer';
 import { ScreenBackground, ScreenMain } from '../styling/commonStyles';
 import { client } from '../util/client';
-import { Redirect } from 'react-router-dom';
 
 const VideosContainer = styled('div')`
   max-width: 800px;
@@ -123,7 +120,6 @@ function BlogPage(): JSX.Element {
 
   return (
     <ScreenMain>
-      {/* <ArticleSection articles={articles} /> */}
       <Typography component="h2" variant="h5" color="textPrimary">
         YouTube Channels
       </Typography>

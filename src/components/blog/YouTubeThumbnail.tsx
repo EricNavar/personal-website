@@ -14,31 +14,28 @@ const AspectRatioBox = styled('div')({
   paddingTop: '56.25%',
 });
 
-const AspectRatioBoxInside = styled('div')({
+const AspectRatioBoxInside = styled('a')({
   position: 'absolute',
   top: 0,
   left: 0,
   width: '100%',
   height: '100%',
+  display: 'grid',
+  alignContent: 'center',
 });
 
-type YTPlayerProps = {
-  videoSrc: string;
+type YouTubeThumbnailProps = {
+  videoId: string;
 };
 
-export default function YTPlayer(props: YTPlayerProps): JSX.Element {
-  const { videoSrc } = props;
-
+export function YouTubeThumbnail({videoId}: YouTubeThumbnailProps): JSX.Element {
   return (
     <AspectRatioBox>
-      <AspectRatioBoxInside>
-        <iframe
-          width="100%"
-          height="100%"
-          src={videoSrc}
-          frameBorder="0"
-          allowFullScreen
-          loading='lazy'
+      <AspectRatioBoxInside target='_blank' href={`https://www.youtube.com/watch?v=${videoId}`}>
+        <img
+          width="480px"
+          height="360px"
+          src={`https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`}
         />
       </AspectRatioBoxInside>
     </AspectRatioBox>

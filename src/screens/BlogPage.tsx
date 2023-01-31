@@ -6,7 +6,7 @@ import { Redirect } from 'react-router-dom';
 
 import EricLogo from '../assets/images/eric.jpg';
 import SSDLogo from '../assets/images/ssd.jpg';
-import YTPlayer from '../components/blog/YTPlayer';
+import { YouTubeThumbnail } from '../components/blog/YouTubeThumbnail';
 import { ScreenBackground, ScreenMain } from '../styling/commonStyles';
 import { client } from '../util/client';
 
@@ -57,7 +57,7 @@ const ChannelName = styled(Link)`
 `;
 
 const HeaderText = styled(Typography)`
-  margin-top: 35;
+  margin-top: 35px;
 `;
 
 type ContentfulBlogPage = {
@@ -144,7 +144,6 @@ function BlogPage(): JSX.Element {
         />
       </YouTubeChannelLinkContainer>
       <HeaderText
-        as="h2"
         variant="h5"
         color="textPrimary"
       >
@@ -153,8 +152,8 @@ function BlogPage(): JSX.Element {
       <VideosContainer>
         {videos.map((video, index) => (
           <VideoWrapper key={index}>
-            <YTPlayer
-              videoSrc={`https://www.youtube-nocookie.com/embed/${video.youtubeId}?modestbranding=true`}
+            <YouTubeThumbnail
+              videoId={video.youtubeId}
             />
             <Description color="textPrimary">{video.description}</Description>
           </VideoWrapper>

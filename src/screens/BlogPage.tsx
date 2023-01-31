@@ -50,7 +50,7 @@ const Description = styled(Typography)`
 const YouTubeChannelLinkContainer = styled('div')`
   display: flex;
   flex-wrap: wrap;
-  ${(props) => props.theme.breakpoints.down('sm')} {
+  ${(props) => props.theme.breakpoints.down('md')} {
     display: grid;
   },
 `;

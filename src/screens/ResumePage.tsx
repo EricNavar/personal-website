@@ -3,6 +3,7 @@ import React from 'react';
 import { Grid } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { marked } from 'marked';
+import { Redirect } from 'react-router-dom';
 
 import {
   ContentfulExperienceItem,
@@ -32,15 +33,16 @@ function ResumePage(): JSX.Element {
     });
   }, []);
 
-  const [skills, setSkills] = React.useState<Skill[]>([]);
-  const [experienceData, setExperienceData] = React.useState<ExperienceItem[]>(
+  //null is the error state
+  const [skills, setSkills] = React.useState<Skill[] | null>([]);
+  const [experienceData, setExperienceData] = React.useState<ExperienceItem[] | null>(
     []
   );
-  const [relevantCoursework, setRelevantCoursework] = React.useState<string[]>(
+  const [relevantCoursework, setRelevantCoursework] = React.useState<string[] | null>(
     []
   );
   const [studentOrgInvolvement, setStudentOrgInvolvement] = React.useState<
-    ExperienceItem[]
+    ExperienceItem[] | null
   >([]);
   React.useEffect(() => {
     client
@@ -49,7 +51,14 @@ function ResumePage(): JSX.Element {
       })
       .then((response) => {
         const items = response.items;
-        const resumePage = items[0].fields as ContentfulResumePage;
+        const resumePage = items.length > 0 ? items[0].fields as ContentfulResumePage : null;
+        if (!resumePage) {
+          setSkills(null);
+          setExperienceData(null);
+          setRelevantCoursework(null);
+          setStudentOrgInvolvement(null);
+          return;
+        }
 
         const skillsData = resumePage.skills.map((skill: ContentfulSkill) => {
           return {
@@ -93,8 +102,18 @@ function ResumePage(): JSX.Element {
 
         setRelevantCoursework(resumePage.relevantCoursework);
       })
-      .catch(console.error);
+      .catch(() => {
+        setSkills(null);
+        setExperienceData(null);
+        setRelevantCoursework(null);
+        setStudentOrgInvolvement(null);
+      });
   }, []);
+
+  if (!skills || !experienceData || !studentOrgInvolvement || !relevantCoursework) {
+    console.log('redirecting');
+    return <Redirect to='/error?cid=resume' />;
+  }
 
   return (
     <ScreenMain>

@@ -19,7 +19,6 @@ import { ScreenBackground, ScreenMain } from '../styling/commonStyles';
 import { CardButtonContainer } from '../styling/homePageStyling';
 import { client } from '../util/client';
 
-
 function Home(): JSX.Element {
   React.useEffect(() => {
     document.title = 'Eric Navar';
@@ -76,7 +75,7 @@ function Home(): JSX.Element {
   }, []);
 
   if (!projects) {
-    return <Redirect to='/error?cid=home' />;
+    return <Redirect to="/error?cid=home" />;
   }
 
   return (

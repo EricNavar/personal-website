@@ -7,15 +7,17 @@ import { Link, LinkProps, useRouteMatch } from 'react-router-dom';
 
 //citation: https://material-ui.com/components/app-bar/#hide-app-bar
 
-const NavbarItemButton = styled(Button)<{activetab: string} & LinkProps>(
+const NavbarItemButton = styled(Button)<{ activetab: string } & LinkProps>(
   ({ theme, activetab }) => ({
     marginLeft: 8,
     marginRight: 8,
     textTransform: 'initial',
-    backgroundColor: activetab === 'true'
-      ? theme.background.headerButtonColor
-      : undefined,
-    color: activetab === 'true' ? `${theme.palette.text.primary} !important` : undefined,
+    backgroundColor:
+      activetab === 'true' ? theme.background.headerButtonColor : undefined,
+    color:
+      activetab === 'true'
+        ? `${theme.palette.text.primary} !important`
+        : undefined,
   })
 );
 

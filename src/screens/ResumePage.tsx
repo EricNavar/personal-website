@@ -35,12 +35,12 @@ function ResumePage(): JSX.Element {
 
   //null is the error state
   const [skills, setSkills] = React.useState<Skill[] | null>([]);
-  const [experienceData, setExperienceData] = React.useState<ExperienceItem[] | null>(
-    []
-  );
-  const [relevantCoursework, setRelevantCoursework] = React.useState<string[] | null>(
-    []
-  );
+  const [experienceData, setExperienceData] = React.useState<
+    ExperienceItem[] | null
+  >([]);
+  const [relevantCoursework, setRelevantCoursework] = React.useState<
+    string[] | null
+  >([]);
   const [studentOrgInvolvement, setStudentOrgInvolvement] = React.useState<
     ExperienceItem[] | null
   >([]);
@@ -51,7 +51,8 @@ function ResumePage(): JSX.Element {
       })
       .then((response) => {
         const items = response.items;
-        const resumePage = items.length > 0 ? items[0].fields as ContentfulResumePage : null;
+        const resumePage =
+          items.length > 0 ? (items[0].fields as ContentfulResumePage) : null;
         if (!resumePage) {
           setSkills(null);
           setExperienceData(null);
@@ -110,8 +111,13 @@ function ResumePage(): JSX.Element {
       });
   }, []);
 
-  if (!skills || !experienceData || !studentOrgInvolvement || !relevantCoursework) {
-    return <Redirect to='/error?cid=resume' />;
+  if (
+    !skills ||
+    !experienceData ||
+    !studentOrgInvolvement ||
+    !relevantCoursework
+  ) {
+    return <Redirect to="/error?cid=resume" />;
   }
 
   return (

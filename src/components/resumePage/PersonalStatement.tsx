@@ -42,7 +42,7 @@ const ProfilePicWrapper = styled('div')({
 
 const Statement = styled(Typography)`
   font-size: 16px;
-`; 
+`;
 
 type PersonalStatementProps = {
   statement: string;
@@ -65,9 +65,7 @@ function PersonalStatement(props: PersonalStatementProps): JSX.Element {
         <PersonalStatementHeader variant="body1">
           <b>Hi, I&apos;m Eric Navar</b>
         </PersonalStatementHeader>
-        <Statement variant="body1">
-          {props.statement}
-        </Statement>
+        <Statement variant="body1">{props.statement}</Statement>
       </TextContainer>
     </PersonalStatementWrapper>
   );

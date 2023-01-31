@@ -39,7 +39,8 @@ const SubmitButton = styled(Button)({
   textTransform: 'initial',
   '&:hover': {
     opacity: 0.85,
-    boxShadow: '0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)',
+    boxShadow:
+      '0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)',
   },
   '&:active': {
     boxShadow: 'none',
@@ -60,7 +61,7 @@ const FormWrapper = styled(Grid)({
   marginTop: 32,
 });
 
-const Email = styled(Typography)(({theme}) => ({
+const Email = styled(Typography)(({ theme }) => ({
   marginBottom: 8,
   marginTop: 8,
   position: 'relative',

@@ -1,8 +1,9 @@
-import React, { lazy, Suspense } from 'react';
+import React from 'react';
 
 import { Typography } from '@mui/material';
 
 import { CardButtonLink } from './CardButtonLink';
+import { CodingProjectThumbnail } from './CodingProjectThumbnail';
 import { Project, ProjectLink } from '../../commonTypes';
 import {
   CardHeader,
@@ -10,15 +11,9 @@ import {
   HeaderText,
   Item,
   ItemWrapper,
-  LoadingImage,
   PhotoWrapper,
   SubTextContainer,
 } from '../../styling/homePageStyling';
-const CodingProjectThumbnail = lazy(() =>
-  import('./CodingProjectThumbnail').then((module) => ({
-    default: module.CodingProjectThumbnail,
-  }))
-);
 
 type CodingProjectDesktopProps = {
   project: Project;
@@ -30,9 +25,7 @@ function CodingProject(props: CodingProjectDesktopProps): JSX.Element {
   return (
     <ItemWrapper elevation={4}>
       <PhotoWrapper>
-        <Suspense fallback={<LoadingImage />}>
-          <CodingProjectThumbnail image={image} altLabel={altLabel} />
-        </Suspense>
+        <CodingProjectThumbnail image={image} altLabel={altLabel} />
       </PhotoWrapper>
       <Item>
         <CardHeader>

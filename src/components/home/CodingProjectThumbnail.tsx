@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 
 import { styled } from '@mui/material/styles';
+
+import { LoadingImage } from '../../styling/homePageStyling';
 
 const Wrapper = styled('div')({
   width: '100%',
@@ -35,7 +37,9 @@ function CodingProjectThumbnail(
   return (
     <Wrapper>
       <AspectRatioBox>
-        <AspectRatioBoxInside src={image} alt={altLabel} />
+        <Suspense fallback={<LoadingImage />}>
+          <AspectRatioBoxInside src={image} alt={altLabel} loading="lazy" />
+        </Suspense>
       </AspectRatioBox>
     </Wrapper>
   );

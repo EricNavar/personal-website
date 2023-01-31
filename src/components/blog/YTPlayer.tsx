@@ -38,6 +38,7 @@ export default function YTPlayer(props: YTPlayerProps): JSX.Element {
           src={videoSrc}
           frameBorder="0"
           allowFullScreen
+          loading='lazy'
         />
       </AspectRatioBoxInside>
     </AspectRatioBox>

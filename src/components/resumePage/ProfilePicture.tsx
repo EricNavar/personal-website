@@ -10,12 +10,7 @@ const RoundImage = styled('img')`
 
 function ProfilePicture(): JSX.Element {
   return (
-    <RoundImage
-      width="100%"
-      height="100%"
-      src={Eric}
-      alt="Eric profile"
-    />
+    <RoundImage width="100%" height="100%" src={Eric} alt="Eric profile" />
   );
 }
 

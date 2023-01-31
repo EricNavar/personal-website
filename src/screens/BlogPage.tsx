@@ -56,6 +56,10 @@ const ChannelName = styled(Link)`
   margin-left: 12px;
 `;
 
+const HeaderText = styled(Typography)`
+  margin-top: 35;
+`;
+
 type ContentfulBlogPage = {
   fields: {
     videos: Array<ContentfulVideo>;
@@ -81,11 +85,7 @@ const YouTubeChannelLink = ({ icon, name, link }: YouTubeChannelLink) => {
   return (
     <YouTubeChannelContainer>
       <YouTubeChannelLogo src={icon} />
-      <ChannelName
-        target="_blank"
-        href={link}
-        variant='body1'
-      >
+      <ChannelName target="_blank" href={link} variant="body1">
         {name}
       </ChannelName>
     </YouTubeChannelContainer>
@@ -123,7 +123,7 @@ function BlogPage(): JSX.Element {
   }, []);
 
   if (!videos) {
-    return <Redirect to='/error?cid=blog' />;
+    return <Redirect to="/error?cid=blog" />;
   }
 
   return (
@@ -143,14 +143,13 @@ function BlogPage(): JSX.Element {
           link="https://www.youtube.com/@ericnavar/videos"
         />
       </YouTubeChannelLinkContainer>
-      <Typography
-        component="h2"
+      <HeaderText
+        as="h2"
         variant="h5"
-        style={{ marginTop: 35 }}
         color="textPrimary"
       >
         My videos
-      </Typography>
+      </HeaderText>
       <VideosContainer>
         {videos.map((video, index) => (
           <VideoWrapper key={index}>

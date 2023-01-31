@@ -11,7 +11,7 @@ const AspectRatioBox = styled('div')({
   paddingTop: '56.25%',
 });
 
-const AspectRatioBoxInside = styled('a')({
+const AspectRatioBoxInside = styled('a')<{videoId: string}>((props) => ({
   position: 'absolute',
   top: 0,
   left: 0,
@@ -19,7 +19,10 @@ const AspectRatioBoxInside = styled('a')({
   height: '100%',
   display: 'grid',
   alignContent: 'center',
-});
+  backgroundImage: `url("https://i.ytimg.com/vi/${props.videoId}/hqdefault.jpg")`,
+  backgroundPosition: 'center',
+  backgroundSize: 'cover',
+}));
 
 type YouTubeThumbnailProps = {
   videoId: string;
@@ -33,12 +36,8 @@ export function YouTubeThumbnail({
       <AspectRatioBoxInside
         target="_blank"
         href={`https://www.youtube.com/watch?v=${videoId}`}
+        videoId={videoId}
       >
-        <img
-          width="480px"
-          height="360px"
-          src={`https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`}
-        />
       </AspectRatioBoxInside>
     </AspectRatioBox>
   );

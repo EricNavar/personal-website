@@ -50,6 +50,9 @@ const Description = styled(Typography)`
 const YouTubeChannelLinkContainer = styled('div')`
   display: flex;
   flex-wrap: wrap;
+  ${(props) => props.theme.breakpoints.down('sm')} {
+    display: grid;
+  },
 `;
 
 const ChannelName = styled(Link)`

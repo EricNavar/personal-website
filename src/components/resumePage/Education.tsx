@@ -48,6 +48,10 @@ const Line = styled('div')`
   }
 `;
 
+const MinorText = styled(Typography)`
+  flex-grow: 1;
+`;
+
 function CourseworkItems(props: EducationProps): JSX.Element {
   return (
     <React.Fragment>
@@ -76,14 +80,13 @@ function Education(props: EducationProps): JSX.Element {
         <Typography component="span" variant="body1" color="textPrimary">
           B.S. Computer Science
         </Typography>
-        <Typography
-          component="span"
+        <MinorText
+          as="span"
           variant="body1"
           color="textSecondary"
-          style={{ flexGrow: 1 }}
         >
           &nbsp;| Digital Arts Minor
-        </Typography>
+        </MinorText>
         <div>
           <Typography component="span" variant="body1" color="primary">
             <b>GPA:</b>

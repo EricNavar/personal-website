@@ -270,13 +270,11 @@ function ContactPage() {
             label="Github"
             link="https://www.github.com/ericnavar"
             icon={GitHubIcon}
-            circle={true}
           />
           <SocialLink
             label="LinkedIn"
             link="https://www.linkedin.com/in/ericnavar/"
             icon={LinkedInIcon}
-            circle={false}
           />
         </CenterText>
       </Main>

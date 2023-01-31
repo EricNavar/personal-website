@@ -47,6 +47,15 @@ const Description = styled(Typography)`
   margin-bottom: 28px;
 `;
 
+const YouTubeChannelLinkContainer = styled('div')`
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+const ChannelName = styled(Link)`
+  margin-left: 12px;
+`;
+
 type ContentfulBlogPage = {
   fields: {
     videos: Array<ContentfulVideo>;
@@ -72,14 +81,13 @@ const YouTubeChannelLink = ({ icon, name, link }: YouTubeChannelLink) => {
   return (
     <YouTubeChannelContainer>
       <YouTubeChannelLogo src={icon} />
-      <Typography
-        style={{ marginLeft: 12 }}
-        component={Link}
+      <ChannelName
         target="_blank"
         href={link}
+        variant='body1'
       >
         {name}
-      </Typography>
+      </ChannelName>
     </YouTubeChannelContainer>
   );
 };
@@ -123,7 +131,7 @@ function BlogPage(): JSX.Element {
       <Typography component="h2" variant="h5" color="textPrimary">
         YouTube Channels
       </Typography>
-      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+      <YouTubeChannelLinkContainer>
         <YouTubeChannelLink
           name="UF Society of Software Developers"
           icon={SSDLogo}
@@ -134,7 +142,7 @@ function BlogPage(): JSX.Element {
           icon={EricLogo}
           link="https://www.youtube.com/@ericnavar/videos"
         />
-      </div>
+      </YouTubeChannelLinkContainer>
       <Typography
         component="h2"
         variant="h5"

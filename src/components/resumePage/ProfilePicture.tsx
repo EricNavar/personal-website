@@ -1,15 +1,20 @@
 import React from 'react';
 
-import Eric from './../../assets/images/Eric Navar.jpg';
+import styled from '@emotion/styled';
+
+import Eric from './../../assets/images/Eric Navar.webp';
+
+const RoundImage = styled('img')`
+  border-radius: 50%;
+`;
 
 function ProfilePicture(): JSX.Element {
   return (
-    <img
+    <RoundImage
       width="100%"
       height="100%"
       src={Eric}
       alt="Eric profile"
-      style={{ borderRadius: '50%' }}
     />
   );
 }

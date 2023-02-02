@@ -52,7 +52,6 @@ export type Project = {
   subText: string;
   image: string;
   altLabel: string;
-  // projectLink: ProjectLink;
   links: Array<ProjectLink>;
 };
 

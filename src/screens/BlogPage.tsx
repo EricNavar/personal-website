@@ -8,7 +8,6 @@ import EricLogo from '../assets/images/eric.jpg';
 import SSDLogo from '../assets/images/ssd.jpg';
 import { YouTubeThumbnail } from '../components/blog/YouTubeThumbnail';
 import { Section } from '../components/Section';
-import { ScreenBackground, ScreenMain } from '../styling/commonStyles';
 import { client } from '../util/client';
 
 const VideosContainer = styled('div')`
@@ -119,7 +118,7 @@ function BlogPage(): JSX.Element {
   }
 
   return (
-    <ScreenMain>
+    <>
       <Section title='YouTube Channels'>
         <YouTubeChannelLink
           name="UF Society of Software Developers"
@@ -142,8 +141,7 @@ function BlogPage(): JSX.Element {
           ))}
         </VideosContainer>
       </Section>
-      <ScreenBackground />
-    </ScreenMain>
+    </>
   );
 }
 

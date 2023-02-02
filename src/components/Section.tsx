@@ -9,7 +9,6 @@ const SectionMain = styled('section')<{center?: boolean}>(({center}) => ({
   width: '100%',
   justifyContent: center ? 'center' : 'initial',
   textAlign: center ? 'center' : 'initial',
-  // width: 'max-content',
 }));
 
 const Title = styled(Typography)`

@@ -13,7 +13,6 @@ import { ContactInfo } from '../components/ContactInfo';
 import { CodingProject } from '../components/home/CodingProject';
 import { PersonalStatement } from '../components/resumePage/PersonalStatement';
 import { Section } from '../components/Section';
-import { ScreenBackground, ScreenMain } from '../styling/commonStyles';
 import { CardButtonContainer } from '../styling/homePageStyling';
 import { client } from '../util/client';
 
@@ -77,7 +76,7 @@ function Home(): JSX.Element {
   }
 
   return (
-    <ScreenMain>
+    <>
       <PersonalStatement statement={personalStatement} />
       <Section title="Apps I've worked on">
         <Grid container spacing={6} justifyContent='center'>
@@ -89,8 +88,7 @@ function Home(): JSX.Element {
         </Grid>
       </Section>
       <ContactInfo center={false} />
-      <ScreenBackground></ScreenBackground>
-    </ScreenMain>
+    </>
   );
 }
 

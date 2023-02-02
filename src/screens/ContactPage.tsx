@@ -13,14 +13,13 @@ import {
 
 import { ContactInfo } from '../components/ContactInfo';
 
-const Main = styled(Grid)(({ theme }) => ({
+const Main = styled(Grid)({
   paddingLeft: '5%',
   paddingRight: '5%',
   paddingTop: 20,
-  background: theme.palette.background.default,
   minHeight: '100vh',
   padding: 'auto',
-}));
+});
 
 const Form = styled('form')({
   marginTop: 12,

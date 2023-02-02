@@ -16,7 +16,6 @@ import { Education } from '../components/resumePage/Education';
 import { InvolvementSection } from '../components/resumePage/InvolvementSection';
 import { ResumeLink } from '../components/resumePage/ResumeLink';
 import { SkillList } from '../components/resumePage/SkillList';
-import { ScreenBackground, ScreenMain } from '../styling/commonStyles';
 import { client } from '../util/client';
 
 const GridItem = styled(Grid)`
@@ -121,7 +120,7 @@ function ResumePage(): JSX.Element {
   }
 
   return (
-    <ScreenMain>
+    <>
       <ResumeLink />
       <Grid container spacing={10} justifyContent="center">
         <GridItem id="skill-list-container" item sm={12} lg={6}>
@@ -136,8 +135,7 @@ function ResumePage(): JSX.Element {
         title="Student Org Involvement"
         data={studentOrgInvolvement}
       />
-      <ScreenBackground />
-    </ScreenMain>
+    </>
   );
 }
 

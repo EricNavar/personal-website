@@ -48,13 +48,16 @@ const StyledToolbar = styled(Toolbar)`
   justify-content: center;
 `;
 
-const StyledToggleButtonGroup = styled(ToggleButtonGroup)({
+const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({theme}) => ({
   position: 'absolute',
   right: 8,
   '& button': {
     borderColor: 'rgba(122,122,122,.5)',
   },
-});
+  '& svg': {
+    fill: theme.palette.text.primary,
+  },
+}));
 
 const NavItemContainer = styled('div')`
   position: absolute;

@@ -16,6 +16,7 @@ import { DesktopHeader } from './components/header/DesktopHeader';
 import { MobileHeader } from './components/header/MobileHeader';
 import { ErrorPage } from './screens/ErrorPage';
 import { Home } from './screens/Home';
+import { ScreenBackground, ScreenMain } from './styling/commonStyles';
 import { themes } from './styling/themes';
 const ResumePage = lazy(() =>
   import('./screens/ResumePage').then((module) => ({
@@ -63,32 +64,35 @@ function Root(): JSX.Element {
             <Hidden only={'xs'}>
               <DesktopHeader theme={theme} setTheme={setTheme} />
             </Hidden>
-            <Switch>
-              <Route exact path="/">
-                <Home />
-              </Route>
-              <Route path="/resume">
-                <Suspense fallback={<div />}>
-                  <ResumePage />
-                </Suspense>
-              </Route>
-              <Route path="/blog">
-                <Suspense fallback={<div />}>
-                  <BlogPage />
-                </Suspense>
-              </Route>
-              <Route path="/contact">
-                <Suspense fallback={<div />}>
-                  <ContactPage />
-                </Suspense>
-              </Route>
-              <Route path="/error">
-                <ErrorPage />
-              </Route>
-              <Route path="*">
-                <Redirect to="/" />
-              </Route>
-            </Switch>
+            <ScreenMain>
+              <Switch>
+                <Route exact path="/">
+                  <Home />
+                </Route>
+                <Route path="/resume">
+                  <Suspense fallback={<div />}>
+                    <ResumePage />
+                  </Suspense>
+                </Route>
+                <Route path="/blog">
+                  <Suspense fallback={<div />}>
+                    <BlogPage />
+                  </Suspense>
+                </Route>
+                <Route path="/contact">
+                  <Suspense fallback={<div />}>
+                    <ContactPage />
+                  </Suspense>
+                </Route>
+                <Route path="/error">
+                  <ErrorPage />
+                </Route>
+                <Route path="*">
+                  <Redirect to="/" />
+                </Route>
+              </Switch>
+              <ScreenBackground />
+            </ScreenMain>
             <Hidden smUp>
               <MobileHeader />
             </Hidden>

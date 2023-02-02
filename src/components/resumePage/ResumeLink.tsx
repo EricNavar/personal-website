@@ -1,9 +1,9 @@
 import React from 'react';
 
-import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import { Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
+import { FileDownloadIcon } from '../../assets/icons/FileDownloadIcon';
 import { ContentfulResumeLink, PageName } from '../../commonTypes';
 import { client } from '../../util/client';
 import { logEvent } from '../../util/mixpanel';

@@ -1,8 +1,5 @@
 import React from 'react';
 
-import MoonIcon from '@mui/icons-material/Brightness2';
-import SunIcon from '@mui/icons-material/Brightness5';
-import FilterVintageIcon from '@mui/icons-material/FilterVintage';
 import {
   AppBar,
   ToggleButton,
@@ -15,6 +12,9 @@ import { Theme } from '@mui/material/styles';
 import useTheme from '@mui/material/styles/useTheme';
 
 import { NavItem } from './NavItem';
+import { FlowerIcon } from '../../assets/icons/FlowerIcon';
+import { MoonIcon } from '../../assets/icons/MoonIcon';
+import { SunIcon } from '../../assets/icons/SunIcon';
 
 //citation: https://material-ui.com/components/app-bar/#hide-app-bar
 
@@ -118,7 +118,7 @@ function DesktopHeader(props: DesktopHeaderProps): JSX.Element {
                 <MoonIcon />
               </ToggleButton>
               <ToggleButton value="Pink" aria-label="frost theme">
-                <FilterVintageIcon />
+                <FlowerIcon />
               </ToggleButton>
             </StyledToggleButtonGroup>
           </StyledToolbar>

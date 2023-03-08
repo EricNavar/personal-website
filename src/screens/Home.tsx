@@ -11,6 +11,7 @@ import {
 } from '../commonTypes';
 import { ContactInfo } from '../components/ContactInfo';
 import { CodingProject } from '../components/home/CodingProject';
+import { SpotifyControllerCTA } from '../components/home/SpotifyControllerCTA';
 import { PersonalStatement } from '../components/resumePage/PersonalStatement';
 import { Section } from '../components/Section';
 import { CardButtonContainer } from '../styling/homePageStyling';
@@ -88,6 +89,7 @@ function Home(): JSX.Element {
         </Grid>
       </Section>
       <ContactInfo center={false} />
+      <SpotifyControllerCTA/>
     </>
   );
 }

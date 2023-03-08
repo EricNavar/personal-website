@@ -16,6 +16,7 @@ import { DesktopHeader } from './components/header/DesktopHeader';
 import { MobileHeader } from './components/header/MobileHeader';
 import { ErrorPage } from './screens/ErrorPage';
 import { Home } from './screens/Home';
+import { SpotifyController } from './screens/SpotifyController';
 import { ScreenBackground, ScreenMain } from './styling/commonStyles';
 import { themes } from './styling/themes';
 const ResumePage = lazy(() =>
@@ -83,6 +84,9 @@ function Root(): JSX.Element {
                   <Suspense fallback={<div />}>
                     <ContactPage />
                   </Suspense>
+                </Route>
+                <Route path="/spotify-controller">
+                  <SpotifyController />
                 </Route>
                 <Route path="/error">
                   <ErrorPage />

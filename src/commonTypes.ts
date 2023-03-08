@@ -133,3 +133,9 @@ export enum PageName {
   Blog = 'Blog Page',
   Contact = 'Contact Page',
 }
+
+export type SpotifySongProps = {
+  title: string;
+  artists: string[];
+  thumbnail: string;
+}

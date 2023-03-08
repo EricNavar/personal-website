@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+import { parseSpotifySong } from './spotify-helper';
+
 const config = {
     headers: {
         Authorization: `Bearer ${process.env.REACT_APP_SPOTIFY_ACCESS_TOKEN}`
@@ -26,11 +28,7 @@ export const getCurrentlyPlayingTrack = async () => {
         .then(function (response) {
             return {
                 isPlaying: response.data.is_playing,
-                song: {
-                    title: response.data.item?.name as string || '',
-                    artists: response.data.item?.artists.map((artist:any) => artist.name) || '',
-                    thumbnail: response.data.item?.album.images[1].url as string || ''
-                }
+                song: parseSpotifySong(response.data.item)
             };
         })
         .catch(function (error) {
@@ -42,10 +40,13 @@ export const getCurrentlyPlayingTrack = async () => {
 };
 
 export const searchSong = async (search: string) => {
-    const url = `https://api.spotify.com/v1/search?q=${search}&limit=10`;
-    axios.get(url, config)
+    const url = `https://api.spotify.com/v1/search?q=${search}&limit=10&type=track`;
+    return axios.get(url, config)
         .then(function (response) {
-            console.log(response.data);
+            if (response.data.tracks.items) {
+                return response.data.tracks.items.map((song:any)=>parseSpotifySong(song));
+            }
+            else return [];
         })
         .catch(function (error) {
             console.log(error);

@@ -14,16 +14,18 @@ const SpotifyController = () => {
     });
     const [isCurrentlyListening, setIsCurrentlyListening] = React.useState<boolean>(false);
     const [search, setSearch] = React.useState('');
+    const [searchResults, setSearchResults] = React.useState<SpotifySongProps[]>([]);
     
     const onChangeSearch = (event: any) => {
         event.preventDefault(); // is this necessary?
         setSearch(event.target.value);
     };
 
-    const onSubmitSearch = () => {
+    const onSubmitSearch = async () => {
         const newSearch = search.trim();
         if (newSearch !== '') {
-            searchSong(search);
+            const data = await searchSong(newSearch);
+            setSearchResults(data);
         }
     };
 
@@ -32,7 +34,7 @@ const SpotifyController = () => {
             const data = await getCurrentlyPlayingTrack();
             if (data) {
                 setIsCurrentlyListening(data.isPlaying);
-                const song: SpotifySongProps = data.song;
+                const song = data.song;
                 setCurrentlyListeningTo(song);
             }
         };
@@ -54,6 +56,7 @@ const SpotifyController = () => {
                     size='small'
                 />
                 <Button onClick={onSubmitSearch}>Search</Button>
+                {searchResults.map((item, index) => <SpotifySong key={index} {...item} />)}
             </form>
         </div>
 

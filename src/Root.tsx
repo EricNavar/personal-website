@@ -14,12 +14,12 @@ import {
 
 import { DesktopHeader } from './components/header/DesktopHeader';
 import { MobileHeader } from './components/header/MobileHeader';
+import { Colorify } from './screens/Colorify';
 import { ErrorPage } from './screens/ErrorPage';
 import { Home } from './screens/Home';
-import { SpotifyController } from './screens/SpotifyController';
 import { ScreenBackground, ScreenMain } from './styling/commonStyles';
 import { themes } from './styling/themes';
-import { Colorify } from './screens/Colorify';
+import { PlaylistPage } from './screens/PlaylistPage';
 const ResumePage = lazy(() =>
   import('./screens/ResumePage').then((module) => ({
     default: module.ResumePage,
@@ -57,6 +57,11 @@ function ScrollToTop(props: ScrollToTopProps) {
 
 function Root(): JSX.Element {
   const [theme, setTheme] = React.useState('Light');
+
+  const Helper = (props: any) => {
+    return <PlaylistPage playlistId={props.match.params.id} />;
+  };
+
   return (
     <>
       <FullStory org={process.env.REACT_APP_ORG_ID!} />
@@ -86,11 +91,11 @@ function Root(): JSX.Element {
                     <ContactPage />
                   </Suspense>
                 </Route>
-                <Route path="/spotify-controller">
-                  <Colorify />
+                <Route path="/colorify/:id">
+                  {Helper}
                 </Route>
                 <Route path="/colorify">
-                  <SpotifyController />
+                  <Colorify />
                 </Route>
                 <Route path="/error">
                   <ErrorPage />

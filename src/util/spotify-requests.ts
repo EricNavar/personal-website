@@ -78,3 +78,17 @@ export const searchSong = async (token: string, search: string) => {
             // always executed
         });
 };
+
+export const getSongsFromPlaylist = async (token: string, playlistId: string) => {
+    const url = `https://api.spotify.com/v1/playlists/${playlistId}/tracks`;
+    return axios.get(url, getConfig(token))
+        .then(function (response) {
+            return response.data.items.map((item: any) => parseSpotifySong(item.track));
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
+        .finally(function () {
+            // always executed
+        });
+};

@@ -19,11 +19,11 @@ const SpotifyController = () => {
         let data;
         if (token) {
             data = await getCurrentlyPlayingTrack(token);
-        }
-        if (data) {
-            setIsCurrentlyListening(data.isPlaying);
-            const song = data.song;
-            setCurrentlyListeningTo(song);
+            if (data) {
+                setIsCurrentlyListening(data.isPlaying);
+                const song = data.song;
+                setCurrentlyListeningTo(song);
+            }
         }
     };
 

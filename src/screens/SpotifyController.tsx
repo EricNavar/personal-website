@@ -1,10 +1,11 @@
 import React from 'react';
 
-import { Button, TextField, Typography } from '@mui/material';
+import { Button, TextField } from '@mui/material';
 
 import { SpotifySongProps } from '../commonTypes';
-import { SpotifyLogin } from '../components/SpotifyLogin';
-import { SpotifySong } from '../components/SpotifySong';
+import { CurrentlyListeningTo } from '../components/spotify-controller/CurrentlyListeningTo';
+import { SpotifyLogin } from '../components/spotify-controller/SpotifyLogin';
+import { SpotifySong } from '../components/spotify-controller/SpotifySong';
 import { getCurrentlyPlayingTrack, searchSong } from '../util/spotify-requests';
 
 const SpotifyController = () => {
@@ -15,13 +16,18 @@ const SpotifyController = () => {
     const [token, setToken] = React.useState('');
     
     const fetchCurrentlyListeningTo = async () => {
-        const data = await getCurrentlyPlayingTrack(token);
+        let data;
+        if (token) {
+            data = await getCurrentlyPlayingTrack(token);
+        }
         if (data) {
             setIsCurrentlyListening(data.isPlaying);
             const song = data.song;
             setCurrentlyListeningTo(song);
         }
     };
+
+    console.log(token);
 
     React.useEffect(() => {
         const hash = window.location.hash;
@@ -36,9 +42,12 @@ const SpotifyController = () => {
             window.location.hash = '';
             window.localStorage.setItem('token', token);
         }
-        fetchCurrentlyListeningTo();
         setToken(token);
-    }, []);   
+    }, []);
+
+    React.useEffect(()=>{
+        fetchCurrentlyListeningTo();
+    },[token]);
 
     const onChangeSearch = (event: any) => {
         event.preventDefault(); // is this necessary?
@@ -55,13 +64,8 @@ const SpotifyController = () => {
 
     return (
         <div>
-            <SpotifyLogin />
-            {currentlyListeningTo && 
-                <>
-                    <Typography variant='body1'>Currently listening to:</Typography>
-                    <SpotifySong {...currentlyListeningTo} isCurrentlyPlaying={isCurrentlyListening} />
-                </>
-            }
+            {!token && <SpotifyLogin />}
+            {currentlyListeningTo && <CurrentlyListeningTo isPlaying={isCurrentlyListening} song={currentlyListeningTo}/>}
             <form>
                 <TextField
                     value={search}

@@ -19,6 +19,7 @@ import { Home } from './screens/Home';
 import { SpotifyController } from './screens/SpotifyController';
 import { ScreenBackground, ScreenMain } from './styling/commonStyles';
 import { themes } from './styling/themes';
+import { Colorify } from './screens/Colorify';
 const ResumePage = lazy(() =>
   import('./screens/ResumePage').then((module) => ({
     default: module.ResumePage,
@@ -86,6 +87,9 @@ function Root(): JSX.Element {
                   </Suspense>
                 </Route>
                 <Route path="/spotify-controller">
+                  <Colorify />
+                </Route>
+                <Route path="/colorify">
                   <SpotifyController />
                 </Route>
                 <Route path="/error">

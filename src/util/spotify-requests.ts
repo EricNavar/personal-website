@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { parseSpotifySong } from './spotify-helper';
+import { parseSpotifyPlaylist, parseSpotifySong } from './spotify-helper';
 
 const getConfig = (token: string) => {
     return {
@@ -25,13 +25,33 @@ export const getProfile = (token: string) => {
 };
 
 export const getCurrentlyPlayingTrack = async (token: string) => {
-    console.log(token);
     const url = 'https://api.spotify.com/v1/me/player/currently-playing';
     return axios.get(url, getConfig(token))
         .then(function (response) {
             return {
                 isPlaying: response.data.is_playing,
                 song: parseSpotifySong(response.data.item)
+            };
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
+        .finally(function () {
+            // always executed
+        });
+};
+
+export const getPlaylists = async (token: string, page: number) => {
+    const limit = 50;
+    const offset = page * limit;
+    const url = `https://api.spotify.com/v1/me/playlists?limit=${limit}&offset=${offset}`;
+    return axios.get(url, getConfig(token))
+        .then(function (response) {
+            return {
+                playlists: response.data.items.map((playlist: any)=> 
+                    parseSpotifyPlaylist(playlist)
+                ),
+                totalPlaylists: response.data.total
             };
         })
         .catch(function (error) {

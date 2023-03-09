@@ -138,4 +138,12 @@ export type SpotifySongProps = {
   title: string;
   artists: string[];
   thumbnail: string;
+  averageColor?: string;
+}
+
+export type SpotifyPlaylistProps = {
+  id: string;
+  name: string;
+  thumbnail: string;
+  link: string;
 }

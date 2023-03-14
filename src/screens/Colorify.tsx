@@ -88,8 +88,6 @@ const Colorify = () => {
         setPage(newPage);
     };
 
-    console.log(loggedIn);
-
     return (
         <div>
             <Header href='/colorify' variant='h3'>Colorify</Header>

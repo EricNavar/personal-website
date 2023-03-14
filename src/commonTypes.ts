@@ -137,6 +137,7 @@ export enum PageName {
 }
 
 export type SpotifySongProps = {
+  id: string;
   title: string;
   artists: string[];
   thumbnail: string;

@@ -35,6 +35,7 @@ export const getPlaylists = async (token: string, page: number) => {
     const url = `https://api.spotify.com/v1/me/playlists?limit=${limit}&offset=${offset}`;
     return axios.get(url, getConfig(token))
         .then(function (response) {
+            console.log(response.data);
             return {
                 playlists: response.data.items.map((playlist: any)=> 
                     parseSpotifyPlaylist(playlist)
@@ -98,10 +99,52 @@ export const getPlaylistDetails = async (token: string, playlistId: string) => {
         .then(function (response) {
             const result = {
                 name: response.data.name,
-                thumbnail: response.data.images[0].url,
+                thumbnail: response.data.images.length > 0 ? response.data.images[0].url : '',
                 url: response.data.external_urls.spotify,
             };
             return result;
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
+        .finally(function () {
+            // always executed
+        });
+};
+
+export const deletePlaylistSongs = async (token: string, playlistId: string, songIds: string[]) => {
+    const tracksFormatted = songIds.map(songId=>{
+        return {
+            uri: `spotify:track:${songId}`
+        };
+    });
+    const data = {
+        tracks: tracksFormatted
+    };
+    const url = `https://api.spotify.com/v1/playlists/${playlistId}/tracks`;
+    return axios.delete(url, {...getConfig(token), data})
+        .then(function (response) {
+            return response;
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
+        .finally(function () {
+            // always executed
+        });
+};
+
+export const addSongsToPlaylist = async (token: string, playlistId: string, songIds: string[]) => {
+    const data = {
+        uris: songIds.map((songId)=>
+            `spotify:track:${songId}`
+        )
+    };
+    const url = `https://api.spotify.com/v1/playlists/${playlistId}/tracks`;
+    console.log(url);
+    return axios.post(url, data, getConfig(token))
+        .then(function (response) {
+            return response;
         })
         .catch(function (error) {
             console.log(error);

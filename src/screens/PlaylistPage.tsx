@@ -9,7 +9,7 @@ import { FastAverageColor } from 'fast-average-color';
 import { SpotifySongProps } from '../commonTypes';
 import { SpotifySongSquare } from '../components/spotify-controller/SpotifySongSquare';
 import { sortSongs } from '../util/sort-colors-songs';
-import { getPlaylistDetails, getSongsFromPlaylist } from '../util/spotify-requests';
+import { addSongsToPlaylist, deletePlaylistSongs, getPlaylistDetails, getSongsFromPlaylist } from '../util/spotify-requests';
 
 const SongContainer = styled('div')`
     display: flex;
@@ -45,6 +45,7 @@ const PlaylistPage = (props: PlaylistPageProps) => {
     const [thumbnail, setThumbnail] = React.useState('');
     const [name, setName] = React.useState('');
     const [loading, setLoading] = React.useState<boolean>(false);
+    const [doneSorting, setDoneSorting] = React.useState(false);
     // some songs may be null and they are later filtered out, so we need pagesRequested and can't just use the length of the songs array
     const [pagesRequested, setPagesRequested] = React.useState<number>(0);
     const limit = 100;
@@ -110,7 +111,20 @@ const PlaylistPage = (props: PlaylistPageProps) => {
             const sortedSongs = sortSongs(values);
             setSongs(sortedSongs);
             setLoading(false);
+            setDoneSorting(true);
         });
+    };
+
+    const onClickSave = async () => {
+        setLoading(true);
+        //delete songs
+        const songIds: string[][] = Array(Math.ceil(songs.length / 100)).fill([]); //the ids of songs split into arrays 100 items long
+        songs.forEach((song, index) => songIds[Math.floor(index / 100)].push(song.id));
+        await songIds.forEach((toDeleteChunk) => deletePlaylistSongs(token, props.playlistId, toDeleteChunk));
+
+        //add songs in the right order
+        songIds.forEach((toAddChunk) => addSongsToPlaylist(token, props.playlistId, toAddChunk));
+        setLoading(false);
     };
 
     return (
@@ -123,7 +137,10 @@ const PlaylistPage = (props: PlaylistPageProps) => {
                     <Typography variant='body1'>{songs.length} songs</Typography>
                 </div>            
             </Details>
-            <ColorifyButton loading={loading} onClick={onClickColorify}>Colorify</ColorifyButton>
+            {doneSorting ? 
+                <Button onClick={onClickSave}>Save</Button>:
+                <ColorifyButton loading={loading} onClick={onClickColorify}>Colorify</ColorifyButton>
+            }
 
             <SongContainer>
                 {songs && songs.map((item, index) => item && <SpotifySongSquare key={index} {...item} />)}

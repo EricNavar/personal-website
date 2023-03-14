@@ -1,4 +1,4 @@
-import { SpotifyPlaylistProps } from "../commonTypes";
+import { SpotifyPlaylistProps } from '../commonTypes';
 
 export const parseSpotifySong = (spotifySong: any) => {
     if (spotifySong) {
@@ -8,7 +8,7 @@ export const parseSpotifySong = (spotifySong: any) => {
             thumbnail: spotifySong.album.images[1].url as string || ''
         };
     }
-    else return null;
+    else return;
 };
 
 export const parseSpotifyPlaylist = (playlist: any): SpotifyPlaylistProps | null => {

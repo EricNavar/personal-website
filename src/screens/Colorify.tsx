@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button, styled, TextField, Typography } from '@mui/material';
+import { Button, Link, styled } from '@mui/material';
 
 import { SpotifyPlaylistProps } from '../commonTypes';
 import { SpotifyLogin } from '../components/spotify-controller/SpotifyLogin';
@@ -13,6 +13,10 @@ const ScrollableArea = styled('div')`
     padding-right: 15px;
 `;
 
+const Header = styled(Link)`
+    text-decoration: none;
+`;
+
 const Colorify = () => {
     const limit = 50; // playlists per request;
     const [search, setSearch] = React.useState('');
@@ -22,43 +26,58 @@ const Colorify = () => {
     const [filteredPlaylists, setFilteredPlaylists] = React.useState<SpotifyPlaylistProps[]>([]);
     const [totalPlaylists, setTotalPlaylists] = React.useState<number>(0);
     const [page, setPage] = React.useState<number>(0);
+    const [loggedIn, setLoggedIn] = React.useState<boolean>(false);
     const totalPages = Math.ceil(totalPlaylists / limit);
 
     const fetchPlaylists = async () => {
         let data;
         if (token) {
             data = await getPlaylists(token, page);
-        }
-        if (data) {
-            setPlaylists(data.playlists);
-            setTotalPlaylists(data.totalPlaylists);
+            if (data) {
+                setPlaylists(data.playlists);
+                setTotalPlaylists(data.totalPlaylists);
+            }
         }
     };
-
+    
+    console.log('token:', window.localStorage.getItem('token'));
     React.useEffect(() => {
         const hash = window.location.hash;
         let token = window.localStorage.getItem('token') || '';
+        
+        const expirationTime = window.localStorage.getItem('token_expiration');
+        const expirationTimeNumber = expirationTime ? new Number(expirationTime) : null;
+        const expired = expirationTimeNumber && expirationTimeNumber <= new Date().getTime();
 
         if (!token && hash) {
             console.log('token not found');
             token = hash.substring(1).split('&').find(elem => elem.startsWith('access_token')) || '';
             if (token) {
                 token = token.split('=')[1];
+                const newExpirationTime = new Number(new Date().getTime()).toString() + 60 * 60; // token lasts an hour
+                window.localStorage.setItem('token_expiration', newExpirationTime);
             }
             window.location.hash = '';
             window.localStorage.setItem('token', token);
         }
         setToken(token);
+        if (token && !expired) {
+            console.log('logged in');
+            setLoggedIn(true);
+        } 
+        else {
+            console.log('expired:', expired);
+        }
     }, []);
 
     React.useEffect(() => {
         fetchPlaylists();
     }, [token, page]);
 
-    const onChangeSearch = (event: any) => {
-        event.preventDefault(); // is this necessary?
-        setSearch(event.target.value);
-    };
+    // const onChangeSearch = (event: any) => {
+    //     event.preventDefault(); // is this necessary?
+    //     setSearch(event.target.value);
+    // };
 
     const onSubmitSearch = async () => {
         setFilteredPlaylists(playlists.sort());
@@ -68,23 +87,23 @@ const Colorify = () => {
         setPage(newPage);
     };
 
-    console.log(playlists);
-
     return (
         <div>
-            <Typography variant='h3'>Colorify</Typography>
-            {!token && <SpotifyLogin />}
+            <Header href='/colorify' variant='h3'>Colorify</Header>
+            <br/>
+            <br/>
+            {!loggedIn && <SpotifyLogin />}
             {playlists.length > 0 &&
                 <>
-                    <form>
+                    {/* <form>
                         <TextField
                             value={search}
                             onChange={onChangeSearch}
                             size='small'
                             placeholder='Search your playlists'
                         />
-                    </form>
-                    <Button onClick={onSubmitSearch}>Search</Button>
+                        <Button onClick={onSubmitSearch}>Search</Button>
+                    </form> */}
                     <ScrollableArea>
                         {playlists.map((playlist, index) => <SpotifyPlaylist key={index} {...playlist}/>)}
                     </ScrollableArea>

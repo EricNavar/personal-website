@@ -1,3 +1,5 @@
+import { Color } from '@jgleman/color-box';
+
 export type ContentfulProjectLink = {
   fields: {
     label: string;
@@ -138,8 +140,8 @@ export type SpotifySongProps = {
   title: string;
   artists: string[];
   thumbnail: string;
-  averageColor?: string;
-}
+  averageColor?: Color;
+};
 
 export type SpotifyPlaylistProps = {
   id: string;

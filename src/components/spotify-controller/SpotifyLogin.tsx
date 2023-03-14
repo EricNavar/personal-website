@@ -38,7 +38,7 @@ const createScopeString = () => {
 const SpotifyLogin = () => {
     const authorizationEndpoint = `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${createScopeString()}`;
     return (
-        <Link href={authorizationEndpoint}>Login to Spotify</Link>
+        <Link variant='body1' href={authorizationEndpoint}>Login to Spotify</Link>
     );
 };
 

@@ -1,6 +1,8 @@
 import axios from 'axios';
 
 import { parseSpotifyPlaylist, parseSpotifySong } from './spotify-helper';
+import { SpotifySongProps } from '../commonTypes';
+
 
 const getConfig = (token: string) => {
     return {
@@ -8,20 +10,6 @@ const getConfig = (token: string) => {
             Authorization: `Bearer ${token}`
         }
     };
-};
-
-export const getProfile = (token: string) => {
-    const url = 'https://api.spotify.com/v1/me';
-    axios.get(url, getConfig(token))
-        .then(function (response) {
-            console.log(response);
-        })
-        .catch(function (error) {
-            console.log(error);
-        })
-        .finally(function () {
-            // always executed
-        });
 };
 
 export const getCurrentlyPlayingTrack = async (token: string) => {
@@ -79,11 +67,26 @@ export const searchSong = async (token: string, search: string) => {
         });
 };
 
-export const getSongsFromPlaylist = async (token: string, playlistId: string) => {
-    const url = `https://api.spotify.com/v1/playlists/${playlistId}/tracks`;
+type getPlaylistDetailsResponse = {
+    songs: SpotifySongProps[];
+    totalSongs: number;
+    name: string;
+    thumbnail: string;
+}
+export const getPlaylistDetails = async (token: string, playlistId: string, offset: number) => {
+    const limit = 100;
+    const url = `https://api.spotify.com/v1/playlists/${playlistId}?limit=${limit}&offset=${offset}`;
     return axios.get(url, getConfig(token))
         .then(function (response) {
-            return response.data.items.map((item: any) => parseSpotifySong(item.track));
+            const result: getPlaylistDetailsResponse = {
+                songs: response.data.tracks.items
+                    .filter((item: any) => item.track !== null)
+                    .map((item: any) => parseSpotifySong(item.track)),
+                totalSongs: response.data.tracks.total,
+                name: response.data.name,
+                thumbnail: response.data.images[0].url,
+            };
+            return result;
         })
         .catch(function (error) {
             console.log(error);

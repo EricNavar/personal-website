@@ -22,7 +22,7 @@ const SpotifyController = () => {
             if (data) {
                 setIsCurrentlyListening(data.isPlaying);
                 const song = data.song;
-                setCurrentlyListeningTo(song);
+                // setCurrentlyListeningTo(song);
             }
         }
     };

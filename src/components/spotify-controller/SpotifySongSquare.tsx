@@ -22,11 +22,15 @@ const TextBackground = styled('div')`
 `;
 
 const SpotifySongSquare = (props: SpotifySongProps) => {
+    const artistsString = props.artists.map((artist: string, index: number) => {
+        return (index !== 0 ? ', ' : '') + artist;
+    });
+
     return (
         <SongCard style={{background:`url(${props.thumbnail}`, backgroundSize: 'contain'}}>
             <TextBackground>
                 <Typography variant='body1'>{props.title}</Typography>
-                <Typography variant='body2'>{props.artists}</Typography>
+                <Typography variant='body2'>{artistsString}</Typography>
             </TextBackground>
         </SongCard>
     );

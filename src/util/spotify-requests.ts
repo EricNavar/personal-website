@@ -67,24 +67,39 @@ export const searchSong = async (token: string, search: string) => {
         });
 };
 
-type getPlaylistDetailsResponse = {
+type getSongsFromPlaylistResponse = {
     songs: SpotifySongProps[];
     totalSongs: number;
-    name: string;
-    thumbnail: string;
 }
-export const getPlaylistDetails = async (token: string, playlistId: string, offset: number) => {
+export const getSongsFromPlaylist = async (token: string, playlistId: string, offset: number) => {
     const limit = 100;
-    const url = `https://api.spotify.com/v1/playlists/${playlistId}?limit=${limit}&offset=${offset}`;
+    const url = `https://api.spotify.com/v1/playlists/${playlistId}/tracks?limit=${limit}&offset=${offset}`;
     return axios.get(url, getConfig(token))
         .then(function (response) {
-            const result: getPlaylistDetailsResponse = {
-                songs: response.data.tracks.items
+            const result: getSongsFromPlaylistResponse = {
+                songs: response.data.items
                     .filter((item: any) => item.track !== null)
                     .map((item: any) => parseSpotifySong(item.track)),
-                totalSongs: response.data.tracks.total,
+                totalSongs: response.data.total,
+            };
+            return result;
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
+        .finally(function () {
+            // always executed
+        });
+};
+
+export const getPlaylistDetails = async (token: string, playlistId: string) => {
+    const url = `https://api.spotify.com/v1/playlists/${playlistId}?fields=images%2Cname%2Cexternal_urls`;
+    return axios.get(url, getConfig(token))
+        .then(function (response) {
+            const result = {
                 name: response.data.name,
                 thumbnail: response.data.images[0].url,
+                url: response.data.external_urls.spotify,
             };
             return result;
         })

@@ -3,13 +3,13 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { Color } from '@jgleman/color-box';
 import LoadingButton from '@mui/lab/LoadingButton';
-import { Button, Typography } from '@mui/material';
+import { Button, Link, Typography } from '@mui/material';
 import { FastAverageColor } from 'fast-average-color';
 
 import { SpotifySongProps } from '../commonTypes';
 import { SpotifySongSquare } from '../components/spotify-controller/SpotifySongSquare';
 import { sortSongs } from '../util/sort-colors-songs';
-import { getPlaylistDetails } from '../util/spotify-requests';
+import { getPlaylistDetails, getSongsFromPlaylist } from '../util/spotify-requests';
 
 const SongContainer = styled('div')`
     display: flex;
@@ -30,6 +30,10 @@ const Details = styled('div')`
     flex-wrap: wrap;
 `;
 
+const Header = styled(Link)`
+    text-decoration: none;
+`;
+
 type PlaylistPageProps = {
     playlistId: string;
 };
@@ -45,22 +49,33 @@ const PlaylistPage = (props: PlaylistPageProps) => {
     const [pagesRequested, setPagesRequested] = React.useState<number>(0);
     const limit = 100;
 
+    const fetchPlaylistDetails = async () => {
+        let data;
+        if (!token) {
+            return;
+        }
+        else if (token) {
+            data = await getPlaylistDetails(token, props.playlistId);
+            if (data) {
+                setThumbnail(data.thumbnail);
+                setName(data.name);
+            }
+        }
+    };
     
-    const fetchPlaylistData = async () => {
+    const fetchPlaylistSongs = async () => {
         let data;
         if (!token || totalPages !== null && totalPages <= pagesRequested) {
             return;
         }
         else if (token) {
-            data = await getPlaylistDetails(token, props.playlistId, pagesRequested * limit);
+            data = await getSongsFromPlaylist(token, props.playlistId, pagesRequested * limit);
             if (data) {
                 if (!totalPages) {
                     setTotalPages(Math.ceil(data.totalSongs / 100));
                 }
                 setSongs([...songs, ...data.songs]);
                 setPagesRequested((pagesRequested)=>pagesRequested+1);
-                setName(data.name);
-                setThumbnail(data.thumbnail);
             }
         }
     };
@@ -68,10 +83,11 @@ const PlaylistPage = (props: PlaylistPageProps) => {
     React.useEffect(()=>{
         const storedToken = window.localStorage.getItem('token') || '';
         setToken(storedToken);
+        fetchPlaylistDetails();
     });
 
     React.useEffect(() => {
-        fetchPlaylistData();
+        fetchPlaylistSongs();
     }, [token, pagesRequested]);
 
     const onClickColorify = async () => {
@@ -99,6 +115,7 @@ const PlaylistPage = (props: PlaylistPageProps) => {
 
     return (
         <div>
+            <Header href='/colorify' variant='h3'>Colorify</Header>
             <Details>
                 <PlaylistArt src={thumbnail}height="150px" width="150px"/>
                 <div >

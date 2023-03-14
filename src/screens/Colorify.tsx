@@ -19,7 +19,7 @@ const Header = styled(Link)`
 
 const Colorify = () => {
     const limit = 50; // playlists per request;
-    const [search, setSearch] = React.useState('');
+    // const [search, setSearch] = React.useState('');
     const [token, setToken] = React.useState('');
 
     const [playlists, setPlaylists] = React.useState<SpotifyPlaylistProps[]>([]);

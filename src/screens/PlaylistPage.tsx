@@ -32,22 +32,23 @@ const PlaylistPage = (props: PlaylistPageProps) => {
     const [pagesRequested, setPagesRequested] = React.useState<number>(0);
     const limit = 100;
 
+    
     const fetchPlaylistData = async () => {
         let data;
-        if (totalPages !== null && totalPages <= pagesRequested) {
+        if (!token || totalPages !== null && totalPages <= pagesRequested) {
             return;
         }
         else if (token) {
             data = await getPlaylistDetails(token, props.playlistId, pagesRequested * limit);
             if (data) {
+                if (!totalPages) {
+                    console.log('data.totalSongs:', data.totalSongs);
+                    setTotalPages(Math.ceil(data.totalSongs / 100));
+                }
                 setSongs([...songs, ...data.songs]);
                 setPagesRequested((pagesRequested)=>pagesRequested+1);
                 setName(data.name);
                 setThumbnail(data.thumbnail);
-
-                if (!totalPages) {
-                    setTotalPages(Math.ceil(data.totalSongs / 100));
-                }
             }
         }
     };

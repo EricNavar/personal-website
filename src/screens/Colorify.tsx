@@ -40,7 +40,6 @@ const Colorify = () => {
         }
     };
     
-    console.log('token:', window.localStorage.getItem('token'));
     React.useEffect(() => {
         const hash = window.location.hash;
         let token = window.localStorage.getItem('token') || '';
@@ -50,7 +49,6 @@ const Colorify = () => {
         const expired = expirationTimeNumber && expirationTimeNumber <= new Date().getTime();
 
         if (!token && hash) {
-            console.log('token not found');
             token = hash.substring(1).split('&').find(elem => elem.startsWith('access_token')) || '';
             if (token) {
                 token = token.split('=')[1];
@@ -62,12 +60,9 @@ const Colorify = () => {
         }
         setToken(token);
         if (token && !expired) {
-            console.log('logged in');
             setLoggedIn(true);
         } 
-        else {
-            console.log('expired:', expired);
-        }
+
     }, []);
 
     React.useEffect(() => {

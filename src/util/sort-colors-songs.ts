@@ -189,9 +189,6 @@ function oneDimensionSortingWithSongs(songs: SpotifySongProps[], dim: 'l' | 's')
     .sort((songA, songB) => {
       const colorA = songA.averageColor!;
       const colorB = songB.averageColor!;
-      if (songA.title === 'cherry blossom') {
-        console.log('hi 4');
-      }
       if (colorA.hsl[dim] < colorB.hsl[dim]) {
         return -1;
       } else if (colorA.hsl[dim] > colorB.hsl[dim]) {
@@ -224,7 +221,6 @@ export function sortSongs(songs: SpotifySongProps[]) {
     
     const color: Color|undefined = song.averageColor;
     if (!color) {
-      console.log(song);
       throw new Error('Color is not defined');
     }
     clusters2.forEach((cluster, clusterIndex) => {
@@ -248,8 +244,6 @@ export function sortSongs(songs: SpotifySongProps[]) {
     const dim = ['white', 'grey', 'black'].includes(cluster.name) ? 'l' : 's';
     cluster.colors = oneDimensionSortingWithSongs(cluster.colors, dim);
   });
-
-  console.log(clusters2);
 
   const result = reduceClustersWithSongs(clusters2);
   return result;

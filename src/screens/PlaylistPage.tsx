@@ -55,7 +55,6 @@ const PlaylistPage = (props: PlaylistPageProps) => {
             data = await getPlaylistDetails(token, props.playlistId, pagesRequested * limit);
             if (data) {
                 if (!totalPages) {
-                    console.log('data.totalSongs:', data.totalSongs);
                     setTotalPages(Math.ceil(data.totalSongs / 100));
                 }
                 setSongs([...songs, ...data.songs]);

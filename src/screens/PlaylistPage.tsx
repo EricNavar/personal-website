@@ -11,8 +11,21 @@ import { SpotifySongSquare } from '../components/spotify-controller/SpotifySongS
 import { sortSongs } from '../util/sort-colors-songs';
 import { getPlaylistDetails } from '../util/spotify-requests';
 
-
 const SongContainer = styled('div')`
+    display: flex;
+    flex-wrap: wrap;
+`;
+
+const ColorifyButton = styled(LoadingButton)`
+    margin-top: 12px;
+    margin-bottom: 12px;
+`;
+
+const PlaylistArt = styled('img')`
+    margin-right: 20px;
+`;
+
+const Details = styled('div')`
     display: flex;
     flex-wrap: wrap;
 `;
@@ -87,14 +100,14 @@ const PlaylistPage = (props: PlaylistPageProps) => {
 
     return (
         <div>
-            <div style={{display: 'flex'}}>
-                <img src={thumbnail}height="150px" width="150px" style={{marginRight: 20}}/>
+            <Details>
+                <PlaylistArt src={thumbnail}height="150px" width="150px"/>
                 <div >
                     <Typography gutterBottom variant='h3'>{name}</Typography>
                     <Typography variant='body1'>{songs.length} songs</Typography>
                 </div>            
-            </div>
-            <LoadingButton style={{marginTop:12,marginBottom:12}} loading={loading} onClick={onClickColorify}>Colorify</LoadingButton>
+            </Details>
+            <ColorifyButton loading={loading} onClick={onClickColorify}>Colorify</ColorifyButton>
 
             <SongContainer>
                 {songs && songs.map((item, index) => item && <SpotifySongSquare key={index} {...item} />)}

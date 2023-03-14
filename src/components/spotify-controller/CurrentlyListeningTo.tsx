@@ -12,6 +12,14 @@ const SongCard = styled('div')`
     margin-bottom: 12px;
 `;
 
+const Title = styled(Typography)`
+    font-size: 20px;
+`;
+
+const Artists = styled(Typography)`
+    fontSize: 16px;
+`;
+
 type CurrentlyListeningToProps = {
     isPlaying: boolean;
     song: SpotifySongProps;
@@ -28,8 +36,8 @@ const CurrentlyListeningTo = (props: CurrentlyListeningToProps) => {
             <SongCard>
                 <img src={song.thumbnail} height="64px" width="64px" />
                 <div>
-                    <Typography variant='body1' style={{fontSize:20}}>{song.title}</Typography>
-                    <Typography variant='body2' style={{fontSize:16}}>{song.artists}</Typography>
+                    <Title variant='body1'>{song.title}</Title>
+                    <Artists variant='body2'>{song.artists}</Artists>
                 </div>
             </SongCard>
         </div>

@@ -5,13 +5,14 @@ import { styled } from '@mui/material/styles';
 
 import { SpotifySongProps } from '../../commonTypes';
 
-const SongCard = styled('div')`
-    background: gray;
-    display: flex;
-    height: 200px;
-    width: 200px;
-    background-size: 200px;
-`;
+const SongCard = styled('div')<{thumbnail:string}>((props) => ({
+    background: 'gray',
+    display: 'flex',
+    height: 200,
+    width: 200,
+    backgroundSize: 'contain',
+    backgroundImage: `url(${props.thumbnail})`,
+}));
 
 const TextBackground = styled('div')`
     width: 80%;
@@ -27,7 +28,7 @@ const SpotifySongSquare = (props: SpotifySongProps) => {
     });
 
     return (
-        <SongCard style={{background:`url(${props.thumbnail}`, backgroundSize: 'contain'}}>
+        <SongCard thumbnail={props.thumbnail}>
             <TextBackground>
                 <Typography variant='body1'>{props.title}</Typography>
                 <Typography variant='body2'>{artistsString}</Typography>

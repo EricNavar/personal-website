@@ -15,13 +15,17 @@ const TextContainer = styled('div')`
     padding: 8px;
 `;
 
+const SpotifyLink = styled(Link)`
+    margin-right: 16px;
+`;
+
 const SpotifyPlaylist = (props: SpotifyPlaylistProps) => {
     return (
         <SongCard>
             <img src={props.thumbnail} height="80px" width="80px" />
             <TextContainer>
                 <Typography variant='body1'>{props.name}</Typography>
-                <Link style={{marginRight: 16}} variant='body1' href={props.link}>Link</Link>
+                <SpotifyLink variant='body1' href={props.link}>Link</SpotifyLink>
                 <Link variant='body1' href={`/colorify/${props.id}`}>Colorify</Link>
             </TextContainer>
         </SongCard>

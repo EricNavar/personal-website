@@ -35,7 +35,6 @@ export const getPlaylists = async (token: string, page: number) => {
     const url = `https://api.spotify.com/v1/me/playlists?limit=${limit}&offset=${offset}`;
     return axios.get(url, getConfig(token))
         .then(function (response) {
-            console.log(response.data);
             return {
                 playlists: response.data.items.map((playlist: any)=> 
                     parseSpotifyPlaylist(playlist)
@@ -141,7 +140,6 @@ export const addSongsToPlaylist = async (token: string, playlistId: string, song
         )
     };
     const url = `https://api.spotify.com/v1/playlists/${playlistId}/tracks`;
-    console.log(url);
     return axios.post(url, data, getConfig(token))
         .then(function (response) {
             return response;

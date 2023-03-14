@@ -45,15 +45,21 @@ const Colorify = () => {
         let token = window.localStorage.getItem('token') || '';
         
         const expirationTime = window.localStorage.getItem('token_expiration');
-        const expirationTimeNumber = expirationTime ? new Number(expirationTime) : null;
+        const expirationTimeNumber = expirationTime ? +expirationTime : null;
         const expired = expirationTimeNumber && expirationTimeNumber <= new Date().getTime();
+
+        // console.log('expirationTime:', expirationTimeNumber);
+        // console.log('now:           ', new Date().getTime())
+
+        // console.log('expirationTime:', expirationTimeNumber ? new Date(expirationTimeNumber).toLocaleString() : null)
+        // console.log('now:           ', new Date().toLocaleString());
 
         if (!token && hash) {
             token = hash.substring(1).split('&').find(elem => elem.startsWith('access_token')) || '';
             if (token) {
                 token = token.split('=')[1];
-                const newExpirationTime = new Number(new Date().getTime()).toString() + 60 * 60; // token lasts an hour
-                window.localStorage.setItem('token_expiration', newExpirationTime);
+                const newExpirationTime = +(new Date().getTime()) + 60 * 60; // token lasts an hour
+                window.localStorage.setItem('token_expiration', newExpirationTime.toString());
             }
             window.location.hash = '';
             window.localStorage.setItem('token', token);
@@ -74,13 +80,15 @@ const Colorify = () => {
     //     setSearch(event.target.value);
     // };
 
-    const onSubmitSearch = async () => {
-        setFilteredPlaylists(playlists.sort());
-    };
+    // const onSubmitSearch = async () => {
+    //     setFilteredPlaylists(playlists.sort());
+    // };
 
     const onClickPage = (newPage: number) => {
         setPage(newPage);
     };
+
+    console.log(loggedIn);
 
     return (
         <div>

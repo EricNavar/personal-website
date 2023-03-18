@@ -20,6 +20,7 @@ import { Home } from './screens/Home';
 import { ScreenBackground, ScreenMain } from './styling/commonStyles';
 import { themes } from './styling/themes';
 import { PlaylistPage } from './screens/PlaylistPage';
+import { PortfolioForNickBruno } from './screens/PortfolioForNickBruno';
 const ResumePage = lazy(() =>
   import('./screens/ResumePage').then((module) => ({
     default: module.ResumePage,
@@ -96,6 +97,9 @@ function Root(): JSX.Element {
                 </Route>
                 <Route path="/colorify">
                   <Colorify />
+                </Route>
+                <Route path="/🏒">
+                  <PortfolioForNickBruno />
                 </Route>
                 <Route path="/error">
                   <ErrorPage />

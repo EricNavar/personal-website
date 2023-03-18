@@ -78,7 +78,7 @@ function Home(): JSX.Element {
   return (
     <>
       <PersonalStatement statement={personalStatement} />
-      <Section title="Apps I've worked on">
+      <Section title="Personal projects I've worked on">
         <Grid container spacing={6} justifyContent='center'>
           {projects.map((project) => (
             <CardButtonContainer item key={project._id} xs={12}>

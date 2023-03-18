@@ -50,6 +50,7 @@ function Row(row: CostItem) {
         </TableCell>
         <TableCell align="right">{row.rate}</TableCell>
         <TableCell align="right">{row.amount}</TableCell>
+        <TableCell align="right">{row.total}</TableCell>
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
@@ -72,6 +73,7 @@ type CostItem = {
   cost: string;
   rate: string;
   amount: string;
+  total: string;
   description: string[];
 }
 
@@ -86,6 +88,7 @@ const rows = [
     cost: 'Writing the app',
     rate: '$20/hour',
     amount: '150 hours',
+    total: '$3000',
     description: [
       'Write an app that works on both Android and iOS',
       'Setting up a database to store user data and posts',
@@ -99,6 +102,7 @@ const rows = [
     cost: 'Setting up cloud infrastructure on Amazon Web Services',
     rate: '$20/hour',
     amount: '15 hours',
+    total: '$300',
     description: [
       'AWS is where images will be hosted for posts and profile pictures.'
     ],
@@ -107,6 +111,7 @@ const rows = [
     cost: 'Submission to the App Store',
     rate: '$20/hour',
     amount: '10 hours',
+    total: '$200',
     description: [
       'This involves applying to be a developer for the App Store and filling out a long application and profile for the app.',
       'Before I submit it, I have to bundle the app and make sure that security issues are addressed'
@@ -124,12 +129,20 @@ export const CostBreakdown = () => {
             <TableCell>Cost</TableCell>
             <TableCell align="right">Rate</TableCell>
             <TableCell align="right">Amount</TableCell>
+            <TableCell align="right">Total</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row, index) => (
             <Row key={index} {...row} />
           ))}
+          <TableRow style={{height:46}}>
+            <TableCell />
+            <TableCell><b>Total</b></TableCell>
+            <TableCell align="right">$20/hour</TableCell>
+            <TableCell align="right">175 hours</TableCell>
+            <TableCell align="right">$3500 😭😱</TableCell>
+          </TableRow>
         </TableBody>
       </Table>
     </StyledTableContainer>

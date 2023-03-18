@@ -22,16 +22,24 @@ const PortfolioForNickBruno = () => {
 
             <img src={AmongUsDancing} />
             <Typography>
-                Making React apps is all I know how to do and it&apos;s the only thing I&apos;m good at at and I&apos;m the only one interested in working on this app.
+                Making React apps is all I know how to do and it&apos;s the only thing I&apos;m good at and I&apos;m the only one interested in working on this app.
             </Typography>
             <br/>
             <Typography>
                 Other apps I have worked on (in order from oldest to newest)
             </Typography>
             <br/>
-            <Link variant='body1' href='https://play.google.com/store/apps/details?id=com.ufsec.Clubfinity&pli=1'>Clubfinity, an app I worked on for a club at UF</Link><br/>
-            <Link variant='body1' href='https://play.google.com/store/apps/details?id=com.asurion.android.protech.att'>AT&T ProTech, an app I worked on furing my internship</Link><br/>
-            <Link variant='body1' href='https://github.com/common-ground-uf/common-ground'>Common Ground, an app I made for my Senior project and I didn&apos;t put on any official app store but it&apos;s real and it&apos;s cool</Link><br/>
+            <ul>
+                <li>
+                    <Link gutterBottom variant='body1' href='https://play.google.com/store/apps/details?id=com.ufsec.Clubfinity&pli=1'>Clubfinity, an app I worked on for a club at UF</Link><br/>
+                </li>
+                <li>
+                    <Link gutterBottom variant='body1' href='https://play.google.com/store/apps/details?id=com.asurion.android.protech.att'>AT&T ProTech, an app I worked on furing my internship</Link><br/>
+                </li>
+                <li>
+                    <Link gutterBottom variant='body1' href='https://github.com/common-ground-uf/common-ground'>Common Ground, an app I made for my Senior project and I didn&apos;t put on any official app store but it&apos;s real and it&apos;s cool</Link><br/>
+                </li>
+            </ul>
             <br/>
             <Typography variant='h4' gutterBottom>Cost breakdown</Typography>
             <CostBreakdown />

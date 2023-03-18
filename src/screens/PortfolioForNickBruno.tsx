@@ -43,6 +43,7 @@ const PortfolioForNickBruno = () => {
             <br/>
             <Typography variant='h4' gutterBottom>Cost breakdown</Typography>
             <CostBreakdown />
+            <br/>
         </div>
     );
 };

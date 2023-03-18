@@ -86,8 +86,8 @@ Writing the app
 const rows = [
   {
     cost: 'Writing the app',
-    rate: '$10/hour',
-    amount: '300 hours',
+    rate: '$20/hour',
+    amount: '150 hours',
     total: '$3000',
     description: [
       'Write an app that works on both Android and iOS. This will involve writing code for about 20 screens.',
@@ -100,8 +100,8 @@ const rows = [
   },
   {
     cost: 'Setting up cloud infrastructure on Amazon Web Services',
-    rate: '$10/hour',
-    amount: '30 hours',
+    rate: '$20/hour',
+    amount: '15 hours',
     total: '$300',
     description: [
       'AWS is where images will be hosted for posts and profile pictures.'
@@ -109,8 +109,8 @@ const rows = [
   },
   {
     cost: 'Submission to the App Store',
-    rate: '$10/hour',
-    amount: '20 hours',
+    rate: '$20/hour',
+    amount: '10 hours',
     total: '$200',
     description: [
       'This involves applying to be a developer for the App Store and filling out a long application and profile for the app.',
@@ -139,7 +139,7 @@ export const CostBreakdown = () => {
           <TableRow style={{height:46}}>
             <TableCell />
             <TableCell><b>Total</b></TableCell>
-            <TableCell align="right">$10/hour</TableCell>
+            <TableCell align="right">$20/hour</TableCell>
             <TableCell align="right">175 hours</TableCell>
             <TableCell align="right">$3500 😭😱</TableCell>
           </TableRow>

@@ -12,6 +12,9 @@ const MyIconButton = styled(Button)<ButtonProps>(({ theme }) => ({
   '& path': {
     fill: theme.palette.text.primary,
   },
+  '&:hover': {
+    backgroundColor: theme.palette.grey[400],
+  },
   marginRight: 10,
   marginTop: 10,
   backgroundColor: theme.palette.grey[300],
@@ -31,7 +34,7 @@ function CodingProjectLink(props: CodingProjectLinkProps): JSX.Element {
     <MyIconButton
       href={props.hyperlink}
       aria-label={props.ariaLabel}
-      startIcon={<img src={props.icon} width="30px" height="30px" />}
+      startIcon={props.icon ? <img src={props.icon} width="24px" height="24px" /> : undefined}
       variant="contained"
       disableElevation
     >

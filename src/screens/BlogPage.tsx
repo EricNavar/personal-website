@@ -45,6 +45,7 @@ const YouTubeChannelLogo = styled('img')`
 
 const Description = styled(Typography)`
   margin-bottom: 28px;
+  margin-left: 12px;
 `;
 
 const ChannelName = styled(Link)`

@@ -3,7 +3,6 @@ import { styled } from '@mui/material/styles';
 export const ScreenMain = styled('main')(({ theme }) => ({
   padding: 24,
   justifyContent: 'center',
-  display: 'grid',
   minHeight: 'calc(100vh - 112px)',
   position: 'relative',
   overflow: 'hidden',

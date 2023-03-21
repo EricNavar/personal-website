@@ -224,7 +224,9 @@ function ContactPage() {
               </SubmitButton>
             </CenterText>
           </FormWrapper>
-          <ContactInfo center={true} />
+          <div style={{width:'max-content',margin:'auto'}}>
+            <ContactInfo center={true} />
+          </div>
         </div>
       </Main>
     </React.Fragment>

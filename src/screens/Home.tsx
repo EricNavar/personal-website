@@ -6,7 +6,6 @@ import { Redirect } from 'react-router-dom';
 
 import {
   ContentfulPersonalStatement,
-  ContentfulProject,
   Project,
 } from '../commonTypes';
 import { ContactInfo } from '../components/ContactInfo';
@@ -15,6 +14,7 @@ import { PersonalStatement } from '../components/resumePage/PersonalStatement';
 import { Section } from '../components/Section';
 import { CardButtonContainer } from '../styling/homePageStyling';
 import { client } from '../util/client';
+import { getContentfulProjects } from '../util/contentful-api';
 
 function Home(): JSX.Element {
   React.useEffect(() => {
@@ -27,36 +27,16 @@ function Home(): JSX.Element {
 
   const [projects, setProjects] = React.useState<Project[] | null>([]);
   const [personalStatement, setPersonalStatement] = React.useState<string>('');
+
+  const fetchProjects = async () => {
+    const newProjects: Project[] | null = await getContentfulProjects({
+      'fields.projectType': 'coding'
+    });
+    setProjects(newProjects);
+  };
+
   React.useEffect(() => {
-    client
-      .getEntries({
-        content_type: 'project',
-      })
-      .then((response) => {
-        const items = response.items as ContentfulProject[];
-        const articlesFromContentful = items.map((item: ContentfulProject) => {
-          return {
-            _id: item.fields.id,
-            tools: item.fields.tools,
-            headerText: item.fields.headerText,
-            subText: marked.parse(item.fields.subText),
-            image: item.fields.image.fields.file.url,
-            altLabel: item.fields.altLabel,
-            links: item.fields.links.map((linkItem) => {
-              return {
-                ariaLabel: linkItem.fields.ariaLabel,
-                label: linkItem.fields.label,
-                hyperlink: linkItem.fields.hyperlink,
-                icon: linkItem.fields.icon.fields.file.url,
-              };
-            }),
-          };
-        }) as Project[];
-        setProjects(articlesFromContentful);
-      })
-      .catch(() => {
-        setProjects(null);
-      });
+    fetchProjects();
 
     client
       .getEntries({
@@ -78,7 +58,7 @@ function Home(): JSX.Element {
   return (
     <>
       <PersonalStatement statement={personalStatement} />
-      <Section title="Personal projects I've worked on">
+      <Section title="Projects I've worked on">
         <Grid container spacing={6} justifyContent='center'>
           {projects.map((project) => (
             <CardButtonContainer item key={project._id} xs={12}>

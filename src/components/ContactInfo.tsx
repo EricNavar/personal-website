@@ -14,6 +14,7 @@ const Email = styled(Typography)(({ theme }) => ({
   position: 'relative',
   fontSize: 18,
   textDecoration: 'none',
+  width: 'max-content',
   '&::after': {
     position: 'absolute',
     transition: '.3s',
@@ -42,6 +43,7 @@ const ContactInfo = ({center}: {center: boolean}) => {
 			<Email color="primary" variant="body1">
 				ericn2413@gmail.com
 			</Email>
+      <br/>
 			<SocialLink
 				label="Github"
 				link="https://www.github.com/ericnavar"

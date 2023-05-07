@@ -80,7 +80,7 @@ function Education(props: EducationProps): JSX.Element {
         <Typography component="span" variant="body1" color="textPrimary">
           B.S. Computer Science
         </Typography>
-        <MinorText as="span" variant="body1" color="textSecondary">
+        <MinorText variant="body1" color="textSecondary">
           &nbsp;| Digital Arts Minor
         </MinorText>
         <div>

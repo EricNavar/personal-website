@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Grid } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { marked } from 'marked';
 import { Redirect } from 'react-router-dom';
@@ -12,6 +12,7 @@ import {
   ExperienceItem,
   Skill,
 } from '../commonTypes';
+import { CertificationsSection } from '../components/resumePage/CertificationsSection';
 import { Education } from '../components/resumePage/Education';
 import { InvolvementSection } from '../components/resumePage/InvolvementSection';
 import { ResumeLink } from '../components/resumePage/ResumeLink';
@@ -135,6 +136,8 @@ function ResumePage(): JSX.Element {
         title="Student Org Involvement"
         data={studentOrgInvolvement}
       />
+      <CertificationsSection />
+      <Typography variant='subtitle1' color='textPrimary'>References available upon request</Typography>
     </>
   );
 }

@@ -2,8 +2,8 @@ import React from 'react';
 
 import {
   AppBar,
-  ToggleButton,
-  ToggleButtonGroup,
+  // ToggleButton,
+  // ToggleButtonGroup,
   Toolbar,
   useScrollTrigger,
 } from '@mui/material';
@@ -12,9 +12,9 @@ import { Theme } from '@mui/material/styles';
 import useTheme from '@mui/material/styles/useTheme';
 
 import { NavItem } from './NavItem';
-import { FlowerIcon } from '../../assets/icons/FlowerIcon';
-import { MoonIcon } from '../../assets/icons/MoonIcon';
-import { SunIcon } from '../../assets/icons/SunIcon';
+// import { FlowerIcon } from '../../assets/icons/FlowerIcon';
+// import { MoonIcon } from '../../assets/icons/MoonIcon';
+// import { SunIcon } from '../../assets/icons/SunIcon';
 
 //citation: https://material-ui.com/components/app-bar/#hide-app-bar
 
@@ -48,16 +48,16 @@ const StyledToolbar = styled(Toolbar)`
   justify-content: center;
 `;
 
-const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({theme}) => ({
-  position: 'absolute',
-  right: 8,
-  '& button': {
-    borderColor: 'rgba(122,122,122,.5)',
-  },
-  '& svg': {
-    fill: theme.palette.text.primary,
-  },
-}));
+// const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
+//   position: 'absolute',
+//   right: 8,
+//   '& button': {
+//     borderColor: 'rgba(122,122,122,.5)',
+//   },
+//   '& svg': {
+//     fill: theme.palette.text.primary,
+//   },
+// }));
 
 const NavItemContainer = styled('div')`
   position: absolute;
@@ -90,12 +90,31 @@ type DesktopHeaderProps = {
   setTheme: (newTheme: string) => void;
 };
 function DesktopHeader(props: DesktopHeaderProps): JSX.Element {
-  const handleChange = (
-    event: React.MouseEvent<HTMLElement, MouseEvent>,
-    newTheme: string
-  ) => {
-    if (newTheme) props.setTheme(newTheme);
-  };
+  // const handleChange = (
+  //   event: React.MouseEvent<HTMLElement, MouseEvent>,
+  //   newTheme: string
+  // ) => {
+  //   if (newTheme) props.setTheme(newTheme);
+  // };
+
+  // const ThemeButtons = () => {
+  //   <StyledToggleButtonGroup
+  //     value={props.theme}
+  //     exclusive
+  //     onChange={handleChange}
+  //     aria-label="website theme"
+  //   >
+  //     <ToggleButton value="Light" aria-label="light theme">
+  //       <SunIcon />
+  //     </ToggleButton>
+  //     <ToggleButton value="Dark" aria-label="dark theme">
+  //       <MoonIcon />
+  //     </ToggleButton>
+  //     <ToggleButton value="Pink" aria-label="frost theme">
+  //       <FlowerIcon />
+  //     </ToggleButton>
+  //   </StyledToggleButtonGroup>
+  // };
 
   return (
     <React.Fragment>
@@ -108,22 +127,6 @@ function DesktopHeader(props: DesktopHeaderProps): JSX.Element {
               <NavItem to="/contact" text="Contact" />
               <NavItem to="/blog" text="Blog" />
             </NavItemContainer>
-            <StyledToggleButtonGroup
-              value={props.theme}
-              exclusive
-              onChange={handleChange}
-              aria-label="website theme"
-            >
-              <ToggleButton value="Light" aria-label="light theme">
-                <SunIcon />
-              </ToggleButton>
-              <ToggleButton value="Dark" aria-label="dark theme">
-                <MoonIcon />
-              </ToggleButton>
-              <ToggleButton value="Pink" aria-label="frost theme">
-                <FlowerIcon />
-              </ToggleButton>
-            </StyledToggleButtonGroup>
           </StyledToolbar>
         </StyledAppBar>
       </ElevationScroll>

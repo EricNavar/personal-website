@@ -118,7 +118,6 @@ export type ContentfulResumePage = {
   skills: ContentfulSkill[];
   relevantCoursework: Array<string>;
   internshipExperience: ContentfulExperienceItem[];
-  studentOrgInvolvement: ContentfulExperienceItem[];
 };
 
 export type ContentfulResumeLink = {

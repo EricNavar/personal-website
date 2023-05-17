@@ -41,9 +41,7 @@ function ResumePage(): JSX.Element {
   const [relevantCoursework, setRelevantCoursework] = React.useState<
     string[] | null
   >([]);
-  const [studentOrgInvolvement, setStudentOrgInvolvement] = React.useState<
-    ExperienceItem[] | null
-  >([]);
+
   React.useEffect(() => {
     client
       .getEntries({
@@ -57,7 +55,6 @@ function ResumePage(): JSX.Element {
           setSkills(null);
           setExperienceData(null);
           setRelevantCoursework(null);
-          setStudentOrgInvolvement(null);
           return;
         }
 
@@ -85,36 +82,18 @@ function ResumePage(): JSX.Element {
         ) as ExperienceItem[];
         setExperienceData(experienceData);
 
-        const studentOrgInvolvementData = resumePage.studentOrgInvolvement.map(
-          (involvement: ContentfulExperienceItem) => {
-            return {
-              organization: involvement.fields.organization,
-              organizationIcon:
-                involvement.fields.organizationIcon.fields.file.url,
-              position: involvement.fields.position,
-              description: marked.parse(involvement.fields.description),
-              link: involvement.fields.link,
-              linkAriaLabel: involvement.fields.linkAriaLabel,
-              time: involvement.fields.time,
-            };
-          }
-        ) as ExperienceItem[];
-        setStudentOrgInvolvement(studentOrgInvolvementData);
-
         setRelevantCoursework(resumePage.relevantCoursework);
       })
       .catch(() => {
         setSkills(null);
         setExperienceData(null);
         setRelevantCoursework(null);
-        setStudentOrgInvolvement(null);
       });
   }, []);
 
   if (
     !skills ||
     !experienceData ||
-    !studentOrgInvolvement ||
     !relevantCoursework
   ) {
     return <Redirect to="/error?cid=resume" />;
@@ -132,10 +111,6 @@ function ResumePage(): JSX.Element {
         </GridItem>
       </Grid>
       <InvolvementSection title="Internship Experience" data={experienceData} />
-      <InvolvementSection
-        title="Student Org Involvement"
-        data={studentOrgInvolvement}
-      />
       <CertificationsSection />
       <Typography variant='subtitle1' color='textPrimary'>References available upon request</Typography>
     </>

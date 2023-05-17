@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { Grid } from '@mui/material';
-import { marked } from 'marked';
 import { Redirect } from 'react-router-dom';
 
 import {

@@ -31,6 +31,7 @@ const InvolvementItemMain = styled('div')(({ theme }) => ({
 }));
 
 const InvolvementItemInner = styled('div')({
+  width: '100%',
   padding: 24,
 });
 

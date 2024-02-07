@@ -110,7 +110,7 @@ function ResumePage(): JSX.Element {
           <Education relevantCoursework={relevantCoursework} />
         </GridItem>
       </Grid>
-      <InvolvementSection title="Internship Experience" data={experienceData} />
+      <InvolvementSection title="Experience" data={experienceData} />
       <CertificationsSection />
       <Typography variant='subtitle1' color='textPrimary'>References available upon request</Typography>
     </>

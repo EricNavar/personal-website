@@ -24,11 +24,11 @@ const CourseworkItemsWrapper = styled('div')({
 });
 
 const CourseworkItem = styled(Chip)(({ theme }) => ({
-  color: 'white',
   border: 0,
-  boxShadow:
-    'rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px',
-  ...theme.gradientPaper,
+  background:
+    theme.palette.mode === 'light'
+      ? theme.palette.grey['800']
+      : `linear-gradient(${theme.palette.info.light} 0%, ${theme.palette.info.dark} 100%)`,
 }));
 
 const RelevantCousework = styled(Typography)<TypographyProps>({
@@ -56,7 +56,7 @@ function CourseworkItems(props: EducationProps): JSX.Element {
   return (
     <React.Fragment>
       {props.relevantCoursework.map((course: string) => (
-        <CourseworkItem key={course} label={course} />
+        <CourseworkItem key={course} label={course} size='small'/>
       ))}
     </React.Fragment>
   );

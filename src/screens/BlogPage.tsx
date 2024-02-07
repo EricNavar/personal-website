@@ -20,7 +20,7 @@ const VideoWrapper = styled('div')`
 `;
 
 const YouTubeChannelContainer = styled('div')(({ theme }) => ({
-  maxWidth: 350,
+  maxWidth: 1000,
   color: theme.palette.primary.contrastText,
   marginTop: 16,
   padding: 16,
@@ -30,11 +30,14 @@ const YouTubeChannelContainer = styled('div')(({ theme }) => ({
   transition: 'background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
   boxShadow:
     'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px',
-  ...theme.gradientPaper,
   flexBasis: 1,
   flexGrow: 1,
   marginLeft: 12,
   marginRight: 12,
+  background:
+  theme.palette.mode === 'light'
+    ? theme.palette.grey['800']
+    : `linear-gradient(${theme.palette.info.light} 0%, ${theme.palette.info.dark} 100%)`,
 }));
 
 const YouTubeChannelLogo = styled('img')`
@@ -48,7 +51,7 @@ const Description = styled(Typography)`
   margin-left: 12px;
 `;
 
-const ChannelName = styled(Link)`
+const ChannelTextContainer = styled('div')`
   margin-left: 12px;
 `;
 
@@ -71,15 +74,19 @@ type YouTubeChannelLink = {
   icon: string;
   name: string;
   link: string;
+  description: string;
 };
 
-const YouTubeChannelLink = ({ icon, name, link }: YouTubeChannelLink) => {
+const YouTubeChannelLink = ({ icon, name, link, description }: YouTubeChannelLink) => {
   return (
     <YouTubeChannelContainer>
       <YouTubeChannelLogo src={icon} />
-      <ChannelName target="_blank" href={link} variant="body1">
-        {name}
-      </ChannelName>
+      <ChannelTextContainer>
+        <Link target="_blank" href={link} variant="body1">
+          {name}
+        </Link>
+        <Typography color="textPrimary">{description}</Typography>
+      </ChannelTextContainer>
     </YouTubeChannelContainer>
   );
 };
@@ -123,11 +130,13 @@ function BlogPage(): JSX.Element {
       <Section title='YouTube Channels'>
         <YouTubeChannelLink
           name="UF Society of Software Developers"
+          description="SSD is a software development organization at UF that I used to be president of and I still give talks every once in a while there."
           icon={SSDLogo}
           link="https://www.youtube.com/@ufssd/videos"
         />
         <YouTubeChannelLink
-          name="My YouTube Channel"
+          name="Eric Navar's YouTube Channel"
+          description="Don't take it too seriously. I post stuff about programming, music, and blockchain."
           icon={EricLogo}
           link="https://www.youtube.com/@ericnavar/videos"
         />

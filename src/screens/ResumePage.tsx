@@ -102,6 +102,7 @@ function ResumePage(): JSX.Element {
   return (
     <>
       <ResumeLink />
+      <Typography variant='subtitle1' color='textPrimary'>References available upon request</Typography>
       <Grid container spacing={10} justifyContent="center">
         <GridItem id="skill-list-container" item sm={12} lg={6}>
           <SkillList skills={skills} />
@@ -112,7 +113,6 @@ function ResumePage(): JSX.Element {
       </Grid>
       <InvolvementSection title="Experience" data={experienceData} />
       <CertificationsSection />
-      <Typography variant='subtitle1' color='textPrimary'>References available upon request</Typography>
     </>
   );
 }

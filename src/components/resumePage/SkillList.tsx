@@ -10,8 +10,8 @@ import { Section } from '../Section';
 const StyledPaper = styled(Paper)<PaperProps>(({ theme }) => ({
   textTransform: 'none',
   textAlign: 'center',
-  border: '5px solid white',
-  borderRadius: 8,
+  padding: 5,
+  borderRadius: 6,
   transition: '.5s ease-in-out',
   height: '100%',
   '& svg': {
@@ -37,7 +37,7 @@ function SkillItem(props: SkillItemProps) {
   const theme = useTheme();
   return (
     <StyledGridItem item xs={6} sm={4} xl={3}>
-      <StyledPaper elevation={3} sx={theme.paper}>
+      <StyledPaper elevation={1} sx={theme.paper}>
         {icon}
         <Typography variant="body1" align="center">
           {skill}

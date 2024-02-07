@@ -61,7 +61,7 @@ function PersonalStatement(props: PersonalStatementProps): JSX.Element {
           <ProfilePicture />
         </Suspense>
       </ProfilePicWrapper>
-      <TextContainer elevation={3}>
+      <TextContainer elevation={1}>
         <PersonalStatementHeader variant="body1">
           <b>Hi, I&apos;m Eric Navar</b>
         </PersonalStatementHeader>

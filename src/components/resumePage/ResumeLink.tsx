@@ -10,7 +10,7 @@ import { logEvent } from '../../util/mixpanel';
 
 const DownloadButton = styled(Button)({
   marginTop: 24,
-  marginBottom: 32,
+  marginBottom: 24,
   border: 0,
   height: 48,
   padding: '0 30px',

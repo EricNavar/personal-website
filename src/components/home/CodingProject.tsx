@@ -23,7 +23,7 @@ function CodingProject(props: CodingProjectDesktopProps): JSX.Element {
   const { headerText, tools, subText, image, altLabel, links } = props.project;
 
   return (
-    <ItemWrapper elevation={4}>
+    <ItemWrapper elevation={1}>
       <PhotoWrapper>
         <CodingProjectThumbnail image={image} altLabel={altLabel} />
       </PhotoWrapper>

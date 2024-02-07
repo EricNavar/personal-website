@@ -43,7 +43,6 @@ const ContactInfo = ({center}: {center: boolean}) => {
 			<Email color="primary" variant="body1">
 				ericn2413@gmail.com
 			</Email>
-      <br/>
 			<SocialLink
 				label="Github"
 				link="https://www.github.com/ericnavar"

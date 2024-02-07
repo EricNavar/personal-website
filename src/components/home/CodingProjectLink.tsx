@@ -30,9 +30,13 @@ type CodingProjectLinkProps = {
 };
 
 function CodingProjectLink(props: CodingProjectLinkProps): JSX.Element {
+  const onClick = (link: string) => {
+    window.open(link, '_blank');
+  };
+
   return (
     <MyIconButton
-      href={props.hyperlink}
+      onClick={() => onClick(props.hyperlink)}
       aria-label={props.ariaLabel}
       startIcon={props.icon ? <img src={props.icon} width="24px" height="24px" /> : undefined}
       variant="contained"

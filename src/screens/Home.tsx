@@ -28,9 +28,7 @@ function Home(): JSX.Element {
   const [personalStatement, setPersonalStatement] = React.useState<string>('');
 
   const fetchProjects = async () => {
-    const newProjects: Project[] | null = await getContentfulProjects({
-      'fields.projectType': 'coding'
-    });
+    const newProjects: Project[] | null = await getContentfulProjects();
     setProjects(newProjects);
   };
 

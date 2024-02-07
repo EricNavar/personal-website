@@ -3,15 +3,15 @@ import { marked } from 'marked';
 import { ContentfulProject, Project } from '../commonTypes';
 import { client } from '../util/client';
 
-export const getContentfulProjects = async (extraParams: object) => {
+export const getContentfulProjects = async () => {
     return client
         .getEntries({
-            content_type: 'project',
-            ...extraParams
+            content_type: 'projectList',
+            include:3, // depth of referenced entries in response object
         })
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         .then((response: any) => {
-            const items = response.items as ContentfulProject[];
+            const items = response.items[0].fields.projects as ContentfulProject[];
             return items.map((item: ContentfulProject) => {
                 return {
                     _id: item.fields.id,
